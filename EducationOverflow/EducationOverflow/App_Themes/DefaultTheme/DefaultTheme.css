@@ -1,0 +1,205 @@
+﻿/**
+ * filename: DefaultTheme.css
+ * author: Morgan Wall
+ * date: 16-3-2014
+ * 
+ * The core external CSS stylesheet defining the DefaultTheme theme as part of
+ * the EducationOverflow website created for the INB373 project.
+ */
+
+/**
+ * Contents:
+ *
+ * 1. Basic styles
+ * 2. Structure styles
+ * 3. Status bar styles
+ * 4. Header styles
+ * 5. Navigation bar styles
+ * 6. Main content styles
+ * 7. Side bar styles
+ * 8. Footer styles
+ * 9. Miscellaneous styles
+ * 10. Ryan Fait's Sticky Footer
+ */
+
+/**
+ * Colours:
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+/**
+ * 1. Basic styles
+ *
+ * N.B. The html and body tags have height listed as 100% as part of Ryan Fait's
+ * Sticky Footer.
+ */
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1.25em;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font: 100%/1.5 serif;
+}
+
+/**
+ * 2. Structure styles
+ */
+
+.wrapper {
+	width: 100%;
+}
+
+.wrapper-content {
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 240px;
+	max-width: 1000px;
+	overflow: auto;
+}
+
+/**
+ * 3. Status bar styles
+ */
+
+#status-bar-wrapper {
+	background-color: SlateGrey;
+}
+
+#status-bar {
+	color: white;
+}
+
+/**
+ * 4. Header styles
+ */
+
+#header-wrapper {
+	background-color: blue;
+}
+
+/**
+ * 5. Navigation bar styles
+ */
+
+#navigation-wrapper {
+	background-color: yellow;
+}
+
+#navigation-bar {}
+
+#navigation-bar ul {
+	margin: 0;
+	padding: 0;
+}
+
+#navigation-bar ul li {
+	display: inline-block;
+	margin-right: 1.66666667%;
+	background-color: green;
+}
+
+#navigation-bar ul li a {
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	font-size: 1.25em;
+	text-decoration: none;
+	color: inherit;
+}
+
+/**
+ * 6. Main content styles
+ */
+
+#main-content-wrapper {
+	background-color: LightCyan;
+}
+
+#main-content {
+	background-color: red;
+}
+
+#main-content-body {
+	margin: 0.5em 0.83333333% 1em 1.66666667%;
+	width: 70%;
+	float: left;
+	background-color: purple;
+	height: 100%
+}
+
+/**
+ * 7. Side bar styles
+ */
+
+#sidebar {
+	margin: 0.5em 1.66666667% 1em 0.83333333%;
+	width: 25%;
+	float: right;
+	background-color: #234943;
+}
+
+/**
+ * 8. Footer styles
+ */
+
+#footer-wrapper {
+	height: 200px;
+	background-color: green;
+}
+
+/**
+ * 9. Miscellaneous styles
+ */
+
+/*
+@viewport {
+    width: device-width;
+}
+*/
+
+/**
+ * 10. Ryan Fait's Sticky Footer
+ *
+ * Sourced from: http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
+ */
+
+* {
+	margin: 0;
+}
+
+#non-footer-wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -200px;
+}
+
+.footer-push {
+	height: 200px;
+}

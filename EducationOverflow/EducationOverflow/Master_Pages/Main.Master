@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="EducationOverflow.Master_Pages.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <asp:ContentPlaceHolder id="head_content" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+	<div id="non-footer-wrapper">
+		<!-- Status Bar -->
+		<div id="status-bar-wrapper" class="wrapper"> 
+			<div id="status-bar" class="wrapper-content">
+				<asp:ContentPlaceHolder id="status_bar_content" runat="server">
+                </asp:ContentPlaceHolder>
+			</div>
+		</div>
+		<!-- Header -->
+		<div id="header-wrapper" class="wrapper">
+			<div class="wrapper-content">
+				<asp:ContentPlaceHolder id="header_content" runat="server">
+                </asp:ContentPlaceHolder>
+			</div>
+		</div>
+		<!-- Navigation bar -->
+		<div id="navigation-wrapper" class="wrapper">
+			<div id="navigation-bar" class="wrapper-content">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Functions</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Projects</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Main content -->
+		<div id="main-content-wrapper" class="wrapper">
+			<div id="main-content" class="wrapper-content">
+				<div id="main-content-body">
+                    <asp:ContentPlaceHolder id="main_content_body_content" runat="server">
+                    </asp:ContentPlaceHolder>
+				</div>
+				<!-- Sidebar -->
+				<div id="sidebar">
+                    <asp:ContentPlaceHolder id="sidebar_content" runat="server">
+                    </asp:ContentPlaceHolder>
+				</div>
+			</div>
+		</div>
+		<div class="push"></div>
+	</div>
+	<!-- Footer -->
+	<div id="footer-wrapper" class="wrapper">
+		<div class="wrapper-content">
+            <asp:ContentPlaceHolder id="footer_content" runat="server">
+            </asp:ContentPlaceHolder>
+		</div>
+	</div>
+</body>
+</html>

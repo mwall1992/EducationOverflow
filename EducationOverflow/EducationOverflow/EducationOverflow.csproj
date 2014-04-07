@@ -97,6 +97,10 @@
     <Folder Include="Content\Member_Pages\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{66bf89e9-1200-4b17-816a-22f6e484998a}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StackExchangeAPI\StackExchangeAPI.csproj">
       <Project>{2cf54b0d-f5f9-4d26-bd5b-6a77af21b0ba}</Project>
       <Name>StackExchangeAPI</Name>

@@ -40,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ResponseWrapper.cs" />
+    <Compile Include="Model_Objects\Answer.cs" />
+    <Compile Include="Model_Objects\Question.cs" />
+    <Compile Include="Model_Objects\ResponseWrapper.cs" />
+    <Compile Include="Model_Objects\Site.cs" />
+    <Compile Include="Model_Objects\SiteInfo.cs" />
+    <Compile Include="StackExchangeAPI.cs" />
     <Compile Include="StackExchangeAPIRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tag.cs" />
+    <Compile Include="Model_Objects\Tag.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

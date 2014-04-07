@@ -17,7 +17,7 @@ namespace EducationOverflow {
     public partial class Default : System.Web.UI.Page {
 
         protected void Page_Load(object sender, EventArgs e) {
-            WebRequest request = WebRequest.Create("http://api.stackexchange.com/2.2/tags?order=desc&sort=popular&site=stackoverflow&filter=!*MPoAL(IzytePQvS");
+            WebRequest request = WebRequest.Create("http://api.stackexchange.com/2.2/answers?order=desc&sort=activity&site=stackoverflow&filter=!Ldk(uYFB0jj2D42wej1Pr5");
             request.Method = "GET";
 
             WebResponse response = request.GetResponse();
@@ -33,9 +33,9 @@ namespace EducationOverflow {
                 json = reader.ReadToEnd();
             }
 
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(StackExchangeAPI.ResponseWrapper<StackExchangeAPI.Tag>));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(StackExchangeAPI.ResponseWrapper<StackExchangeAPI.Answer>));
             MemoryStream stream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(json));
-            StackExchangeAPI.ResponseWrapper<StackExchangeAPI.Tag> obj = (StackExchangeAPI.ResponseWrapper<StackExchangeAPI.Tag>)ser.ReadObject(stream);
+            StackExchangeAPI.ResponseWrapper<StackExchangeAPI.Answer> obj = (StackExchangeAPI.ResponseWrapper<StackExchangeAPI.Answer>)ser.ReadObject(stream);
 
             stream.Close();
             compressedStream.Close();

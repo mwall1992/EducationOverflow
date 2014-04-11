@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="EducationOverflow.Master_Pages.Main" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CoreLayout.master.cs" Inherits="EducationOverflow.Master_Pages.Main" %>
 
 <!DOCTYPE html>
 
@@ -30,8 +30,8 @@
 		<div id="navigation-wrapper" class="wrapper">
 			<div id="navigation-bar" class="wrapper-content">
 				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Functions</a></li>
+					<li><a href="../Default.aspx">Home</a></li>
+					<li><a href="../DefaultNoSidebar.aspx">Functions</a></li>
 					<li><a href="#">Services</a></li>
 					<li><a href="#">Projects</a></li>
 					<li><a href="#">About</a></li>
@@ -42,15 +42,8 @@
 		<!-- Main content -->
 		<div id="main-content-wrapper" class="wrapper">
 			<div id="main-content" class="wrapper-content">
-				<div id="main-content-body">
-                    <asp:ContentPlaceHolder id="main_content_body_content" runat="server">
-                    </asp:ContentPlaceHolder>
-				</div>
-				<!-- Sidebar -->
-				<div id="sidebar">
-                    <asp:ContentPlaceHolder id="sidebar_content" runat="server">
-                    </asp:ContentPlaceHolder>
-				</div>
+                <asp:ContentPlaceHolder id="main_content_placeholder" runat="server">
+                </asp:ContentPlaceHolder>
 			</div>
 		</div>
 		<div class="push"></div>

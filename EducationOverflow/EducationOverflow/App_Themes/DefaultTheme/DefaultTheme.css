@@ -16,10 +16,9 @@
  * 4. Header styles
  * 5. Navigation bar styles
  * 6. Main content styles
- * 7. Side bar styles
- * 8. Footer styles
- * 9. Miscellaneous styles
- * 10. Ryan Fait's Sticky Footer
+ * 7. Footer styles
+ * 8. Miscellaneous styles
+ * 9. Ryan Fait's Sticky Footer
  */
 
 /**
@@ -88,11 +87,11 @@ body {
  */
 
 #status-bar-wrapper {
-	background-color: SlateGrey;
+	background-color: #333333;
 }
 
 #status-bar {
-	color: white;
+	color: #CCCCCC;
 }
 
 /**
@@ -100,7 +99,7 @@ body {
  */
 
 #header-wrapper {
-	background-color: blue;
+	background-color: #8C3130;
 }
 
 /**
@@ -108,7 +107,7 @@ body {
  */
 
 #navigation-wrapper {
-	background-color: yellow;
+	background-color: #8C3130;
 }
 
 #navigation-bar {}
@@ -121,7 +120,6 @@ body {
 #navigation-bar ul li {
 	display: inline-block;
 	margin-right: 1.66666667%;
-	background-color: green;
 }
 
 #navigation-bar ul li a {
@@ -138,43 +136,24 @@ body {
  */
 
 #main-content-wrapper {
-	background-color: LightCyan;
+	background-color: #CCCCCC;
 }
 
 #main-content {
-	background-color: red;
-}
-
-#main-content-body {
-	margin: 0.5em 0.83333333% 1em 1.66666667%;
-	width: 70%;
-	float: left;
-	background-color: purple;
-	height: 100%
+	background-color: #CCCCCC;
 }
 
 /**
- * 7. Side bar styles
- */
-
-#sidebar {
-	margin: 0.5em 1.66666667% 1em 0.83333333%;
-	width: 25%;
-	float: right;
-	background-color: #234943;
-}
-
-/**
- * 8. Footer styles
+ * 7. Footer styles
  */
 
 #footer-wrapper {
 	height: 200px;
-	background-color: green;
+	background-color: #333333;
 }
 
 /**
- * 9. Miscellaneous styles
+ * 8. Miscellaneous styles
  */
 
 /*
@@ -184,7 +163,7 @@ body {
 */
 
 /**
- * 10. Ryan Fait's Sticky Footer
+ * 9. Ryan Fait's Sticky Footer
  *
  * Sourced from: http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
  */
@@ -198,6 +177,7 @@ body {
 	height: auto !important;
 	height: 100%;
 	margin: 0 auto -200px;
+    background-color: #CCCCCC;
 }
 
 .footer-push {

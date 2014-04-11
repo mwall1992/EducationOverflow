@@ -1,0 +1,25 @@
+﻿/**
+ * filename: MainContentWithoutSidebar.css
+ * author: Morgan Wall
+ * date: 12-4-2014
+ * 
+ * The external CSS stylesheet defining the main content area (without a sidebar) 
+ * of a web page for the EducationOverflow website created for the INB373 project.
+ */
+
+/**
+ * Contents:
+ *
+ * 1. Main content styles
+ */
+
+/**
+ * 1. Main content styles
+ */
+
+#main-content-body {
+	margin: 0.5em 0.83333333% 1em 1.66666667%;
+	width: 97.5%;
+	float: left;
+	height: 100%;
+}

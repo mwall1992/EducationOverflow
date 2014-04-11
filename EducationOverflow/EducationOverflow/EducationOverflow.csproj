@@ -60,6 +60,9 @@
   <ItemGroup>
     <Content Include="App_Themes\DefaultTheme\DefaultTheme.css" />
     <Content Include="Default.aspx" />
+    <Content Include="DefaultNoSidebar.aspx" />
+    <Content Include="Style_Sheets\MainContentWithoutSidebar.css" />
+    <Content Include="Style_Sheets\MainContentWithSidebar.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -72,17 +75,41 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Master_Pages\Main.Master.cs">
-      <DependentUpon>Main.Master</DependentUpon>
+    <Compile Include="DefaultNoSidebar.aspx.cs">
+      <DependentUpon>DefaultNoSidebar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Master_Pages\Main.Master.designer.cs">
-      <DependentUpon>Main.Master</DependentUpon>
+    <Compile Include="DefaultNoSidebar.aspx.designer.cs">
+      <DependentUpon>DefaultNoSidebar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Pages\DefaultLayout.master.cs">
+      <DependentUpon>DefaultLayout.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Pages\DefaultLayout.master.designer.cs">
+      <DependentUpon>DefaultLayout.master</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Pages\DefaultLayoutNoSidebar.master.cs">
+      <DependentUpon>DefaultLayoutNoSidebar.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Pages\DefaultLayoutNoSidebar.master.designer.cs">
+      <DependentUpon>DefaultLayoutNoSidebar.master</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Pages\CoreLayout.master.cs">
+      <DependentUpon>CoreLayout.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Pages\CoreLayout.master.designer.cs">
+      <DependentUpon>CoreLayout.master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Master_Pages\Main.Master" />
+    <Content Include="Master_Pages\CoreLayout.master" />
+    <Content Include="App_Themes\DefaultTheme\DefaultTheme.skin" />
+    <Content Include="Master_Pages\DefaultLayout.master" />
+    <Content Include="Master_Pages\DefaultLayoutNoSidebar.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -10,7 +10,7 @@
 namespace EducationOverflow.Master_Pages {
     
     
-    public partial class Main {
+    public partial class DefaultLayout {
         
         /// <summary>
         /// head_content control.

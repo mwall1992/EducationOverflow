@@ -4,7 +4,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="status_bar_content" runat="server">
-    Status
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="header_content" runat="server">
@@ -12,10 +11,8 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
-    <form id="LoginForm" runat="server">
-        <asp:Login ID="Login1" runat="server">
-        </asp:Login>
-    </form>
+    <asp:Login ID="Login1" runat="server">
+    </asp:Login>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="footer_content" runat="server">

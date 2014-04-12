@@ -19,6 +19,7 @@
  * 7. Footer styles
  * 8. Miscellaneous styles
  * 9. Ryan Fait's Sticky Footer
+ * 10. Forms
  */
 
 /**
@@ -183,4 +184,16 @@ body {
 
 .footer-push {
 	height: 200px;
+}
+
+/**
+ * 10. Forms
+ *
+ * Note: A single id is used since each aspx page cannot support more than one form tag.
+ */
+
+#form {
+    height: 100%;
+	margin: 0;
+	padding: 0;
 }

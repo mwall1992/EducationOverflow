@@ -66,6 +66,7 @@
     <Content Include="DefaultNoSidebar.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="Content\Member_Pages\SignOut.aspx" />
     <Content Include="Style_Sheets\MainContentWithoutSidebar.css" />
     <Content Include="Style_Sheets\MainContentWithSidebar.css" />
     <Content Include="Web.config">
@@ -143,6 +144,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Member_Pages\SignOut.aspx.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Member_Pages\SignOut.aspx.designer.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

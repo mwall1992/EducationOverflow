@@ -4,7 +4,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="status_bar_content" runat="server">
-    Status
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="header_content" runat="server">

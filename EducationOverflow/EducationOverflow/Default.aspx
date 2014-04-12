@@ -4,7 +4,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="status_bar_content" Runat="Server">
-    Status
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="header_content" Runat="Server">
@@ -12,7 +11,6 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" Runat="Server">
-    <form id="form1" runat="server">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -49,7 +47,7 @@
             </UpdateParameters>
         </asp:ObjectDataSource>
         <br />
-&nbsp;</form>
+&nbsp;
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" Runat="Server">

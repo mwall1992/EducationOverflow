@@ -31,13 +31,13 @@ namespace EducationOverflow.Master_Pages {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// LoginView1 control.
+        /// LoginStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView1;
+        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus;
         
         /// <summary>
         /// status_bar_content control.

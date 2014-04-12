@@ -11,7 +11,7 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
-    <asp:Login ID="Login1" runat="server">
+    <asp:Login ID="UserLogin" runat="server">
     </asp:Login>
 </asp:Content>
 

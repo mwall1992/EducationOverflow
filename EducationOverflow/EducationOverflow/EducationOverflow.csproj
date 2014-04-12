@@ -63,9 +63,9 @@
     <Content Include="Content\Admin_Pages\Admins.aspx" />
     <Content Include="Content\Member_Pages\Members.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="DefaultNoSidebar.aspx" />
+    <Content Include="Content\DefaultNoSidebar.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Register.aspx" />
+    <Content Include="Content\Register.aspx" />
     <Content Include="Content\Member_Pages\SignOut.aspx" />
     <Content Include="Style_Sheets\MainContentWithoutSidebar.css" />
     <Content Include="Style_Sheets\MainContentWithSidebar.css" />
@@ -102,11 +102,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DefaultNoSidebar.aspx.cs">
+    <Compile Include="Content\DefaultNoSidebar.aspx.cs">
       <DependentUpon>DefaultNoSidebar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DefaultNoSidebar.aspx.designer.cs">
+    <Compile Include="Content\DefaultNoSidebar.aspx.designer.cs">
       <DependentUpon>DefaultNoSidebar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -138,11 +138,11 @@
       <DependentUpon>CoreLayout.master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register.aspx.cs">
+    <Compile Include="Content\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Register.aspx.designer.cs">
+    <Compile Include="Content\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Member_Pages\SignOut.aspx.cs">

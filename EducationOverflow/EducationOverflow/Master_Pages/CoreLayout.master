@@ -16,14 +16,7 @@
 		<!-- Status Bar -->
 		<div id="status-bar-wrapper" class="wrapper"> 
 			<div id="status-bar" class="wrapper-content">
-                <asp:LoginView ID="LoginView1" runat="server">
-                    <AnonymousTemplate>
-                        <a runat="server" href="~/Login.aspx">Login</a>
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        <a runat="server" href="~/Content/Member_Pages/SignOut.aspx">Sign out</a>
-                    </LoggedInTemplate>
-                </asp:LoginView>
+                <asp:LoginStatus id="LoginStatus" runat="server" />
 				<asp:ContentPlaceHolder id="status_bar_content" runat="server">
                 </asp:ContentPlaceHolder>
 			</div>
@@ -40,11 +33,11 @@
 			<div id="navigation-bar" class="wrapper-content">
 				<ul>
 					<li><a runat="server" href="~/Default.aspx">Home</a></li>
-					<li><a runat="server" href="~/DefaultNoSidebar.aspx">Home Without Sidebar</a></li>
+					<li><a runat="server" href="~/Content/DefaultNoSidebar.aspx">Home Without Sidebar</a></li>
 					<li><a runat="server" href="~/Login.aspx">Login</a></li>
 					<li><a runat="server" href="~/Content/Member_Pages/Members.aspx">Member</a></li>
 					<li><a runat="server" href="~/Content/Admin_Pages/Admins.aspx">Admin</a></li>
-					<li><a runat="server" href="~/Register.aspx">Register</a></li>
+					<li><a runat="server" href="~/Content/Register.aspx">Register</a></li>
 				</ul>
 			</div>
 		</div>

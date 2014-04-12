@@ -30,12 +30,12 @@
 		<div id="navigation-wrapper" class="wrapper">
 			<div id="navigation-bar" class="wrapper-content">
 				<ul>
-					<li><a href="../Default.aspx">Home</a></li>
-					<li><a href="../DefaultNoSidebar.aspx">Functions</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a runat="server" href="~/Default.aspx">Home</a></li>
+					<li><a runat="server" href="~/DefaultNoSidebar.aspx">Home Without Sidebar</a></li>
+					<li><a runat="server" href="~/Login.aspx">Login</a></li>
+					<li><a runat="server" href="~/Content/Member_Pages/Members.aspx">Member</a></li>
+					<li><a runat="server" href="~/Content/Admin_Pages/Admins.aspx">Admin</a></li>
+					<li><a runat="server" href="~/DefaultNoSidebar.aspx">Public</a></li>
 				</ul>
 			</div>
 		</div>

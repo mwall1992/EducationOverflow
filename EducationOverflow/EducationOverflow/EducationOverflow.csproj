@@ -59,8 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\DefaultTheme\DefaultTheme.css" />
+    <Content Include="Content\Admin_Pages\Admins.aspx" />
+    <Content Include="Content\Member_Pages\Members.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="DefaultNoSidebar.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Style_Sheets\MainContentWithoutSidebar.css" />
     <Content Include="Style_Sheets\MainContentWithSidebar.css" />
     <Content Include="Web.config">
@@ -68,6 +71,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Content\Admin_Pages\Admins.aspx.cs">
+      <DependentUpon>Admins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Admin_Pages\Admins.aspx.designer.cs">
+      <DependentUpon>Admins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Member_Pages\Members.aspx.cs">
+      <DependentUpon>Members.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Member_Pages\Members.aspx.designer.cs">
+      <DependentUpon>Members.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -81,6 +98,13 @@
     </Compile>
     <Compile Include="DefaultNoSidebar.aspx.designer.cs">
       <DependentUpon>DefaultNoSidebar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master_Pages\DefaultLayout.master.cs">
       <DependentUpon>DefaultLayout.master</DependentUpon>
@@ -120,8 +144,6 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Admin_Pages\" />
-    <Folder Include="Content\Member_Pages\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">

@@ -35,7 +35,7 @@
 					<li><a runat="server" href="~/Login.aspx">Login</a></li>
 					<li><a runat="server" href="~/Content/Member_Pages/Members.aspx">Member</a></li>
 					<li><a runat="server" href="~/Content/Admin_Pages/Admins.aspx">Admin</a></li>
-					<li><a runat="server" href="~/DefaultNoSidebar.aspx">Public</a></li>
+					<li><a runat="server" href="~/Register.aspx">Register</a></li>
 				</ul>
 			</div>
 		</div>

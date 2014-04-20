@@ -8,6 +8,8 @@ namespace StackExchangeAPI {
 
     public class StackExchangeAPIRequestInfo {
 
+        private static String DEFAULT_API_METHOD = "";
+
         /// <summary>
         /// The base URL for all requests to the Stack Exchange API.
         /// </summary>
@@ -68,21 +70,48 @@ namespace StackExchangeAPI {
         // methods
 
         public StackExchangeAPIRequestInfo() {
+            this.apiMethod = DEFAULT_API_METHOD;
             this.parameters = new Dictionary<String, String>();
         }
 
-        public StackExchangeAPIRequestInfo(Dictionary<String, String> parameters) {
+        public StackExchangeAPIRequestInfo(String apiMethod) {
+            this.apiMethod = apiMethod;
+            this.parameters = new Dictionary<String, String>();
+        }
+
+        public StackExchangeAPIRequestInfo(String apiMethod, 
+                Dictionary<String, String> parameters) {
+            this.apiMethod = apiMethod;
             this.parameters = parameters;
         }
 
+        public override String ToString() {
+            return String.Format("{0}/{1}/{2}?{3}", baseURL, APIVersion, 
+                                    this.apiMethod, this.ParametersToString());
+        }
+
         public String ToURL() {
-            return String.Format("{0}/{1}/{2}", baseURL, APIVersion, this.apiMethod);
+            return this.ToString();
         }
 
         // helper methods
 
         private String ParametersToString() {
-            return "";
+            const int INDEX_DELTA = 1;
+            const int MIN_PARAMETER_COUNT = 0;
+            String parameterString = "";
+
+            // append parameters as key-value pairs for a HTTP GET request URL
+            foreach (KeyValuePair<String, String> parameterPair in this.parameters) {
+                parameterString += String.Format("{0}={1}&", parameterPair.Key, parameterPair.Value);
+            }
+
+            // remove trailing ampersand
+            if (this.parameters.Count > MIN_PARAMETER_COUNT) {
+                parameterString = parameterString.Remove(parameterString.Length - INDEX_DELTA);
+            }
+
+            return parameterString;
         }
     }
 }

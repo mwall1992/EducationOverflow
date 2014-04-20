@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationOverflow", "EducationOverflow\EducationOverflow.csproj", "{F4F0A40C-2C59-4703-A64E-645E49ACEA9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackExchangeAPI", "StackExchangeAPI\StackExchangeAPI.csproj", "{2CF54B0D-F5F9-4D26-BD5B-6A77AF21B0BA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{66BF89E9-1200-4B17-816A-22F6E484998A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{4ABA1692-71AE-4741-8034-AA9E3EDDCC6B}"
@@ -21,10 +19,6 @@ Global
 		{F4F0A40C-2C59-4703-A64E-645E49ACEA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4F0A40C-2C59-4703-A64E-645E49ACEA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4F0A40C-2C59-4703-A64E-645E49ACEA9A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2CF54B0D-F5F9-4D26-BD5B-6A77AF21B0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2CF54B0D-F5F9-4D26-BD5B-6A77AF21B0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2CF54B0D-F5F9-4D26-BD5B-6A77AF21B0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2CF54B0D-F5F9-4D26-BD5B-6A77AF21B0BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66BF89E9-1200-4B17-816A-22F6E484998A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66BF89E9-1200-4B17-816A-22F6E484998A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66BF89E9-1200-4B17-816A-22F6E484998A}.Release|Any CPU.ActiveCfg = Release|Any CPU

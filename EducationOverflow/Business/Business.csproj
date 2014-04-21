@@ -42,15 +42,31 @@
   <ItemGroup>
     <Compile Include="Business.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Answer.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Question.cs" />
-    <Compile Include="Stack_Exchange_API\Models\ResponseWrapper.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Site.cs" />
-    <Compile Include="Stack_Exchange_API\Models\SiteInfo.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Tag.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sort\ActivitySortState.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sort\SortState.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\Range_Types\Date.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\IRangeType.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\RangeType.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\Range.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sort\ISortState.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Page.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\Range_Types\Number.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\Range_Types\Term.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\Answer.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\Question.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\ResponseWrapper.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\Site.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\SiteInfo.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\Tag.cs" />
+    <Compile Include="Stack_Exchange_API\AnswerAPIQueryBuilder.cs" />
     <Compile Include="Stack_Exchange_API\StackExchangeAPI.cs" />
-    <Compile Include="Stack_Exchange_API\StackExchangeAPIRequest.cs" />
-    <Compile Include="Stack_Exchange_API\StackExchangeAPIRequestInfo.cs" />
+    <Compile Include="Stack_Exchange_API\StackExchangeSiteAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\SiteInfoAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\QuestionAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\SearchAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\SimilarAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\SiteAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\TagAPIQueryBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">

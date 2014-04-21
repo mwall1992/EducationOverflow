@@ -6,58 +6,50 @@ namespace StackExchangeAPI {
     [DataContract]
     public class Answer {
 
-        [DataMember]
-        private int answer_id = StackExchangeAPI.DEFAULT_INT_VALUE;
+        [DataMember(Name = "answer_id")]
+        public Int32 answerId;
 
-        [DataMember]
-        private int question_id = StackExchangeAPI.DEFAULT_INT_VALUE;
+        [DataMember(Name = "question_id")]
+        public Int32 questionId;
 
-        [DataMember]
-        private bool is_accepted = StackExchangeAPI.DEFAULT_BOOL_VALUE;
+        [DataMember(Name = "is_accepted")]
+        public bool isAccepted;
 
-        [DataMember]
-        private int up_vote_count = StackExchangeAPI.DEFAULT_INT_VALUE;
+        [DataMember(Name = "up_vote_count")]
+        public Int32 upVoteCount;
 
-        [DataMember]
-        private int down_vote_count = StackExchangeAPI.DEFAULT_INT_VALUE;
+        [DataMember(Name = "down_vote_count")]
+        public Int32 downVoteCount;
 
-        [DataMember]
-        private String body = StackExchangeAPI.DEFAULT_STRING_VALUE;
+        [DataMember(Name = "body")]
+        public String body;
 
-        public int AnswerId {
-            get {
-                return this.answer_id;
-            }
+        [DataMember(Name = "community_owned_date")]
+        public Int64 communityOwnedDate;
+
+        [DataMember(Name = "creation_date")]
+        public Int64 creationDate;
+
+        // N.B. the constructor is not called during deserialisation.
+
+        [OnDeserializing]
+        private void OnDeserializing(StreamingContext context) {
+            this.SetDefaults();
         }
 
-        public int QuestionId {
-            get {
-                return this.question_id;
-            }
+        public Answer() {
+            this.SetDefaults();
         }
 
-        public bool IsAccepted {
-            get {
-                return this.is_accepted;
-            }
-        }
-
-        public int UpVoteCount {
-            get {
-                return this.up_vote_count;
-            }
-        }
-
-        public int DownVoteCount {
-            get {
-                return this.down_vote_count;
-            }
-        }
-
-        public String Body {
-            get {
-                return this.body;
-            }
+        private void SetDefaults() {
+            this.answerId = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.questionId = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.isAccepted = StackExchangeAPI.DEFAULT_BOOL_VALUE;
+            this.upVoteCount = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.downVoteCount = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.body = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.communityOwnedDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
+            this.creationDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
         }
     }
 }

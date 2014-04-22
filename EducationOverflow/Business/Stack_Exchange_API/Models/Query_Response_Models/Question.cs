@@ -12,6 +12,9 @@ namespace StackExchangeAPI {
         [DataMember(Name = "answer_count")]
         public Int32 answerCount;
 
+        [DataMember(Name = "answers")]
+        public Answer[] answers;
+
         [DataMember(Name = "body")]
         public string body;
 

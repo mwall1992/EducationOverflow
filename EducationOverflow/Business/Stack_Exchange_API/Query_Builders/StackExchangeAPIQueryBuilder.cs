@@ -8,7 +8,7 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Abstract Builder
 
-    public abstract class StackExchangeSiteAPIQueryBuilder<T> {
+    public abstract class StackExchangeAPIQueryBuilder {
         
         protected string siteParameter;
 
@@ -18,8 +18,6 @@ namespace StackExchangeAPI {
 
         protected string filter;
 
-        public abstract List<T> GetResponse();
-
         public virtual void Reset() {
             this.siteParameter = null;
             this.apiVersion = null;
@@ -27,19 +25,21 @@ namespace StackExchangeAPI {
             this.filter = null;
         }
 
-        public StackExchangeSiteAPIQueryBuilder<T> SetSite(string siteParameter) {
+        public StackExchangeAPIQueryBuilder SetSite(string siteParameter) {
             this.siteParameter = siteParameter;
             return this;
         }
 
-        public StackExchangeSiteAPIQueryBuilder<T> SetAPIVersion(string apiVersion) {
+        public StackExchangeAPIQueryBuilder SetAPIVersion(string apiVersion) {
             this.apiVersion = apiVersion;
             return this;
         }
 
-        public StackExchangeSiteAPIQueryBuilder<T> SetFilter(string filter) {
+        public StackExchangeAPIQueryBuilder SetFilter(string filter) {
             this.filter = filter;
             return this;
         }
+
+        public abstract StackExchangeAPIQuery GetQuery();
     }
 }

@@ -8,7 +8,7 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class TagAPIQueryBuilder : StackExchangeSiteAPIQueryBuilder<Tag> {
+    public class TagAPIQueryBuilder : StackExchangeAPIQueryBuilder {
 
         private static string API_METHOD_NAME = "tags";
 
@@ -26,8 +26,8 @@ namespace StackExchangeAPI {
             this.apiMethod = API_METHOD_NAME;
         }
 
-        public override List<Tag> GetResponse() {
-            return null;
+        public override StackExchangeAPIQuery GetQuery() {
+            return new StackExchangeAPIQuery(null, typeof(Tag));
         }
 
         public override void Reset() {

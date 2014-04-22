@@ -58,15 +58,17 @@
     <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\Site.cs" />
     <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\SiteInfo.cs" />
     <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\Tag.cs" />
-    <Compile Include="Stack_Exchange_API\AnswerAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\Query_Builders\AnswerAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\Query_Builders\StackExchangeAPIQuery.cs" />
     <Compile Include="Stack_Exchange_API\StackExchangeAPI.cs" />
-    <Compile Include="Stack_Exchange_API\StackExchangeSiteAPIQueryBuilder.cs" />
-    <Compile Include="Stack_Exchange_API\SiteInfoAPIQueryBuilder.cs" />
-    <Compile Include="Stack_Exchange_API\QuestionAPIQueryBuilder.cs" />
-    <Compile Include="Stack_Exchange_API\SearchAPIQueryBuilder.cs" />
-    <Compile Include="Stack_Exchange_API\SimilarAPIQueryBuilder.cs" />
-    <Compile Include="Stack_Exchange_API\SiteAPIQueryBuilder.cs" />
-    <Compile Include="Stack_Exchange_API\TagAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\Query_Builders\StackExchangeAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\Query_Builders\SiteInfoAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\Query_Builders\QuestionAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\Query_Builders\SearchAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\Query_Builders\SimilarAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\Query_Builders\SiteAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\Query_Builders\TagAPIQueryBuilder.cs" />
+    <Compile Include="Stack_Exchange_API\StackExchangeAPIClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">

@@ -8,7 +8,7 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class AnswerAPIQueryBuilder : StackExchangeSiteAPIQueryBuilder<Answer> {
+    public class AnswerAPIQueryBuilder : StackExchangeAPIQueryBuilder {
 
         public static int MAX_ANSWER_ID_COUNT = 100;
 
@@ -28,8 +28,8 @@ namespace StackExchangeAPI {
             this.apiMethod = API_METHOD_NAME;
         }
 
-        public override List<Answer> GetResponse() {
-            return null;
+        public override StackExchangeAPIQuery GetQuery() {
+            return new StackExchangeAPIQuery(null, typeof(Answer));
         }
 
         public override void Reset() {

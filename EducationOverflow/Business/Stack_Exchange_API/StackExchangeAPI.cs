@@ -8,6 +8,8 @@ namespace StackExchangeAPI {
 
     public class StackExchangeAPI {
         
+        public const double DEFAULT_DOUBLE_VALUE = -1.0;
+
         public const Int32 DEFAULT_INT_VALUE = -1;
 
         public const Int64 DEFAULT_DATE_VALUE = -1;

@@ -15,28 +15,18 @@ namespace StackExchangeAPI {
 
     public class StackExchangeAPIClient {
 
-        // N.B. consider dependency inversion principle and inversion of control.
+        // dependency inversion principle and inversion of control.
 
-        private StackExchangeAPIQuery apiQuery;
+        private IQuery apiQuery;
 
-        public StackExchangeAPIClient(StackExchangeAPIQuery query) {
+        public StackExchangeAPIClient(IQuery query) {
             this.apiQuery = query;
-        }
-
-        public StackExchangeAPIQuery APIQuery {
-            get {
-                return this.apiQuery;
-            }
-
-            set {
-                this.apiQuery = value;
-            }
         }
 
         private ResponseWrapper<Object> GetResponse() {
             const string REQUEST_METHOD = "GET";
 
-            WebRequest request = WebRequest.Create(this.apiQuery.QueryUrl);
+            WebRequest request = WebRequest.Create(this.apiQuery.GetURL());
             request.Method = REQUEST_METHOD;
 
             WebResponse response = request.GetResponse();

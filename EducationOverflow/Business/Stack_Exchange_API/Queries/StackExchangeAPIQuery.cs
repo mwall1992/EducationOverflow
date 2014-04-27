@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StackExchangeAPI {
 
-    public class StackExchangeAPIQuery {
+    public class StackExchangeAPIQuery : IQuery {
         
         private string queryUrl;
 
@@ -17,14 +17,12 @@ namespace StackExchangeAPI {
             this.responseModelType = modelType;
         }
 
-        public string QueryUrl {
-            get {
-                return this.queryUrl;
-            }
+        public string GetURL() {
+            return this.queryUrl;
+        }
 
-            set {
-                this.queryUrl = value;
-            }
+        public void SetURL(string url) {
+            this.queryUrl = url;
         }
 
         public Type ResponseModelType {

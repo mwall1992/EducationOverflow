@@ -20,9 +20,9 @@ namespace StackExchangeAPI {
 
         protected Page page;
 
-        protected Range<Date> creationDateRange;
+        protected ISortState creationDateRange;
 
-        protected Date.Ordering creationDateOrdering;
+        protected Ordering creationDateOrdering;
 
         protected ISortState sortCriteria;
 
@@ -38,7 +38,7 @@ namespace StackExchangeAPI {
             base.Reset();
             this.page = null;
             this.creationDateRange = null;
-            this.creationDateOrdering = Date.Ordering.DESCENDING;
+            this.creationDateOrdering = Ordering.DESCENDING;
         }
 
         public SearchAPIQueryBuilder SetTagNames(List<string> tagNames) {
@@ -61,12 +61,12 @@ namespace StackExchangeAPI {
             return this;
         }
 
-        public SearchAPIQueryBuilder SetCreationDateRange(Range<Date> dateRange) {
+        public SearchAPIQueryBuilder SetCreationDateRange(SortState<Int64> dateRange) {
             this.creationDateRange = dateRange;
             return this;
         }
 
-        public SearchAPIQueryBuilder SetCreationDateOrdering(Date.Ordering ordering) {
+        public SearchAPIQueryBuilder SetCreationDateOrdering(Ordering ordering) {
             this.creationDateOrdering = ordering;
             return this;
         }

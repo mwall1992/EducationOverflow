@@ -18,9 +18,9 @@ namespace StackExchangeAPI {
 
         protected Page page;
 
-        protected Range<Date> creationDateRange;
+        protected ISortState creationDateRange;
 
-        protected Date.Ordering creationDateOrdering;
+        protected Ordering creationDateOrdering;
 
         protected ISortState sortCriteria;
 
@@ -37,7 +37,7 @@ namespace StackExchangeAPI {
             this.answerIds = null;
             this.page = null;
             this.creationDateRange = null;
-            this.creationDateOrdering = Date.Ordering.DESCENDING;
+            this.creationDateOrdering = Ordering.DESCENDING;
         }
 
         public AnswerAPIQueryBuilder SetAnswerIds(List<Int32> answerIds) {
@@ -58,12 +58,12 @@ namespace StackExchangeAPI {
             return this;
         }
 
-        public AnswerAPIQueryBuilder SetCreationDateRange(Range<Date> dateRange) {
+        public AnswerAPIQueryBuilder SetCreationDateRange(SortState<Int64> dateRange) {
             this.creationDateRange = dateRange;
             return this;
         }
 
-        public AnswerAPIQueryBuilder SetCreationDateOrdering(Date.Ordering ordering) {
+        public AnswerAPIQueryBuilder SetCreationDateOrdering(Ordering ordering) {
             this.creationDateOrdering = ordering;
             return this;
         }

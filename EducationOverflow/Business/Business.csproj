@@ -42,16 +42,14 @@
   <ItemGroup>
     <Compile Include="Business.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sort\ActivitySortState.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sort\SortState.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\Range_Types\Date.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\IRangeType.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\RangeType.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\Range.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sort\ISortState.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sorting_And_Ordering\Ordering.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sorting_And_Ordering\Named_Sort_States\ActivitySortState.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sorting_And_Ordering\Range.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sorting_And_Ordering\INamedSortState.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sorting_And_Ordering\ISortState.cs" />
     <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Page.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\Range_Types\Number.cs" />
-    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Range\Range_Types\Term.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sorting_And_Ordering\NamedSortState.cs" />
+    <Compile Include="Stack_Exchange_API\Models\Query_Parameter_Models\Sorting_And_Ordering\SortState.cs" />
     <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\Answer.cs" />
     <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\Question.cs" />
     <Compile Include="Stack_Exchange_API\Models\Query_Response_Models\ResponseWrapper.cs" />

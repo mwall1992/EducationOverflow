@@ -59,40 +59,40 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\DefaultTheme\DefaultTheme.css" />
-    <Content Include="Content\Member_Pages\ChangePassword.aspx" />
-    <Content Include="Content\Admin_Pages\Admins.aspx" />
-    <Content Include="Content\Member_Pages\Members.aspx" />
+    <Content Include="Content\Member Pages\ChangePassword.aspx" />
+    <Content Include="Content\Admin Pages\Admins.aspx" />
+    <Content Include="Content\Member Pages\Members.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Content\DefaultNoSidebar.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Content\Register.aspx" />
-    <Content Include="Content\Member_Pages\SignOut.aspx" />
-    <Content Include="Style_Sheets\MainContentWithoutSidebar.css" />
-    <Content Include="Style_Sheets\MainContentWithSidebar.css" />
+    <Content Include="Content\Member Pages\SignOut.aspx" />
+    <Content Include="Style Sheets\MainContentWithoutSidebar.css" />
+    <Content Include="Style Sheets\MainContentWithSidebar.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Content\Member_Pages\ChangePassword.aspx.cs">
+    <Compile Include="Content\Member Pages\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Member_Pages\ChangePassword.aspx.designer.cs">
+    <Compile Include="Content\Member Pages\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Admin_Pages\Admins.aspx.cs">
+    <Compile Include="Content\Admin Pages\Admins.aspx.cs">
       <DependentUpon>Admins.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Admin_Pages\Admins.aspx.designer.cs">
+    <Compile Include="Content\Admin Pages\Admins.aspx.designer.cs">
       <DependentUpon>Admins.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Member_Pages\Members.aspx.cs">
+    <Compile Include="Content\Member Pages\Members.aspx.cs">
       <DependentUpon>Members.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Member_Pages\Members.aspx.designer.cs">
+    <Compile Include="Content\Member Pages\Members.aspx.designer.cs">
       <DependentUpon>Members.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -116,25 +116,25 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Master_Pages\DefaultLayout.master.cs">
+    <Compile Include="Master Pages\DefaultLayout.master.cs">
       <DependentUpon>DefaultLayout.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Master_Pages\DefaultLayout.master.designer.cs">
+    <Compile Include="Master Pages\DefaultLayout.master.designer.cs">
       <DependentUpon>DefaultLayout.master</DependentUpon>
     </Compile>
-    <Compile Include="Master_Pages\DefaultLayoutNoSidebar.master.cs">
+    <Compile Include="Master Pages\DefaultLayoutNoSidebar.master.cs">
       <DependentUpon>DefaultLayoutNoSidebar.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Master_Pages\DefaultLayoutNoSidebar.master.designer.cs">
+    <Compile Include="Master Pages\DefaultLayoutNoSidebar.master.designer.cs">
       <DependentUpon>DefaultLayoutNoSidebar.master</DependentUpon>
     </Compile>
-    <Compile Include="Master_Pages\CoreLayout.master.cs">
+    <Compile Include="Master Pages\CoreLayout.master.cs">
       <DependentUpon>CoreLayout.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Master_Pages\CoreLayout.master.designer.cs">
+    <Compile Include="Master Pages\CoreLayout.master.designer.cs">
       <DependentUpon>CoreLayout.master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,19 +145,19 @@
     <Compile Include="Content\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\Member_Pages\SignOut.aspx.cs">
+    <Compile Include="Content\Member Pages\SignOut.aspx.cs">
       <DependentUpon>SignOut.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\Member_Pages\SignOut.aspx.designer.cs">
+    <Compile Include="Content\Member Pages\SignOut.aspx.designer.cs">
       <DependentUpon>SignOut.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Master_Pages\CoreLayout.master" />
+    <Content Include="Master Pages\CoreLayout.master" />
     <Content Include="App_Themes\DefaultTheme\DefaultTheme.skin" />
-    <Content Include="Master_Pages\DefaultLayout.master" />
-    <Content Include="Master_Pages\DefaultLayoutNoSidebar.master" />
+    <Content Include="Master Pages\DefaultLayout.master" />
+    <Content Include="Master Pages\DefaultLayoutNoSidebar.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

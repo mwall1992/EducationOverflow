@@ -42,6 +42,13 @@
   <ItemGroup>
     <Compile Include="Business.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\CreationSortState.cs" />
+    <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\HotSortState.cs" />
+    <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\MonthSortState.cs" />
+    <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\PopularSortState.cs" />
+    <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\RevelanceSortState.cs" />
+    <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\VotesSortState.cs" />
+    <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\WeekSortState.cs" />
     <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Ordering.cs" />
     <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\ActivitySortState.cs" />
     <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Range.cs" />

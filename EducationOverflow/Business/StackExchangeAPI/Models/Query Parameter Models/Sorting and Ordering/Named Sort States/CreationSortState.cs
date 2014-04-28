@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StackExchangeAPI  {
-
-    public class ActivitySortState : NamedSortState<Int64> {
+namespace StackExchangeAPI {
+    
+    public class CreationSortState : NamedSortState<Int64> {
         
-        private string API_SORT_NAME = "activity";
+        private string API_SORT_NAME = "creation";
 
-        public ActivitySortState(Int64? min, Int64? max) : base(min, max) {}
+        public CreationSortState(Int64? min, Int64? max) : base(min, max) {}
 
         public override string Name {
             get {

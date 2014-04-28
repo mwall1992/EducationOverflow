@@ -78,16 +78,15 @@
     <Compile Include="StackExchangeAPI\StackExchangeAPIClient.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
-      <Project>{bf059aef-5c48-4203-84a4-95d196248a76}</Project>
+    <ProjectReference Include="..\DataAccess\DataAccess.vbproj">
+      <Project>{8e73ea7f-0e84-40e0-bdf6-3f09158f26d9}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{4aba1692-71ae-4741-8034-aa9e3eddcc6b}</Project>
+    <ProjectReference Include="..\Data\Data.vbproj">
+      <Project>{0b1054af-9e1e-484b-bb8d-95e017a0c7d9}</Project>
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

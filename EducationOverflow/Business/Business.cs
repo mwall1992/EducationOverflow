@@ -9,7 +9,7 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
-    [DataObject]
+    //[DataObject]
     public class Business {
 
         private static UserTableAdapter userTableAdapter = new UserTableAdapter();
@@ -20,14 +20,14 @@ namespace Business {
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public static void InsertUser(int userId, string firstName, string lastName, 
-                string email, System.DateTime dateOfBirth) {
-            userTableAdapter.Insert(userId, firstName, lastName, email, dateOfBirth);
+        public static void InsertUser(string firstName, string lastName, string email, 
+                System.DateTime dateOfBirth) {
+            userTableAdapter.Insert(dateOfBirth, email, lastName, firstName);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
         public static void UpdateUser(string firstName, string lastName, string email, System.DateTime dateOfBirth, int originalUserId) {
-            userTableAdapter.Update(firstName, lastName, email, dateOfBirth, originalUserId);
+            userTableAdapter.Update(dateOfBirth, email, lastName, firstName, originalUserId);
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]

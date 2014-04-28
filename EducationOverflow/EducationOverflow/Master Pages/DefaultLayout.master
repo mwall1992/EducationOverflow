@@ -1,7 +1,7 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Master_Pages/CoreLayout.master" AutoEventWireup="true" CodeBehind="DefaultLayout.master.cs" Inherits="EducationOverflow.Master_Pages.DefaultLayout" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/Master Pages/CoreLayout.master" AutoEventWireup="true" CodeBehind="DefaultLayout.master.cs" Inherits="EducationOverflow.Master_Pages.DefaultLayout" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_content" runat="server">
-    <link rel="stylesheet" type="text/css" href="../Style_Sheets/MainContentWithSidebar.css" />
+    <link rel="stylesheet" type="text/css" href="../Style Sheets/MainContentWithSidebar.css" />
     <asp:ContentPlaceHolder id="head_content" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>

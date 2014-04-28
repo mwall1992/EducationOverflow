@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/DefaultLayoutNoSidebar.master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="EducationOverflow.ChangePassword" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Pages/DefaultLayoutNoSidebar.master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="EducationOverflow.ChangePassword" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_content" runat="server">
 </asp:Content>

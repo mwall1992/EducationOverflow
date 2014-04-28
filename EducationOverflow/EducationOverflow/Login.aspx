@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/DefaultLayoutNoSidebar.master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="EducationOverflow.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Pages/DefaultLayoutNoSidebar.master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="EducationOverflow.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_content" runat="server">
 </asp:Content>

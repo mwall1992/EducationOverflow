@@ -15,26 +15,20 @@ namespace StackExchangeAPI {
 
     public class StackExchangeAPIClient {
 
-        // dependency inversion principle and inversion of control.
-
-        private IQuery apiQuery;
-
-        public StackExchangeAPIClient(IQuery query) {
-            this.apiQuery = query;
-        }
-
-        private ResponseWrapper<Object> GetResponse() {
+        public static ResponseWrapper<T> GetResponse<T>(IQuery<T> query) where T : class {
             const string REQUEST_METHOD = "GET";
 
-            WebRequest request = WebRequest.Create(this.apiQuery.GetURL());
+            WebRequest request = WebRequest.Create(query.GetURL());
             request.Method = REQUEST_METHOD;
 
             WebResponse response = request.GetResponse();
 
-            ResponseWrapper<Object> responseObj = ParseResponse<Object>(response);
+            ResponseWrapper<T> responseObj = ParseResponse<T>(response);
 
             return responseObj;
         }
+
+        // helper methods
 
         private static ResponseWrapper<T> ParseResponse<T>(WebResponse response) {
             const int STREAM_OFFSET = 0;

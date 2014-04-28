@@ -8,7 +8,7 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class SiteAPIQueryBuilder : StackExchangeAPIQueryBuilder {
+    public class SiteAPIQueryBuilder : StackExchangeAPIQueryBuilder<Site> {
 
         private static string API_METHOD_NAME = "sites";
 
@@ -18,8 +18,8 @@ namespace StackExchangeAPI {
             this.apiMethod = API_METHOD_NAME;
         }
 
-        public override StackExchangeAPIQuery GetQuery() {
-            return new StackExchangeAPIQuery(null, typeof(Site));
+        public override IQuery<Site> GetQuery() {
+            return new StackExchangeAPIQuery<Site>(null);
         }
 
         public override void Reset() {

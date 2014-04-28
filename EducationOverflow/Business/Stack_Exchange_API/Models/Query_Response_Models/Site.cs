@@ -7,43 +7,43 @@ namespace StackExchangeAPI {
     public class Site {
 
         [DataMember(Name = "aliases")]
-        public string[] aliases;
+        public string[] Aliases { get; set; }
 
         [DataMember(Name = "api_site_parameter")]
-        public string apiSiteParameter;
+        public string ApiSiteParameter { get; set; }
 
         [DataMember(Name = "audience")]
-        public string audience;
+        public string Audience { get; set; }
 
         [DataMember(Name = "closed_beta_date")]
-        public Int64 closedBetaDate;
+        public Int64 ClosedBetaDate { get; set; }
 
         [DataMember(Name = "favicon_url")]
-        public string favIconUrl;
+        public string FavIconUrl { get; set; }
 
         [DataMember(Name = "icon_url")]
-        public string iconUrl;
+        public string IconUrl { get; set; }
 
         [DataMember(Name = "high_resolution_icon_url ")]
-        public string largeIconUrl;
+        public string LargeIconUrl { get; set; }
 
         [DataMember(Name = "launch_date")]
-        public Int64 launchDate;
+        public Int64 LaunchDate { get; set; }
 
         [DataMember(Name = "logo_url")]
-        public string logoUrl;
+        public string LogoUrl { get; set; }
 
         [DataMember(Name = "markdown_extensions")]
-        public string[] markdownExtensions;
+        public string[] MarkdownExtensions { get; set; }
 
         [DataMember(Name = "name")]
-        public string name;
+        public string Name { get; set; }
 
         [DataMember(Name = "open_beta_date")]
-        public Int64 openBetaDate;
+        public Int64 OpenBetaDate { get; set; }
 
         [DataMember(Name = "site_url")]
-        public string siteUrl;
+        public string SiteUrl { get; set; }
 
         public Site() {
             this.SetPlaceholderValues();
@@ -57,19 +57,19 @@ namespace StackExchangeAPI {
         }
 
         private void SetPlaceholderValues() {
-            this.aliases = (string[])StackExchangeAPI.DEFAULT_OBJ_VALUE;
-            this.apiSiteParameter = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.audience = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.closedBetaDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
-            this.favIconUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.iconUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.largeIconUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.launchDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
-            this.logoUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.markdownExtensions = (string[])StackExchangeAPI.DEFAULT_OBJ_VALUE;
-            this.name = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.openBetaDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
-            this.siteUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.Aliases = (string[])StackExchangeAPI.DEFAULT_OBJ_VALUE;
+            this.ApiSiteParameter = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.Audience = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.ClosedBetaDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
+            this.FavIconUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.IconUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.LargeIconUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.LaunchDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
+            this.LogoUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.MarkdownExtensions = (string[])StackExchangeAPI.DEFAULT_OBJ_VALUE;
+            this.Name = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.OpenBetaDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
+            this.SiteUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
         }
     }
 }

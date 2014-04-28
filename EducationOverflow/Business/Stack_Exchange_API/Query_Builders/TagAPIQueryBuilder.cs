@@ -8,11 +8,9 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class TagAPIQueryBuilder : StackExchangeAPIQueryBuilder {
+    public class TagAPIQueryBuilder : StackExchangeParameterisedAPIQueryBuilder<Tag> {
 
         private static string API_METHOD_NAME = "tags";
-
-        protected List<string> tagNames;
 
         protected Page page;
 
@@ -26,21 +24,15 @@ namespace StackExchangeAPI {
             this.apiMethod = API_METHOD_NAME;
         }
 
-        public override StackExchangeAPIQuery GetQuery() {
-            return new StackExchangeAPIQuery(null, typeof(Tag));
+        public override IQuery<Tag> GetQuery() {
+            return new StackExchangeAPIQuery<Tag>(null);
         }
 
         public override void Reset() {
             base.Reset();
-            this.tagNames = null;
             this.page = null;
             this.creationDateRange = null;
             this.creationDateOrdering = Ordering.DESCENDING;
-        }
-
-        public TagAPIQueryBuilder SetTagNames(List<string> tagNames) {
-            this.tagNames = tagNames;
-            return this;
         }
 
         public TagAPIQueryBuilder SetPage(Page page) {

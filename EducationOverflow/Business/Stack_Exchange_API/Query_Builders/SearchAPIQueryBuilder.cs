@@ -8,7 +8,7 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class SearchAPIQueryBuilder : StackExchangeAPIQueryBuilder {
+    public class SearchAPIQueryBuilder : StackExchangeAPIQueryBuilder<Question> {
 
         private static string API_METHOD_NAME = "search";
 
@@ -30,8 +30,8 @@ namespace StackExchangeAPI {
             this.apiMethod = API_METHOD_NAME;
         }
 
-        public override StackExchangeAPIQuery GetQuery() {
-            return new StackExchangeAPIQuery(null, typeof(Question));
+        public override IQuery<Question> GetQuery() {
+            return new StackExchangeAPIQuery<Question>(null);
         }
 
         public override void Reset() {

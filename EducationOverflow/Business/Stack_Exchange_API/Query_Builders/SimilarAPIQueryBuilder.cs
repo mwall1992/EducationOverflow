@@ -8,7 +8,7 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class SimilarAPIQueryBuilder : StackExchangeAPIQueryBuilder {
+    public class SimilarAPIQueryBuilder : StackExchangeAPIQueryBuilder<Question> {
 
         private static string API_METHOD_NAME = "similar";
 
@@ -30,8 +30,8 @@ namespace StackExchangeAPI {
             this.apiMethod = API_METHOD_NAME;
         }
 
-        public override StackExchangeAPIQuery GetQuery() {
-            return new StackExchangeAPIQuery(null, typeof(Question));
+        public override IQuery<Question> GetQuery() {
+            return new StackExchangeAPIQuery<Question>(null);
         }
 
         public override void Reset() {

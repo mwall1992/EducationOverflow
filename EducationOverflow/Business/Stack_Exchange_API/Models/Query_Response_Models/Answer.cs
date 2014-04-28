@@ -7,61 +7,61 @@ namespace StackExchangeAPI {
     public class Answer {
 
         [DataMember(Name = "answer_id")]
-        public Int32 answerId;
+        public Int32 AnswerId { get; set; }
 
         [DataMember(Name = "body")]
-        public String body;
+        public String Body { get; set; }
 
         [DataMember(Name = "body_markdown")]
-        public string bodyWithMarkdown;
+        public string BodyWithMarkdown { get; set; }
 
         [DataMember(Name = "can_flag")]
-        public bool canFlag;
+        public bool CanFlag { get; set; }
 
         [DataMember(Name = "comment_count")]
-        public Int32 commentCount;
+        public Int32 CommentCount { get; set; }
 
         [DataMember(Name = "community_owned_date")]
-        public Int64 communityOwnedDate;
+        public Int64 CommunityOwnedDate { get; set; }
 
         [DataMember(Name = "creation_date")]
-        public Int64 creationDate;
+        public Int64 CreationDate { get; set; }
 
         [DataMember(Name = "down_vote_count")]
-        public Int32 downVoteCount;
+        public Int32 DownVoteCount { get; set; }
 
         [DataMember(Name = "is_accepted")]
-        public bool isAccepted;
+        public bool IsAccepted { get; set; }
 
         [DataMember(Name = "last_activity_date")]
-        public Int64 lastActivityDate;
+        public Int64 LastActivityDate { get; set; }
 
         [DataMember(Name = "last_edit_date")]
-        public Int64 lastEditDate;
+        public Int64 LastEditDate { get; set; }
 
         [DataMember(Name = "link")]
-        public string url;
+        public string Url { get; set; }
 
         [DataMember(Name = "locked_date")]
-        public Int64 lockedDate;
+        public Int64 LockedDate { get; set; }
 
         [DataMember(Name = "question_id")]
-        public Int32 questionId;
+        public Int32 QuestionId { get; set; }
 
         [DataMember(Name = "score")]
-        public Int32 score;
+        public Int32 Score { get; set; }
 
         [DataMember(Name = "share_link")]
-        public string shareUrl;
+        public string ShareUrl { get; set; }
 
         [DataMember(Name = "tags")]
-        public string[] tags;
+        public string[] Tags { get; set; }
 
         [DataMember(Name = "title")]
-        public string title;
+        public string Title { get; set; }
 
         [DataMember(Name = "up_vote_count")]
-        public Int32 upVoteCount;
+        public Int32 UpVoteCount { get; set; }
 
         public Answer() {
             this.SetPlaceholderValues();
@@ -77,25 +77,25 @@ namespace StackExchangeAPI {
         // Helper Methods
 
         private void SetPlaceholderValues() {
-            this.answerId = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.body = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.bodyWithMarkdown = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.canFlag = StackExchangeAPI.DEFAULT_BOOL_VALUE;
-            this.commentCount = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.communityOwnedDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
-            this.creationDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
-            this.downVoteCount = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.isAccepted = StackExchangeAPI.DEFAULT_BOOL_VALUE;
-            this.lastActivityDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
-            this.lastEditDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
-            this.url = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.lockedDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
-            this.questionId = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.score = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.shareUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.tags = (string[])StackExchangeAPI.DEFAULT_OBJ_VALUE;
-            this.title = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.upVoteCount = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.AnswerId = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.Body = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.BodyWithMarkdown = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.CanFlag = StackExchangeAPI.DEFAULT_BOOL_VALUE;
+            this.CommentCount = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.CommunityOwnedDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
+            this.CreationDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
+            this.DownVoteCount = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.IsAccepted = StackExchangeAPI.DEFAULT_BOOL_VALUE;
+            this.LastActivityDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
+            this.LastEditDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
+            this.Url = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.LockedDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
+            this.QuestionId = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.Score = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.ShareUrl = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.Tags = (string[])StackExchangeAPI.DEFAULT_OBJ_VALUE;
+            this.Title = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.UpVoteCount = StackExchangeAPI.DEFAULT_INT_VALUE;
         }
     }
 }

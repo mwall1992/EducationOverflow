@@ -7,25 +7,25 @@ namespace StackExchangeAPI {
     public class Tag {
 
         [DataMember(Name = "count")]
-        public Int32 count;
+        public Int32 Count { get; set; }
 
         [DataMember(Name = "has_synonyms")]
-        public bool hasSynonyms;
+        public bool HasSynonyms { get; set; }
 
         [DataMember(Name = "is_moderator_only")]
-        public bool isModeratorOnly;
+        public bool IsModeratorOnly { get; set; }
 
         [DataMember(Name = "is_required")]
-        public bool isRequired;
+        public bool IsRequired { get; set; }
 
         [DataMember(Name = "last_activity_date")]
-        public Int64 lastActivityDate;
+        public Int64 LastActivityDate { get; set; }
 
         [DataMember(Name = "name")]
-        public string name;
+        public string Name { get; set; }
 
         [DataMember(Name = "synonyms")]
-        public string[] synonyms;
+        public string[] Synonyms { get; set; }
 
         public Tag() {
             this.SetPlaceholderValues();
@@ -39,13 +39,13 @@ namespace StackExchangeAPI {
         }
 
         private void SetPlaceholderValues() {
-            this.count = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.hasSynonyms = StackExchangeAPI.DEFAULT_BOOL_VALUE;
-            this.isModeratorOnly = StackExchangeAPI.DEFAULT_BOOL_VALUE;
-            this.isRequired = StackExchangeAPI.DEFAULT_BOOL_VALUE;
-            this.lastActivityDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
-            this.name = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.synonyms = (string[])StackExchangeAPI.DEFAULT_OBJ_VALUE;
+            this.Count = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.HasSynonyms = StackExchangeAPI.DEFAULT_BOOL_VALUE;
+            this.IsModeratorOnly = StackExchangeAPI.DEFAULT_BOOL_VALUE;
+            this.IsRequired = StackExchangeAPI.DEFAULT_BOOL_VALUE;
+            this.LastActivityDate = StackExchangeAPI.DEFAULT_DATE_VALUE;
+            this.Name = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.Synonyms = (string[])StackExchangeAPI.DEFAULT_OBJ_VALUE;
         }
     }
 }

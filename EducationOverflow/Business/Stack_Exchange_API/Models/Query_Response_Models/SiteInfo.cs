@@ -7,43 +7,43 @@ namespace StackExchangeAPI {
     public class SiteInfo {
 
         [DataMember(Name = "answers_per_minute")]
-        public double answersPerMinute;
+        public double AnswersPerMinute { get; set; }
 
         [DataMember(Name = "api_revision")]
-        public string apiRevision;
+        public string ApiRevision { get; set; }
 
         [DataMember(Name = "badges_per_minute")]
-        public double badgesPerMinute;
+        public double BadgesPerMinute { get; set; }
 
         [DataMember(Name = "new_active_users")]
-        public Int32 newActiveUsers;
+        public Int32 NewActiveUsers { get; set; }
 
         [DataMember(Name = "questions_per_minute")]
-        public double questionsPerMinute;
+        public double QuestionsPerMinute { get; set; }
 
         [DataMember(Name = "total_accepted")]
-        public Int32 totalAccepted;
+        public Int32 TotalAccepted { get; set; }
 
         [DataMember(Name = "total_answers")]
-        public Int32 totalAnswers;
+        public Int32 TotalAnswers { get; set; }
 
         [DataMember(Name = "total_badges")]
-        public Int32 totalBadges;
+        public Int32 TotalBadges { get; set; }
 
         [DataMember(Name = "total_comments")]
-        public Int32 totalComments;
+        public Int32 TotalComments { get; set; }
 
         [DataMember(Name = "total_questions")]
-        public Int32 totalQuestions;
+        public Int32 TotalQuestions { get; set; }
 
         [DataMember(Name = "total_unanswered")]
-        public Int32 totalUnanswered;
+        public Int32 TotalUnanswered { get; set; }
 
         [DataMember(Name = "total_users")]
-        public Int32 totalUsers;
+        public Int32 TotalUsers { get; set; }
 
         [DataMember(Name = "total_votes")]
-        public Int32 totalVotes;
+        public Int32 TotalVotes { get; set; }
 
         public SiteInfo() {
             this.SetPlaceholderValues();
@@ -57,19 +57,19 @@ namespace StackExchangeAPI {
         }
 
         private void SetPlaceholderValues() {
-            this.answersPerMinute = StackExchangeAPI.DEFAULT_DOUBLE_VALUE;
-            this.apiRevision = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.badgesPerMinute = StackExchangeAPI.DEFAULT_DOUBLE_VALUE;
-            this.newActiveUsers = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.questionsPerMinute = StackExchangeAPI.DEFAULT_DOUBLE_VALUE;
-            this.totalAccepted = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.totalAnswers = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.totalBadges = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.totalComments = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.totalQuestions = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.totalUnanswered = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.totalUsers = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.totalVotes = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.AnswersPerMinute = StackExchangeAPI.DEFAULT_DOUBLE_VALUE;
+            this.ApiRevision = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.BadgesPerMinute = StackExchangeAPI.DEFAULT_DOUBLE_VALUE;
+            this.NewActiveUsers = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.QuestionsPerMinute = StackExchangeAPI.DEFAULT_DOUBLE_VALUE;
+            this.TotalAccepted = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.TotalAnswers = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.TotalBadges = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.TotalComments = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.TotalQuestions = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.TotalUnanswered = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.TotalUsers = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.TotalVotes = StackExchangeAPI.DEFAULT_INT_VALUE;
         }
     }
 }

@@ -8,40 +8,40 @@ namespace StackExchangeAPI {
     public class ResponseWrapper<T> {
 
         [DataMember(Name = "backoff")]
-        public Int32 backOff;
+        public Int32 BackOff { get; set; }
 
         [DataMember(Name = "error_id")]
-        public Int32 errorId;
+        public Int32 ErrorId { get; set; }
 
         [DataMember(Name = "error_message")]
-        public string errorMessage;
+        public string ErrorMessage { get; set; }
 
         [DataMember(Name = "error_name")]
-        public string errorName;
+        public string ErrorName { get; set; }
 
         [DataMember(Name = "has_more")]
-        public bool hasMore;
+        public bool HasMore { get; set; }
 
         [DataMember(Name = "items")]
-        public T[] items;
+        public T[] Items { get; set; }
 
         [DataMember(Name = "page")]
-        public Int32 page;
+        public Int32 Page { get; set; }
 
         [DataMember(Name = "page_size")]
-        public Int32 pageSize;
+        public Int32 PageSize { get; set; }
 
         [DataMember(Name = "quota_max")]
-        public Int32 quotaMax;
+        public Int32 QuotaMax { get; set; }
 
         [DataMember(Name = "quota_remaining")]
-        public Int32 quotaRemaining;
+        public Int32 QuotaRemaining { get; set; }
 
         [DataMember(Name = "total")]
-        public Int32 total;
+        public Int32 Total { get; set; }
 
         [DataMember(Name = "type")]
-        public string type;
+        public string Type { get; set; }
 
         public ResponseWrapper() {
             this.SetPlaceholderValues();
@@ -55,18 +55,18 @@ namespace StackExchangeAPI {
         }
 
         private void SetPlaceholderValues() {
-            this.backOff = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.errorId = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.errorMessage = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.errorName = StackExchangeAPI.DEFAULT_STRING_VALUE;
-            this.hasMore = StackExchangeAPI.DEFAULT_BOOL_VALUE;
-            this.items = (T[])StackExchangeAPI.DEFAULT_OBJ_VALUE;
-            this.page = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.pageSize = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.quotaMax = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.quotaRemaining = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.total = StackExchangeAPI.DEFAULT_INT_VALUE;
-            this.type = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.BackOff = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.ErrorId = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.ErrorMessage = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.ErrorName = StackExchangeAPI.DEFAULT_STRING_VALUE;
+            this.HasMore = StackExchangeAPI.DEFAULT_BOOL_VALUE;
+            this.Items = (T[])StackExchangeAPI.DEFAULT_OBJ_VALUE;
+            this.Page = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.PageSize = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.QuotaMax = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.QuotaRemaining = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.Total = StackExchangeAPI.DEFAULT_INT_VALUE;
+            this.Type = StackExchangeAPI.DEFAULT_STRING_VALUE;
         }
     }
 }

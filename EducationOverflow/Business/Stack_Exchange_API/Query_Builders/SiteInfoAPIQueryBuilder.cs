@@ -8,7 +8,7 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class SiteInfoAPIQueryBuilder : StackExchangeAPIQueryBuilder {
+    public class SiteInfoAPIQueryBuilder : StackExchangeAPIQueryBuilder<SiteInfo> {
 
         private static string API_METHOD_NAME = "info";
 
@@ -16,8 +16,8 @@ namespace StackExchangeAPI {
             this.apiMethod = API_METHOD_NAME;
         }
 
-        public override StackExchangeAPIQuery GetQuery() {
-            return new StackExchangeAPIQuery(null, typeof(SiteInfo));
+        public override IQuery<SiteInfo> GetQuery() {
+            return new StackExchangeAPIQuery<SiteInfo>(null);
         }
 
         public override void Reset() {

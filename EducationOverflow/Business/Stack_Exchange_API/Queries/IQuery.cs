@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace StackExchangeAPI {
 
-    public interface IQuery {
-    
+    public interface IQuery<T> where T : class {
+
         string GetURL();
     }
 }

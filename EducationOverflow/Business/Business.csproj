@@ -59,6 +59,7 @@
     <Compile Include="Stack_Exchange_API\Queries\IQuery.cs" />
     <Compile Include="Stack_Exchange_API\Query_Builders\AnswerAPIQueryBuilder.cs" />
     <Compile Include="Stack_Exchange_API\Queries\StackExchangeAPIQuery.cs" />
+    <Compile Include="Stack_Exchange_API\Query_Builders\StackExchangeParameterisedAPIQueryBuilder.cs" />
     <Compile Include="Stack_Exchange_API\StackExchangeAPI.cs" />
     <Compile Include="Stack_Exchange_API\Query_Builders\StackExchangeAPIQueryBuilder.cs" />
     <Compile Include="Stack_Exchange_API\Query_Builders\SiteInfoAPIQueryBuilder.cs" />

@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace StackExchangeAPI {
 
-    public class StackExchangeAPIQuery : IQuery {
+    public class StackExchangeAPIQuery<T> : IQuery<T> where T : class {
         
         private string queryUrl;
 
-        private Type responseModelType;
-
-        public StackExchangeAPIQuery(string queryUrl, Type modelType) {
+        public StackExchangeAPIQuery(string queryUrl) {
             this.queryUrl = queryUrl;
-            this.responseModelType = modelType;
         }
 
         public string GetURL() {
@@ -23,16 +20,6 @@ namespace StackExchangeAPI {
 
         public void SetURL(string url) {
             this.queryUrl = url;
-        }
-
-        public Type ResponseModelType {
-            get {
-                return this.responseModelType;
-            }
-
-            set {
-                this.responseModelType = value;
-            }
         }
     }
 }

@@ -8,8 +8,10 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Abstract Builder
 
-    public abstract class StackExchangeAPIQueryBuilder {
+    public abstract class StackExchangeAPIQueryBuilder<T> where T : class {
         
+        protected static string BASE_QUERY_URL = "http://http://api.stackexchange.com";
+
         protected string siteParameter;
 
         protected string apiVersion;
@@ -25,21 +27,34 @@ namespace StackExchangeAPI {
             this.filter = null;
         }
 
-        public StackExchangeAPIQueryBuilder SetSite(string siteParameter) {
+        public abstract IQuery<T> GetQuery();
+
+        public StackExchangeAPIQueryBuilder<T> SetSite(string siteParameter) {
             this.siteParameter = siteParameter;
             return this;
         }
 
-        public StackExchangeAPIQueryBuilder SetAPIVersion(string apiVersion) {
+        public StackExchangeAPIQueryBuilder<T> SetAPIVersion(string apiVersion) {
+            if (apiVersion == null) {
+                throw new ArgumentNullException("The api version cannot be null.");
+            }
+            
             this.apiVersion = apiVersion;
             return this;
         }
 
-        public StackExchangeAPIQueryBuilder SetFilter(string filter) {
+        public StackExchangeAPIQueryBuilder<T> SetFilter(string filter) {
             this.filter = filter;
             return this;
         }
 
-        public abstract StackExchangeAPIQuery GetQuery();
+        protected string GetBaseQueryURL() {
+            if (apiVersion == null && apiMethod == null) {
+                throw new ArgumentException("Missing Arguments: All Stack Exchange API queries" 
+                    + "must specify an API version and an API method.");
+            }
+
+            return string.Format("{0}/{1}/{2}/", BASE_QUERY_URL, this.apiVersion, this.apiMethod);
+        }
     }
 }

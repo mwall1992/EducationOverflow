@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace StackExchangeAPI  {
 
-    public class ActivitySortState : SortState<Date> {
+    public class ActivitySortState : NamedSortState<Int64> {
         
         private string API_SORT_NAME = "activity";
 
-        public ActivitySortState(Range<Date> activityRange) : base(activityRange) {}
+        public ActivitySortState(Int64 min, Int64 max) : base(min, max) {}
 
         public override string Name {
             get {

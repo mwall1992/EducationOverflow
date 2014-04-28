@@ -10,10 +10,6 @@ namespace StackExchangeAPI {
 
     public interface ISortState {
 
-        string Name {
-            get;
-        }
-
         string MinBound {
             get;
         }

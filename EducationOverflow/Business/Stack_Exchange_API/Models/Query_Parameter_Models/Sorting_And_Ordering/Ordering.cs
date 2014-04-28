@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace StackExchangeAPI {
-    
-    public interface IRangeType {
-        
-        bool IsUnspecifiedBound();
+
+    public enum Ordering {
+        ASCENDING = 0,
+        DESCENDING
     }
 }

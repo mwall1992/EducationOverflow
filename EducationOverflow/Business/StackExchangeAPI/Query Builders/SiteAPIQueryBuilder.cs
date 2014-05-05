@@ -8,25 +8,25 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class SiteAPIQueryBuilder : StackExchangeAPIQueryBuilder<Site> {
+    public class SiteAPIQueryBuilder : StackExchangeAPIQueryBuilder<Site, SiteAPIQueryBuilder> {
 
-        private static string API_METHOD_NAME = "sites";
+        private static string DEFAULT_API_METHOD_NAME = "sites";
 
         protected Page page;
 
         public SiteAPIQueryBuilder() {
-            this.apiMethod = API_METHOD_NAME;
+            this.apiMethod = DEFAULT_API_METHOD_NAME;
         }
 
         public override IQuery<Site> GetQuery() {
-            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), API_METHOD_NAME);
+            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), DEFAULT_API_METHOD_NAME);
 
             if (this.page != null) {
                 queryURL = string.Format("{0}{1}&", queryURL, this.page.ToString());
             }
 
             if (this.filter != null) {
-                queryURL = string.Concat(queryURL, this.GetFilerString());
+                queryURL = string.Concat(queryURL, this.GetFilterString());
             }
 
             return new StackExchangeAPIQuery<Site>(queryURL);

@@ -8,12 +8,12 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class SiteInfoAPIQueryBuilder : StackExchangeAPIQueryBuilder<SiteInfo> {
+    public class SiteInfoAPIQueryBuilder : StackExchangeAPIQueryBuilder<SiteInfo, SiteInfoAPIQueryBuilder> {
 
-        private static string API_METHOD_NAME = "info";
+        private static string DEFAULT_API_METHOD_NAME = "info";
 
         public SiteInfoAPIQueryBuilder() {
-            this.apiMethod = API_METHOD_NAME;
+            this.apiMethod = DEFAULT_API_METHOD_NAME;
         }
 
         public override IQuery<SiteInfo> GetQuery() {

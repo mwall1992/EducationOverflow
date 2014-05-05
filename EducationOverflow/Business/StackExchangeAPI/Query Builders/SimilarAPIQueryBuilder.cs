@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Web;
+
 namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class SimilarAPIQueryBuilder : StackExchangeAPIQueryBuilder<Question> {
+    public class SimilarAPIQueryBuilder : StackExchangeAPIQueryBuilder<Question, SimilarAPIQueryBuilder> {
 
-        private static string API_METHOD_NAME = "similar";
+        private static string DEFAULT_API_METHOD_NAME = "similar";
 
         protected List<string> tagNames;
 
@@ -27,7 +29,7 @@ namespace StackExchangeAPI {
         protected ISortState sortCriteria;
 
         public SimilarAPIQueryBuilder() {
-            this.apiMethod = API_METHOD_NAME;
+            this.apiMethod = DEFAULT_API_METHOD_NAME;
         }
 
         public override IQuery<Question> GetQuery() {
@@ -42,11 +44,19 @@ namespace StackExchangeAPI {
         }
 
         public SimilarAPIQueryBuilder SetTagNames(List<string> tagNames) {
+            for (int i = 0; i < tagNames.Count; i++) {
+                tagNames[i] = HttpUtility.UrlEncode(tagNames[i]);
+            }
+
             this.tagNames = tagNames;
             return this;
         }
 
         public SimilarAPIQueryBuilder SetIgnoredTagNames(List<string> tagNames) {
+            for (int i = 0; i < tagNames.Count; i++) {
+                tagNames[i] = HttpUtility.UrlEncode(tagNames[i]);
+            }
+            
             this.ignoredTagNames = tagNames;
             return this;
         }

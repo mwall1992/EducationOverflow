@@ -4,8 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Web;
+
 namespace StackExchangeAPI {
-    public abstract class StackExchangeParameterisedAPIQueryBuilder<T> : StackExchangeAPIQueryBuilder<T> where T : class {
+    public abstract class StackExchangeParameterisedAPIQueryBuilder<T, V> : StackExchangeAPIQueryBuilder<T, V> 
+    where T : class
+    where V : StackExchangeParameterisedAPIQueryBuilder<T, V> {
 
         public static int MAX_PARAMETER_COUNT = 100;
 
@@ -19,7 +23,7 @@ namespace StackExchangeAPI {
             this.apiMethodExtension = null;
         }
 
-        public StackExchangeParameterisedAPIQueryBuilder<T> SetMethodParameterValues(List<String> parameterValues) {
+        public V SetMethodParameterValues(List<String> parameterValues) {
             if (parameterValues.Count > MAX_PARAMETER_COUNT) {
                 throw new ArgumentException(
                     string.Format("The number of parameter values specified is {0}. "
@@ -28,16 +32,20 @@ namespace StackExchangeAPI {
                 );
             }
             
+            for (int i = 0; i < parameterValues.Count; i++) {
+                parameterValues[i] = HttpUtility.UrlEncode(parameterValues[i]);
+            }
+
             this.parameterValues = parameterValues;
-            return this;
+            return (V)this;
         }
 
-        public StackExchangeParameterisedAPIQueryBuilder<T> SetApiMethodExtension(string methodExtension) {
-            this.apiMethodExtension = methodExtension;
-            return this;
+        public V SetApiMethodExtension(string methodExtension) {
+            this.apiMethodExtension = HttpUtility.UrlEncode(methodExtension);
+            return (V)this;
         }
 
-        protected string GetAPIMethod() {
+        protected string GetParameterisedAPIMethod() {
             if (this.apiMethod == null) {
                 throw new ArgumentNullException("The api method cannot be null.");
             }

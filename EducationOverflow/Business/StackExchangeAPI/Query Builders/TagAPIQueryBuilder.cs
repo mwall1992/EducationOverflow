@@ -8,9 +8,9 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class TagAPIQueryBuilder : StackExchangeParameterisedAPIQueryBuilder<Tag> {
+    public class TagAPIQueryBuilder : StackExchangeParameterisedAPIQueryBuilder<Tag, TagAPIQueryBuilder> {
 
-        private static string API_METHOD_NAME = "tags";
+        private static string DEFAULT_API_METHOD_NAME = "tags";
 
         protected Page page;
 
@@ -21,11 +21,11 @@ namespace StackExchangeAPI {
         protected INamedSortState sortCriteria;
 
         public TagAPIQueryBuilder() {
-            this.apiMethod = API_METHOD_NAME;
+            this.apiMethod = DEFAULT_API_METHOD_NAME;
         }
 
         public override IQuery<Tag> GetQuery() {
-            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), this.GetAPIMethod());
+            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), this.GetParameterisedAPIMethod());
 
             if (this.page != null) {
                 queryURL = string.Format("{0}{1}&", queryURL, this.page.ToString());
@@ -64,7 +64,7 @@ namespace StackExchangeAPI {
             }
 
             if (this.filter != null) {
-                queryURL = string.Concat(queryURL, this.GetFilerString());
+                queryURL = string.Concat(queryURL, this.GetFilterString());
             }
 
             return new StackExchangeAPIQuery<Tag>(queryURL);

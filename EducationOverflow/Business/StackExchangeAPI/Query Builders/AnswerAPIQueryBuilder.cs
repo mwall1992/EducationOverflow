@@ -8,12 +8,9 @@ namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class AnswerAPIQueryBuilder : StackExchangeParameterisedAPIQueryBuilder<Answer> {
+    public class AnswerAPIQueryBuilder : StackExchangeParameterisedAPIQueryBuilder<Answer, AnswerAPIQueryBuilder> {
 
-        private static string API_METHOD_NAME = "answers";
-
-        // HACK
-        //private static string API_METHOD_NAME = "questions";
+        private static string DEFAULT_API_METHOD_NAME = "answers";
 
         protected Page page;
 
@@ -24,11 +21,11 @@ namespace StackExchangeAPI {
         protected INamedSortState sortCriteria;
 
         public AnswerAPIQueryBuilder() {
-            this.apiMethod = API_METHOD_NAME;
+            this.apiMethod = DEFAULT_API_METHOD_NAME;
         }
 
         public override IQuery<Answer> GetQuery() {
-            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), this.GetAPIMethod());
+            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), this.GetParameterisedAPIMethod());
 
             if (this.page != null) {
                 queryURL = string.Format("{0}{1}&", queryURL, this.page.ToString());
@@ -67,7 +64,7 @@ namespace StackExchangeAPI {
             }
 
             if (this.filter != null) {
-                queryURL = string.Concat(queryURL, this.GetFilerString());
+                queryURL = string.Concat(queryURL, this.GetFilterString());
             }
 
             return new StackExchangeAPIQuery<Answer>(queryURL);

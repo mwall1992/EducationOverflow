@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Web;
+
 namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Abstract Builder
 
-    public abstract class StackExchangeAPIQueryBuilder<T> where T : class {
+    public abstract class StackExchangeAPIQueryBuilder<T, V> 
+    where T : class 
+    where V : StackExchangeAPIQueryBuilder<T, V> {
         
         protected static string BASE_QUERY_URL = "http://api.stackexchange.com";
 
@@ -29,26 +33,31 @@ namespace StackExchangeAPI {
 
         public abstract IQuery<T> GetQuery();
 
-        public StackExchangeAPIQueryBuilder<T> SetSite(string siteParameter) {
-            this.siteParameter = siteParameter;
-            return this;
+        public V SetSite(string siteParameter) {
+            this.siteParameter = HttpUtility.UrlEncode(siteParameter);
+            return (V)this;
         }
 
-        public StackExchangeAPIQueryBuilder<T> SetAPIVersion(string apiVersion) {
+        public V SetAPIVersion(string apiVersion) {
             if (apiVersion == null) {
                 throw new ArgumentNullException("The api version cannot be null.");
             }
             
-            this.apiVersion = apiVersion;
-            return this;
+            this.apiVersion = HttpUtility.UrlEncode(apiVersion);
+            return (V)this;
         }
 
-        public StackExchangeAPIQueryBuilder<T> SetFilter(string filter) {
+        public V SetAPIMethod(string apiMethod) {
+            this.apiMethod = apiMethod;
+            return (V)this;
+        }
+
+        public V SetFilter(string filter) {
             this.filter = filter;
-            return this;
+            return (V)this;
         }
 
-        protected string GetFilerString() {
+        protected string GetFilterString() {
             return string.Format("filter={0}&", this.filter);
         }
 
@@ -58,7 +67,7 @@ namespace StackExchangeAPI {
                     + "must specify an API version and an API method.");
             }
 
-            return string.Format("{0}/{1}", BASE_QUERY_URL, this.apiVersion);
+            return string.Format("{0}/{1}/", BASE_QUERY_URL, this.apiVersion);
         }
     }
 }

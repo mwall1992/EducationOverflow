@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Web;
+
 namespace StackExchangeAPI {
 
     // Builder design pattern (fluent interface) - Concrete Builder
 
-    public class QuestionAPIQueryBuilder : StackExchangeParameterisedAPIQueryBuilder<Question> {
+    public class QuestionAPIQueryBuilder : StackExchangeParameterisedAPIQueryBuilder<Question, QuestionAPIQueryBuilder> {
 
         public static int MAX_QUESTION_ID_COUNT = 100;
 
-        private static string API_METHOD_NAME = "questions";
+        private static string DEFAULT_API_METHOD_NAME = "questions";
 
         protected List<string> tagNames;
 
@@ -25,11 +27,11 @@ namespace StackExchangeAPI {
         protected INamedSortState sortCriteria;
 
         public QuestionAPIQueryBuilder() {
-            this.apiMethod = API_METHOD_NAME;
+            this.apiMethod = DEFAULT_API_METHOD_NAME;
         }
 
         public override IQuery<Question> GetQuery() {
-            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), this.GetAPIMethod());
+            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), this.GetParameterisedAPIMethod());
 
             if (this.page != null) {
                 queryURL = string.Format("{0}{1}&", queryURL, this.page.ToString());
@@ -79,7 +81,7 @@ namespace StackExchangeAPI {
             }
 
             if (this.filter != null) {
-                queryURL = string.Concat(queryURL, this.GetFilerString());
+                queryURL = string.Concat(queryURL, this.GetFilterString());
             }
 
             return new StackExchangeAPIQuery<Question>(queryURL);
@@ -94,6 +96,10 @@ namespace StackExchangeAPI {
         }
 
         public QuestionAPIQueryBuilder SetTagNames(List<string> tagNames) {
+            for (int i = 0; i < tagNames.Count; i++) {
+                tagNames[i] = HttpUtility.UrlEncode(tagNames[i]);
+            }
+
             this.tagNames = tagNames;
             return this;
         }

@@ -27,7 +27,8 @@ namespace EducationOverflow {
             //.SetPage(new StackExchangeAPI.Page(1, 100))
             //.SetTagNames(tags)
             //.SetAPIVersion("2.2")
-            //.SetAPIMethod("testMethod");
+            //.SetAPIMethod("testMethod")
+            //.SetApiMethodExtension("testExtension");
 
             //IQuery<Question> siteQuery = testQueryBuilder.GetQuery();
         }

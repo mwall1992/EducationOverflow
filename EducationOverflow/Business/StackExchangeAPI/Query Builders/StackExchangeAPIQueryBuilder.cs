@@ -22,6 +22,8 @@ namespace StackExchangeAPI {
 
         protected string apiMethod;
 
+        protected string apiMethodExtension;
+
         protected string filter;
 
         public virtual void Reset() {
@@ -49,6 +51,11 @@ namespace StackExchangeAPI {
 
         public V SetAPIMethod(string apiMethod) {
             this.apiMethod = apiMethod;
+            return (V)this;
+        }
+
+        public V SetApiMethodExtension(string methodExtension) {
+            this.apiMethodExtension = HttpUtility.UrlEncode(methodExtension);
             return (V)this;
         }
 

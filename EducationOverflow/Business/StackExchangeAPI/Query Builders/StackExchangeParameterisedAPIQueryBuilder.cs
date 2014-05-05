@@ -15,8 +15,6 @@ namespace StackExchangeAPI {
 
         protected List<String> parameterValues;
 
-        protected string apiMethodExtension;
-
         public override void Reset() {
             base.Reset();
             this.parameterValues = null;
@@ -37,11 +35,6 @@ namespace StackExchangeAPI {
             }
 
             this.parameterValues = parameterValues;
-            return (V)this;
-        }
-
-        public V SetApiMethodExtension(string methodExtension) {
-            this.apiMethodExtension = HttpUtility.UrlEncode(methodExtension);
             return (V)this;
         }
 

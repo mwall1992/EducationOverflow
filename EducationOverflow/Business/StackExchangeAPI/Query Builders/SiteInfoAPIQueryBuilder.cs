@@ -17,7 +17,13 @@ namespace StackExchangeAPI {
         }
 
         public override IQuery<SiteInfo> GetQuery() {
-            return new StackExchangeAPIQuery<SiteInfo>(null);
+            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), this.apiMethod);
+
+            if (this.siteParameter != null) {
+                queryURL = queryURL + string.Format("site={0}&", this.siteParameter);
+            }
+
+            return new StackExchangeAPIQuery<SiteInfo>(queryURL);
         }
 
         public override void Reset() {

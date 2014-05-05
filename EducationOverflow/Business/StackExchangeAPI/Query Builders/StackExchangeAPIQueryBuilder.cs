@@ -10,7 +10,7 @@ namespace StackExchangeAPI {
 
     public abstract class StackExchangeAPIQueryBuilder<T> where T : class {
         
-        protected static string BASE_QUERY_URL = "http://http://api.stackexchange.com";
+        protected static string BASE_QUERY_URL = "http://api.stackexchange.com";
 
         protected string siteParameter;
 
@@ -48,13 +48,17 @@ namespace StackExchangeAPI {
             return this;
         }
 
+        protected string GetFilerString() {
+            return string.Format("filter={0}&", this.filter);
+        }
+
         protected string GetBaseQueryURL() {
             if (apiVersion == null && apiMethod == null) {
                 throw new ArgumentException("Missing Arguments: All Stack Exchange API queries" 
                     + "must specify an API version and an API method.");
             }
 
-            return string.Format("{0}/{1}/{2}/", BASE_QUERY_URL, this.apiVersion, this.apiMethod);
+            return string.Format("{0}/{1}", BASE_QUERY_URL, this.apiVersion);
         }
     }
 }

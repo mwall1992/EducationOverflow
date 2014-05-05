@@ -12,20 +12,65 @@ namespace StackExchangeAPI {
 
         private static string API_METHOD_NAME = "answers";
 
+        // HACK
+        //private static string API_METHOD_NAME = "questions";
+
         protected Page page;
 
         protected ISortState creationDateRange;
 
         protected Ordering creationDateOrdering;
 
-        protected ISortState sortCriteria;
+        protected INamedSortState sortCriteria;
 
         public AnswerAPIQueryBuilder() {
             this.apiMethod = API_METHOD_NAME;
         }
 
         public override IQuery<Answer> GetQuery() {
-            return new StackExchangeAPIQuery<Answer>(null);
+            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), this.GetAPIMethod());
+
+            if (this.page != null) {
+                queryURL = string.Format("{0}{1}&", queryURL, this.page.ToString());
+            }
+
+            if (this.creationDateRange != null) {
+                if (this.creationDateRange.MinBound != null) {
+                    queryURL = queryURL + string.Format("fromdate={0}&", this.creationDateRange.MinBound);
+                }
+
+                if (this.creationDateRange.MaxBound != null) {
+                    queryURL = queryURL + string.Format("todate={0}&", this.creationDateRange.MaxBound);
+                }
+            }
+
+            if (this.creationDateOrdering == Ordering.DESCENDING) {
+                queryURL = queryURL + "order=desc&";
+            } else if (this.creationDateOrdering == Ordering.ASCENDING) {
+                queryURL = queryURL + "order=asc&";
+            }
+
+            if (this.sortCriteria != null) {
+                queryURL = queryURL + string.Format("sort={0}&", this.sortCriteria.Name);
+
+                if (this.sortCriteria.MinBound != null) {
+                    queryURL = queryURL + string.Format("min={0}&", this.sortCriteria.MinBound);
+                }
+
+                if (this.sortCriteria.MaxBound != null) {
+                    queryURL = queryURL + string.Format("max={0}&", this.sortCriteria.MaxBound);
+                }
+            }
+
+            if (this.siteParameter != null) {
+                queryURL = queryURL + string.Format("site={0}&", this.siteParameter);
+            }
+
+            if (this.filter != null) {
+                queryURL = string.Concat(queryURL, this.GetFilerString());
+            }
+
+            return new StackExchangeAPIQuery<Answer>(queryURL);
         }
 
         public override void Reset() {
@@ -50,7 +95,7 @@ namespace StackExchangeAPI {
             return this;
         }
 
-        public AnswerAPIQueryBuilder SetSort(ISortState sortCriteria) {
+        public AnswerAPIQueryBuilder SetSort(INamedSortState sortCriteria) {
             this.sortCriteria = sortCriteria;
             return this;
         }

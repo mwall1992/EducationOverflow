@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answer.cs" />
     <Compile Include="Business.cs" />
+    <Compile Include="QuestionInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionTag.cs" />
+    <Compile Include="QuestionURL.cs" />
     <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\CreationSortState.cs" />
     <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\HotSortState.cs" />
     <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\MonthSortState.cs" />
@@ -76,11 +80,18 @@
     <Compile Include="StackExchangeAPI\Query Builders\SiteAPIQueryBuilder.cs" />
     <Compile Include="StackExchangeAPI\Query Builders\TagAPIQueryBuilder.cs" />
     <Compile Include="StackExchangeAPI\StackExchangeAPIClient.cs" />
+    <Compile Include="StackExchangeSite.cs" />
+    <Compile Include="Tag.cs" />
+    <Compile Include="TagSynonym.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.vbproj">
       <Project>{8e73ea7f-0e84-40e0-bdf6-3f09158f26d9}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataObjects\DataObjects.csproj">
+      <Project>{0c42537b-f382-4044-85be-4d7c50a9c4b9}</Project>
+      <Name>DataObjects</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.vbproj">
       <Project>{0b1054af-9e1e-484b-bb8d-95e017a0c7d9}</Project>

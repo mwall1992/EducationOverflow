@@ -19,7 +19,17 @@ namespace StackExchangeAPI {
         }
 
         public override IQuery<Site> GetQuery() {
-            return new StackExchangeAPIQuery<Site>(null);
+            string queryURL = string.Format("{0}{1}?", this.GetBaseQueryURL(), API_METHOD_NAME);
+
+            if (this.page != null) {
+                queryURL = string.Format("{0}{1}&", queryURL, this.page.ToString());
+            }
+
+            if (this.filter != null) {
+                queryURL = string.Concat(queryURL, this.GetFilerString());
+            }
+
+            return new StackExchangeAPIQuery<Site>(queryURL);
         }
 
         public override void Reset() {

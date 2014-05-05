@@ -66,5 +66,9 @@ namespace StackExchangeAPI {
                 this.pageSize = value;
             }
         }
+
+        public override string ToString() {
+            return string.Format("page={0}&pagesize={1}", this.pageNumber, this.pageSize);
+        }
     }
 }

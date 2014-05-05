@@ -32,6 +32,11 @@ namespace StackExchangeAPI {
             return this;
         }
 
+        public StackExchangeParameterisedAPIQueryBuilder<T> SetApiMethodExtension(string methodExtension) {
+            this.apiMethodExtension = methodExtension;
+            return this;
+        }
+
         protected string GetAPIMethod() {
             if (this.apiMethod == null) {
                 throw new ArgumentNullException("The api method cannot be null.");
@@ -41,17 +46,22 @@ namespace StackExchangeAPI {
             string apiMethod = this.apiMethod;
 
             // add parameters to the api method
-            string methodParameter;
-            for (int i = 0; i < this.parameterValues.Count; i++) {
-                
-                // format parameter
-                methodParameter = this.parameterValues[i];
-                if (i < this.parameterValues.Count - 1) {
-                    methodParameter = string.Concat(methodParameter, PARAMETER_DELIMITER);
-                }
+            if (this.parameterValues != null && this.parameterValues.Count > 0) {
 
-                // append parameter to api method string
-                apiMethod = string.Concat(apiMethod, methodParameter);
+                apiMethod = apiMethod + "/";
+
+                string methodParameter;
+                for (int i = 0; i < this.parameterValues.Count; i++) {
+                
+                    // format parameter
+                    methodParameter = this.parameterValues[i];
+                    if (i < this.parameterValues.Count - 1) {
+                        methodParameter = string.Concat(methodParameter, PARAMETER_DELIMITER);
+                    }
+
+                    // append parameter to api method string
+                    apiMethod = apiMethod + methodParameter;
+                }
             }
 
             // add any method name qualifiers to the method string

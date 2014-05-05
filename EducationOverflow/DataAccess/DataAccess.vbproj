@@ -63,6 +63,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answers.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Answers.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EducationOverflow.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +88,36 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="QuestionInfo.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuestionInfo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionTag.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuestionTag.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionURL.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuestionURL.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StackExchangeSite.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StackExchangeSite.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tag.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tag.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TagSynonym.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TagSynonym.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -93,6 +128,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Answers.xsc">
+      <DependentUpon>Answers.xsd</DependentUpon>
+    </None>
+    <None Include="Answers.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Answers.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Answers.xss">
+      <DependentUpon>Answers.xsd</DependentUpon>
+    </None>
     <None Include="app.config" />
     <None Include="EducationOverflow.xsc">
       <DependentUpon>EducationOverflow.xsd</DependentUpon>
@@ -113,6 +159,72 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="QuestionInfo.xsc">
+      <DependentUpon>QuestionInfo.xsd</DependentUpon>
+    </None>
+    <None Include="QuestionInfo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuestionInfo.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="QuestionInfo.xss">
+      <DependentUpon>QuestionInfo.xsd</DependentUpon>
+    </None>
+    <None Include="QuestionTag.xsc">
+      <DependentUpon>QuestionTag.xsd</DependentUpon>
+    </None>
+    <None Include="QuestionTag.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuestionTag.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="QuestionTag.xss">
+      <DependentUpon>QuestionTag.xsd</DependentUpon>
+    </None>
+    <None Include="QuestionURL.xsc">
+      <DependentUpon>QuestionURL.xsd</DependentUpon>
+    </None>
+    <None Include="QuestionURL.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuestionURL.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="QuestionURL.xss">
+      <DependentUpon>QuestionURL.xsd</DependentUpon>
+    </None>
+    <None Include="StackExchangeSite.xsc">
+      <DependentUpon>StackExchangeSite.xsd</DependentUpon>
+    </None>
+    <None Include="StackExchangeSite.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StackExchangeSite.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="StackExchangeSite.xss">
+      <DependentUpon>StackExchangeSite.xsd</DependentUpon>
+    </None>
+    <None Include="Tag.xsc">
+      <DependentUpon>Tag.xsd</DependentUpon>
+    </None>
+    <None Include="Tag.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Tag.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Tag.xss">
+      <DependentUpon>Tag.xsd</DependentUpon>
+    </None>
+    <None Include="TagSynonym.xsc">
+      <DependentUpon>TagSynonym.xsd</DependentUpon>
+    </None>
+    <None Include="TagSynonym.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TagSynonym.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="TagSynonym.xss">
+      <DependentUpon>TagSynonym.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

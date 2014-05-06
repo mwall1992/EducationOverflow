@@ -22,12 +22,11 @@ namespace EducationOverflow {
 
             //List<string> tags = new List<string>() { "C#" };
 
-            //var testQueryBuilder = new QuestionAPIQueryBuilder()
+            //var testQueryBuilder = new SearchQueryBuilder()
             //.SetSite("stackoverflow")
             //.SetPage(new StackExchangeAPI.Page(1, 100))
             //.SetTagNames(tags)
             //.SetAPIVersion("2.2")
-            //.SetAPIMethod("testMethod")
             //.SetApiMethodExtension("testExtension");
 
             //IQuery<Question> siteQuery = testQueryBuilder.GetQuery();

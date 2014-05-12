@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.ComponentModel;
-using DataAccess.StackExchangeSiteTableAdapters;
+using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
@@ -16,11 +16,13 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<DataObjects.StackExchangeSite> SelectStackExchangeSites() {
             List<DataObjects.StackExchangeSite> sites = new List<DataObjects.StackExchangeSite>();
-            Data.StackExchangeSite.StackExchangeSiteDataTable siteDataTable = siteTableAdapter.GetData();
+            DataAccess.EducationOverflow.StackExchangeSiteDataTable siteDataTable = siteTableAdapter.GetData();
 
-            foreach (Data.StackExchangeSite.StackExchangeSiteRow row in siteDataTable.Rows) {
-                sites.Add(new DataObjects.StackExchangeSite() { APISiteParameter = row.APISiteParameter, 
-                    Name = row.Name, TotalAcceptedAnswers = row.TotalAcceptedAnswers }); 
+            foreach (DataAccess.EducationOverflow.StackExchangeSiteRow row in siteDataTable.Rows) {
+                sites.Add(new DataObjects.StackExchangeSite() { 
+                    APISiteParameter = row.APISiteParameter, 
+                    Name = row.Name, TotalAcceptedAnswers = row.TotalAcceptedAnswers 
+                }); 
             }
 
             return sites;

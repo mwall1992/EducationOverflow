@@ -5,20 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.ComponentModel;
-using DataAccess.QuestionURLTableAdapters;
+using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
     public class QuestionURL {
 
-        private static QuestionURLTableAdapter questionUrlTableAdapter = new QuestionURLTableAdapter();
+        private static QuestionUrlTableAdapter questionUrlTableAdapter = new QuestionUrlTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<DataObjects.Question> SelectQuestionURL() {
             List<DataObjects.Question> questions = new List<DataObjects.Question>();
-            Data.QuestionURL.QuestionURLDataTable questionUrlDataTable = questionUrlTableAdapter.GetData();
+            DataAccess.EducationOverflow.QuestionUrlDataTable questionUrlDataTable = questionUrlTableAdapter.GetData();
 
-            foreach (Data.QuestionURL.QuestionURLRow row in questionUrlDataTable.Rows) {
+            foreach (DataAccess.EducationOverflow.QuestionUrlRow row in questionUrlDataTable.Rows) {
                 questions.Add(new DataObjects.Question() {
                     URL = row.URL,
                     ApiQuestionId = row.APIQuestionId,

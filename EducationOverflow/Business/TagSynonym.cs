@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.ComponentModel;
-using DataAccess.TagSynonymTableAdapters;
+using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
@@ -17,9 +17,9 @@ namespace Business {
         public static List<string> SelectTagSynonyms(string tagName) {
             List<string> synonyms = new List<string>();
 
-            Data.TagSynonym.TagSynonymDataTable tagSynonymDataTable = 
+            DataAccess.EducationOverflow.TagSynonymDataTable tagSynonymDataTable = 
                 tagSynonymTableAdapter.GetData(tagName);
-            foreach (Data.TagSynonym.TagSynonymRow row in tagSynonymDataTable.Rows) {
+            foreach (DataAccess.EducationOverflow.TagSynonymRow row in tagSynonymDataTable.Rows) {
                 synonyms.Add(row.Synonym);
             }
 

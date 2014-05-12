@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.ComponentModel;
 
-using DataAccess.TagTableAdapters;
+using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
@@ -17,9 +17,9 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<DataObjects.Tag> SelectTag() {
             List<DataObjects.Tag> tags = new List<DataObjects.Tag>();
-            Data.Tag.TagDataTable tagDataTable = tagTableAdapter.GetData();
+            DataAccess.EducationOverflow.TagDataTable tagDataTable = tagTableAdapter.GetData();
 
-            foreach (Data.Tag.TagRow row in tagDataTable.Rows) {
+            foreach (DataAccess.EducationOverflow.TagRow row in tagDataTable.Rows) {
                 tags.Add(new DataObjects.Tag() {
                     Name = row.Name,
                     Description = row.Description,

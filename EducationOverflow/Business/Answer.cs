@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.ComponentModel;
-using DataAccess.AnswersTableAdapters;
+using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
@@ -14,11 +14,11 @@ namespace Business {
         private static AnswerTableAdapter answerTableAdapter = new AnswerTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.Answer> SelectAnswers() {
+        public static List<DataObjects.Answer> SelectAnswers(string questionUrl) {
             List<DataObjects.Answer> answers = new List<DataObjects.Answer>();
-            Data.Answers.AnswerDataTable answerDataTable = answerTableAdapter.GetData();
+            DataAccess.EducationOverflow.AnswerDataTable answerDataTable = answerTableAdapter.GetData(questionUrl);
 
-            foreach (Data.Answers.AnswerRow row in answerDataTable.Rows) {
+            foreach (DataAccess.EducationOverflow.AnswerRow row in answerDataTable.Rows) {
                 answers.Add(new DataObjects.Answer() {
                     QuestionURL = row.QuestionURL, 
                     ApiAnswerId = row.APIAnswerId,
@@ -35,19 +35,19 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static void InsertAnswer(string questionUrl, int apiAnswerId, string body, 
                 int upVotes, int downVotes, bool isAccepted) {
-            answerTableAdapter.Insert(questionUrl, apiAnswerId, body, upVotes, downVotes, isAccepted);
+            answerTableAdapter.Insert(body, upVotes, downVotes, isAccepted, apiAnswerId, questionUrl);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public static void UpdateAnswer(string questionUrl, int apiAnswerId, string body,
-                int upVotes, int downVotes, bool isAccepted, string originalQuestionUrl, int originalApiAnswerId) {
-            answerTableAdapter.Update(questionUrl, apiAnswerId, body, upVotes, downVotes, isAccepted, 
-                originalQuestionUrl, originalApiAnswerId);
+        public static void UpdateAnswer(string body, int upVotes, int downVotes, bool isAccepted, 
+                string originalQuestionUrl, int originalApiAnswerId) {
+            answerTableAdapter.Update(body, upVotes, downVotes, isAccepted,
+                originalApiAnswerId, originalQuestionUrl);
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public static void DeleteAnswer(string originalQuestionUrl, int originalApiAnswerId) {
-            answerTableAdapter.Delete(originalQuestionUrl, originalApiAnswerId);
+            answerTableAdapter.Delete(originalApiAnswerId, originalQuestionUrl);
         }
     }
 }

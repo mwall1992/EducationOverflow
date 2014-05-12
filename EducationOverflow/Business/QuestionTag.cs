@@ -5,22 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.ComponentModel;
-using DataAccess.QuestionTagTableAdapters;
+using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
     public class QuestionTag {
 
-        private static QuestionTagTableAdapter questionTagTableAdapter = 
-            new QuestionTagTableAdapter();
+        private static QuestionTagsTableAdapter questionTagTableAdapter =
+            new QuestionTagsTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<string> SelectQuestionTags(string questionUrl) {
             List<string> tags = new List<string>();
 
-            Data.QuestionTag.QuestionTagDataTable questionTagDataTable =
+            DataAccess.EducationOverflow.QuestionTagsDataTable questionTagDataTable =
                 questionTagTableAdapter.GetData(questionUrl);
-            foreach (Data.QuestionTag.QuestionTagRow row in questionTagDataTable.Rows) {
+            foreach (DataAccess.EducationOverflow.QuestionTagsRow row in questionTagDataTable.Rows) {
                 tags.Add(row.TagName);
             }
 

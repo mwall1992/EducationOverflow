@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.ComponentModel;
-using DataAccess.TagsInfoUserViewTableAdapters;
+using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
@@ -16,9 +16,9 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<DataObjects.Tag> SelectQuestionsFromUserView() {
             List<DataObjects.Tag> tags = new List<DataObjects.Tag>();
-            Data.TagsInfoUserView.TagsInfoUserViewDataTable tagsDataTable = tagsTableAdapter.GetData();
+            DataAccess.EducationOverflow.TagsInfoUserViewDataTable tagsDataTable = tagsTableAdapter.GetData();
 
-            foreach (Data.TagsInfoUserView.TagsInfoUserViewRow row in tagsDataTable.Rows) {
+            foreach (DataAccess.EducationOverflow.TagsInfoUserViewRow row in tagsDataTable.Rows) {
                 tags.Add(new DataObjects.Tag() {
                     Name = row.Name,
                     Description = row.Description,

@@ -98,10 +98,6 @@
       <Project>{0c42537b-f382-4044-85be-4d7c50a9c4b9}</Project>
       <Name>DataObjects</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Data\Data.vbproj">
-      <Project>{0b1054af-9e1e-484b-bb8d-95e017a0c7d9}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,22 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.ComponentModel;
-using DataAccess.UserReportedQuestionsTableAdapters;
+using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
     public class UserReportedQuestions {
 
-        private static UserReportedQuestionsSelectCommandTableAdapter reportedQuestionsTableAdapter = 
-            new UserReportedQuestionsSelectCommandTableAdapter();
+        private static UserReportedQuestionsTableAdapter reportedQuestionsTableAdapter =
+            new UserReportedQuestionsTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<DataObjects.ReportedQuestionInfo> SelectQuestionsFromUserView(int userId) {
             List<DataObjects.ReportedQuestionInfo> reportedQuestions = new List<DataObjects.ReportedQuestionInfo>();
-            Data.UserReportedQuestions.UserReportedQuestionsSelectCommandDataTable reportedQuestionsDataTable =
+            DataAccess.EducationOverflow.UserReportedQuestionsDataTable reportedQuestionsDataTable =
                 reportedQuestionsTableAdapter.GetData(userId);
 
-            foreach (Data.UserReportedQuestions.UserReportedQuestionsSelectCommandRow row in reportedQuestionsDataTable.Rows) {
+            foreach (DataAccess.EducationOverflow.UserReportedQuestionsRow row in reportedQuestionsDataTable.Rows) {
                 reportedQuestions.Add(new DataObjects.ReportedQuestionInfo() {
                     OptionalDescription = row.OptionalDescription,
                     PredefinedDescription = row.PredefinedDescription,

@@ -80,6 +80,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="QuestionInfo.Dataset.Designer.vb" />
+    <Compile Include="QuestionsUserView.Dataset.Designer.vb" />
     <Compile Include="QuestionTag.Dataset.Designer.vb" />
     <Compile Include="QuestionURL.Dataset.Designer.vb" />
     <Compile Include="StackExchangeSite.Dataset.Designer.vb" />

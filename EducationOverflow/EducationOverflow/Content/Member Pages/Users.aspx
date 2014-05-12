@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Pages/DefaultLayoutNoSidebar.master" AutoEventWireup="true" CodeBehind="Members.aspx.cs" Inherits="EducationOverflow.Content.Member_Pages.Members" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Pages/DefaultLayoutNoSidebar.master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="EducationOverflow.Content.Member_Pages.Members" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_content" runat="server">
 </asp:Content>
@@ -12,7 +12,7 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
     Welcome to the members only page.
-    <a href="ChangePassword.aspx">Change password</a>
+    <a href="~/Member Pages/ChangePassword.aspx">Change password</a>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="footer_content" runat="server">

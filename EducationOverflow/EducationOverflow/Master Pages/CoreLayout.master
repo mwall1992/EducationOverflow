@@ -33,11 +33,9 @@
 			<div id="navigation-bar" class="wrapper-content">
 				<ul>
 					<li><a runat="server" href="~/Default.aspx">Home</a></li>
-					<li><a runat="server" href="~/Content/DefaultNoSidebar.aspx">Home Without Sidebar</a></li>
-					<li><a runat="server" href="~/Login.aspx">Login</a></li>
-					<li><a runat="server" href="~/Content/Member Pages/Members.aspx">Member</a></li>
-					<li><a runat="server" href="~/Content/Admin Pages/Admins.aspx">Admin</a></li>
-					<li><a runat="server" href="~/Content/Register.aspx">Register</a></li>
+					<li><a runat="server" href="~/Content/Tour.aspx">Tour</a></li>
+					<li><a runat="server" href="~/Content/Questions.aspx">Questions</a></li>
+					<li><a runat="server" href="~/Content/Tags.aspx">Tags</a></li>
 				</ul>
 			</div>
 		</div>

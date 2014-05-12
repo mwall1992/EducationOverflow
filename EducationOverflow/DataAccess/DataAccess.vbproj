@@ -93,6 +93,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuestionInfo.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuestionsUserView.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuestionsUserView.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QuestionTag.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -170,6 +175,17 @@
     </None>
     <None Include="QuestionInfo.xss">
       <DependentUpon>QuestionInfo.xsd</DependentUpon>
+    </None>
+    <None Include="QuestionsUserView.xsc">
+      <DependentUpon>QuestionsUserView.xsd</DependentUpon>
+    </None>
+    <None Include="QuestionsUserView.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuestionsUserView.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="QuestionsUserView.xss">
+      <DependentUpon>QuestionsUserView.xsd</DependentUpon>
     </None>
     <None Include="QuestionTag.xsc">
       <DependentUpon>QuestionTag.xsd</DependentUpon>

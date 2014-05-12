@@ -45,6 +45,7 @@
     <Compile Include="Business.cs" />
     <Compile Include="QuestionInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionFromUserView.cs" />
     <Compile Include="QuestionTag.cs" />
     <Compile Include="QuestionURL.cs" />
     <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\CreationSortState.cs" />

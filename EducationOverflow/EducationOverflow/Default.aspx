@@ -16,7 +16,19 @@
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br />
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <br />
+    <asp:Repeater ID="ExampleRepeater" runat="server" DataSourceID="RepeaterExampleDataSource">
+        <ItemTemplate>
+            <ul>
+                <li>
+                    <asp:Label ID="Title" runat="server" Text='<%# Eval("Title") %>'></asp:Label>
+                </li>
+            </ul>
+        </ItemTemplate>
+    </asp:Repeater>
+    <asp:ObjectDataSource ID="RepeaterExampleDataSource" runat="server" SelectMethod="SelectQuestionsFromUserView" TypeName="Business.QuestionFromUserView">
+    </asp:ObjectDataSource>
 &nbsp;
 </asp:Content>
 

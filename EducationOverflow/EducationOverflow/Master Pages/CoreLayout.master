@@ -36,6 +36,7 @@
 					<li><a runat="server" href="~/Content/Tour.aspx">Tour</a></li>
 					<li><a runat="server" href="~/Content/Questions.aspx">Questions</a></li>
 					<li><a runat="server" href="~/Content/Tags.aspx">Tags</a></li>
+                    <li><a runat="server" href="~/Content/Member Pages/Users.aspx">Users</a></li>
 				</ul>
 			</div>
 		</div>

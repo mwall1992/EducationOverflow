@@ -84,7 +84,10 @@
     <Compile Include="StackExchangeAPI\StackExchangeAPIClient.cs" />
     <Compile Include="StackExchangeSite.cs" />
     <Compile Include="Tag.cs" />
+    <Compile Include="TagInfo.cs" />
     <Compile Include="TagSynonym.cs" />
+    <Compile Include="UserInfo.cs" />
+    <Compile Include="UserReportedQuestions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.vbproj">

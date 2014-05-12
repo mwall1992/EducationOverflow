@@ -118,10 +118,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Tag.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TagsInfoUserView.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TagsInfoUserView.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TagSynonym.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TagSynonym.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserInfo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UserReportedQuestions.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserReportedQuestions.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +246,17 @@
     <None Include="Tag.xss">
       <DependentUpon>Tag.xsd</DependentUpon>
     </None>
+    <None Include="TagsInfoUserView.xsc">
+      <DependentUpon>TagsInfoUserView.xsd</DependentUpon>
+    </None>
+    <None Include="TagsInfoUserView.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TagsInfoUserView.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="TagsInfoUserView.xss">
+      <DependentUpon>TagsInfoUserView.xsd</DependentUpon>
+    </None>
     <None Include="TagSynonym.xsc">
       <DependentUpon>TagSynonym.xsd</DependentUpon>
     </None>
@@ -241,6 +267,28 @@
     </None>
     <None Include="TagSynonym.xss">
       <DependentUpon>TagSynonym.xsd</DependentUpon>
+    </None>
+    <None Include="UserInfo.xsc">
+      <DependentUpon>UserInfo.xsd</DependentUpon>
+    </None>
+    <None Include="UserInfo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UserInfo.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="UserInfo.xss">
+      <DependentUpon>UserInfo.xsd</DependentUpon>
+    </None>
+    <None Include="UserReportedQuestions.xsc">
+      <DependentUpon>UserReportedQuestions.xsd</DependentUpon>
+    </None>
+    <None Include="UserReportedQuestions.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UserReportedQuestions.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="UserReportedQuestions.xss">
+      <DependentUpon>UserReportedQuestions.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

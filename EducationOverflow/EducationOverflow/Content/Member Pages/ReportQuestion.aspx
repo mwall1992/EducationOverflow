@@ -6,6 +6,20 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="header_content" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="ReportedQuestionsDataSource">
+        <Columns>
+            <asp:BoundField DataField="OptionalDescription" HeaderText="OptionalDescription" SortExpression="OptionalDescription" />
+            <asp:BoundField DataField="PredefinedDescription" HeaderText="PredefinedDescription" SortExpression="PredefinedDescription" />
+            <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+            <asp:BoundField DataField="SiteName" HeaderText="SiteName" SortExpression="SiteName" />
+            <asp:BoundField DataField="Url" HeaderText="Url" SortExpression="Url" />
+        </Columns>
+    </asp:GridView>
+    <asp:ObjectDataSource ID="ReportedQuestionsDataSource" runat="server" SelectMethod="SelectQuestionsFromUserView" TypeName="Business.UserReportedQuestions">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="1" Name="userId" Type="Int32" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" runat="server">
 </asp:Content>

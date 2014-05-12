@@ -4,8 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="status_bar_content" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="header_content" runat="server">
+    Header
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
+    This is a static web page for describing the Web application to the user.
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="footer_content" runat="server">
 </asp:Content>

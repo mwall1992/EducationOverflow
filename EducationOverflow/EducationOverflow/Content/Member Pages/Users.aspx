@@ -12,7 +12,12 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
     Welcome to the members only page.
-    <a href="~/Member Pages/ChangePassword.aspx">Change password</a>
+    <br />
+    <a runat="server" href="~/Content/Member Pages/ChangePassword.aspx">Change password</a>
+    <br />
+    <a runat="server" href="~/Content/Member Pages/ReportQuestion.aspx">Report Question</a>
+    <br />
+    <a runat="server" href="~/Content/Member Pages/AccountDetails.aspx">Account Details</a>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="footer_content" runat="server">

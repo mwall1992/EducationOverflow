@@ -85,7 +85,10 @@
     <Compile Include="QuestionURL.Dataset.Designer.vb" />
     <Compile Include="StackExchangeSite.Dataset.Designer.vb" />
     <Compile Include="Tag.Dataset.Designer.vb" />
+    <Compile Include="TagsInfoUserView.Dataset.Designer.vb" />
     <Compile Include="TagSynonym.Dataset.Designer.vb" />
+    <Compile Include="UserInfo.Dataset.Designer.vb" />
+    <Compile Include="UserReportedQuestions.Dataset.Designer.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

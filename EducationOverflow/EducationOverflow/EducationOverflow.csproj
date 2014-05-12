@@ -77,7 +77,6 @@
     <Content Include="Content\Tags.aspx" />
     <Content Include="Content\Tour.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="Content\DefaultNoSidebar.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Content\Register.aspx" />
     <Content Include="Content\Member Pages\SignOut.aspx" />
@@ -213,13 +212,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\DefaultNoSidebar.aspx.cs">
-      <DependentUpon>DefaultNoSidebar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\DefaultNoSidebar.aspx.designer.cs">
-      <DependentUpon>DefaultNoSidebar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

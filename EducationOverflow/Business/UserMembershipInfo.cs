@@ -16,22 +16,31 @@ namespace Business {
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static DataObjects.UserMembershipInfo SelectUserMembershipInfo(string username) {
-            DataAccess.EducationOverflow.UserMembershipInfoDataTable membershipInfoDataTable = 
+            DataAccess.EducationOverflow.UserMembershipInfoDataTable userMemberDataTable =
                 membershipTableAdapter.GetData(username);
-            DataAccess.EducationOverflow.UserMembershipInfoRow membershipRow = 
-                (DataAccess.EducationOverflow.UserMembershipInfoRow)membershipInfoDataTable.Rows[0];
 
-            return new DataObjects.UserMembershipInfo() {
-                UserId = membershipRow.UserId,
-                Username = membershipRow.Username,
-                Email = membershipRow.Email,
-                ApplicationName = membershipRow.ApplicationName
-            };
+            DataObjects.UserMembershipInfo memberInfo = null;
+            if (userMemberDataTable.Count > 0) {
+
+                DataAccess.EducationOverflow.UserMembershipInfoRow memberInfoRow =
+                    (DataAccess.EducationOverflow.UserMembershipInfoRow)userMemberDataTable.Rows[0];
+
+                memberInfo = new DataObjects.UserMembershipInfo() {
+                    UserId = memberInfoRow.UserId,
+                    Username = memberInfoRow.Username,
+                    ApplicationName = memberInfoRow.ApplicationName,
+                    Email = memberInfoRow.Email,
+                    IsLocked = memberInfoRow.IsLocked,
+                    LastActivityDate = memberInfoRow.LastActivityDate
+                };
+            }
+
+            return memberInfo;
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
         public static void UpdateUserMembershipInfo(string username, string applicationName, string email) {
-            // stub
+           
         }
     }
 }

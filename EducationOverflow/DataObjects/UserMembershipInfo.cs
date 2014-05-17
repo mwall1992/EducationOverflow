@@ -58,5 +58,29 @@ namespace DataObjects {
                 this.email = value;
             }
         }
+
+        private bool isLocked;
+        [DataObjectField(false)]
+        public bool IsLocked {
+            get {
+                return this.isLocked;
+            }
+
+            set {
+                this.isLocked = value;
+            }
+        }
+
+        private DateTime lastActivityDate;
+        [DataObjectField(false)]
+        public DateTime LastActivityDate {
+            get {
+                return this.lastActivityDate;
+            }
+
+            set {
+                this.lastActivityDate = value;
+            }
+        }
     }
 }

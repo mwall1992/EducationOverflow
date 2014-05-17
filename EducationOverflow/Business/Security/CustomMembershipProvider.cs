@@ -199,7 +199,9 @@ namespace Business {
             // SUMMARY:
             // Can be done.
 
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            return true;
         }
     }
 }

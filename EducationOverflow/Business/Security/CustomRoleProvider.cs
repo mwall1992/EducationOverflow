@@ -23,7 +23,7 @@ namespace Business {
             // retrieve user ids for usernames
             long[] userIds = new long[usernames.Length];
             for (int i = 0; i < usernames.Length; i++) {
-                DataObjects.UserMembership memberInfo = UserMembership.SelectUserMembershipInfo(usernames[i]);
+                DataObjects.UserMembership memberInfo = UserMembership.SelectUserMembership(usernames[i]);
                 if (memberInfo == null) {
                     throw new ProviderException("Specified username does not exist.");
                 }
@@ -146,7 +146,7 @@ namespace Business {
                 throw new ProviderException("The specified role does not exist.");
             }
 
-            if (UserMembership.SelectUserMembershipInfo(username) == null) {
+            if (UserMembership.SelectUserMembership(username) == null) {
                 throw new ProviderException("The specified username does not exist.");
             }
 
@@ -177,7 +177,7 @@ namespace Business {
             // retrieve user ids for usernames
             long[] userIds = new long[usernames.Length];
             for (int i = 0; i < usernames.Length; i++) {
-                DataObjects.UserMembership memberInfo = UserMembership.SelectUserMembershipInfo(usernames[i]);
+                DataObjects.UserMembership memberInfo = UserMembership.SelectUserMembership(usernames[i]);
                 if (memberInfo == null) {
                     throw new ProviderException("Specified username does not exist.");
                 }

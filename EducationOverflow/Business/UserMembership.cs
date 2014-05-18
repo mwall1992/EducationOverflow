@@ -14,6 +14,9 @@ namespace Business {
         private static UserMembershipTableAdapter membershipTableAdapter =
             new UserMembershipTableAdapter();
 
+        private static UserMembershipWithoutPasswordTableAdapter membershipWithoutPasswordTableAdapter = 
+            new UserMembershipWithoutPasswordTableAdapter();
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static DataObjects.UserMembership SelectUserMembership(string username) {
             DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
@@ -38,22 +41,45 @@ namespace Business {
             return memberInfo;
         }
 
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static string SelectPassword(string username) {
+            string password = null;
+            DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
+                membershipTableAdapter.GetData(username);
+
+            if (userMemberDataTable.Count > 0) {
+                DataAccess.EducationOverflow.UserMembershipRow memberInfoRow =
+                    (DataAccess.EducationOverflow.UserMembershipRow)userMemberDataTable.Rows[0];
+
+                password = memberInfoRow.Password;
+            }
+
+            return password;
+        }
+
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public static void InsertUserMembership(string applicationName, string username, string password, 
+        public static int InsertUserMembership(string applicationName, string username, string password, 
                 string email, bool isLocked, DateTime lastActivityDate) {
-            membershipTableAdapter.Insert(applicationName, username, password, email, isLocked, lastActivityDate);
+            return membershipTableAdapter.Insert(applicationName, username, password, email, isLocked, lastActivityDate);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public static void UpdateUserMembership(string applicationName, string username, string password, 
+        public static int UpdateUserMembership(string applicationName, string username, string password, 
                 string email, bool isLocked, DateTime lastActivityDate, long originalUserId) {
-            membershipTableAdapter.Update(applicationName, username, password, email, isLocked, 
+            return membershipTableAdapter.Update(applicationName, username, password, email, isLocked, 
                 lastActivityDate, originalUserId);
         }
 
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public static int UpdateUserMembership(string applicationName, string username,
+                string email, bool isLocked, DateTime lastActivityDate, long originalUserId) {
+            return membershipWithoutPasswordTableAdapter.Update(applicationName, username, email, isLocked, 
+                lastActivityDate, originalUserId, originalUserId);
+        }
+
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public static void DeleteUserMembership(long originalUserId) {
-            membershipTableAdapter.Delete(originalUserId);
+        public static int DeleteUserMembership(long originalUserId) {
+            return membershipTableAdapter.Delete(originalUserId);
         }
     }
 }

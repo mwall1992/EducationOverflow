@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Configuration.Provider;
+
 namespace Business {
     
     public class CustomMembershipProvider : System.Web.Security.MembershipProvider {
@@ -29,32 +31,79 @@ namespace Business {
         }
 
         public override bool ChangePassword(string username, string oldPassword, string newPassword) {
-            // SUMMARY:
-            // Can be done.
+            const int INVALID_AFFECTED_ROWS = 0;
+            bool passwordChanged = false;
+            DataObjects.UserMembership membership = UserMembership.SelectUserMembership(username);
 
-            throw new NotImplementedException();
+            try {
+                if (this.ValidateUser(username, oldPassword) && membership != null) {
+                    int affectedRows = UserMembership.UpdateUserMembership(membership.ApplicationName, membership.Username, 
+                        newPassword, membership.Email, membership.IsLocked, membership.LastActivityDate, 
+                        membership.UserId);
+                    passwordChanged = (affectedRows != INVALID_AFFECTED_ROWS);
+                }
+            } catch {
+                passwordChanged = false;
+            }
+
+            return passwordChanged;
         }
 
-        public override bool ChangePasswordQuestionAndAnswer(string username, string password, string newPasswordQuestion, string newPasswordAnswer) {
-            // SUMMARY:
-            // Need to update database schema first. 
-            // This method can be implemented.
-
-            throw new NotImplementedException();
+        public override bool ChangePasswordQuestionAndAnswer(string username, string password, 
+                string newPasswordQuestion, string newPasswordAnswer) {
+            return false;
         }
 
-        public override System.Web.Security.MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out System.Web.Security.MembershipCreateStatus status) {
-            // SUMMARY:
-            // Can be done.
-            
-            throw new NotImplementedException();
+        public override System.Web.Security.MembershipUser CreateUser(string username, string password, string email, 
+                string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, 
+                out System.Web.Security.MembershipCreateStatus status) {
+                            
+            const bool IS_LOCKED = false;
+            const int INVALID_AFFECTED_ROWS = 0;
+            DateTime CURRENT_TIME = DateTime.Now;
+
+            try {
+                int affectedRows = UserMembership.InsertUserMembership(this.ApplicationName, username, password, 
+                    email, IS_LOCKED, DateTime.Now);
+
+                status = (affectedRows != INVALID_AFFECTED_ROWS) ? System.Web.Security.MembershipCreateStatus.Success 
+                                                                 : System.Web.Security.MembershipCreateStatus.ProviderError;
+            } catch {
+                status = System.Web.Security.MembershipCreateStatus.ProviderError;
+            }
+
+            isApproved = (status == System.Web.Security.MembershipCreateStatus.Success);
+            return new System.Web.Security.MembershipUser(this.ApplicationName, username, providerUserKey,
+                    email, null, null, isApproved, IS_LOCKED, CURRENT_TIME, CURRENT_TIME, CURRENT_TIME,
+                    CURRENT_TIME, DateTime.MinValue);
         }
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData) {
-            // SUMMARY:
-            // Can be done.
+            const int INVALID_AFFFECTED_ROWS = 0;
+            bool userDeleted = false;
+            DataObjects.UserMembership membership = UserMembership.SelectUserMembership(username);
 
-            throw new NotImplementedException();
+            // TODO: REMOVE ALL USER INFORMATION! (via cascade)
+
+            try {
+                if (membership != null && deleteAllRelatedData) {
+                    
+                    // remove role information
+                    List<string> roles = UserRoles.SelectUserRoles(username);
+                    UserRoles.DeleteRolesFromUsers(roles.ToArray(), new long[] { membership.UserId });
+
+                    // remove user information
+                    User.DeleteUser(membership.UserId);
+
+                    // remove membership information
+                    int affectedRows = UserMembership.DeleteUserMembership(membership.UserId);
+                    userDeleted = (affectedRows != INVALID_AFFFECTED_ROWS);
+                }
+            } catch {
+                userDeleted = false;
+            }
+
+            return userDeleted;
         }
 
         public override bool EnablePasswordReset {
@@ -182,11 +231,18 @@ namespace Business {
         }
 
         public override bool UnlockUser(string userName) {
-            // SUMMARY:
-            // Need to update database schema first. 
-            // This method can be implemented.
+            const int INVALID_AFFECTED_ROWS = 0;
+            const bool IS_LOCKED = false;
+            bool isUnlocked = false;
 
-            throw new NotImplementedException();
+            DataObjects.UserMembership membership = UserMembership.SelectUserMembership(userName);
+            if (membership != null) {
+                int affectedRows = UserMembership.UpdateUserMembership(membership.ApplicationName, membership.Username,
+                    membership.Email, IS_LOCKED, membership.LastActivityDate, membership.UserId);
+                isUnlocked = (affectedRows != INVALID_AFFECTED_ROWS);
+            }
+
+            return isUnlocked;
         }
 
         public override void UpdateUser(System.Web.Security.MembershipUser user) {
@@ -197,12 +253,13 @@ namespace Business {
         }
 
         public override bool ValidateUser(string username, string password) {
-            // SUMMARY:
-            // Can be done.
+            bool isValid = false;
+            string storedPassword = UserMembership.SelectPassword(username);
+            if (storedPassword != null) {
+                isValid = storedPassword.Equals(password);
+            }
 
-            //throw new NotImplementedException();
-
-            return true;
+            return isValid;
         }
     }
 }

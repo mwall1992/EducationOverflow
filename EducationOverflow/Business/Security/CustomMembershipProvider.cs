@@ -8,8 +8,6 @@ namespace Business {
     
     public class CustomMembershipProvider : System.Web.Security.MembershipProvider {
 
-        private static string APPLICATION_NAME = "educationoverflow";
-
         private static int MAX_INVALID_PASSWORD_ATTEMPTS = 5;
 
         private static int MIN_PASSWORD_LENGTH = 6;
@@ -20,10 +18,13 @@ namespace Business {
 
         public override string ApplicationName {
             get {
-                return CustomMembershipProvider.APPLICATION_NAME;
+                return CustomProvider.ApplicationName;
             }
+
             set {
-                throw new NotImplementedException();
+                if (!value.Equals(CustomProvider.ApplicationName)) {
+                    throw new ArgumentException("Modification of the Application Name is not supported.");
+                }
             }
         }
 

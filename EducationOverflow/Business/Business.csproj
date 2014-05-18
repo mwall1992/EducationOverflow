@@ -52,6 +52,7 @@
     <Compile Include="QuestionFromUserView.cs" />
     <Compile Include="QuestionTag.cs" />
     <Compile Include="QuestionURL.cs" />
+    <Compile Include="Security\CustomProvider.cs" />
     <Compile Include="Security\CustomRoleProvider.cs" />
     <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\CreationSortState.cs" />
     <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\HotSortState.cs" />

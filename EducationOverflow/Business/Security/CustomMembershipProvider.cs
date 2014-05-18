@@ -147,7 +147,7 @@ namespace Business {
             int startingIndex = pageSize * pageIndex;
             for (int i = startingIndex; i < pageSize; i++) {
                 currentMember = matchedUserMembership[i];
-                membershipCollection.Add(new System.Web.Security.MembershipUser(null, 
+                membershipCollection.Add(new System.Web.Security.MembershipUser(this.Name, 
                     currentMember.Username, currentMember.UserId, currentMember.Email, null, null, IS_APPROVED, 
                     currentMember.IsLocked, DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, 
                     DateTime.MinValue, DateTime.MinValue));
@@ -171,7 +171,7 @@ namespace Business {
             int startingIndex = pageSize * pageIndex;
             for (int i = startingIndex; i < pageSize; i++) {
                 currentMember = matchedUserMembership[i];
-                membershipCollection.Add(new System.Web.Security.MembershipUser(null,
+                membershipCollection.Add(new System.Web.Security.MembershipUser(this.Name,
                     currentMember.Username, currentMember.UserId, currentMember.Email, null, null, IS_APPROVED, 
                     currentMember.IsLocked, DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, 
                     DateTime.MinValue, DateTime.MinValue));
@@ -191,7 +191,7 @@ namespace Business {
             int startingIndex = pageSize * pageIndex;
             for (int i = startingIndex; i < pageSize; i++) {
                 currentMember = allUserMembership[i];
-                membershipCollection.Add(new System.Web.Security.MembershipUser(null, currentMember.Username, 
+                membershipCollection.Add(new System.Web.Security.MembershipUser(this.Name, currentMember.Username, 
                     currentMember.UserId, currentMember.Email, null, null, IS_APPROVED, currentMember.IsLocked, 
                     DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, DateTime.MinValue, 
                     DateTime.MinValue));
@@ -223,7 +223,7 @@ namespace Business {
             System.Web.Security.MembershipUser membership = null;
             DataObjects.UserMembership retrievedMembership = UserMembership.SelectUserMembership(username);
             if (retrievedMembership != null) {
-                membership = new System.Web.Security.MembershipUser(null, 
+                membership = new System.Web.Security.MembershipUser(this.Name, 
                     retrievedMembership.Username, retrievedMembership.UserId, retrievedMembership.Email, null, null, true, 
                     retrievedMembership.IsLocked, DateTime.MinValue, DateTime.MinValue, 
                     retrievedMembership.LastActivityDate, DateTime.MinValue, DateTime.MinValue);
@@ -241,7 +241,7 @@ namespace Business {
             System.Web.Security.MembershipUser membership = null;
             DataObjects.UserMembership retrievedMembership = UserMembership.SelectUserMembershipForUserId((long)providerUserKey);
             if (retrievedMembership != null) {
-                membership = new System.Web.Security.MembershipUser(null,
+                membership = new System.Web.Security.MembershipUser(this.Name,
                     retrievedMembership.Username, retrievedMembership.UserId, retrievedMembership.Email, null, null, true,
                     retrievedMembership.IsLocked, DateTime.MinValue, DateTime.MinValue,
                     retrievedMembership.LastActivityDate, DateTime.MinValue, DateTime.MinValue);

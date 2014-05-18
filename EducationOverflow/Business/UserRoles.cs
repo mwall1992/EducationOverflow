@@ -74,5 +74,22 @@ namespace Business {
 
             queriesTableAdapter.AddRolesToUsers(userIdsDataTable, roleNamesDataTable);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public static void DeleteRolesFromUsers(string[] roleNames, long[] userIds) {
+            DataAccess.EducationOverflow.UserIdsDataTable userIdsDataTable =
+                new DataAccess.EducationOverflow.UserIdsDataTable();
+            foreach (long userId in userIds) {
+                userIdsDataTable.AddUserIdsRow(userId);
+            }
+
+            DataAccess.EducationOverflow.RoleNamesDataTable roleNamesDataTable =
+                new DataAccess.EducationOverflow.RoleNamesDataTable();
+            foreach (string roleName in roleNames) {
+                roleNamesDataTable.AddRoleNamesRow(roleName);
+            }
+
+            queriesTableAdapter.RemoveRolesFromUsers(userIdsDataTable, roleNamesDataTable);
+        }
     }
 }

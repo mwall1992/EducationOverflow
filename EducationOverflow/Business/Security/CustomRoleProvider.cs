@@ -135,7 +135,6 @@ namespace Business {
         }
 
         public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames) {
-            // TODO: find a more efficient method to query the database
 
             // check for invalid arguments
             foreach (string username in usernames) {
@@ -146,17 +145,20 @@ namespace Business {
                 CustomRoleProvider.ValidateRoleName(roleName);
             }
 
-            // TODO: Use transactions for insertion.
-
-            try {
-                foreach (string username in usernames) {
-                    DataObjects.UserMembershipInfo userMembershipInfo = 
-                        UserMembershipInfo.SelectUserMembershipInfo(username);
-
-                    foreach (string role in roleNames) {
-                        UserRoles.DeleteUserRole(role, userMembershipInfo.UserId);
-                    }
+            // retrieve user ids for usernames
+            long[] userIds = new long[usernames.Length];
+            for (int i = 0; i < usernames.Length; i++) {
+                DataObjects.UserMembershipInfo memberInfo = UserMembershipInfo.SelectUserMembershipInfo(usernames[i]);
+                if (memberInfo == null) {
+                    throw new ProviderException("Specified username does not exist.");
                 }
+
+                userIds[i] = memberInfo.UserId;
+            }
+
+            // remove user roles from data source
+            try {
+                UserRoles.DeleteRolesFromUsers(roleNames, userIds);
             } catch (Exception e) {
                 throw new ProviderException("Failed to remove roles from users. Error message: " + e.Message);
             }

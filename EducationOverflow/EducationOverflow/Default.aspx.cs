@@ -22,6 +22,8 @@ namespace EducationOverflow {
 
             //roleProvider.AddUsersToRoles(new string[] { "sally" }, new string[] { "user", "admin" });
 
+            //roleProvider.RemoveUsersFromRoles(new string[] { "sally" }, new string[] { "user" });
+
             /* Test Code */
 
             //List<string> tags = new List<string>() { "C#" };

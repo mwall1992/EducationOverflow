@@ -22,7 +22,7 @@
     <Shape ID="DesignTable:Roles" ZOrder="6" X="664" Y="708" Height="115" Width="177" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:UserMembershipInfo" ZOrder="5" X="631" Y="386" Height="191" Width="257" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:UserRoles" ZOrder="4" X="856" Y="4" Height="115" Width="202" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="3" X="932" Y="196" Height="48" Width="225" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="44" />
+    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="3" X="932" Y="196" Height="67" Width="277" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
     <Shape ID="DesignTable:UserIds" ZOrder="2" X="967" Y="270" Height="48" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="44" />
     <Shape ID="DesignTable:RoleNames" ZOrder="1" X="966" Y="327" Height="48" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="44" />
   </Shapes>

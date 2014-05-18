@@ -91,7 +91,7 @@
     <Compile Include="Tag.cs" />
     <Compile Include="TagInfo.cs" />
     <Compile Include="TagSynonym.cs" />
-    <Compile Include="UserInfo.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="UserMembershipInfo.cs" />
     <Compile Include="UserReportedQuestions.cs" />
     <Compile Include="UserRoles.cs" />

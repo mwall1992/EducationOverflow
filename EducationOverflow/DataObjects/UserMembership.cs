@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace DataObjects {
 
     [DataObject]
-    public class UserMembershipInfo {
+    public class UserMembership {
 
         private long userId;
         [DataObjectField(true)]

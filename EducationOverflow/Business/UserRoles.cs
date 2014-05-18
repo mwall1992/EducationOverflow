@@ -14,8 +14,8 @@ namespace Business {
         private static UserRolesTableAdapter userRolesTableAdapter = 
             new UserRolesTableAdapter();
 
-        private static UserMembershipInfoTableAdapter userMembershipInfoTableAdapter =
-            new UserMembershipInfoTableAdapter();
+        private static UserMembershipTableAdapter userMembershipInfoTableAdapter =
+            new UserMembershipTableAdapter();
 
         private static QueriesTableAdapter queriesTableAdapter = 
             new QueriesTableAdapter();
@@ -28,14 +28,14 @@ namespace Business {
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<string> SelectUserRoles(string username) {
-            DataAccess.EducationOverflow.UserMembershipInfoDataTable userMemberDataTable =
+            DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
                 userMembershipInfoTableAdapter.GetData(username);
 
             List<string> roles = new List<string>();
             if (userMemberDataTable.Count > 0) {
 
-                DataAccess.EducationOverflow.UserMembershipInfoRow memberInfoRow =
-                    (DataAccess.EducationOverflow.UserMembershipInfoRow)userMemberDataTable.Rows[0];
+                DataAccess.EducationOverflow.UserMembershipRow memberInfoRow =
+                    (DataAccess.EducationOverflow.UserMembershipRow)userMemberDataTable.Rows[0];
 
                 DataAccess.EducationOverflow.UserRolesDataTable userRolesDataTable =
                     userRolesTableAdapter.GetData(memberInfoRow.UserId);

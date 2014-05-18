@@ -11,21 +11,21 @@ namespace Business {
 
     public class UserMembershipInfo {
 
-        private static UserMembershipInfoTableAdapter membershipTableAdapter = 
-            new UserMembershipInfoTableAdapter();
+        private static UserMembershipTableAdapter membershipTableAdapter =
+            new UserMembershipTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static DataObjects.UserMembershipInfo SelectUserMembershipInfo(string username) {
-            DataAccess.EducationOverflow.UserMembershipInfoDataTable userMemberDataTable =
+        public static DataObjects.UserMembership SelectUserMembershipInfo(string username) {
+            DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
                 membershipTableAdapter.GetData(username);
 
-            DataObjects.UserMembershipInfo memberInfo = null;
+            DataObjects.UserMembership memberInfo = null;
             if (userMemberDataTable.Count > 0) {
 
-                DataAccess.EducationOverflow.UserMembershipInfoRow memberInfoRow =
-                    (DataAccess.EducationOverflow.UserMembershipInfoRow)userMemberDataTable.Rows[0];
+                DataAccess.EducationOverflow.UserMembershipRow memberInfoRow =
+                    (DataAccess.EducationOverflow.UserMembershipRow)userMemberDataTable.Rows[0];
 
-                memberInfo = new DataObjects.UserMembershipInfo() {
+                memberInfo = new DataObjects.UserMembership() {
                     UserId = memberInfoRow.UserId,
                     Username = memberInfoRow.Username,
                     ApplicationName = memberInfoRow.ApplicationName,

@@ -23,7 +23,7 @@ namespace Business {
             // retrieve user ids for usernames
             long[] userIds = new long[usernames.Length];
             for (int i = 0; i < usernames.Length; i++) {
-                DataObjects.UserMembershipInfo memberInfo = UserMembershipInfo.SelectUserMembershipInfo(usernames[i]);
+                DataObjects.UserMembership memberInfo = UserMembershipInfo.SelectUserMembershipInfo(usernames[i]);
                 if (memberInfo == null) {
                     throw new ProviderException("Specified username does not exist.");
                 }
@@ -177,7 +177,7 @@ namespace Business {
             // retrieve user ids for usernames
             long[] userIds = new long[usernames.Length];
             for (int i = 0; i < usernames.Length; i++) {
-                DataObjects.UserMembershipInfo memberInfo = UserMembershipInfo.SelectUserMembershipInfo(usernames[i]);
+                DataObjects.UserMembership memberInfo = UserMembershipInfo.SelectUserMembershipInfo(usernames[i]);
                 if (memberInfo == null) {
                     throw new ProviderException("Specified username does not exist.");
                 }

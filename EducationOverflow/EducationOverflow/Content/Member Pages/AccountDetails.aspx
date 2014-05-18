@@ -10,11 +10,10 @@
         <Fields>
             <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
             <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
-            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
             <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
         </Fields>
     </asp:DetailsView>
-    <asp:ObjectDataSource ID="UserInfoDataSource" runat="server" SelectMethod="SelectQuestionsFromUserView" TypeName="Business.UserInfo">
+    <asp:ObjectDataSource ID="UserInfoDataSource" runat="server" SelectMethod="SelectQuestionsFromUserView" TypeName="Business.User">
         <SelectParameters>
             <asp:Parameter DefaultValue="1" Name="userId" Type="Int32" />
         </SelectParameters>

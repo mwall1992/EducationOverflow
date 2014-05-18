@@ -48,8 +48,8 @@
     <Compile Include="StackExchangeSite.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="UserIdentifier.cs" />
-    <Compile Include="UserInfo.cs" />
-    <Compile Include="UserMembershipInfo.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserMembership.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -9,7 +9,7 @@ using System.ComponentModel;
 namespace DataObjects {
 
     [DataObject]
-    public class UserInfo {
+    public class User {
 
         private string firstName;
         [DataObjectField(false)]
@@ -32,18 +32,6 @@ namespace DataObjects {
 
             set {
                 this.lastName = value;
-            }
-        }
-
-        private string email;
-        [DataObjectField(false)]
-        public string Email {
-            get {
-                return this.email;
-            }
-
-            set {
-                this.email = value;
             }
         }
 

@@ -9,13 +9,13 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
-    public class UserMembershipInfo {
+    public class UserMembership {
 
         private static UserMembershipTableAdapter membershipTableAdapter =
             new UserMembershipTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static DataObjects.UserMembership SelectUserMembershipInfo(string username) {
+        public static DataObjects.UserMembership SelectUserMembership(string username) {
             DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
                 membershipTableAdapter.GetData(username);
 
@@ -38,9 +38,22 @@ namespace Business {
             return memberInfo;
         }
 
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public static void InsertUserMembership(string applicationName, string username, string password, 
+                string email, bool isLocked, DateTime lastActivityDate) {
+            membershipTableAdapter.Insert(applicationName, username, password, email, isLocked, lastActivityDate);
+        }
+
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public static void UpdateUserMembershipInfo(string username, string applicationName, string email) {
-           
+        public static void UpdateUserMembership(string applicationName, string username, string password, 
+                string email, bool isLocked, DateTime lastActivityDate, long originalUserId) {
+            membershipTableAdapter.Update(applicationName, username, password, email, isLocked, 
+                lastActivityDate, originalUserId);
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public static void DeleteUserMembership(long originalUserId) {
+            membershipTableAdapter.Delete(originalUserId);
         }
     }
 }

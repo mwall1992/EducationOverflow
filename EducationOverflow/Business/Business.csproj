@@ -92,7 +92,7 @@
     <Compile Include="TagInfo.cs" />
     <Compile Include="TagSynonym.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="UserMembershipInfo.cs" />
+    <Compile Include="UserMembership.cs" />
     <Compile Include="UserReportedQuestions.cs" />
     <Compile Include="UserRoles.cs" />
   </ItemGroup>

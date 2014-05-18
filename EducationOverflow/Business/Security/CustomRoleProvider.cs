@@ -83,7 +83,18 @@ namespace Business {
         }
 
         public override string[] FindUsersInRole(string roleName, string usernameToMatch) {
-            throw new NotImplementedException();
+            if (Role.SelectRole(roleName) == null) {
+                throw new ProviderException("The specified role name does not exist.");
+            }
+
+            List<DataObjects.UserIdentifier> usersInRole = UserRoles.SelectMatchedUsersWithRole(roleName, usernameToMatch);
+
+            string[] usernamesInRole = new string[usersInRole.Count];
+            for (int i = 0; i < usersInRole.Count; i++) {
+                usernamesInRole[i] = usersInRole[i].Username;
+            }
+
+            return usernamesInRole;
         }
 
         public override string[] GetAllRoles() {

@@ -62,9 +62,6 @@ namespace Business {
         }
 
         public override bool DeleteRole(string roleName, bool throwOnPopulatedRole) {
-            // TODO: ensure cascade delete has been implemented.
-            
-            const int SUCCESSFUL_DELETE_COUNT = 1;
             bool roleDeleted = false;
             
             // validate role
@@ -74,9 +71,19 @@ namespace Business {
             }
 
             if (throwOnPopulatedRole) {
-                throw new NotImplementedException();
+                List<DataObjects.UserIdentifier> usersInRole = UserRoles.SelectUsersWithRole(roleName);
+                if (usersInRole.Count > 0) {
+                    throw new ProviderException("Role deletion prevented because it was shared by users.");
+                } else {
+                    roleDeleted = this.DeleteRole(roleName);
+                }
             } else {
-                roleDeleted = (Role.DeleteRole(roleName) == SUCCESSFUL_DELETE_COUNT);
+                List<DataObjects.UserIdentifier> usersWithRole = UserRoles.SelectUsersWithRole(roleName);
+                foreach (DataObjects.UserIdentifier userWithRole in usersWithRole) {
+                    UserRoles.DeleteUserRole(roleName, userWithRole.UserId);
+                }
+
+                roleDeleted = this.DeleteRole(roleName);
             }
 
             return roleDeleted;
@@ -131,7 +138,6 @@ namespace Business {
         }
 
         public override bool IsUserInRole(string username, string roleName) {
-
             // validate the operation parameters
             CustomRoleProvider.ValidateRoleName(roleName);
             CustomRoleProvider.ValidateUsername(username);
@@ -159,7 +165,6 @@ namespace Business {
         }
 
         public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames) {
-
             // check for invalid arguments
             foreach (string username in usernames) {
                 CustomRoleProvider.ValidateUsername(username);
@@ -194,6 +199,11 @@ namespace Business {
         }
 
         // helper methods
+
+        private bool DeleteRole(string roleName) {
+            const int SUCCESSFUL_DELETE_COUNT = 1;
+            return (Role.DeleteRole(roleName) >= SUCCESSFUL_DELETE_COUNT);
+        }
 
         private static void ValidateRoleName(string roleName) {
             const string INVALID_ROLE_NAME = "";

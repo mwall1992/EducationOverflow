@@ -20,6 +20,9 @@ namespace Business {
         private static AllUserMembershipTableAdapter allUserMembershipTableAdapter = 
             new AllUserMembershipTableAdapter();
 
+        private static UserMembershipForEmailTableAdapter userMembershipForEmailTableAdapter =
+            new UserMembershipForEmailTableAdapter();
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static DataObjects.UserMembership SelectUserMembership(string username) {
             DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
@@ -78,6 +81,30 @@ namespace Business {
             }
 
             return allUserMembership;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static DataObjects.UserMembership SelectUserMembershipWithEmail(string email) {
+            DataAccess.EducationOverflow.UserMembershipForEmailDataTable userMemberDataTable =
+                userMembershipForEmailTableAdapter.GetData(email);
+
+            DataObjects.UserMembership memberInfo = null;
+            if (userMemberDataTable.Count > 0) {
+
+                DataAccess.EducationOverflow.UserMembershipForEmailRow memberInfoRow =
+                    (DataAccess.EducationOverflow.UserMembershipForEmailRow)userMemberDataTable.Rows[0];
+
+                memberInfo = new DataObjects.UserMembership() {
+                    UserId = memberInfoRow.UserId,
+                    Username = memberInfoRow.Username,
+                    ApplicationName = memberInfoRow.ApplicationName,
+                    Email = memberInfoRow.Email,
+                    IsLocked = memberInfoRow.IsLocked,
+                    LastActivityDate = memberInfoRow.LastActivityDate
+                };
+            }
+
+            return memberInfo;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

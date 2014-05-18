@@ -171,7 +171,7 @@ namespace Business {
         }
 
         public override string GetPassword(string username, string answer) {
-            throw new System.Configuration.Provider.ProviderException("Password retrieve is disabled.");
+            throw new System.Configuration.Provider.ProviderException("Password retrieval is disabled.");
         }
 
         public override System.Web.Security.MembershipUser GetUser(string username, bool userIsOnline) {
@@ -201,10 +201,14 @@ namespace Business {
         }
 
         public override string GetUserNameByEmail(string email) {
-            // SUMMARY:
-            // Can be done.
+            string username = "";
+            DataObjects.UserMembership membership = UserMembership.SelectUserMembershipWithEmail(email);
 
-            throw new NotImplementedException();
+            if (membership != null) {
+                username = membership.Username;
+            }
+
+            return username;
         }
 
         public override int MaxInvalidPasswordAttempts {

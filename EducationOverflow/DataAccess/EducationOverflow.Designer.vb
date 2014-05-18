@@ -57,10 +57,6 @@ Partial Public Class EducationOverflow
     
     Private tableUser As UserDataTable
     
-    Private tableUserMembership As UserMembershipDataTable
-    
-    Private tableUserMembershipWithoutPassword As UserMembershipWithoutPasswordDataTable
-    
     Private tableAllUserMembership As AllUserMembershipDataTable
     
     Private tableUserMembershipForEmail As UserMembershipForEmailDataTable
@@ -70,6 +66,10 @@ Partial Public Class EducationOverflow
     Private tableUserMembershipMatchingUsername As UserMembershipMatchingUsernameDataTable
     
     Private tableUserMembershipForUserId As UserMembershipForUserIdDataTable
+    
+    Private tableUserMembershipWithoutPassword As UserMembershipWithoutPasswordDataTable
+    
+    Private tableUserMembership As UserMembershipDataTable
     
     Private tableUserIds As UserIdsDataTable
     
@@ -152,12 +152,6 @@ Partial Public Class EducationOverflow
             If (Not (ds.Tables("User")) Is Nothing) Then
                 MyBase.Tables.Add(New UserDataTable(ds.Tables("User")))
             End If
-            If (Not (ds.Tables("UserMembership")) Is Nothing) Then
-                MyBase.Tables.Add(New UserMembershipDataTable(ds.Tables("UserMembership")))
-            End If
-            If (Not (ds.Tables("UserMembershipWithoutPassword")) Is Nothing) Then
-                MyBase.Tables.Add(New UserMembershipWithoutPasswordDataTable(ds.Tables("UserMembershipWithoutPassword")))
-            End If
             If (Not (ds.Tables("AllUserMembership")) Is Nothing) Then
                 MyBase.Tables.Add(New AllUserMembershipDataTable(ds.Tables("AllUserMembership")))
             End If
@@ -172,6 +166,12 @@ Partial Public Class EducationOverflow
             End If
             If (Not (ds.Tables("UserMembershipForUserId")) Is Nothing) Then
                 MyBase.Tables.Add(New UserMembershipForUserIdDataTable(ds.Tables("UserMembershipForUserId")))
+            End If
+            If (Not (ds.Tables("UserMembershipWithoutPassword")) Is Nothing) Then
+                MyBase.Tables.Add(New UserMembershipWithoutPasswordDataTable(ds.Tables("UserMembershipWithoutPassword")))
+            End If
+            If (Not (ds.Tables("UserMembership")) Is Nothing) Then
+                MyBase.Tables.Add(New UserMembershipDataTable(ds.Tables("UserMembership")))
             End If
             If (Not (ds.Tables("UserIds")) Is Nothing) Then
                 MyBase.Tables.Add(New UserIdsDataTable(ds.Tables("UserIds")))
@@ -360,26 +360,6 @@ Partial Public Class EducationOverflow
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property UserMembership() As UserMembershipDataTable
-        Get
-            Return Me.tableUserMembership
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property UserMembershipWithoutPassword() As UserMembershipWithoutPasswordDataTable
-        Get
-            Return Me.tableUserMembershipWithoutPassword
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property AllUserMembership() As AllUserMembershipDataTable
         Get
             Return Me.tableAllUserMembership
@@ -423,6 +403,26 @@ Partial Public Class EducationOverflow
     Public ReadOnly Property UserMembershipForUserId() As UserMembershipForUserIdDataTable
         Get
             Return Me.tableUserMembershipForUserId
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property UserMembershipWithoutPassword() As UserMembershipWithoutPasswordDataTable
+        Get
+            Return Me.tableUserMembershipWithoutPassword
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property UserMembership() As UserMembershipDataTable
+        Get
+            Return Me.tableUserMembership
         End Get
     End Property
     
@@ -561,12 +561,6 @@ Partial Public Class EducationOverflow
             If (Not (ds.Tables("User")) Is Nothing) Then
                 MyBase.Tables.Add(New UserDataTable(ds.Tables("User")))
             End If
-            If (Not (ds.Tables("UserMembership")) Is Nothing) Then
-                MyBase.Tables.Add(New UserMembershipDataTable(ds.Tables("UserMembership")))
-            End If
-            If (Not (ds.Tables("UserMembershipWithoutPassword")) Is Nothing) Then
-                MyBase.Tables.Add(New UserMembershipWithoutPasswordDataTable(ds.Tables("UserMembershipWithoutPassword")))
-            End If
             If (Not (ds.Tables("AllUserMembership")) Is Nothing) Then
                 MyBase.Tables.Add(New AllUserMembershipDataTable(ds.Tables("AllUserMembership")))
             End If
@@ -581,6 +575,12 @@ Partial Public Class EducationOverflow
             End If
             If (Not (ds.Tables("UserMembershipForUserId")) Is Nothing) Then
                 MyBase.Tables.Add(New UserMembershipForUserIdDataTable(ds.Tables("UserMembershipForUserId")))
+            End If
+            If (Not (ds.Tables("UserMembershipWithoutPassword")) Is Nothing) Then
+                MyBase.Tables.Add(New UserMembershipWithoutPasswordDataTable(ds.Tables("UserMembershipWithoutPassword")))
+            End If
+            If (Not (ds.Tables("UserMembership")) Is Nothing) Then
+                MyBase.Tables.Add(New UserMembershipDataTable(ds.Tables("UserMembership")))
             End If
             If (Not (ds.Tables("UserIds")) Is Nothing) Then
                 MyBase.Tables.Add(New UserIdsDataTable(ds.Tables("UserIds")))
@@ -716,18 +716,6 @@ Partial Public Class EducationOverflow
                 Me.tableUser.InitVars
             End If
         End If
-        Me.tableUserMembership = CType(MyBase.Tables("UserMembership"),UserMembershipDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableUserMembership) Is Nothing) Then
-                Me.tableUserMembership.InitVars
-            End If
-        End If
-        Me.tableUserMembershipWithoutPassword = CType(MyBase.Tables("UserMembershipWithoutPassword"),UserMembershipWithoutPasswordDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableUserMembershipWithoutPassword) Is Nothing) Then
-                Me.tableUserMembershipWithoutPassword.InitVars
-            End If
-        End If
         Me.tableAllUserMembership = CType(MyBase.Tables("AllUserMembership"),AllUserMembershipDataTable)
         If (initTable = true) Then
             If (Not (Me.tableAllUserMembership) Is Nothing) Then
@@ -756,6 +744,18 @@ Partial Public Class EducationOverflow
         If (initTable = true) Then
             If (Not (Me.tableUserMembershipForUserId) Is Nothing) Then
                 Me.tableUserMembershipForUserId.InitVars
+            End If
+        End If
+        Me.tableUserMembershipWithoutPassword = CType(MyBase.Tables("UserMembershipWithoutPassword"),UserMembershipWithoutPasswordDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableUserMembershipWithoutPassword) Is Nothing) Then
+                Me.tableUserMembershipWithoutPassword.InitVars
+            End If
+        End If
+        Me.tableUserMembership = CType(MyBase.Tables("UserMembership"),UserMembershipDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableUserMembership) Is Nothing) Then
+                Me.tableUserMembership.InitVars
             End If
         End If
         Me.tableUserIds = CType(MyBase.Tables("UserIds"),UserIdsDataTable)
@@ -812,10 +812,6 @@ Partial Public Class EducationOverflow
         MyBase.Tables.Add(Me.tableMatchedUsersWithRole)
         Me.tableUser = New UserDataTable()
         MyBase.Tables.Add(Me.tableUser)
-        Me.tableUserMembership = New UserMembershipDataTable()
-        MyBase.Tables.Add(Me.tableUserMembership)
-        Me.tableUserMembershipWithoutPassword = New UserMembershipWithoutPasswordDataTable()
-        MyBase.Tables.Add(Me.tableUserMembershipWithoutPassword)
         Me.tableAllUserMembership = New AllUserMembershipDataTable()
         MyBase.Tables.Add(Me.tableAllUserMembership)
         Me.tableUserMembershipForEmail = New UserMembershipForEmailDataTable()
@@ -826,6 +822,10 @@ Partial Public Class EducationOverflow
         MyBase.Tables.Add(Me.tableUserMembershipMatchingUsername)
         Me.tableUserMembershipForUserId = New UserMembershipForUserIdDataTable()
         MyBase.Tables.Add(Me.tableUserMembershipForUserId)
+        Me.tableUserMembershipWithoutPassword = New UserMembershipWithoutPasswordDataTable()
+        MyBase.Tables.Add(Me.tableUserMembershipWithoutPassword)
+        Me.tableUserMembership = New UserMembershipDataTable()
+        MyBase.Tables.Add(Me.tableUserMembership)
         Me.tableUserIds = New UserIdsDataTable()
         MyBase.Tables.Add(Me.tableUserIds)
         Me.tableRoleNames = New RoleNamesDataTable()
@@ -930,18 +930,6 @@ Partial Public Class EducationOverflow
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeUserMembership() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeUserMembershipWithoutPassword() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializeAllUserMembership() As Boolean
         Return false
     End Function
@@ -967,6 +955,18 @@ Partial Public Class EducationOverflow
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializeUserMembershipForUserId() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeUserMembershipWithoutPassword() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeUserMembership() As Boolean
         Return false
     End Function
     
@@ -1089,12 +1089,6 @@ Partial Public Class EducationOverflow
     Public Delegate Sub UserRowChangeEventHandler(ByVal sender As Object, ByVal e As UserRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub UserMembershipRowChangeEventHandler(ByVal sender As Object, ByVal e As UserMembershipRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub UserMembershipWithoutPasswordRowChangeEventHandler(ByVal sender As Object, ByVal e As UserMembershipWithoutPasswordRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub AllUserMembershipRowChangeEventHandler(ByVal sender As Object, ByVal e As AllUserMembershipRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -1108,6 +1102,12 @@ Partial Public Class EducationOverflow
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub UserMembershipForUserIdRowChangeEventHandler(ByVal sender As Object, ByVal e As UserMembershipForUserIdRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub UserMembershipWithoutPasswordRowChangeEventHandler(ByVal sender As Object, ByVal e As UserMembershipWithoutPasswordRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub UserMembershipRowChangeEventHandler(ByVal sender As Object, ByVal e As UserMembershipRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub UserIdsRowChangeEventHandler(ByVal sender As Object, ByVal e As UserIdsRowChangeEvent)
@@ -5831,697 +5831,6 @@ Partial Public Class EducationOverflow
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class UserMembershipDataTable
-        Inherits Global.System.Data.TypedTableBase(Of UserMembershipRow)
-        
-        Private columnUserId As Global.System.Data.DataColumn
-        
-        Private columnApplicationName As Global.System.Data.DataColumn
-        
-        Private columnUsername As Global.System.Data.DataColumn
-        
-        Private columnPassword As Global.System.Data.DataColumn
-        
-        Private columnEmail As Global.System.Data.DataColumn
-        
-        Private columnIsLocked As Global.System.Data.DataColumn
-        
-        Private columnLastActivityDate As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "UserMembership"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUserId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ApplicationNameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnApplicationName
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property UsernameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUsername
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property PasswordColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPassword
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property EmailColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEmail
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IsLockedColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIsLocked
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property LastActivityDateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLastActivityDate
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As UserMembershipRow
-            Get
-                Return CType(Me.Rows(index),UserMembershipRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event UserMembershipRowChanging As UserMembershipRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event UserMembershipRowChanged As UserMembershipRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event UserMembershipRowDeleting As UserMembershipRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event UserMembershipRowDeleted As UserMembershipRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddUserMembershipRow(ByVal row As UserMembershipRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddUserMembershipRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Password As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date) As UserMembershipRow
-            Dim rowUserMembershipRow As UserMembershipRow = CType(Me.NewRow,UserMembershipRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Password, Email, IsLocked, LastActivityDate}
-            rowUserMembershipRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowUserMembershipRow)
-            Return rowUserMembershipRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByUserId(ByVal UserId As Long) As UserMembershipRow
-            Return CType(Me.Rows.Find(New Object() {UserId}),UserMembershipRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As UserMembershipDataTable = CType(MyBase.Clone,UserMembershipDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New UserMembershipDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnUserId = MyBase.Columns("UserId")
-            Me.columnApplicationName = MyBase.Columns("ApplicationName")
-            Me.columnUsername = MyBase.Columns("Username")
-            Me.columnPassword = MyBase.Columns("Password")
-            Me.columnEmail = MyBase.Columns("Email")
-            Me.columnIsLocked = MyBase.Columns("IsLocked")
-            Me.columnLastActivityDate = MyBase.Columns("LastActivityDate")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUserId)
-            Me.columnApplicationName = New Global.System.Data.DataColumn("ApplicationName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnApplicationName)
-            Me.columnUsername = New Global.System.Data.DataColumn("Username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUsername)
-            Me.columnPassword = New Global.System.Data.DataColumn("Password", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPassword)
-            Me.columnEmail = New Global.System.Data.DataColumn("Email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEmail)
-            Me.columnIsLocked = New Global.System.Data.DataColumn("IsLocked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIsLocked)
-            Me.columnLastActivityDate = New Global.System.Data.DataColumn("LastActivityDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLastActivityDate)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId}, true))
-            Me.columnUserId.AutoIncrement = true
-            Me.columnUserId.AutoIncrementSeed = -1
-            Me.columnUserId.AutoIncrementStep = -1
-            Me.columnUserId.AllowDBNull = false
-            Me.columnUserId.ReadOnly = true
-            Me.columnUserId.Unique = true
-            Me.columnApplicationName.AllowDBNull = false
-            Me.columnApplicationName.MaxLength = 256
-            Me.columnUsername.AllowDBNull = false
-            Me.columnUsername.MaxLength = 50
-            Me.columnPassword.AllowDBNull = false
-            Me.columnPassword.MaxLength = 256
-            Me.columnEmail.AllowDBNull = false
-            Me.columnEmail.MaxLength = 50
-            Me.columnIsLocked.AllowDBNull = false
-            Me.columnLastActivityDate.AllowDBNull = false
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewUserMembershipRow() As UserMembershipRow
-            Return CType(Me.NewRow,UserMembershipRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New UserMembershipRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(UserMembershipRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.UserMembershipRowChangedEvent) Is Nothing) Then
-                RaiseEvent UserMembershipRowChanged(Me, New UserMembershipRowChangeEvent(CType(e.Row,UserMembershipRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.UserMembershipRowChangingEvent) Is Nothing) Then
-                RaiseEvent UserMembershipRowChanging(Me, New UserMembershipRowChangeEvent(CType(e.Row,UserMembershipRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.UserMembershipRowDeletedEvent) Is Nothing) Then
-                RaiseEvent UserMembershipRowDeleted(Me, New UserMembershipRowChangeEvent(CType(e.Row,UserMembershipRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.UserMembershipRowDeletingEvent) Is Nothing) Then
-                RaiseEvent UserMembershipRowDeleting(Me, New UserMembershipRowChangeEvent(CType(e.Row,UserMembershipRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveUserMembershipRow(ByVal row As UserMembershipRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As EducationOverflow = New EducationOverflow()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "UserMembershipDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class UserMembershipWithoutPasswordDataTable
-        Inherits Global.System.Data.TypedTableBase(Of UserMembershipWithoutPasswordRow)
-        
-        Private columnUserId As Global.System.Data.DataColumn
-        
-        Private columnApplicationName As Global.System.Data.DataColumn
-        
-        Private columnUsername As Global.System.Data.DataColumn
-        
-        Private columnEmail As Global.System.Data.DataColumn
-        
-        Private columnIsLocked As Global.System.Data.DataColumn
-        
-        Private columnLastActivityDate As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "UserMembershipWithoutPassword"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUserId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ApplicationNameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnApplicationName
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property UsernameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUsername
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property EmailColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEmail
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IsLockedColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIsLocked
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property LastActivityDateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLastActivityDate
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As UserMembershipWithoutPasswordRow
-            Get
-                Return CType(Me.Rows(index),UserMembershipWithoutPasswordRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event UserMembershipWithoutPasswordRowChanging As UserMembershipWithoutPasswordRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event UserMembershipWithoutPasswordRowChanged As UserMembershipWithoutPasswordRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event UserMembershipWithoutPasswordRowDeleting As UserMembershipWithoutPasswordRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event UserMembershipWithoutPasswordRowDeleted As UserMembershipWithoutPasswordRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddUserMembershipWithoutPasswordRow(ByVal row As UserMembershipWithoutPasswordRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddUserMembershipWithoutPasswordRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date) As UserMembershipWithoutPasswordRow
-            Dim rowUserMembershipWithoutPasswordRow As UserMembershipWithoutPasswordRow = CType(Me.NewRow,UserMembershipWithoutPasswordRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Email, IsLocked, LastActivityDate}
-            rowUserMembershipWithoutPasswordRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowUserMembershipWithoutPasswordRow)
-            Return rowUserMembershipWithoutPasswordRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByUserId(ByVal UserId As Long) As UserMembershipWithoutPasswordRow
-            Return CType(Me.Rows.Find(New Object() {UserId}),UserMembershipWithoutPasswordRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As UserMembershipWithoutPasswordDataTable = CType(MyBase.Clone,UserMembershipWithoutPasswordDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New UserMembershipWithoutPasswordDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnUserId = MyBase.Columns("UserId")
-            Me.columnApplicationName = MyBase.Columns("ApplicationName")
-            Me.columnUsername = MyBase.Columns("Username")
-            Me.columnEmail = MyBase.Columns("Email")
-            Me.columnIsLocked = MyBase.Columns("IsLocked")
-            Me.columnLastActivityDate = MyBase.Columns("LastActivityDate")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUserId)
-            Me.columnApplicationName = New Global.System.Data.DataColumn("ApplicationName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnApplicationName)
-            Me.columnUsername = New Global.System.Data.DataColumn("Username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUsername)
-            Me.columnEmail = New Global.System.Data.DataColumn("Email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEmail)
-            Me.columnIsLocked = New Global.System.Data.DataColumn("IsLocked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIsLocked)
-            Me.columnLastActivityDate = New Global.System.Data.DataColumn("LastActivityDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLastActivityDate)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId}, true))
-            Me.columnUserId.AutoIncrement = true
-            Me.columnUserId.AutoIncrementSeed = -1
-            Me.columnUserId.AutoIncrementStep = -1
-            Me.columnUserId.AllowDBNull = false
-            Me.columnUserId.ReadOnly = true
-            Me.columnUserId.Unique = true
-            Me.columnApplicationName.AllowDBNull = false
-            Me.columnApplicationName.MaxLength = 256
-            Me.columnUsername.AllowDBNull = false
-            Me.columnUsername.MaxLength = 50
-            Me.columnEmail.AllowDBNull = false
-            Me.columnEmail.MaxLength = 50
-            Me.columnIsLocked.AllowDBNull = false
-            Me.columnLastActivityDate.AllowDBNull = false
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewUserMembershipWithoutPasswordRow() As UserMembershipWithoutPasswordRow
-            Return CType(Me.NewRow,UserMembershipWithoutPasswordRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New UserMembershipWithoutPasswordRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(UserMembershipWithoutPasswordRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.UserMembershipWithoutPasswordRowChangedEvent) Is Nothing) Then
-                RaiseEvent UserMembershipWithoutPasswordRowChanged(Me, New UserMembershipWithoutPasswordRowChangeEvent(CType(e.Row,UserMembershipWithoutPasswordRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.UserMembershipWithoutPasswordRowChangingEvent) Is Nothing) Then
-                RaiseEvent UserMembershipWithoutPasswordRowChanging(Me, New UserMembershipWithoutPasswordRowChangeEvent(CType(e.Row,UserMembershipWithoutPasswordRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.UserMembershipWithoutPasswordRowDeletedEvent) Is Nothing) Then
-                RaiseEvent UserMembershipWithoutPasswordRowDeleted(Me, New UserMembershipWithoutPasswordRowChangeEvent(CType(e.Row,UserMembershipWithoutPasswordRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.UserMembershipWithoutPasswordRowDeletingEvent) Is Nothing) Then
-                RaiseEvent UserMembershipWithoutPasswordRowDeleting(Me, New UserMembershipWithoutPasswordRowChangeEvent(CType(e.Row,UserMembershipWithoutPasswordRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveUserMembershipWithoutPasswordRow(ByVal row As UserMembershipWithoutPasswordRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As EducationOverflow = New EducationOverflow()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "UserMembershipWithoutPasswordDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class AllUserMembershipDataTable
         Inherits Global.System.Data.TypedTableBase(Of AllUserMembershipRow)
         
@@ -6536,6 +5845,20 @@ Partial Public Class EducationOverflow
         Private columnIsLocked As Global.System.Data.DataColumn
         
         Private columnLastActivityDate As Global.System.Data.DataColumn
+        
+        Private columnIsApproved As Global.System.Data.DataColumn
+        
+        Private columnLastPasswordChangeDate As Global.System.Data.DataColumn
+        
+        Private columnCreationDate As Global.System.Data.DataColumn
+        
+        Private columnLastLockedOutDate As Global.System.Data.DataColumn
+        
+        Private columnComment As Global.System.Data.DataColumn
+        
+        Private columnPasswordQuestion As Global.System.Data.DataColumn
+        
+        Private columnPasswordAnswer As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -6621,6 +5944,62 @@ Partial Public Class EducationOverflow
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IsApprovedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsApproved
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastPasswordChangeDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastPasswordChangeDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CreationDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCreationDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastLockedOutDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastLockedOutDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CommentColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnComment
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordQuestionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordQuestion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordAnswerColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordAnswer
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6657,9 +6036,9 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddAllUserMembershipRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date) As AllUserMembershipRow
+        Public Overloads Function AddAllUserMembershipRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Boolean, ByVal LastPasswordChangeDate As Date, ByVal CreationDate As Date, ByVal LastLockedOutDate As Date, ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String) As AllUserMembershipRow
             Dim rowAllUserMembershipRow As AllUserMembershipRow = CType(Me.NewRow,AllUserMembershipRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Email, IsLocked, LastActivityDate}
+            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Email, IsLocked, LastActivityDate, IsApproved, LastPasswordChangeDate, CreationDate, LastLockedOutDate, Comment, PasswordQuestion, PasswordAnswer}
             rowAllUserMembershipRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowAllUserMembershipRow)
             Return rowAllUserMembershipRow
@@ -6694,6 +6073,13 @@ Partial Public Class EducationOverflow
             Me.columnEmail = MyBase.Columns("Email")
             Me.columnIsLocked = MyBase.Columns("IsLocked")
             Me.columnLastActivityDate = MyBase.Columns("LastActivityDate")
+            Me.columnIsApproved = MyBase.Columns("IsApproved")
+            Me.columnLastPasswordChangeDate = MyBase.Columns("LastPasswordChangeDate")
+            Me.columnCreationDate = MyBase.Columns("CreationDate")
+            Me.columnLastLockedOutDate = MyBase.Columns("LastLockedOutDate")
+            Me.columnComment = MyBase.Columns("Comment")
+            Me.columnPasswordQuestion = MyBase.Columns("PasswordQuestion")
+            Me.columnPasswordAnswer = MyBase.Columns("PasswordAnswer")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6711,6 +6097,20 @@ Partial Public Class EducationOverflow
             MyBase.Columns.Add(Me.columnIsLocked)
             Me.columnLastActivityDate = New Global.System.Data.DataColumn("LastActivityDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLastActivityDate)
+            Me.columnIsApproved = New Global.System.Data.DataColumn("IsApproved", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsApproved)
+            Me.columnLastPasswordChangeDate = New Global.System.Data.DataColumn("LastPasswordChangeDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastPasswordChangeDate)
+            Me.columnCreationDate = New Global.System.Data.DataColumn("CreationDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCreationDate)
+            Me.columnLastLockedOutDate = New Global.System.Data.DataColumn("LastLockedOutDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastLockedOutDate)
+            Me.columnComment = New Global.System.Data.DataColumn("Comment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnComment)
+            Me.columnPasswordQuestion = New Global.System.Data.DataColumn("PasswordQuestion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordQuestion)
+            Me.columnPasswordAnswer = New Global.System.Data.DataColumn("PasswordAnswer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordAnswer)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId}, true))
             Me.columnUserId.AutoIncrement = true
             Me.columnUserId.AutoIncrementSeed = -1
@@ -6726,6 +6126,9 @@ Partial Public Class EducationOverflow
             Me.columnEmail.MaxLength = 50
             Me.columnIsLocked.AllowDBNull = false
             Me.columnLastActivityDate.AllowDBNull = false
+            Me.columnComment.MaxLength = 255
+            Me.columnPasswordQuestion.MaxLength = 255
+            Me.columnPasswordAnswer.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6875,6 +6278,20 @@ Partial Public Class EducationOverflow
         
         Private columnLastActivityDate As Global.System.Data.DataColumn
         
+        Private columnIsApproved As Global.System.Data.DataColumn
+        
+        Private columnLastPasswordChangeDate As Global.System.Data.DataColumn
+        
+        Private columnCreationDate As Global.System.Data.DataColumn
+        
+        Private columnLastLockedOutDate As Global.System.Data.DataColumn
+        
+        Private columnComment As Global.System.Data.DataColumn
+        
+        Private columnPasswordQuestion As Global.System.Data.DataColumn
+        
+        Private columnPasswordAnswer As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -6959,6 +6376,62 @@ Partial Public Class EducationOverflow
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IsApprovedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsApproved
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastPasswordChangeDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastPasswordChangeDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CreationDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCreationDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastLockedOutDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastLockedOutDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CommentColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnComment
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordQuestionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordQuestion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordAnswerColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordAnswer
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6995,9 +6468,9 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddUserMembershipForEmailRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date) As UserMembershipForEmailRow
+        Public Overloads Function AddUserMembershipForEmailRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Boolean, ByVal LastPasswordChangeDate As Date, ByVal CreationDate As Date, ByVal LastLockedOutDate As Date, ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String) As UserMembershipForEmailRow
             Dim rowUserMembershipForEmailRow As UserMembershipForEmailRow = CType(Me.NewRow,UserMembershipForEmailRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Email, IsLocked, LastActivityDate}
+            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Email, IsLocked, LastActivityDate, IsApproved, LastPasswordChangeDate, CreationDate, LastLockedOutDate, Comment, PasswordQuestion, PasswordAnswer}
             rowUserMembershipForEmailRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUserMembershipForEmailRow)
             Return rowUserMembershipForEmailRow
@@ -7032,6 +6505,13 @@ Partial Public Class EducationOverflow
             Me.columnEmail = MyBase.Columns("Email")
             Me.columnIsLocked = MyBase.Columns("IsLocked")
             Me.columnLastActivityDate = MyBase.Columns("LastActivityDate")
+            Me.columnIsApproved = MyBase.Columns("IsApproved")
+            Me.columnLastPasswordChangeDate = MyBase.Columns("LastPasswordChangeDate")
+            Me.columnCreationDate = MyBase.Columns("CreationDate")
+            Me.columnLastLockedOutDate = MyBase.Columns("LastLockedOutDate")
+            Me.columnComment = MyBase.Columns("Comment")
+            Me.columnPasswordQuestion = MyBase.Columns("PasswordQuestion")
+            Me.columnPasswordAnswer = MyBase.Columns("PasswordAnswer")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7049,6 +6529,20 @@ Partial Public Class EducationOverflow
             MyBase.Columns.Add(Me.columnIsLocked)
             Me.columnLastActivityDate = New Global.System.Data.DataColumn("LastActivityDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLastActivityDate)
+            Me.columnIsApproved = New Global.System.Data.DataColumn("IsApproved", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsApproved)
+            Me.columnLastPasswordChangeDate = New Global.System.Data.DataColumn("LastPasswordChangeDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastPasswordChangeDate)
+            Me.columnCreationDate = New Global.System.Data.DataColumn("CreationDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCreationDate)
+            Me.columnLastLockedOutDate = New Global.System.Data.DataColumn("LastLockedOutDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastLockedOutDate)
+            Me.columnComment = New Global.System.Data.DataColumn("Comment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnComment)
+            Me.columnPasswordQuestion = New Global.System.Data.DataColumn("PasswordQuestion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordQuestion)
+            Me.columnPasswordAnswer = New Global.System.Data.DataColumn("PasswordAnswer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordAnswer)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId}, true))
             Me.columnUserId.AutoIncrement = true
             Me.columnUserId.AutoIncrementSeed = -1
@@ -7064,6 +6558,9 @@ Partial Public Class EducationOverflow
             Me.columnEmail.MaxLength = 50
             Me.columnIsLocked.AllowDBNull = false
             Me.columnLastActivityDate.AllowDBNull = false
+            Me.columnComment.MaxLength = 255
+            Me.columnPasswordQuestion.MaxLength = 255
+            Me.columnPasswordAnswer.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7213,6 +6710,20 @@ Partial Public Class EducationOverflow
         
         Private columnLastActivityDate As Global.System.Data.DataColumn
         
+        Private columnIsApproved As Global.System.Data.DataColumn
+        
+        Private columnLastPasswordChangeDate As Global.System.Data.DataColumn
+        
+        Private columnCreationDate As Global.System.Data.DataColumn
+        
+        Private columnLastLockedOutDate As Global.System.Data.DataColumn
+        
+        Private columnComment As Global.System.Data.DataColumn
+        
+        Private columnPasswordQuestion As Global.System.Data.DataColumn
+        
+        Private columnPasswordAnswer As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -7297,6 +6808,62 @@ Partial Public Class EducationOverflow
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IsApprovedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsApproved
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastPasswordChangeDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastPasswordChangeDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CreationDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCreationDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastLockedOutDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastLockedOutDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CommentColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnComment
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordQuestionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordQuestion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordAnswerColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordAnswer
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -7333,9 +6900,9 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddUserMembershipMatchingEmailRow(ByVal ApplicationName As String, ByVal Username As String, ByVal IsLocked As Boolean, ByVal Email As String, ByVal LastActivityDate As Date) As UserMembershipMatchingEmailRow
+        Public Overloads Function AddUserMembershipMatchingEmailRow(ByVal ApplicationName As String, ByVal Username As String, ByVal IsLocked As Boolean, ByVal Email As String, ByVal LastActivityDate As Date, ByVal IsApproved As Boolean, ByVal LastPasswordChangeDate As Date, ByVal CreationDate As Date, ByVal LastLockedOutDate As Date, ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String) As UserMembershipMatchingEmailRow
             Dim rowUserMembershipMatchingEmailRow As UserMembershipMatchingEmailRow = CType(Me.NewRow,UserMembershipMatchingEmailRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, IsLocked, Email, LastActivityDate}
+            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, IsLocked, Email, LastActivityDate, IsApproved, LastPasswordChangeDate, CreationDate, LastLockedOutDate, Comment, PasswordQuestion, PasswordAnswer}
             rowUserMembershipMatchingEmailRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUserMembershipMatchingEmailRow)
             Return rowUserMembershipMatchingEmailRow
@@ -7370,6 +6937,13 @@ Partial Public Class EducationOverflow
             Me.columnIsLocked = MyBase.Columns("IsLocked")
             Me.columnEmail = MyBase.Columns("Email")
             Me.columnLastActivityDate = MyBase.Columns("LastActivityDate")
+            Me.columnIsApproved = MyBase.Columns("IsApproved")
+            Me.columnLastPasswordChangeDate = MyBase.Columns("LastPasswordChangeDate")
+            Me.columnCreationDate = MyBase.Columns("CreationDate")
+            Me.columnLastLockedOutDate = MyBase.Columns("LastLockedOutDate")
+            Me.columnComment = MyBase.Columns("Comment")
+            Me.columnPasswordQuestion = MyBase.Columns("PasswordQuestion")
+            Me.columnPasswordAnswer = MyBase.Columns("PasswordAnswer")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7387,6 +6961,20 @@ Partial Public Class EducationOverflow
             MyBase.Columns.Add(Me.columnEmail)
             Me.columnLastActivityDate = New Global.System.Data.DataColumn("LastActivityDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLastActivityDate)
+            Me.columnIsApproved = New Global.System.Data.DataColumn("IsApproved", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsApproved)
+            Me.columnLastPasswordChangeDate = New Global.System.Data.DataColumn("LastPasswordChangeDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastPasswordChangeDate)
+            Me.columnCreationDate = New Global.System.Data.DataColumn("CreationDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCreationDate)
+            Me.columnLastLockedOutDate = New Global.System.Data.DataColumn("LastLockedOutDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastLockedOutDate)
+            Me.columnComment = New Global.System.Data.DataColumn("Comment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnComment)
+            Me.columnPasswordQuestion = New Global.System.Data.DataColumn("PasswordQuestion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordQuestion)
+            Me.columnPasswordAnswer = New Global.System.Data.DataColumn("PasswordAnswer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordAnswer)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId}, true))
             Me.columnUserId.AutoIncrement = true
             Me.columnUserId.AutoIncrementSeed = -1
@@ -7402,6 +6990,9 @@ Partial Public Class EducationOverflow
             Me.columnEmail.AllowDBNull = false
             Me.columnEmail.MaxLength = 50
             Me.columnLastActivityDate.AllowDBNull = false
+            Me.columnComment.MaxLength = 255
+            Me.columnPasswordQuestion.MaxLength = 255
+            Me.columnPasswordAnswer.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7551,6 +7142,20 @@ Partial Public Class EducationOverflow
         
         Private columnLastActivityDate As Global.System.Data.DataColumn
         
+        Private columnIsApproved As Global.System.Data.DataColumn
+        
+        Private columnLastPasswordChangeDate As Global.System.Data.DataColumn
+        
+        Private columnCreationDate As Global.System.Data.DataColumn
+        
+        Private columnLastLockedOutDate As Global.System.Data.DataColumn
+        
+        Private columnComment As Global.System.Data.DataColumn
+        
+        Private columnPasswordQuestion As Global.System.Data.DataColumn
+        
+        Private columnPasswordAnswer As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -7635,6 +7240,62 @@ Partial Public Class EducationOverflow
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IsApprovedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsApproved
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastPasswordChangeDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastPasswordChangeDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CreationDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCreationDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastLockedOutDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastLockedOutDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CommentColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnComment
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordQuestionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordQuestion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordAnswerColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordAnswer
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -7671,9 +7332,9 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddUserMembershipMatchingUsernameRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date) As UserMembershipMatchingUsernameRow
+        Public Overloads Function AddUserMembershipMatchingUsernameRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Boolean, ByVal LastPasswordChangeDate As Date, ByVal CreationDate As Date, ByVal LastLockedOutDate As Date, ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String) As UserMembershipMatchingUsernameRow
             Dim rowUserMembershipMatchingUsernameRow As UserMembershipMatchingUsernameRow = CType(Me.NewRow,UserMembershipMatchingUsernameRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Email, IsLocked, LastActivityDate}
+            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Email, IsLocked, LastActivityDate, IsApproved, LastPasswordChangeDate, CreationDate, LastLockedOutDate, Comment, PasswordQuestion, PasswordAnswer}
             rowUserMembershipMatchingUsernameRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUserMembershipMatchingUsernameRow)
             Return rowUserMembershipMatchingUsernameRow
@@ -7708,6 +7369,13 @@ Partial Public Class EducationOverflow
             Me.columnEmail = MyBase.Columns("Email")
             Me.columnIsLocked = MyBase.Columns("IsLocked")
             Me.columnLastActivityDate = MyBase.Columns("LastActivityDate")
+            Me.columnIsApproved = MyBase.Columns("IsApproved")
+            Me.columnLastPasswordChangeDate = MyBase.Columns("LastPasswordChangeDate")
+            Me.columnCreationDate = MyBase.Columns("CreationDate")
+            Me.columnLastLockedOutDate = MyBase.Columns("LastLockedOutDate")
+            Me.columnComment = MyBase.Columns("Comment")
+            Me.columnPasswordQuestion = MyBase.Columns("PasswordQuestion")
+            Me.columnPasswordAnswer = MyBase.Columns("PasswordAnswer")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7725,6 +7393,20 @@ Partial Public Class EducationOverflow
             MyBase.Columns.Add(Me.columnIsLocked)
             Me.columnLastActivityDate = New Global.System.Data.DataColumn("LastActivityDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLastActivityDate)
+            Me.columnIsApproved = New Global.System.Data.DataColumn("IsApproved", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsApproved)
+            Me.columnLastPasswordChangeDate = New Global.System.Data.DataColumn("LastPasswordChangeDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastPasswordChangeDate)
+            Me.columnCreationDate = New Global.System.Data.DataColumn("CreationDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCreationDate)
+            Me.columnLastLockedOutDate = New Global.System.Data.DataColumn("LastLockedOutDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastLockedOutDate)
+            Me.columnComment = New Global.System.Data.DataColumn("Comment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnComment)
+            Me.columnPasswordQuestion = New Global.System.Data.DataColumn("PasswordQuestion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordQuestion)
+            Me.columnPasswordAnswer = New Global.System.Data.DataColumn("PasswordAnswer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordAnswer)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId}, true))
             Me.columnUserId.AutoIncrement = true
             Me.columnUserId.AutoIncrementSeed = -1
@@ -7740,6 +7422,9 @@ Partial Public Class EducationOverflow
             Me.columnEmail.MaxLength = 50
             Me.columnIsLocked.AllowDBNull = false
             Me.columnLastActivityDate.AllowDBNull = false
+            Me.columnComment.MaxLength = 255
+            Me.columnPasswordQuestion.MaxLength = 255
+            Me.columnPasswordAnswer.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7889,6 +7574,20 @@ Partial Public Class EducationOverflow
         
         Private columnLastActivityDate As Global.System.Data.DataColumn
         
+        Private columnIsApproved As Global.System.Data.DataColumn
+        
+        Private columnLastPasswordChangeDate As Global.System.Data.DataColumn
+        
+        Private columnCreationDate As Global.System.Data.DataColumn
+        
+        Private columnLastLockedOutDate As Global.System.Data.DataColumn
+        
+        Private columnComment As Global.System.Data.DataColumn
+        
+        Private columnPasswordQuestion As Global.System.Data.DataColumn
+        
+        Private columnPasswordAnswer As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -7973,6 +7672,62 @@ Partial Public Class EducationOverflow
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IsApprovedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsApproved
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastPasswordChangeDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastPasswordChangeDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CreationDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCreationDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastLockedOutDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastLockedOutDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CommentColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnComment
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordQuestionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordQuestion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordAnswerColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordAnswer
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -8009,9 +7764,9 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddUserMembershipForUserIdRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date) As UserMembershipForUserIdRow
+        Public Overloads Function AddUserMembershipForUserIdRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Boolean, ByVal LastPasswordChangeDate As Date, ByVal CreationDate As Date, ByVal LastLockedOutDate As Date, ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String) As UserMembershipForUserIdRow
             Dim rowUserMembershipForUserIdRow As UserMembershipForUserIdRow = CType(Me.NewRow,UserMembershipForUserIdRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Email, IsLocked, LastActivityDate}
+            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Email, IsLocked, LastActivityDate, IsApproved, LastPasswordChangeDate, CreationDate, LastLockedOutDate, Comment, PasswordQuestion, PasswordAnswer}
             rowUserMembershipForUserIdRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUserMembershipForUserIdRow)
             Return rowUserMembershipForUserIdRow
@@ -8046,6 +7801,13 @@ Partial Public Class EducationOverflow
             Me.columnEmail = MyBase.Columns("Email")
             Me.columnIsLocked = MyBase.Columns("IsLocked")
             Me.columnLastActivityDate = MyBase.Columns("LastActivityDate")
+            Me.columnIsApproved = MyBase.Columns("IsApproved")
+            Me.columnLastPasswordChangeDate = MyBase.Columns("LastPasswordChangeDate")
+            Me.columnCreationDate = MyBase.Columns("CreationDate")
+            Me.columnLastLockedOutDate = MyBase.Columns("LastLockedOutDate")
+            Me.columnComment = MyBase.Columns("Comment")
+            Me.columnPasswordQuestion = MyBase.Columns("PasswordQuestion")
+            Me.columnPasswordAnswer = MyBase.Columns("PasswordAnswer")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8063,6 +7825,20 @@ Partial Public Class EducationOverflow
             MyBase.Columns.Add(Me.columnIsLocked)
             Me.columnLastActivityDate = New Global.System.Data.DataColumn("LastActivityDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLastActivityDate)
+            Me.columnIsApproved = New Global.System.Data.DataColumn("IsApproved", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsApproved)
+            Me.columnLastPasswordChangeDate = New Global.System.Data.DataColumn("LastPasswordChangeDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastPasswordChangeDate)
+            Me.columnCreationDate = New Global.System.Data.DataColumn("CreationDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCreationDate)
+            Me.columnLastLockedOutDate = New Global.System.Data.DataColumn("LastLockedOutDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastLockedOutDate)
+            Me.columnComment = New Global.System.Data.DataColumn("Comment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnComment)
+            Me.columnPasswordQuestion = New Global.System.Data.DataColumn("PasswordQuestion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordQuestion)
+            Me.columnPasswordAnswer = New Global.System.Data.DataColumn("PasswordAnswer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordAnswer)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId}, true))
             Me.columnUserId.AutoIncrement = true
             Me.columnUserId.AutoIncrementSeed = -1
@@ -8078,6 +7854,9 @@ Partial Public Class EducationOverflow
             Me.columnEmail.MaxLength = 50
             Me.columnIsLocked.AllowDBNull = false
             Me.columnLastActivityDate.AllowDBNull = false
+            Me.columnComment.MaxLength = 255
+            Me.columnPasswordQuestion.MaxLength = 255
+            Me.columnPasswordAnswer.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8164,6 +7943,885 @@ Partial Public Class EducationOverflow
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "UserMembershipForUserIdDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class UserMembershipWithoutPasswordDataTable
+        Inherits Global.System.Data.TypedTableBase(Of UserMembershipWithoutPasswordRow)
+        
+        Private columnUserId As Global.System.Data.DataColumn
+        
+        Private columnApplicationName As Global.System.Data.DataColumn
+        
+        Private columnUsername As Global.System.Data.DataColumn
+        
+        Private columnEmail As Global.System.Data.DataColumn
+        
+        Private columnIsLocked As Global.System.Data.DataColumn
+        
+        Private columnLastActivityDate As Global.System.Data.DataColumn
+        
+        Private columnIsApproved As Global.System.Data.DataColumn
+        
+        Private columnLastPasswordChangeDate As Global.System.Data.DataColumn
+        
+        Private columnCreationDate As Global.System.Data.DataColumn
+        
+        Private columnLastLockedOutDate As Global.System.Data.DataColumn
+        
+        Private columnComment As Global.System.Data.DataColumn
+        
+        Private columnPasswordQuestion As Global.System.Data.DataColumn
+        
+        Private columnPasswordAnswer As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "UserMembershipWithoutPassword"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUserId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ApplicationNameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnApplicationName
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UsernameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUsername
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property EmailColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEmail
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IsLockedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsLocked
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastActivityDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastActivityDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IsApprovedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsApproved
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastPasswordChangeDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastPasswordChangeDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CreationDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCreationDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastLockedOutDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastLockedOutDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CommentColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnComment
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordQuestionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordQuestion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordAnswerColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordAnswer
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As UserMembershipWithoutPasswordRow
+            Get
+                Return CType(Me.Rows(index),UserMembershipWithoutPasswordRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserMembershipWithoutPasswordRowChanging As UserMembershipWithoutPasswordRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserMembershipWithoutPasswordRowChanged As UserMembershipWithoutPasswordRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserMembershipWithoutPasswordRowDeleting As UserMembershipWithoutPasswordRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserMembershipWithoutPasswordRowDeleted As UserMembershipWithoutPasswordRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddUserMembershipWithoutPasswordRow(ByVal row As UserMembershipWithoutPasswordRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddUserMembershipWithoutPasswordRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Boolean, ByVal LastPasswordChangeDate As Date, ByVal CreationDate As Date, ByVal LastLockedOutDate As Date, ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String) As UserMembershipWithoutPasswordRow
+            Dim rowUserMembershipWithoutPasswordRow As UserMembershipWithoutPasswordRow = CType(Me.NewRow,UserMembershipWithoutPasswordRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Email, IsLocked, LastActivityDate, IsApproved, LastPasswordChangeDate, CreationDate, LastLockedOutDate, Comment, PasswordQuestion, PasswordAnswer}
+            rowUserMembershipWithoutPasswordRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowUserMembershipWithoutPasswordRow)
+            Return rowUserMembershipWithoutPasswordRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function FindByUserId(ByVal UserId As Long) As UserMembershipWithoutPasswordRow
+            Return CType(Me.Rows.Find(New Object() {UserId}),UserMembershipWithoutPasswordRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As UserMembershipWithoutPasswordDataTable = CType(MyBase.Clone,UserMembershipWithoutPasswordDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New UserMembershipWithoutPasswordDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnUserId = MyBase.Columns("UserId")
+            Me.columnApplicationName = MyBase.Columns("ApplicationName")
+            Me.columnUsername = MyBase.Columns("Username")
+            Me.columnEmail = MyBase.Columns("Email")
+            Me.columnIsLocked = MyBase.Columns("IsLocked")
+            Me.columnLastActivityDate = MyBase.Columns("LastActivityDate")
+            Me.columnIsApproved = MyBase.Columns("IsApproved")
+            Me.columnLastPasswordChangeDate = MyBase.Columns("LastPasswordChangeDate")
+            Me.columnCreationDate = MyBase.Columns("CreationDate")
+            Me.columnLastLockedOutDate = MyBase.Columns("LastLockedOutDate")
+            Me.columnComment = MyBase.Columns("Comment")
+            Me.columnPasswordQuestion = MyBase.Columns("PasswordQuestion")
+            Me.columnPasswordAnswer = MyBase.Columns("PasswordAnswer")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUserId)
+            Me.columnApplicationName = New Global.System.Data.DataColumn("ApplicationName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnApplicationName)
+            Me.columnUsername = New Global.System.Data.DataColumn("Username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUsername)
+            Me.columnEmail = New Global.System.Data.DataColumn("Email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEmail)
+            Me.columnIsLocked = New Global.System.Data.DataColumn("IsLocked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsLocked)
+            Me.columnLastActivityDate = New Global.System.Data.DataColumn("LastActivityDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastActivityDate)
+            Me.columnIsApproved = New Global.System.Data.DataColumn("IsApproved", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsApproved)
+            Me.columnLastPasswordChangeDate = New Global.System.Data.DataColumn("LastPasswordChangeDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastPasswordChangeDate)
+            Me.columnCreationDate = New Global.System.Data.DataColumn("CreationDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCreationDate)
+            Me.columnLastLockedOutDate = New Global.System.Data.DataColumn("LastLockedOutDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastLockedOutDate)
+            Me.columnComment = New Global.System.Data.DataColumn("Comment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnComment)
+            Me.columnPasswordQuestion = New Global.System.Data.DataColumn("PasswordQuestion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordQuestion)
+            Me.columnPasswordAnswer = New Global.System.Data.DataColumn("PasswordAnswer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordAnswer)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId}, true))
+            Me.columnUserId.AutoIncrement = true
+            Me.columnUserId.AutoIncrementSeed = -1
+            Me.columnUserId.AutoIncrementStep = -1
+            Me.columnUserId.AllowDBNull = false
+            Me.columnUserId.ReadOnly = true
+            Me.columnUserId.Unique = true
+            Me.columnApplicationName.AllowDBNull = false
+            Me.columnApplicationName.MaxLength = 256
+            Me.columnUsername.AllowDBNull = false
+            Me.columnUsername.MaxLength = 50
+            Me.columnEmail.AllowDBNull = false
+            Me.columnEmail.MaxLength = 50
+            Me.columnIsLocked.AllowDBNull = false
+            Me.columnLastActivityDate.AllowDBNull = false
+            Me.columnComment.MaxLength = 255
+            Me.columnPasswordQuestion.MaxLength = 255
+            Me.columnPasswordAnswer.MaxLength = 255
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewUserMembershipWithoutPasswordRow() As UserMembershipWithoutPasswordRow
+            Return CType(Me.NewRow,UserMembershipWithoutPasswordRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New UserMembershipWithoutPasswordRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(UserMembershipWithoutPasswordRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.UserMembershipWithoutPasswordRowChangedEvent) Is Nothing) Then
+                RaiseEvent UserMembershipWithoutPasswordRowChanged(Me, New UserMembershipWithoutPasswordRowChangeEvent(CType(e.Row,UserMembershipWithoutPasswordRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.UserMembershipWithoutPasswordRowChangingEvent) Is Nothing) Then
+                RaiseEvent UserMembershipWithoutPasswordRowChanging(Me, New UserMembershipWithoutPasswordRowChangeEvent(CType(e.Row,UserMembershipWithoutPasswordRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.UserMembershipWithoutPasswordRowDeletedEvent) Is Nothing) Then
+                RaiseEvent UserMembershipWithoutPasswordRowDeleted(Me, New UserMembershipWithoutPasswordRowChangeEvent(CType(e.Row,UserMembershipWithoutPasswordRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.UserMembershipWithoutPasswordRowDeletingEvent) Is Nothing) Then
+                RaiseEvent UserMembershipWithoutPasswordRowDeleting(Me, New UserMembershipWithoutPasswordRowChangeEvent(CType(e.Row,UserMembershipWithoutPasswordRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveUserMembershipWithoutPasswordRow(ByVal row As UserMembershipWithoutPasswordRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As EducationOverflow = New EducationOverflow()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "UserMembershipWithoutPasswordDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class UserMembershipDataTable
+        Inherits Global.System.Data.TypedTableBase(Of UserMembershipRow)
+        
+        Private columnUserId As Global.System.Data.DataColumn
+        
+        Private columnApplicationName As Global.System.Data.DataColumn
+        
+        Private columnUsername As Global.System.Data.DataColumn
+        
+        Private columnPassword As Global.System.Data.DataColumn
+        
+        Private columnEmail As Global.System.Data.DataColumn
+        
+        Private columnIsLocked As Global.System.Data.DataColumn
+        
+        Private columnLastActivityDate As Global.System.Data.DataColumn
+        
+        Private columnIsApproved As Global.System.Data.DataColumn
+        
+        Private columnLastPasswordChangeDate As Global.System.Data.DataColumn
+        
+        Private columnCreationDate As Global.System.Data.DataColumn
+        
+        Private columnLastLockedOutDate As Global.System.Data.DataColumn
+        
+        Private columnComment As Global.System.Data.DataColumn
+        
+        Private columnPasswordQuestion As Global.System.Data.DataColumn
+        
+        Private columnPasswordAnswer As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "UserMembership"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUserId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ApplicationNameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnApplicationName
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UsernameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUsername
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPassword
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property EmailColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEmail
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IsLockedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsLocked
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastActivityDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastActivityDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IsApprovedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsApproved
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastPasswordChangeDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastPasswordChangeDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CreationDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCreationDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LastLockedOutDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLastLockedOutDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CommentColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnComment
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordQuestionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordQuestion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PasswordAnswerColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPasswordAnswer
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As UserMembershipRow
+            Get
+                Return CType(Me.Rows(index),UserMembershipRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserMembershipRowChanging As UserMembershipRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserMembershipRowChanged As UserMembershipRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserMembershipRowDeleting As UserMembershipRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserMembershipRowDeleted As UserMembershipRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddUserMembershipRow(ByVal row As UserMembershipRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddUserMembershipRow(ByVal ApplicationName As String, ByVal Username As String, ByVal Password As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Boolean, ByVal LastPasswordChangeDate As Date, ByVal CreationDate As Date, ByVal LastLockedOutDate As Date, ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String) As UserMembershipRow
+            Dim rowUserMembershipRow As UserMembershipRow = CType(Me.NewRow,UserMembershipRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, ApplicationName, Username, Password, Email, IsLocked, LastActivityDate, IsApproved, LastPasswordChangeDate, CreationDate, LastLockedOutDate, Comment, PasswordQuestion, PasswordAnswer}
+            rowUserMembershipRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowUserMembershipRow)
+            Return rowUserMembershipRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function FindByUserId(ByVal UserId As Long) As UserMembershipRow
+            Return CType(Me.Rows.Find(New Object() {UserId}),UserMembershipRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As UserMembershipDataTable = CType(MyBase.Clone,UserMembershipDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New UserMembershipDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnUserId = MyBase.Columns("UserId")
+            Me.columnApplicationName = MyBase.Columns("ApplicationName")
+            Me.columnUsername = MyBase.Columns("Username")
+            Me.columnPassword = MyBase.Columns("Password")
+            Me.columnEmail = MyBase.Columns("Email")
+            Me.columnIsLocked = MyBase.Columns("IsLocked")
+            Me.columnLastActivityDate = MyBase.Columns("LastActivityDate")
+            Me.columnIsApproved = MyBase.Columns("IsApproved")
+            Me.columnLastPasswordChangeDate = MyBase.Columns("LastPasswordChangeDate")
+            Me.columnCreationDate = MyBase.Columns("CreationDate")
+            Me.columnLastLockedOutDate = MyBase.Columns("LastLockedOutDate")
+            Me.columnComment = MyBase.Columns("Comment")
+            Me.columnPasswordQuestion = MyBase.Columns("PasswordQuestion")
+            Me.columnPasswordAnswer = MyBase.Columns("PasswordAnswer")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUserId)
+            Me.columnApplicationName = New Global.System.Data.DataColumn("ApplicationName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnApplicationName)
+            Me.columnUsername = New Global.System.Data.DataColumn("Username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUsername)
+            Me.columnPassword = New Global.System.Data.DataColumn("Password", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPassword)
+            Me.columnEmail = New Global.System.Data.DataColumn("Email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEmail)
+            Me.columnIsLocked = New Global.System.Data.DataColumn("IsLocked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsLocked)
+            Me.columnLastActivityDate = New Global.System.Data.DataColumn("LastActivityDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastActivityDate)
+            Me.columnIsApproved = New Global.System.Data.DataColumn("IsApproved", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsApproved)
+            Me.columnLastPasswordChangeDate = New Global.System.Data.DataColumn("LastPasswordChangeDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastPasswordChangeDate)
+            Me.columnCreationDate = New Global.System.Data.DataColumn("CreationDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCreationDate)
+            Me.columnLastLockedOutDate = New Global.System.Data.DataColumn("LastLockedOutDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLastLockedOutDate)
+            Me.columnComment = New Global.System.Data.DataColumn("Comment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnComment)
+            Me.columnPasswordQuestion = New Global.System.Data.DataColumn("PasswordQuestion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordQuestion)
+            Me.columnPasswordAnswer = New Global.System.Data.DataColumn("PasswordAnswer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPasswordAnswer)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId}, true))
+            Me.columnUserId.AutoIncrement = true
+            Me.columnUserId.AutoIncrementSeed = -1
+            Me.columnUserId.AutoIncrementStep = -1
+            Me.columnUserId.AllowDBNull = false
+            Me.columnUserId.ReadOnly = true
+            Me.columnUserId.Unique = true
+            Me.columnApplicationName.AllowDBNull = false
+            Me.columnApplicationName.MaxLength = 256
+            Me.columnUsername.AllowDBNull = false
+            Me.columnUsername.MaxLength = 50
+            Me.columnPassword.AllowDBNull = false
+            Me.columnPassword.MaxLength = 256
+            Me.columnEmail.AllowDBNull = false
+            Me.columnEmail.MaxLength = 50
+            Me.columnIsLocked.AllowDBNull = false
+            Me.columnLastActivityDate.AllowDBNull = false
+            Me.columnComment.MaxLength = 255
+            Me.columnPasswordQuestion.MaxLength = 255
+            Me.columnPasswordAnswer.MaxLength = 255
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewUserMembershipRow() As UserMembershipRow
+            Return CType(Me.NewRow,UserMembershipRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New UserMembershipRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(UserMembershipRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.UserMembershipRowChangedEvent) Is Nothing) Then
+                RaiseEvent UserMembershipRowChanged(Me, New UserMembershipRowChangeEvent(CType(e.Row,UserMembershipRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.UserMembershipRowChangingEvent) Is Nothing) Then
+                RaiseEvent UserMembershipRowChanging(Me, New UserMembershipRowChangeEvent(CType(e.Row,UserMembershipRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.UserMembershipRowDeletedEvent) Is Nothing) Then
+                RaiseEvent UserMembershipRowDeleted(Me, New UserMembershipRowChangeEvent(CType(e.Row,UserMembershipRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.UserMembershipRowDeletingEvent) Is Nothing) Then
+                RaiseEvent UserMembershipRowDeleting(Me, New UserMembershipRowChangeEvent(CType(e.Row,UserMembershipRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveUserMembershipRow(ByVal row As UserMembershipRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As EducationOverflow = New EducationOverflow()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "UserMembershipDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -9670,6 +10328,1653 @@ Partial Public Class EducationOverflow
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
+    Partial Public Class AllUserMembershipRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableAllUserMembership As AllUserMembershipDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableAllUserMembership = CType(Me.Table,AllUserMembershipDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property UserId() As Long
+            Get
+                Return CType(Me(Me.tableAllUserMembership.UserIdColumn),Long)
+            End Get
+            Set
+                Me(Me.tableAllUserMembership.UserIdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ApplicationName() As String
+            Get
+                Return CType(Me(Me.tableAllUserMembership.ApplicationNameColumn),String)
+            End Get
+            Set
+                Me(Me.tableAllUserMembership.ApplicationNameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Username() As String
+            Get
+                Return CType(Me(Me.tableAllUserMembership.UsernameColumn),String)
+            End Get
+            Set
+                Me(Me.tableAllUserMembership.UsernameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Email() As String
+            Get
+                Return CType(Me(Me.tableAllUserMembership.EmailColumn),String)
+            End Get
+            Set
+                Me(Me.tableAllUserMembership.EmailColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IsLocked() As Boolean
+            Get
+                Return CType(Me(Me.tableAllUserMembership.IsLockedColumn),Boolean)
+            End Get
+            Set
+                Me(Me.tableAllUserMembership.IsLockedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property LastActivityDate() As Date
+            Get
+                Return CType(Me(Me.tableAllUserMembership.LastActivityDateColumn),Date)
+            End Get
+            Set
+                Me(Me.tableAllUserMembership.LastActivityDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IsApproved() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableAllUserMembership.IsApprovedColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsApproved' in table 'AllUserMembership' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAllUserMembership.IsApprovedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property LastPasswordChangeDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableAllUserMembership.LastPasswordChangeDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastPasswordChangeDate' in table 'AllUserMembership' is DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAllUserMembership.LastPasswordChangeDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CreationDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableAllUserMembership.CreationDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CreationDate' in table 'AllUserMembership' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAllUserMembership.CreationDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property LastLockedOutDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableAllUserMembership.LastLockedOutDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastLockedOutDate' in table 'AllUserMembership' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAllUserMembership.LastLockedOutDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Comment() As String
+            Get
+                If Me.IsCommentNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableAllUserMembership.CommentColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableAllUserMembership.CommentColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PasswordQuestion() As String
+            Get
+                If Me.IsPasswordQuestionNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableAllUserMembership.PasswordQuestionColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableAllUserMembership.PasswordQuestionColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PasswordAnswer() As String
+            Get
+                If Me.IsPasswordAnswerNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableAllUserMembership.PasswordAnswerColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableAllUserMembership.PasswordAnswerColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsIsApprovedNull() As Boolean
+            Return Me.IsNull(Me.tableAllUserMembership.IsApprovedColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetIsApprovedNull()
+            Me(Me.tableAllUserMembership.IsApprovedColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLastPasswordChangeDateNull() As Boolean
+            Return Me.IsNull(Me.tableAllUserMembership.LastPasswordChangeDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLastPasswordChangeDateNull()
+            Me(Me.tableAllUserMembership.LastPasswordChangeDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCreationDateNull() As Boolean
+            Return Me.IsNull(Me.tableAllUserMembership.CreationDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCreationDateNull()
+            Me(Me.tableAllUserMembership.CreationDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLastLockedOutDateNull() As Boolean
+            Return Me.IsNull(Me.tableAllUserMembership.LastLockedOutDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLastLockedOutDateNull()
+            Me(Me.tableAllUserMembership.LastLockedOutDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCommentNull() As Boolean
+            Return Me.IsNull(Me.tableAllUserMembership.CommentColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCommentNull()
+            Me(Me.tableAllUserMembership.CommentColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPasswordQuestionNull() As Boolean
+            Return Me.IsNull(Me.tableAllUserMembership.PasswordQuestionColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPasswordQuestionNull()
+            Me(Me.tableAllUserMembership.PasswordQuestionColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPasswordAnswerNull() As Boolean
+            Return Me.IsNull(Me.tableAllUserMembership.PasswordAnswerColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPasswordAnswerNull()
+            Me(Me.tableAllUserMembership.PasswordAnswerColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class UserMembershipForEmailRow
+        Inherits Global.System.Data.DataRow
+
+        Private tableUserMembershipForEmail As UserMembershipForEmailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableUserMembershipForEmail = CType(Me.Table, UserMembershipForEmailDataTable)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property UserId() As Long
+            Get
+                Return CType(Me(Me.tableUserMembershipForEmail.UserIdColumn), Long)
+            End Get
+            Set(value As Long)
+                Me(Me.tableUserMembershipForEmail.UserIdColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property ApplicationName() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipForEmail.ApplicationNameColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForEmail.ApplicationNameColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Username() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipForEmail.UsernameColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForEmail.UsernameColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Email() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipForEmail.EmailColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForEmail.EmailColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property IsLocked() As Boolean
+            Get
+                Return CType(Me(Me.tableUserMembershipForEmail.IsLockedColumn), Boolean)
+            End Get
+            Set(value As Boolean)
+                Me(Me.tableUserMembershipForEmail.IsLockedColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastActivityDate() As Date
+            Get
+                Return CType(Me(Me.tableUserMembershipForEmail.LastActivityDateColumn), Date)
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipForEmail.LastActivityDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property IsApproved() As Boolean
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipForEmail.IsApprovedColumn), Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsApproved' in table 'UserMembershipForEmail' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Boolean)
+                Me(Me.tableUserMembershipForEmail.IsApprovedColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastPasswordChangeDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipForEmail.LastPasswordChangeDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastPasswordChangeDate' in table 'UserMembershipForEmail' i" & _
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipForEmail.LastPasswordChangeDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property CreationDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipForEmail.CreationDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CreationDate' in table 'UserMembershipForEmail' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipForEmail.CreationDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastLockedOutDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipForEmail.LastLockedOutDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastLockedOutDate' in table 'UserMembershipForEmail' is DBN" & _
+                            "ull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipForEmail.LastLockedOutDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Comment() As String
+            Get
+                If Me.IsCommentNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipForEmail.CommentColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForEmail.CommentColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PasswordQuestion() As String
+            Get
+                If Me.IsPasswordQuestionNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipForEmail.PasswordQuestionColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForEmail.PasswordQuestionColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PasswordAnswer() As String
+            Get
+                If Me.IsPasswordAnswerNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipForEmail.PasswordAnswerColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForEmail.PasswordAnswerColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsIsApprovedNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForEmail.IsApprovedColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetIsApprovedNull()
+            Me(Me.tableUserMembershipForEmail.IsApprovedColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLastPasswordChangeDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForEmail.LastPasswordChangeDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLastPasswordChangeDateNull()
+            Me(Me.tableUserMembershipForEmail.LastPasswordChangeDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCreationDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForEmail.CreationDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCreationDateNull()
+            Me(Me.tableUserMembershipForEmail.CreationDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLastLockedOutDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForEmail.LastLockedOutDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLastLockedOutDateNull()
+            Me(Me.tableUserMembershipForEmail.LastLockedOutDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCommentNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForEmail.CommentColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCommentNull()
+            Me(Me.tableUserMembershipForEmail.CommentColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPasswordQuestionNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForEmail.PasswordQuestionColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPasswordQuestionNull()
+            Me(Me.tableUserMembershipForEmail.PasswordQuestionColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPasswordAnswerNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForEmail.PasswordAnswerColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPasswordAnswerNull()
+            Me(Me.tableUserMembershipForEmail.PasswordAnswerColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class UserMembershipMatchingEmailRow
+        Inherits Global.System.Data.DataRow
+
+        Private tableUserMembershipMatchingEmail As UserMembershipMatchingEmailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableUserMembershipMatchingEmail = CType(Me.Table, UserMembershipMatchingEmailDataTable)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property UserId() As Long
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingEmail.UserIdColumn), Long)
+            End Get
+            Set(value As Long)
+                Me(Me.tableUserMembershipMatchingEmail.UserIdColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property ApplicationName() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingEmail.ApplicationNameColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingEmail.ApplicationNameColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Username() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingEmail.UsernameColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingEmail.UsernameColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property IsLocked() As Boolean
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingEmail.IsLockedColumn), Boolean)
+            End Get
+            Set(value As Boolean)
+                Me(Me.tableUserMembershipMatchingEmail.IsLockedColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Email() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingEmail.EmailColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingEmail.EmailColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastActivityDate() As Date
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingEmail.LastActivityDateColumn), Date)
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipMatchingEmail.LastActivityDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property IsApproved() As Boolean
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipMatchingEmail.IsApprovedColumn), Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsApproved' in table 'UserMembershipMatchingEmail' is DBNul" & _
+                            "l.", e)
+                End Try
+            End Get
+            Set(value As Boolean)
+                Me(Me.tableUserMembershipMatchingEmail.IsApprovedColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastPasswordChangeDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipMatchingEmail.LastPasswordChangeDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastPasswordChangeDate' in table 'UserMembershipMatchingEma" & _
+                            "il' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipMatchingEmail.LastPasswordChangeDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property CreationDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipMatchingEmail.CreationDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CreationDate' in table 'UserMembershipMatchingEmail' is DBN" & _
+                            "ull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipMatchingEmail.CreationDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastLockedOutDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipMatchingEmail.LastLockedOutDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastLockedOutDate' in table 'UserMembershipMatchingEmail' i" & _
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipMatchingEmail.LastLockedOutDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Comment() As String
+            Get
+                If Me.IsCommentNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipMatchingEmail.CommentColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingEmail.CommentColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PasswordQuestion() As String
+            Get
+                If Me.IsPasswordQuestionNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipMatchingEmail.PasswordQuestionColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingEmail.PasswordQuestionColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PasswordAnswer() As String
+            Get
+                If Me.IsPasswordAnswerNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipMatchingEmail.PasswordAnswerColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingEmail.PasswordAnswerColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsIsApprovedNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingEmail.IsApprovedColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetIsApprovedNull()
+            Me(Me.tableUserMembershipMatchingEmail.IsApprovedColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLastPasswordChangeDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingEmail.LastPasswordChangeDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLastPasswordChangeDateNull()
+            Me(Me.tableUserMembershipMatchingEmail.LastPasswordChangeDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCreationDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingEmail.CreationDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCreationDateNull()
+            Me(Me.tableUserMembershipMatchingEmail.CreationDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLastLockedOutDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingEmail.LastLockedOutDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLastLockedOutDateNull()
+            Me(Me.tableUserMembershipMatchingEmail.LastLockedOutDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCommentNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingEmail.CommentColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCommentNull()
+            Me(Me.tableUserMembershipMatchingEmail.CommentColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPasswordQuestionNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingEmail.PasswordQuestionColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPasswordQuestionNull()
+            Me(Me.tableUserMembershipMatchingEmail.PasswordQuestionColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPasswordAnswerNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingEmail.PasswordAnswerColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPasswordAnswerNull()
+            Me(Me.tableUserMembershipMatchingEmail.PasswordAnswerColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class UserMembershipMatchingUsernameRow
+        Inherits Global.System.Data.DataRow
+
+        Private tableUserMembershipMatchingUsername As UserMembershipMatchingUsernameDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableUserMembershipMatchingUsername = CType(Me.Table, UserMembershipMatchingUsernameDataTable)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property UserId() As Long
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingUsername.UserIdColumn), Long)
+            End Get
+            Set(value As Long)
+                Me(Me.tableUserMembershipMatchingUsername.UserIdColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property ApplicationName() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingUsername.ApplicationNameColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingUsername.ApplicationNameColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Username() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingUsername.UsernameColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingUsername.UsernameColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Email() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingUsername.EmailColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingUsername.EmailColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property IsLocked() As Boolean
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingUsername.IsLockedColumn), Boolean)
+            End Get
+            Set(value As Boolean)
+                Me(Me.tableUserMembershipMatchingUsername.IsLockedColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastActivityDate() As Date
+            Get
+                Return CType(Me(Me.tableUserMembershipMatchingUsername.LastActivityDateColumn), Date)
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipMatchingUsername.LastActivityDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property IsApproved() As Boolean
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipMatchingUsername.IsApprovedColumn), Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsApproved' in table 'UserMembershipMatchingUsername' is DB" & _
+                            "Null.", e)
+                End Try
+            End Get
+            Set(value As Boolean)
+                Me(Me.tableUserMembershipMatchingUsername.IsApprovedColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastPasswordChangeDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipMatchingUsername.LastPasswordChangeDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastPasswordChangeDate' in table 'UserMembershipMatchingUse" & _
+                            "rname' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipMatchingUsername.LastPasswordChangeDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property CreationDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipMatchingUsername.CreationDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CreationDate' in table 'UserMembershipMatchingUsername' is " & _
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipMatchingUsername.CreationDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastLockedOutDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipMatchingUsername.LastLockedOutDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastLockedOutDate' in table 'UserMembershipMatchingUsername" & _
+                            "' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipMatchingUsername.LastLockedOutDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Comment() As String
+            Get
+                If Me.IsCommentNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipMatchingUsername.CommentColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingUsername.CommentColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PasswordQuestion() As String
+            Get
+                If Me.IsPasswordQuestionNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipMatchingUsername.PasswordQuestionColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingUsername.PasswordQuestionColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PasswordAnswer() As String
+            Get
+                If Me.IsPasswordAnswerNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipMatchingUsername.PasswordAnswerColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipMatchingUsername.PasswordAnswerColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsIsApprovedNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingUsername.IsApprovedColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetIsApprovedNull()
+            Me(Me.tableUserMembershipMatchingUsername.IsApprovedColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLastPasswordChangeDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingUsername.LastPasswordChangeDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLastPasswordChangeDateNull()
+            Me(Me.tableUserMembershipMatchingUsername.LastPasswordChangeDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCreationDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingUsername.CreationDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCreationDateNull()
+            Me(Me.tableUserMembershipMatchingUsername.CreationDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLastLockedOutDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingUsername.LastLockedOutDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLastLockedOutDateNull()
+            Me(Me.tableUserMembershipMatchingUsername.LastLockedOutDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCommentNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingUsername.CommentColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCommentNull()
+            Me(Me.tableUserMembershipMatchingUsername.CommentColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPasswordQuestionNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingUsername.PasswordQuestionColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPasswordQuestionNull()
+            Me(Me.tableUserMembershipMatchingUsername.PasswordQuestionColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPasswordAnswerNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipMatchingUsername.PasswordAnswerColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPasswordAnswerNull()
+            Me(Me.tableUserMembershipMatchingUsername.PasswordAnswerColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class UserMembershipForUserIdRow
+        Inherits Global.System.Data.DataRow
+
+        Private tableUserMembershipForUserId As UserMembershipForUserIdDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableUserMembershipForUserId = CType(Me.Table, UserMembershipForUserIdDataTable)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property UserId() As Long
+            Get
+                Return CType(Me(Me.tableUserMembershipForUserId.UserIdColumn), Long)
+            End Get
+            Set(value As Long)
+                Me(Me.tableUserMembershipForUserId.UserIdColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property ApplicationName() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipForUserId.ApplicationNameColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForUserId.ApplicationNameColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Username() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipForUserId.UsernameColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForUserId.UsernameColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Email() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipForUserId.EmailColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForUserId.EmailColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property IsLocked() As Boolean
+            Get
+                Return CType(Me(Me.tableUserMembershipForUserId.IsLockedColumn), Boolean)
+            End Get
+            Set(value As Boolean)
+                Me(Me.tableUserMembershipForUserId.IsLockedColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastActivityDate() As Date
+            Get
+                Return CType(Me(Me.tableUserMembershipForUserId.LastActivityDateColumn), Date)
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipForUserId.LastActivityDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property IsApproved() As Boolean
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipForUserId.IsApprovedColumn), Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsApproved' in table 'UserMembershipForUserId' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Boolean)
+                Me(Me.tableUserMembershipForUserId.IsApprovedColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastPasswordChangeDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipForUserId.LastPasswordChangeDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastPasswordChangeDate' in table 'UserMembershipForUserId' " & _
+                            "is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipForUserId.LastPasswordChangeDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property CreationDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipForUserId.CreationDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CreationDate' in table 'UserMembershipForUserId' is DBNull." & _
+                            "", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipForUserId.CreationDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LastLockedOutDate() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableUserMembershipForUserId.LastLockedOutDateColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastLockedOutDate' in table 'UserMembershipForUserId' is DB" & _
+                            "Null.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableUserMembershipForUserId.LastLockedOutDateColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Comment() As String
+            Get
+                If Me.IsCommentNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipForUserId.CommentColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForUserId.CommentColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PasswordQuestion() As String
+            Get
+                If Me.IsPasswordQuestionNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipForUserId.PasswordQuestionColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForUserId.PasswordQuestionColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PasswordAnswer() As String
+            Get
+                If Me.IsPasswordAnswerNull Then
+                    Return Nothing
+                Else
+                    Return CType(Me(Me.tableUserMembershipForUserId.PasswordAnswerColumn), String)
+                End If
+            End Get
+            Set(value As String)
+                Me(Me.tableUserMembershipForUserId.PasswordAnswerColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsIsApprovedNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForUserId.IsApprovedColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetIsApprovedNull()
+            Me(Me.tableUserMembershipForUserId.IsApprovedColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLastPasswordChangeDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForUserId.LastPasswordChangeDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLastPasswordChangeDateNull()
+            Me(Me.tableUserMembershipForUserId.LastPasswordChangeDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCreationDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForUserId.CreationDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCreationDateNull()
+            Me(Me.tableUserMembershipForUserId.CreationDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLastLockedOutDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForUserId.LastLockedOutDateColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLastLockedOutDateNull()
+            Me(Me.tableUserMembershipForUserId.LastLockedOutDateColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCommentNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForUserId.CommentColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCommentNull()
+            Me(Me.tableUserMembershipForUserId.CommentColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPasswordQuestionNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForUserId.PasswordQuestionColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPasswordQuestionNull()
+            Me(Me.tableUserMembershipForUserId.PasswordQuestionColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPasswordAnswerNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipForUserId.PasswordAnswerColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPasswordAnswerNull()
+            Me(Me.tableUserMembershipForUserId.PasswordAnswerColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class UserMembershipWithoutPasswordRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableUserMembershipWithoutPassword As UserMembershipWithoutPasswordDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableUserMembershipWithoutPassword = CType(Me.Table,UserMembershipWithoutPasswordDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property UserId() As Long
+            Get
+                Return CType(Me(Me.tableUserMembershipWithoutPassword.UserIdColumn),Long)
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.UserIdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ApplicationName() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipWithoutPassword.ApplicationNameColumn),String)
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.ApplicationNameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Username() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipWithoutPassword.UsernameColumn),String)
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.UsernameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Email() As String
+            Get
+                Return CType(Me(Me.tableUserMembershipWithoutPassword.EmailColumn),String)
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.EmailColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IsLocked() As Boolean
+            Get
+                Return CType(Me(Me.tableUserMembershipWithoutPassword.IsLockedColumn),Boolean)
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.IsLockedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property LastActivityDate() As Date
+            Get
+                Return CType(Me(Me.tableUserMembershipWithoutPassword.LastActivityDateColumn),Date)
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.LastActivityDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IsApproved() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembershipWithoutPassword.IsApprovedColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsApproved' in table 'UserMembershipWithoutPassword' is DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.IsApprovedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property LastPasswordChangeDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembershipWithoutPassword.LastPasswordChangeDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastPasswordChangeDate' in table 'UserMembershipWithoutPass"& _ 
+                            "word' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.LastPasswordChangeDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CreationDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembershipWithoutPassword.CreationDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CreationDate' in table 'UserMembershipWithoutPassword' is D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.CreationDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property LastLockedOutDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembershipWithoutPassword.LastLockedOutDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastLockedOutDate' in table 'UserMembershipWithoutPassword'"& _ 
+                            " is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.LastLockedOutDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Comment() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembershipWithoutPassword.CommentColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Comment' in table 'UserMembershipWithoutPassword' is DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.CommentColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property PasswordQuestion() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembershipWithoutPassword.PasswordQuestionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PasswordQuestion' in table 'UserMembershipWithoutPassword' "& _ 
+                            "is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.PasswordQuestionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property PasswordAnswer() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembershipWithoutPassword.PasswordAnswerColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PasswordAnswer' in table 'UserMembershipWithoutPassword' is"& _ 
+                            " DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembershipWithoutPassword.PasswordAnswerColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsIsApprovedNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipWithoutPassword.IsApprovedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetIsApprovedNull()
+            Me(Me.tableUserMembershipWithoutPassword.IsApprovedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsLastPasswordChangeDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipWithoutPassword.LastPasswordChangeDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetLastPasswordChangeDateNull()
+            Me(Me.tableUserMembershipWithoutPassword.LastPasswordChangeDateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCreationDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipWithoutPassword.CreationDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCreationDateNull()
+            Me(Me.tableUserMembershipWithoutPassword.CreationDateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsLastLockedOutDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipWithoutPassword.LastLockedOutDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetLastLockedOutDateNull()
+            Me(Me.tableUserMembershipWithoutPassword.LastLockedOutDateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCommentNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipWithoutPassword.CommentColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCommentNull()
+            Me(Me.tableUserMembershipWithoutPassword.CommentColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsPasswordQuestionNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipWithoutPassword.PasswordQuestionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetPasswordQuestionNull()
+            Me(Me.tableUserMembershipWithoutPassword.PasswordQuestionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsPasswordAnswerNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembershipWithoutPassword.PasswordAnswerColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetPasswordAnswerNull()
+            Me(Me.tableUserMembershipWithoutPassword.PasswordAnswerColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
     Partial Public Class UserMembershipRow
         Inherits Global.System.Data.DataRow
         
@@ -9758,498 +12063,196 @@ Partial Public Class EducationOverflow
                 Me(Me.tableUserMembership.LastActivityDateColumn) = value
             End Set
         End Property
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class UserMembershipWithoutPasswordRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableUserMembershipWithoutPassword As UserMembershipWithoutPasswordDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableUserMembershipWithoutPassword = CType(Me.Table,UserMembershipWithoutPasswordDataTable)
+        Public Property IsApproved() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembership.IsApprovedColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsApproved' in table 'UserMembership' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembership.IsApprovedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property LastPasswordChangeDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembership.LastPasswordChangeDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastPasswordChangeDate' in table 'UserMembership' is DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembership.LastPasswordChangeDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CreationDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembership.CreationDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CreationDate' in table 'UserMembership' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembership.CreationDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property LastLockedOutDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembership.LastLockedOutDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LastLockedOutDate' in table 'UserMembership' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembership.LastLockedOutDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Comment() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembership.CommentColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Comment' in table 'UserMembership' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembership.CommentColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property PasswordQuestion() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembership.PasswordQuestionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PasswordQuestion' in table 'UserMembership' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembership.PasswordQuestionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property PasswordAnswer() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUserMembership.PasswordAnswerColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PasswordAnswer' in table 'UserMembership' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUserMembership.PasswordAnswerColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsIsApprovedNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembership.IsApprovedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetIsApprovedNull()
+            Me(Me.tableUserMembership.IsApprovedColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UserId() As Long
-            Get
-                Return CType(Me(Me.tableUserMembershipWithoutPassword.UserIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableUserMembershipWithoutPassword.UserIdColumn) = value
-            End Set
-        End Property
+        Public Function IsLastPasswordChangeDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembership.LastPasswordChangeDateColumn)
+        End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ApplicationName() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipWithoutPassword.ApplicationNameColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipWithoutPassword.ApplicationNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Username() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipWithoutPassword.UsernameColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipWithoutPassword.UsernameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Email() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipWithoutPassword.EmailColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipWithoutPassword.EmailColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IsLocked() As Boolean
-            Get
-                Return CType(Me(Me.tableUserMembershipWithoutPassword.IsLockedColumn),Boolean)
-            End Get
-            Set
-                Me(Me.tableUserMembershipWithoutPassword.IsLockedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property LastActivityDate() As Date
-            Get
-                Return CType(Me(Me.tableUserMembershipWithoutPassword.LastActivityDateColumn),Date)
-            End Get
-            Set
-                Me(Me.tableUserMembershipWithoutPassword.LastActivityDateColumn) = value
-            End Set
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class AllUserMembershipRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableAllUserMembership As AllUserMembershipDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableAllUserMembership = CType(Me.Table,AllUserMembershipDataTable)
+        Public Sub SetLastPasswordChangeDateNull()
+            Me(Me.tableUserMembership.LastPasswordChangeDateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UserId() As Long
-            Get
-                Return CType(Me(Me.tableAllUserMembership.UserIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableAllUserMembership.UserIdColumn) = value
-            End Set
-        End Property
+        Public Function IsCreationDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembership.CreationDateColumn)
+        End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ApplicationName() As String
-            Get
-                Return CType(Me(Me.tableAllUserMembership.ApplicationNameColumn),String)
-            End Get
-            Set
-                Me(Me.tableAllUserMembership.ApplicationNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Username() As String
-            Get
-                Return CType(Me(Me.tableAllUserMembership.UsernameColumn),String)
-            End Get
-            Set
-                Me(Me.tableAllUserMembership.UsernameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Email() As String
-            Get
-                Return CType(Me(Me.tableAllUserMembership.EmailColumn),String)
-            End Get
-            Set
-                Me(Me.tableAllUserMembership.EmailColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IsLocked() As Boolean
-            Get
-                Return CType(Me(Me.tableAllUserMembership.IsLockedColumn),Boolean)
-            End Get
-            Set
-                Me(Me.tableAllUserMembership.IsLockedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property LastActivityDate() As Date
-            Get
-                Return CType(Me(Me.tableAllUserMembership.LastActivityDateColumn),Date)
-            End Get
-            Set
-                Me(Me.tableAllUserMembership.LastActivityDateColumn) = value
-            End Set
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class UserMembershipForEmailRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableUserMembershipForEmail As UserMembershipForEmailDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableUserMembershipForEmail = CType(Me.Table,UserMembershipForEmailDataTable)
+        Public Sub SetCreationDateNull()
+            Me(Me.tableUserMembership.CreationDateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UserId() As Long
-            Get
-                Return CType(Me(Me.tableUserMembershipForEmail.UserIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForEmail.UserIdColumn) = value
-            End Set
-        End Property
+        Public Function IsLastLockedOutDateNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembership.LastLockedOutDateColumn)
+        End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ApplicationName() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipForEmail.ApplicationNameColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForEmail.ApplicationNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Username() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipForEmail.UsernameColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForEmail.UsernameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Email() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipForEmail.EmailColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForEmail.EmailColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IsLocked() As Boolean
-            Get
-                Return CType(Me(Me.tableUserMembershipForEmail.IsLockedColumn),Boolean)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForEmail.IsLockedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property LastActivityDate() As Date
-            Get
-                Return CType(Me(Me.tableUserMembershipForEmail.LastActivityDateColumn),Date)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForEmail.LastActivityDateColumn) = value
-            End Set
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class UserMembershipMatchingEmailRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableUserMembershipMatchingEmail As UserMembershipMatchingEmailDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableUserMembershipMatchingEmail = CType(Me.Table,UserMembershipMatchingEmailDataTable)
+        Public Sub SetLastLockedOutDateNull()
+            Me(Me.tableUserMembership.LastLockedOutDateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UserId() As Long
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingEmail.UserIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingEmail.UserIdColumn) = value
-            End Set
-        End Property
+        Public Function IsCommentNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembership.CommentColumn)
+        End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ApplicationName() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingEmail.ApplicationNameColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingEmail.ApplicationNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Username() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingEmail.UsernameColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingEmail.UsernameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IsLocked() As Boolean
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingEmail.IsLockedColumn),Boolean)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingEmail.IsLockedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Email() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingEmail.EmailColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingEmail.EmailColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property LastActivityDate() As Date
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingEmail.LastActivityDateColumn),Date)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingEmail.LastActivityDateColumn) = value
-            End Set
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class UserMembershipMatchingUsernameRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableUserMembershipMatchingUsername As UserMembershipMatchingUsernameDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableUserMembershipMatchingUsername = CType(Me.Table,UserMembershipMatchingUsernameDataTable)
+        Public Sub SetCommentNull()
+            Me(Me.tableUserMembership.CommentColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UserId() As Long
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingUsername.UserIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingUsername.UserIdColumn) = value
-            End Set
-        End Property
+        Public Function IsPasswordQuestionNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembership.PasswordQuestionColumn)
+        End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ApplicationName() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingUsername.ApplicationNameColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingUsername.ApplicationNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Username() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingUsername.UsernameColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingUsername.UsernameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Email() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingUsername.EmailColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingUsername.EmailColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IsLocked() As Boolean
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingUsername.IsLockedColumn),Boolean)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingUsername.IsLockedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property LastActivityDate() As Date
-            Get
-                Return CType(Me(Me.tableUserMembershipMatchingUsername.LastActivityDateColumn),Date)
-            End Get
-            Set
-                Me(Me.tableUserMembershipMatchingUsername.LastActivityDateColumn) = value
-            End Set
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class UserMembershipForUserIdRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableUserMembershipForUserId As UserMembershipForUserIdDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableUserMembershipForUserId = CType(Me.Table,UserMembershipForUserIdDataTable)
+        Public Sub SetPasswordQuestionNull()
+            Me(Me.tableUserMembership.PasswordQuestionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UserId() As Long
-            Get
-                Return CType(Me(Me.tableUserMembershipForUserId.UserIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForUserId.UserIdColumn) = value
-            End Set
-        End Property
+        Public Function IsPasswordAnswerNull() As Boolean
+            Return Me.IsNull(Me.tableUserMembership.PasswordAnswerColumn)
+        End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ApplicationName() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipForUserId.ApplicationNameColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForUserId.ApplicationNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Username() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipForUserId.UsernameColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForUserId.UsernameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Email() As String
-            Get
-                Return CType(Me(Me.tableUserMembershipForUserId.EmailColumn),String)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForUserId.EmailColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IsLocked() As Boolean
-            Get
-                Return CType(Me(Me.tableUserMembershipForUserId.IsLockedColumn),Boolean)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForUserId.IsLockedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property LastActivityDate() As Date
-            Get
-                Return CType(Me(Me.tableUserMembershipForUserId.LastActivityDateColumn),Date)
-            End Get
-            Set
-                Me(Me.tableUserMembershipForUserId.LastActivityDateColumn) = value
-            End Set
-        End Property
+        Public Sub SetPasswordAnswerNull()
+            Me(Me.tableUserMembership.PasswordAnswerColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -10918,78 +12921,6 @@ Partial Public Class EducationOverflow
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class UserMembershipRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As UserMembershipRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As UserMembershipRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As UserMembershipRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class UserMembershipWithoutPasswordRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As UserMembershipWithoutPasswordRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As UserMembershipWithoutPasswordRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As UserMembershipWithoutPasswordRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Class AllUserMembershipRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -11152,6 +13083,78 @@ Partial Public Class EducationOverflow
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As UserMembershipForUserIdRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class UserMembershipWithoutPasswordRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As UserMembershipWithoutPasswordRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As UserMembershipWithoutPasswordRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As UserMembershipWithoutPasswordRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class UserMembershipRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As UserMembershipRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As UserMembershipRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As UserMembershipRow
             Get
                 Return Me.eventRow
             End Get
@@ -15768,674 +17771,6 @@ Namespace EducationOverflowTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class UserMembershipTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
-        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
-        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "UserMembership"
-            tableMapping.ColumnMappings.Add("UserId", "UserId")
-            tableMapping.ColumnMappings.Add("ApplicationName", "ApplicationName")
-            tableMapping.ColumnMappings.Add("Username", "Username")
-            tableMapping.ColumnMappings.Add("Password", "Password")
-            tableMapping.ColumnMappings.Add("Email", "Email")
-            tableMapping.ColumnMappings.Add("IsLocked", "IsLocked")
-            tableMapping.ColumnMappings.Add("LastActivityDate", "LastActivityDate")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "dbo.UserMembershipDeleteCommand"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserId", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "dbo.UserMembershipInsertCommand"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApplicationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Password", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsLocked", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsLocked", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastActivityDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastActivityDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "dbo.UserMembershipUpdateCommand"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApplicationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Password", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsLocked", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsLocked", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastActivityDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastActivityDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserId", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "dbo.UserMembershipSelectCommand"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As EducationOverflow.UserMembershipDataTable, ByVal Username As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Username Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Username")
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Username,String)
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal Username As String) As EducationOverflow.UserMembershipDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Username Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Username")
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Username,String)
-            End If
-            Dim dataTable As EducationOverflow.UserMembershipDataTable = New EducationOverflow.UserMembershipDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As EducationOverflow.UserMembershipDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As EducationOverflow) As Integer
-            Return Me.Adapter.Update(dataSet, "UserMembership")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_UserId As Long) As Integer
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_UserId,Long)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal ApplicationName As String, ByVal Username As String, ByVal Password As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date) As Integer
-            If (ApplicationName Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ApplicationName")
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(ApplicationName,String)
-            End If
-            If (Username Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Username")
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Username,String)
-            End If
-            If (Password Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Password")
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Password,String)
-            End If
-            If (Email Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Email")
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Email,String)
-            End If
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(IsLocked,Boolean)
-            Me.Adapter.InsertCommand.Parameters(6).Value = CType(LastActivityDate,Date)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ApplicationName As String, ByVal Username As String, ByVal Password As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal Original_UserId As Long, ByVal UserId As Long) As Integer
-            If (ApplicationName Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ApplicationName")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ApplicationName,String)
-            End If
-            If (Username Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Username")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Username,String)
-            End If
-            If (Password Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Password")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Password,String)
-            End If
-            If (Email Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Email")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Email,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(IsLocked,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(LastActivityDate,Date)
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_UserId,Long)
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(UserId,Long)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ApplicationName As String, ByVal Username As String, ByVal Password As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal Original_UserId As Long) As Integer
-            Return Me.Update(ApplicationName, Username, Password, Email, IsLocked, LastActivityDate, Original_UserId, Original_UserId)
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class UserMembershipWithoutPasswordTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
-        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
-        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "UserMembershipWithoutPassword"
-            tableMapping.ColumnMappings.Add("UserId", "UserId")
-            tableMapping.ColumnMappings.Add("ApplicationName", "ApplicationName")
-            tableMapping.ColumnMappings.Add("Username", "Username")
-            tableMapping.ColumnMappings.Add("Email", "Email")
-            tableMapping.ColumnMappings.Add("IsLocked", "IsLocked")
-            tableMapping.ColumnMappings.Add("LastActivityDate", "LastActivityDate")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "dbo.UserMembershipWithoutPasswordDeleteCommand"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserId", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "dbo.UserMembershipWithoutPasswordUpdateCommand"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApplicationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsLocked", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsLocked", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastActivityDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastActivityDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserId", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "dbo.UserMembershipWithoutPasswordSelectCommand"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As EducationOverflow.UserMembershipWithoutPasswordDataTable, ByVal Username As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Username Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Username")
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Username,String)
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal Username As String) As EducationOverflow.UserMembershipWithoutPasswordDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Username Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Username")
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Username,String)
-            End If
-            Dim dataTable As EducationOverflow.UserMembershipWithoutPasswordDataTable = New EducationOverflow.UserMembershipWithoutPasswordDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As EducationOverflow.UserMembershipWithoutPasswordDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As EducationOverflow) As Integer
-            Return Me.Adapter.Update(dataSet, "UserMembershipWithoutPassword")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_UserId As Long) As Integer
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_UserId,Long)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal Original_UserId As Long, ByVal UserId As Long) As Integer
-            If (ApplicationName Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ApplicationName")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ApplicationName,String)
-            End If
-            If (Username Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Username")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Username,String)
-            End If
-            If (Email Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Email")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Email,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(IsLocked,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(LastActivityDate,Date)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_UserId,Long)
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(UserId,Long)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal Original_UserId As Long) As Integer
-            Return Me.Update(ApplicationName, Username, Email, IsLocked, LastActivityDate, Original_UserId, Original_UserId)
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class AllUserMembershipTableAdapter
         Inherits Global.System.ComponentModel.Component
         
@@ -16560,6 +17895,13 @@ Namespace EducationOverflowTableAdapters
             tableMapping.ColumnMappings.Add("Email", "Email")
             tableMapping.ColumnMappings.Add("IsLocked", "IsLocked")
             tableMapping.ColumnMappings.Add("LastActivityDate", "LastActivityDate")
+            tableMapping.ColumnMappings.Add("IsApproved", "IsApproved")
+            tableMapping.ColumnMappings.Add("LastPasswordChangeDate", "LastPasswordChangeDate")
+            tableMapping.ColumnMappings.Add("CreationDate", "CreationDate")
+            tableMapping.ColumnMappings.Add("LastLockedOutDate", "LastLockedOutDate")
+            tableMapping.ColumnMappings.Add("Comment", "Comment")
+            tableMapping.ColumnMappings.Add("PasswordQuestion", "PasswordQuestion")
+            tableMapping.ColumnMappings.Add("PasswordAnswer", "PasswordAnswer")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -16578,7 +17920,7 @@ Namespace EducationOverflowTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "dbo.AllUserMembershipSelectCommand"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16739,6 +18081,13 @@ Namespace EducationOverflowTableAdapters
             tableMapping.ColumnMappings.Add("Email", "Email")
             tableMapping.ColumnMappings.Add("IsLocked", "IsLocked")
             tableMapping.ColumnMappings.Add("LastActivityDate", "LastActivityDate")
+            tableMapping.ColumnMappings.Add("IsApproved", "IsApproved")
+            tableMapping.ColumnMappings.Add("LastPasswordChangeDate", "LastPasswordChangeDate")
+            tableMapping.ColumnMappings.Add("CreationDate", "CreationDate")
+            tableMapping.ColumnMappings.Add("LastLockedOutDate", "LastLockedOutDate")
+            tableMapping.ColumnMappings.Add("Comment", "Comment")
+            tableMapping.ColumnMappings.Add("PasswordQuestion", "PasswordQuestion")
+            tableMapping.ColumnMappings.Add("PasswordAnswer", "PasswordAnswer")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -16929,6 +18278,13 @@ Namespace EducationOverflowTableAdapters
             tableMapping.ColumnMappings.Add("IsLocked", "IsLocked")
             tableMapping.ColumnMappings.Add("Email", "Email")
             tableMapping.ColumnMappings.Add("LastActivityDate", "LastActivityDate")
+            tableMapping.ColumnMappings.Add("IsApproved", "IsApproved")
+            tableMapping.ColumnMappings.Add("LastPasswordChangeDate", "LastPasswordChangeDate")
+            tableMapping.ColumnMappings.Add("CreationDate", "CreationDate")
+            tableMapping.ColumnMappings.Add("LastLockedOutDate", "LastLockedOutDate")
+            tableMapping.ColumnMappings.Add("Comment", "Comment")
+            tableMapping.ColumnMappings.Add("PasswordQuestion", "PasswordQuestion")
+            tableMapping.ColumnMappings.Add("PasswordAnswer", "PasswordAnswer")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -16947,9 +18303,9 @@ Namespace EducationOverflowTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "dbo.UserMembershipMatchingEmail"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmailName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmailDomain", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmailName", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EmailDomain", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16959,12 +18315,12 @@ Namespace EducationOverflowTableAdapters
         Public Overloads Overridable Function Fill(ByVal dataTable As EducationOverflow.UserMembershipMatchingEmailDataTable, ByVal EmailName As String, ByVal EmailDomain As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (EmailName Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("EmailName")
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(EmailName,String)
             End If
             If (EmailDomain Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("EmailDomain")
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = CType(EmailDomain,String)
             End If
@@ -16982,12 +18338,12 @@ Namespace EducationOverflowTableAdapters
         Public Overloads Overridable Function GetData(ByVal EmailName As String, ByVal EmailDomain As String) As EducationOverflow.UserMembershipMatchingEmailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (EmailName Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("EmailName")
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(EmailName,String)
             End If
             If (EmailDomain Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("EmailDomain")
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(2).Value = CType(EmailDomain,String)
             End If
@@ -17130,6 +18486,13 @@ Namespace EducationOverflowTableAdapters
             tableMapping.ColumnMappings.Add("Email", "Email")
             tableMapping.ColumnMappings.Add("IsLocked", "IsLocked")
             tableMapping.ColumnMappings.Add("LastActivityDate", "LastActivityDate")
+            tableMapping.ColumnMappings.Add("IsApproved", "IsApproved")
+            tableMapping.ColumnMappings.Add("LastPasswordChangeDate", "LastPasswordChangeDate")
+            tableMapping.ColumnMappings.Add("CreationDate", "CreationDate")
+            tableMapping.ColumnMappings.Add("LastLockedOutDate", "LastLockedOutDate")
+            tableMapping.ColumnMappings.Add("Comment", "Comment")
+            tableMapping.ColumnMappings.Add("PasswordQuestion", "PasswordQuestion")
+            tableMapping.ColumnMappings.Add("PasswordAnswer", "PasswordAnswer")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -17148,8 +18511,8 @@ Namespace EducationOverflowTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "dbo.UserMembershipMatchingUsername"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17159,7 +18522,7 @@ Namespace EducationOverflowTableAdapters
         Public Overloads Overridable Function Fill(ByVal dataTable As EducationOverflow.UserMembershipMatchingUsernameDataTable, ByVal Username As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Username Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Username")
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(Username,String)
             End If
@@ -17177,7 +18540,7 @@ Namespace EducationOverflowTableAdapters
         Public Overloads Overridable Function GetData(ByVal Username As String) As EducationOverflow.UserMembershipMatchingUsernameDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Username Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Username")
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = CType(Username,String)
             End If
@@ -17320,6 +18683,13 @@ Namespace EducationOverflowTableAdapters
             tableMapping.ColumnMappings.Add("Email", "Email")
             tableMapping.ColumnMappings.Add("IsLocked", "IsLocked")
             tableMapping.ColumnMappings.Add("LastActivityDate", "LastActivityDate")
+            tableMapping.ColumnMappings.Add("IsApproved", "IsApproved")
+            tableMapping.ColumnMappings.Add("LastPasswordChangeDate", "LastPasswordChangeDate")
+            tableMapping.ColumnMappings.Add("CreationDate", "CreationDate")
+            tableMapping.ColumnMappings.Add("LastLockedOutDate", "LastLockedOutDate")
+            tableMapping.ColumnMappings.Add("Comment", "Comment")
+            tableMapping.ColumnMappings.Add("PasswordQuestion", "PasswordQuestion")
+            tableMapping.ColumnMappings.Add("PasswordAnswer", "PasswordAnswer")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -17338,17 +18708,21 @@ Namespace EducationOverflowTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "dbo.UserMembershipForUserId"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 19, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As EducationOverflow.UserMembershipForUserIdDataTable, ByVal UserId As Long) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As EducationOverflow.UserMembershipForUserIdDataTable, ByVal UserId As Global.System.Nullable(Of Long)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(UserId,Long)
+            If (UserId.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(UserId.Value,Long)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -17360,12 +18734,824 @@ Namespace EducationOverflowTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal UserId As Long) As EducationOverflow.UserMembershipForUserIdDataTable
+        Public Overloads Overridable Function GetData(ByVal UserId As Global.System.Nullable(Of Long)) As EducationOverflow.UserMembershipForUserIdDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(UserId,Long)
+            If (UserId.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(UserId.Value,Long)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
             Dim dataTable As EducationOverflow.UserMembershipForUserIdDataTable = New EducationOverflow.UserMembershipForUserIdDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class UserMembershipWithoutPasswordTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "UserMembershipWithoutPassword"
+            tableMapping.ColumnMappings.Add("UserId", "UserId")
+            tableMapping.ColumnMappings.Add("ApplicationName", "ApplicationName")
+            tableMapping.ColumnMappings.Add("Username", "Username")
+            tableMapping.ColumnMappings.Add("Email", "Email")
+            tableMapping.ColumnMappings.Add("IsLocked", "IsLocked")
+            tableMapping.ColumnMappings.Add("LastActivityDate", "LastActivityDate")
+            tableMapping.ColumnMappings.Add("IsApproved", "IsApproved")
+            tableMapping.ColumnMappings.Add("LastPasswordChangeDate", "LastPasswordChangeDate")
+            tableMapping.ColumnMappings.Add("CreationDate", "CreationDate")
+            tableMapping.ColumnMappings.Add("LastLockedOutDate", "LastLockedOutDate")
+            tableMapping.ColumnMappings.Add("Comment", "Comment")
+            tableMapping.ColumnMappings.Add("PasswordQuestion", "PasswordQuestion")
+            tableMapping.ColumnMappings.Add("PasswordAnswer", "PasswordAnswer")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "dbo.UserMembershipWithoutPasswordDeleteCommand"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserId", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "dbo.UserMembershipWithoutPasswordUpdateCommand"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApplicationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsLocked", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsLocked", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastActivityDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastActivityDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsApproved", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsApproved", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastPasswordChangeDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastPasswordChangeDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CreationDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreationDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastLockedOutDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastLockedOutDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Comment", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Comment", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PasswordQuestion", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PasswordQuestion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PasswordAnswer", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PasswordAnswer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserId", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "dbo.UserMembershipWithoutPasswordSelectCommand"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As EducationOverflow.UserMembershipWithoutPasswordDataTable, ByVal Username As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Username")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Username,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal Username As String) As EducationOverflow.UserMembershipWithoutPasswordDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Username")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Username,String)
+            End If
+            Dim dataTable As EducationOverflow.UserMembershipWithoutPasswordDataTable = New EducationOverflow.UserMembershipWithoutPasswordDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As EducationOverflow.UserMembershipWithoutPasswordDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As EducationOverflow) As Integer
+            Return Me.Adapter.Update(dataSet, "UserMembershipWithoutPassword")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_UserId As Long) As Integer
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_UserId,Long)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Global.System.Nullable(Of Boolean), ByVal LastPasswordChangeDate As Global.System.Nullable(Of Date), ByVal CreationDate As Global.System.Nullable(Of Date), ByVal LastLockedOutDate As Global.System.Nullable(Of Date), ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String, ByVal Original_UserId As Long, ByVal UserId As Long) As Integer
+            If (ApplicationName Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ApplicationName")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ApplicationName,String)
+            End If
+            If (Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Username")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Username,String)
+            End If
+            If (Email Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Email")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Email,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(IsLocked,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(LastActivityDate,Date)
+            If (IsApproved.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(IsApproved.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (LastPasswordChangeDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(LastPasswordChangeDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (CreationDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(CreationDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (LastLockedOutDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(LastLockedOutDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (Comment Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Comment,String)
+            End If
+            If (PasswordQuestion Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(PasswordQuestion,String)
+            End If
+            If (PasswordAnswer Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(PasswordAnswer,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_UserId,Long)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(UserId,Long)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal ApplicationName As String, ByVal Username As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Global.System.Nullable(Of Boolean), ByVal LastPasswordChangeDate As Global.System.Nullable(Of Date), ByVal CreationDate As Global.System.Nullable(Of Date), ByVal LastLockedOutDate As Global.System.Nullable(Of Date), ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String, ByVal Original_UserId As Long) As Integer
+            Return Me.Update(ApplicationName, Username, Email, IsLocked, LastActivityDate, IsApproved, LastPasswordChangeDate, CreationDate, LastLockedOutDate, Comment, PasswordQuestion, PasswordAnswer, Original_UserId, Original_UserId)
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class UserMembershipTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "UserMembership"
+            tableMapping.ColumnMappings.Add("UserId", "UserId")
+            tableMapping.ColumnMappings.Add("ApplicationName", "ApplicationName")
+            tableMapping.ColumnMappings.Add("Username", "Username")
+            tableMapping.ColumnMappings.Add("Password", "Password")
+            tableMapping.ColumnMappings.Add("Email", "Email")
+            tableMapping.ColumnMappings.Add("IsLocked", "IsLocked")
+            tableMapping.ColumnMappings.Add("LastActivityDate", "LastActivityDate")
+            tableMapping.ColumnMappings.Add("IsApproved", "IsApproved")
+            tableMapping.ColumnMappings.Add("LastPasswordChangeDate", "LastPasswordChangeDate")
+            tableMapping.ColumnMappings.Add("CreationDate", "CreationDate")
+            tableMapping.ColumnMappings.Add("LastLockedOutDate", "LastLockedOutDate")
+            tableMapping.ColumnMappings.Add("Comment", "Comment")
+            tableMapping.ColumnMappings.Add("PasswordQuestion", "PasswordQuestion")
+            tableMapping.ColumnMappings.Add("PasswordAnswer", "PasswordAnswer")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "dbo.UserMembershipDeleteCommand"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserId", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "dbo.UserMembershipInsertCommand"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApplicationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Password", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsLocked", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsLocked", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastActivityDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastActivityDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsApproved", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsApproved", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastPasswordChangeDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastPasswordChangeDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CreationDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreationDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastLockedOutDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastLockedOutDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Comment", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Comment", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PasswordQuestion", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PasswordQuestion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PasswordAnswer", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PasswordAnswer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "dbo.UserMembershipUpdateCommand"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApplicationName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Password", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsLocked", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsLocked", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastActivityDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastActivityDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsApproved", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsApproved", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastPasswordChangeDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastPasswordChangeDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CreationDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreationDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastLockedOutDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastLockedOutDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Comment", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Comment", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PasswordQuestion", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PasswordQuestion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PasswordAnswer", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PasswordAnswer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UserId", Global.System.Data.SqlDbType.BigInt, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "dbo.UserMembershipSelectCommand"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As EducationOverflow.UserMembershipDataTable, ByVal Username As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Username")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Username,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal Username As String) As EducationOverflow.UserMembershipDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Username")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Username,String)
+            End If
+            Dim dataTable As EducationOverflow.UserMembershipDataTable = New EducationOverflow.UserMembershipDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As EducationOverflow.UserMembershipDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As EducationOverflow) As Integer
+            Return Me.Adapter.Update(dataSet, "UserMembership")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_UserId As Long) As Integer
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_UserId,Long)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal ApplicationName As String, ByVal Username As String, ByVal Password As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Global.System.Nullable(Of Boolean), ByVal LastPasswordChangeDate As Global.System.Nullable(Of Date), ByVal CreationDate As Global.System.Nullable(Of Date), ByVal LastLockedOutDate As Global.System.Nullable(Of Date), ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String) As Integer
+            If (ApplicationName Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ApplicationName")
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(ApplicationName,String)
+            End If
+            If (Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Username")
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Username,String)
+            End If
+            If (Password Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Password")
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Password,String)
+            End If
+            If (Email Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Email")
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Email,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(5).Value = CType(IsLocked,Boolean)
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(LastActivityDate,Date)
+            If (IsApproved.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(IsApproved.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (LastPasswordChangeDate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(LastPasswordChangeDate.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (CreationDate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(CreationDate.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (LastLockedOutDate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(LastLockedOutDate.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Comment Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Comment,String)
+            End If
+            If (PasswordQuestion Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(PasswordQuestion,String)
+            End If
+            If (PasswordAnswer Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(PasswordAnswer,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal ApplicationName As String, ByVal Username As String, ByVal Password As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Global.System.Nullable(Of Boolean), ByVal LastPasswordChangeDate As Global.System.Nullable(Of Date), ByVal CreationDate As Global.System.Nullable(Of Date), ByVal LastLockedOutDate As Global.System.Nullable(Of Date), ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String, ByVal Original_UserId As Long, ByVal UserId As Long) As Integer
+            If (ApplicationName Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ApplicationName")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ApplicationName,String)
+            End If
+            If (Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Username")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Username,String)
+            End If
+            If (Password Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Password")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Password,String)
+            End If
+            If (Email Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Email")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Email,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(IsLocked,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(LastActivityDate,Date)
+            If (IsApproved.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(IsApproved.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (LastPasswordChangeDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(LastPasswordChangeDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (CreationDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(CreationDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (LastLockedOutDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(LastLockedOutDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Comment Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Comment,String)
+            End If
+            If (PasswordQuestion Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(PasswordQuestion,String)
+            End If
+            If (PasswordAnswer Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(PasswordAnswer,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_UserId,Long)
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(UserId,Long)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal ApplicationName As String, ByVal Username As String, ByVal Password As String, ByVal Email As String, ByVal IsLocked As Boolean, ByVal LastActivityDate As Date, ByVal IsApproved As Global.System.Nullable(Of Boolean), ByVal LastPasswordChangeDate As Global.System.Nullable(Of Date), ByVal CreationDate As Global.System.Nullable(Of Date), ByVal LastLockedOutDate As Global.System.Nullable(Of Date), ByVal Comment As String, ByVal PasswordQuestion As String, ByVal PasswordAnswer As String, ByVal Original_UserId As Long) As Integer
+            Return Me.Update(ApplicationName, Username, Password, Email, IsLocked, LastActivityDate, IsApproved, LastPasswordChangeDate, CreationDate, LastLockedOutDate, Comment, PasswordQuestion, PasswordAnswer, Original_UserId, Original_UserId)
         End Function
     End Class
     
@@ -17510,9 +19696,9 @@ Namespace EducationOverflowTableAdapters
         
         Private _userTableAdapter As UserTableAdapter
         
-        Private _userMembershipTableAdapter As UserMembershipTableAdapter
-        
         Private _userMembershipWithoutPasswordTableAdapter As UserMembershipWithoutPasswordTableAdapter
+        
+        Private _userMembershipTableAdapter As UserMembershipTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -17674,12 +19860,12 @@ Namespace EducationOverflowTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property UserMembershipTableAdapter() As UserMembershipTableAdapter
+        Public Property UserMembershipWithoutPasswordTableAdapter() As UserMembershipWithoutPasswordTableAdapter
             Get
-                Return Me._userMembershipTableAdapter
+                Return Me._userMembershipWithoutPasswordTableAdapter
             End Get
             Set
-                Me._userMembershipTableAdapter = value
+                Me._userMembershipWithoutPasswordTableAdapter = value
             End Set
         End Property
         
@@ -17688,12 +19874,12 @@ Namespace EducationOverflowTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property UserMembershipWithoutPasswordTableAdapter() As UserMembershipWithoutPasswordTableAdapter
+        Public Property UserMembershipTableAdapter() As UserMembershipTableAdapter
             Get
-                Return Me._userMembershipWithoutPasswordTableAdapter
+                Return Me._userMembershipTableAdapter
             End Get
             Set
-                Me._userMembershipWithoutPasswordTableAdapter = value
+                Me._userMembershipTableAdapter = value
             End Set
         End Property
         
@@ -17756,13 +19942,13 @@ Namespace EducationOverflowTableAdapters
                             AndAlso (Not (Me._userTableAdapter.Connection) Is Nothing)) Then
                     Return Me._userTableAdapter.Connection
                 End If
-                If ((Not (Me._userMembershipTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._userMembershipTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._userMembershipTableAdapter.Connection
-                End If
                 If ((Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._userMembershipWithoutPasswordTableAdapter.Connection) Is Nothing)) Then
                     Return Me._userMembershipWithoutPasswordTableAdapter.Connection
+                End If
+                If ((Not (Me._userMembershipTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._userMembershipTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._userMembershipTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -17807,10 +19993,10 @@ Namespace EducationOverflowTableAdapters
                 If (Not (Me._userTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
+                If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
+                If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -17833,30 +20019,21 @@ Namespace EducationOverflowTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.UserMembership.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._userMembershipTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._userTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._userTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -17932,6 +20109,15 @@ Namespace EducationOverflowTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.UserMembership.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._userMembershipTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             Return result
         End Function
         
@@ -17950,27 +20136,19 @@ Namespace EducationOverflowTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.UserMembership.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._userMembershipTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._userTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._userTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -18038,6 +20216,14 @@ Namespace EducationOverflowTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.UserMembership.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._userMembershipTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             Return result
         End Function
         
@@ -18048,6 +20234,14 @@ Namespace EducationOverflowTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As EducationOverflow, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.UserMembership.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._userMembershipTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._questionInfoTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.QuestionInfo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
@@ -18112,27 +20306,19 @@ Namespace EducationOverflowTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._userTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._userTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.UserMembership.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._userMembershipTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._userTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._userTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -18235,13 +20421,13 @@ Namespace EducationOverflowTableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._userMembershipTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._userMembershipTableAdapter.Connection) = false)) Then
+            If ((Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._userMembershipWithoutPasswordTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._userMembershipWithoutPasswordTableAdapter.Connection) = false)) Then
+            If ((Not (Me._userMembershipTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._userMembershipTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -18367,15 +20553,6 @@ Namespace EducationOverflowTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._userTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._userMembershipTableAdapter, Me._userMembershipTableAdapter.Connection)
-                    Me._userMembershipTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._userMembershipTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._userMembershipTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._userMembershipTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._userMembershipTableAdapter.Adapter)
-                    End If
-                End If
                 If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._userMembershipWithoutPasswordTableAdapter, Me._userMembershipWithoutPasswordTableAdapter.Connection)
                     Me._userMembershipWithoutPasswordTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
@@ -18383,6 +20560,15 @@ Namespace EducationOverflowTableAdapters
                     If Me._userMembershipWithoutPasswordTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._userMembershipWithoutPasswordTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._userMembershipWithoutPasswordTableAdapter.Adapter)
+                    End If
+                End If
+                If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._userMembershipTableAdapter, Me._userMembershipTableAdapter.Connection)
+                    Me._userMembershipTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._userMembershipTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._userMembershipTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._userMembershipTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._userMembershipTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -18485,13 +20671,13 @@ Namespace EducationOverflowTableAdapters
                     Me._userTableAdapter.Connection = CType(revertConnections(Me._userTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._userTableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
-                    Me._userMembershipTableAdapter.Connection = CType(revertConnections(Me._userMembershipTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._userMembershipTableAdapter.Transaction = Nothing
-                End If
                 If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
                     Me._userMembershipWithoutPasswordTableAdapter.Connection = CType(revertConnections(Me._userMembershipWithoutPasswordTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._userMembershipWithoutPasswordTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
+                    Me._userMembershipTableAdapter.Connection = CType(revertConnections(Me._userMembershipTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._userMembershipTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

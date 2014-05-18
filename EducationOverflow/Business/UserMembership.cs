@@ -73,7 +73,14 @@ namespace Business {
                     ApplicationName = memberInfoRow.ApplicationName,
                     Email = memberInfoRow.Email,
                     IsLocked = memberInfoRow.IsLocked,
-                    LastActivityDate = memberInfoRow.LastActivityDate
+                    LastActivityDate = memberInfoRow.LastActivityDate, 
+                    IsApproved = memberInfo.IsApproved,
+                    LastPasswordChangeDate = memberInfo.LastPasswordChangeDate,
+                    CreationDate = memberInfo.CreationDate,
+                    LastLockedOutDate = memberInfo.LastLockedOutDate,
+                    Comment = memberInfo.Comment,
+                    PasswordQuestion = memberInfo.PasswordQuestion,
+                    PasswordAnswer = memberInfo.PasswordAnswer
                 };
             }
 
@@ -182,22 +189,34 @@ namespace Business {
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static int InsertUserMembership(string applicationName, string username, string password, 
-                string email, bool isLocked, DateTime lastActivityDate) {
-            return membershipTableAdapter.Insert(applicationName, username, password, email, isLocked, lastActivityDate);
+                string email, bool isLocked, DateTime lastActivityDate,
+                bool? isApproved, DateTime? lastPasswordChangeDate, DateTime? creationDate,
+                DateTime? lastLockedOutDate, string comment, string passwordQuestion, string passwordAnswer) {
+            return membershipTableAdapter.Insert(applicationName, username, password, email, isLocked, 
+                lastActivityDate, isApproved, lastPasswordChangeDate, creationDate, lastLockedOutDate, 
+                comment, passwordQuestion, passwordAnswer);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
         public static int UpdateUserMembership(string applicationName, string username, string password, 
-                string email, bool isLocked, DateTime lastActivityDate, long originalUserId) {
+                string email, bool isLocked, DateTime lastActivityDate,
+                bool? isApproved, DateTime? lastPasswordChangeDate, DateTime? creationDate,
+                DateTime? lastLockedOutDate, string comment, string passwordQuestion, string passwordAnswer, 
+                long originalUserId) {
             return membershipTableAdapter.Update(applicationName, username, password, email, isLocked, 
-                lastActivityDate, originalUserId);
+                lastActivityDate, isApproved, lastPasswordChangeDate, creationDate, lastLockedOutDate, 
+                comment, passwordQuestion, passwordAnswer, originalUserId);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
         public static int UpdateUserMembership(string applicationName, string username,
-                string email, bool isLocked, DateTime lastActivityDate, long originalUserId) {
+                string email, bool isLocked, DateTime lastActivityDate, 
+                bool? isApproved, DateTime? lastPasswordChangeDate, DateTime? creationDate, 
+                DateTime? lastLockedOutDate, string comment, string passwordQuestion, string passwordAnswer,
+                long originalUserId) {
             return membershipWithoutPasswordTableAdapter.Update(applicationName, username, email, isLocked, 
-                lastActivityDate, originalUserId, originalUserId);
+                lastActivityDate, isApproved, lastPasswordChangeDate, creationDate, lastLockedOutDate, 
+                comment, passwordQuestion, passwordAnswer, originalUserId);
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]

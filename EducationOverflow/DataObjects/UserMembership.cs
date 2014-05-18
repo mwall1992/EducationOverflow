@@ -71,6 +71,18 @@ namespace DataObjects {
             }
         }
 
+        private bool? isApproved;
+        [DataObjectField(false)]
+        public bool? IsApproved {
+            get {
+                return this.isApproved;
+            }
+
+            set {
+                this.isApproved = value;
+            }
+        }
+
         private DateTime lastActivityDate;
         [DataObjectField(false)]
         public DateTime LastActivityDate {
@@ -80,6 +92,78 @@ namespace DataObjects {
 
             set {
                 this.lastActivityDate = value;
+            }
+        }
+
+        private DateTime? lastPasswordChangeDate;
+        [DataObjectField(false)]
+        public DateTime? LastPasswordChangeDate {
+            get {
+                return this.lastPasswordChangeDate;
+            }
+
+            set {
+                this.lastPasswordChangeDate = value;
+            }
+        }
+
+        private DateTime? creationDate;
+        [DataObjectField(false)]
+        public DateTime? CreationDate {
+            get {
+                return this.creationDate;
+            }
+
+            set {
+                this.creationDate = value;
+            }
+        }
+
+        private DateTime? lastLockedOutDate;
+        [DataObjectField(false)]
+        public DateTime? LastLockedOutDate {
+            get {
+                return this.lastLockedOutDate;
+            }
+
+            set {
+                this.lastLockedOutDate = value;
+            }
+        }
+
+        private string comment;
+        [DataObjectField(false)]
+        public string Comment {
+            get {
+                return this.comment;
+            }
+
+            set {
+                this.comment = value;
+            }
+        }
+
+        private string passwordQuestion;
+        [DataObjectField(false)]
+        public string PasswordQuestion {
+            get {
+                return this.passwordQuestion;
+            }
+
+            set {
+                this.passwordQuestion = value;
+            }
+        }
+
+        private string passwordAnswer;
+        [DataObjectField(false)]
+        public string PasswordAnswer {
+            get {
+                return this.passwordAnswer;
+            }
+
+            set {
+                this.passwordAnswer = value;
             }
         }
     }

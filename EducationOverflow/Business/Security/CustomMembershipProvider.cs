@@ -38,8 +38,9 @@ namespace Business {
             try {
                 if (this.ValidateUser(username, oldPassword) && membership != null) {
                     int affectedRows = UserMembership.UpdateUserMembership(membership.ApplicationName, membership.Username, 
-                        newPassword, membership.Email, membership.IsLocked, membership.LastActivityDate, 
-                        membership.UserId);
+                        newPassword, membership.Email, membership.IsLocked, membership.LastActivityDate, membership.IsApproved, 
+                        DateTime.Now, membership.CreationDate, membership.LastLockedOutDate, membership.Comment, 
+                        membership.PasswordQuestion, membership.PasswordAnswer, membership.UserId);
                     passwordChanged = (affectedRows != INVALID_AFFECTED_ROWS);
                 }
             } catch {
@@ -65,7 +66,7 @@ namespace Business {
             long? userId = null;
             try {
                 int affectedRows = UserMembership.InsertUserMembership(this.ApplicationName, username, password, 
-                    email, IS_LOCKED, DateTime.Now);
+                    email, IS_LOCKED, DateTime.Now, isApproved, null, DateTime.Now, null, null, null, null);
                 userId = UserMembership.SelectUserMembership(username).UserId;
 
                 status = (affectedRows != INVALID_AFFECTED_ROWS) ? System.Web.Security.MembershipCreateStatus.Success 
@@ -230,7 +231,10 @@ namespace Business {
 
                 if (userIsOnline) {
                     UserMembership.UpdateUserMembership(retrievedMembership.ApplicationName, retrievedMembership.Username,
-                        retrievedMembership.Email, retrievedMembership.IsLocked, DateTime.Now, retrievedMembership.UserId);
+                        retrievedMembership.Email, retrievedMembership.IsLocked, DateTime.Now, retrievedMembership.IsApproved, 
+                        retrievedMembership.LastPasswordChangeDate, retrievedMembership.CreationDate, 
+                        retrievedMembership.LastLockedOutDate, retrievedMembership.Comment, retrievedMembership.PasswordQuestion,
+                        retrievedMembership.PasswordAnswer, retrievedMembership.UserId);
                 }
             }
 
@@ -248,7 +252,10 @@ namespace Business {
 
                 if (userIsOnline) {
                     UserMembership.UpdateUserMembership(retrievedMembership.ApplicationName, retrievedMembership.Username,
-                        retrievedMembership.Email, retrievedMembership.IsLocked, DateTime.Now, retrievedMembership.UserId);
+                        retrievedMembership.Email, retrievedMembership.IsLocked, DateTime.Now, retrievedMembership.IsApproved,
+                        retrievedMembership.LastPasswordChangeDate, retrievedMembership.CreationDate,
+                        retrievedMembership.LastLockedOutDate, retrievedMembership.Comment, retrievedMembership.PasswordQuestion,
+                        retrievedMembership.PasswordAnswer, retrievedMembership.UserId);
                 }
             }
 
@@ -327,7 +334,10 @@ namespace Business {
             DataObjects.UserMembership membership = UserMembership.SelectUserMembership(userName);
             if (membership != null) {
                 int affectedRows = UserMembership.UpdateUserMembership(membership.ApplicationName, membership.Username,
-                    membership.Email, IS_LOCKED, membership.LastActivityDate, membership.UserId);
+                        membership.Email, IS_LOCKED, DateTime.Now, membership.IsApproved,
+                        membership.LastPasswordChangeDate, membership.CreationDate,
+                        membership.LastLockedOutDate, membership.Comment, membership.PasswordQuestion,
+                        membership.PasswordAnswer, membership.UserId);
                 isUnlocked = (affectedRows != INVALID_AFFECTED_ROWS);
             }
 
@@ -341,7 +351,9 @@ namespace Business {
             }
 
             UserMembership.UpdateUserMembership(membership.UserId.ToString(), user.UserName, user.Email, 
-                user.IsLockedOut, user.LastActivityDate, membership.UserId);
+                user.IsLockedOut, user.LastActivityDate, user.IsApproved, user.LastPasswordChangedDate, 
+                user.CreationDate, user.LastLockoutDate, user.Comment, user.PasswordQuestion, 
+                membership.PasswordAnswer, membership.UserId);
         }
 
         public override bool ValidateUser(string username, string password) {

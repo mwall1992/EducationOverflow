@@ -61,10 +61,12 @@ namespace Business {
             const bool IS_LOCKED = false;
             const int INVALID_AFFECTED_ROWS = 0;
             DateTime CURRENT_TIME = DateTime.Now;
-
+            
+            long? userId = null;
             try {
                 int affectedRows = UserMembership.InsertUserMembership(this.ApplicationName, username, password, 
                     email, IS_LOCKED, DateTime.Now);
+                userId = UserMembership.SelectUserMembership(username).UserId;
 
                 status = (affectedRows != INVALID_AFFECTED_ROWS) ? System.Web.Security.MembershipCreateStatus.Success 
                                                                  : System.Web.Security.MembershipCreateStatus.ProviderError;
@@ -72,8 +74,10 @@ namespace Business {
                 status = System.Web.Security.MembershipCreateStatus.ProviderError;
             }
 
+            string providerKey = (userId == null) ? null : userId.ToString();
+
             isApproved = (status == System.Web.Security.MembershipCreateStatus.Success);
-            return new System.Web.Security.MembershipUser(this.ApplicationName, username, providerUserKey,
+            return new System.Web.Security.MembershipUser(providerKey, username, providerUserKey,
                     email, null, null, isApproved, IS_LOCKED, CURRENT_TIME, CURRENT_TIME, CURRENT_TIME,
                     CURRENT_TIME, DateTime.MinValue);
         }
@@ -133,18 +137,37 @@ namespace Business {
         }
 
         public override System.Web.Security.MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords) {
-            // SUMMARY:
-            // Can be done.
+            const bool IS_APPROVED = true;
+            List<DataObjects.UserMembership> allUserMembership = UserMembership.SelectAllUserMembership();
+            totalRecords = allUserMembership.Count;
 
-            throw new NotImplementedException();
+            System.Web.Security.MembershipUserCollection membershipCollection = new System.Web.Security.MembershipUserCollection();
+
+            DataObjects.UserMembership currentMember;
+            int startingIndex = pageSize * pageIndex;
+            for (int i = startingIndex; i < pageSize; i++) {
+                currentMember = allUserMembership[i];
+                membershipCollection.Add(new System.Web.Security.MembershipUser(currentMember.UserId.ToString(), currentMember.Username, 
+                    null, currentMember.Email, null, null, IS_APPROVED, currentMember.IsLocked, DateTime.MinValue, DateTime.MinValue, 
+                    currentMember.LastActivityDate, DateTime.MinValue, DateTime.MinValue));
+            }
+
+            return membershipCollection;
         }
 
         public override int GetNumberOfUsersOnline() {
-            // SUMMARY:
-            // Need to update database schema first. 
-            // This method can be implemented.
+            const int NEGATIVE_MULTIPLER = -1;
+            int onlineCount = 0;
 
-            throw new NotImplementedException();
+            List<DataObjects.UserMembership> allUserMembership = UserMembership.SelectAllUserMembership();
+            foreach (DataObjects.UserMembership membership in allUserMembership) {
+                if (membership.LastActivityDate
+                        >= DateTime.Now.AddMinutes(NEGATIVE_MULTIPLER * System.Web.Security.Membership.UserIsOnlineTimeWindow)) {
+                    onlineCount++;
+                }
+            }
+
+            return onlineCount;
         }
 
         public override string GetPassword(string username, string answer) {
@@ -152,11 +175,21 @@ namespace Business {
         }
 
         public override System.Web.Security.MembershipUser GetUser(string username, bool userIsOnline) {
-            // SUMMARY:
-            // Need to update database schema first. 
-            // This method can be implemented.
-            
-            throw new NotImplementedException();
+            System.Web.Security.MembershipUser membership = null;
+            DataObjects.UserMembership retrievedMembership = UserMembership.SelectUserMembership(username);
+            if (retrievedMembership != null) {
+                membership = new System.Web.Security.MembershipUser(retrievedMembership.UserId.ToString(), 
+                    retrievedMembership.Username, null, retrievedMembership.Email, null, null, true, 
+                    retrievedMembership.IsLocked, DateTime.MinValue, DateTime.MinValue, 
+                    retrievedMembership.LastActivityDate, DateTime.MinValue, DateTime.MinValue);
+
+                if (userIsOnline) {
+                    UserMembership.UpdateUserMembership(retrievedMembership.ApplicationName, retrievedMembership.Username,
+                        retrievedMembership.Email, retrievedMembership.IsLocked, DateTime.Now, retrievedMembership.UserId);
+                }
+            }
+
+            return membership;
         }
 
         public override System.Web.Security.MembershipUser GetUser(object providerUserKey, bool userIsOnline) {
@@ -205,13 +238,10 @@ namespace Business {
         }
 
         public override string PasswordStrengthRegularExpression {
-            // SUMMARY:
-            // This method can be implemented by sourcing a regular expression
-            // from elsewhere.
-            //
-            // N.B. Clarify with Anthony.
-
-            get { throw new NotImplementedException(); }
+            // Source: http://stackoverflow.com/questions/447638/a-sensible-passwordstrengthregularexpression
+            get { 
+                return "^.*(?=.{" + this.MinRequiredPasswordLength + ",})(?=.*\\d).*$"; 
+            }
         }
 
         public override bool RequiresQuestionAndAnswer {
@@ -246,10 +276,13 @@ namespace Business {
         }
 
         public override void UpdateUser(System.Web.Security.MembershipUser user) {
-            // SUMMARY:
-            // Can be done.
+            DataObjects.UserMembership membership = UserMembership.SelectUserMembership(user.UserName);
+            if (membership == null) {
+                throw new ProviderException("Invalid user was specified for updating.");
+            }
 
-            throw new NotImplementedException();
+            UserMembership.UpdateUserMembership(membership.UserId.ToString(), user.UserName, user.Email, 
+                user.IsLockedOut, user.LastActivityDate, membership.UserId);
         }
 
         public override bool ValidateUser(string username, string password) {

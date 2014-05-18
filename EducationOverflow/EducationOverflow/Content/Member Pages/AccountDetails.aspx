@@ -13,10 +13,25 @@
             <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
         </Fields>
     </asp:DetailsView>
-    <asp:ObjectDataSource ID="UserInfoDataSource" runat="server" SelectMethod="SelectQuestionsFromUserView" TypeName="Business.User">
+    <asp:ObjectDataSource ID="UserInfoDataSource" runat="server" SelectMethod="SelectUser" TypeName="Business.User" DeleteMethod="DeleteUser" InsertMethod="InsertUser" UpdateMethod="UpdateUser">
+        <DeleteParameters>
+            <asp:Parameter Name="originalUserId" Type="Int64" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="firstName" Type="String" />
+            <asp:Parameter Name="lastName" Type="String" />
+            <asp:Parameter Name="dateOfBirth" Type="DateTime" />
+        </InsertParameters>
         <SelectParameters>
             <asp:Parameter DefaultValue="1" Name="userId" Type="Int32" />
         </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="firstName" Type="String" />
+            <asp:Parameter Name="lastName" Type="String" />
+            <asp:Parameter Name="dateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="originalUserId" Type="Int64" />
+            <asp:Parameter Name="userId" Type="Int64" />
+        </UpdateParameters>
     </asp:ObjectDataSource>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="footer_content" runat="server">

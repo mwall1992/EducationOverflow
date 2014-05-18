@@ -17,6 +17,9 @@ namespace Business {
         private static UserMembershipWithoutPasswordTableAdapter membershipWithoutPasswordTableAdapter = 
             new UserMembershipWithoutPasswordTableAdapter();
 
+        private static AllUserMembershipTableAdapter allUserMembershipTableAdapter = 
+            new AllUserMembershipTableAdapter();
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static DataObjects.UserMembership SelectUserMembership(string username) {
             DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
@@ -55,6 +58,26 @@ namespace Business {
             }
 
             return password;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<DataObjects.UserMembership> SelectAllUserMembership() {
+            List<DataObjects.UserMembership> allUserMembership = new List<DataObjects.UserMembership>();
+            DataAccess.EducationOverflow.AllUserMembershipDataTable userMemberDataTable =
+                allUserMembershipTableAdapter.GetData();
+
+            foreach (DataAccess.EducationOverflow.AllUserMembershipRow row in userMemberDataTable.Rows) {
+                allUserMembership.Add(new DataObjects.UserMembership() {
+                    UserId = row.UserId,
+                    Username = row.Username,
+                    ApplicationName = row.ApplicationName,
+                    Email = row.Email,
+                    IsLocked = row.IsLocked,
+                    LastActivityDate = row.LastActivityDate
+                });
+            }
+
+            return allUserMembership;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

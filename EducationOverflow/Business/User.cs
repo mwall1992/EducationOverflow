@@ -14,9 +14,7 @@ namespace Business {
         private static UserTableAdapter userTableAdapter = new UserTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static DataObjects.User SelectQuestionsFromUserView(int userId) {
-            List<DataObjects.User> userInfo = new List<DataObjects.User>();
-
+        public static DataObjects.User SelectUser(int userId) {
             DataAccess.EducationOverflow.UserDataTable userDataTable = userTableAdapter.GetData(userId);
             DataAccess.EducationOverflow.UserRow userDataRow = 
                 (DataAccess.EducationOverflow.UserRow)userDataTable.Rows[0];

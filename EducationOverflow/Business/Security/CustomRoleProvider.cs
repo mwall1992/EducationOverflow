@@ -11,10 +11,6 @@ namespace Business {
     public class CustomRoleProvider : System.Web.Security.RoleProvider {
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames) {
-            // TODO: find a more efficient method to query the database
-
-            
-
             // check for invalid arguments
             foreach (string username in usernames) {
                 CustomRoleProvider.ValidateUsername(username);
@@ -23,33 +19,24 @@ namespace Business {
             foreach (string roleName in roleNames) {
                 CustomRoleProvider.ValidateRoleName(roleName);
             }
+            
+            // retrieve user ids for usernames
+            long[] userIds = new long[usernames.Length];
+            for (int i = 0; i < usernames.Length; i++) {
+                DataObjects.UserMembershipInfo memberInfo = UserMembershipInfo.SelectUserMembershipInfo(usernames[i]);
+                if (memberInfo == null) {
+                    throw new ProviderException("Specified username does not exist.");
+                }
 
-            //DataAccess.EducationOverflowTableAdapters.QueriesTableAdapter queriesTableAdapter =
-            //    new DataAccess.EducationOverflowTableAdapters.QueriesTableAdapter();
+                userIds[i] = memberInfo.UserId;
+            }
 
-            //queriesTableAdapter.AddRolesToUsers(new List<int>() { 3 }, new List<string>() { "admin" });
-
-            //queriesTableAdapter.AddRolesToUsers(3, "admin");
-
-            //DataAccess.EducationOverflowTableAdapters.QueriesTableAdapter queriesTableAdapater =
-            //    new DataAccess.EducationOverflowTableAdapters.QueriesTableAdapter();
-
-            //queriesTableAdapater.AddRolesToUsers(new string[] { "sally" }, new string[] { "user", "admin" });
-
-            // TODO: Use transactions for insertion.
-
-            //try {
-            //    foreach (string username in usernames) {
-            //        DataObjects.UserMembershipInfo userMembershipInfo =
-            //            UserMembershipInfo.SelectUserMembershipInfo(username);
-
-            //        foreach (string role in roleNames) {
-            //            UserRoles.InsertUserRole(role, userMembershipInfo.UserId);
-            //        }
-            //    }
-            //} catch (Exception e) {
-            //    throw new ProviderException("Failed to add roles to users. Error message: " + e.Message);
-            //}
+            // add user roles to data source
+            try {
+                UserRoles.InsertRolesForUsers(roleNames, userIds);
+            } catch (Exception e) {
+                throw new ProviderException("Failed to add roles to users. Error message: " + e.Message);
+            }
         }
 
         public override string ApplicationName {

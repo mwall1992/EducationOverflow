@@ -17,6 +17,9 @@ namespace Business {
         private static UserMembershipInfoTableAdapter userMembershipInfoTableAdapter =
             new UserMembershipInfoTableAdapter();
 
+        private static QueriesTableAdapter queriesTableAdapter = 
+            new QueriesTableAdapter();
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<string> SelectUserRoles(string username) {
             DataAccess.EducationOverflow.UserMembershipInfoDataTable userMemberDataTable =
@@ -53,7 +56,23 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public static void DeleteUserRole(string originalRoleName, long originalUserId) {
             userRolesTableAdapter.Delete(originalRoleName, originalUserId);
-        } 
+        }
 
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public static void InsertRolesForUsers(string[] roleNames, long[] userIds) {
+            DataAccess.EducationOverflow.UserIdsDataTable userIdsDataTable = 
+                new DataAccess.EducationOverflow.UserIdsDataTable();
+            foreach (long userId in userIds) {
+                userIdsDataTable.AddUserIdsRow(userId);
+            }
+
+            DataAccess.EducationOverflow.RoleNamesDataTable roleNamesDataTable = 
+                new DataAccess.EducationOverflow.RoleNamesDataTable();
+            foreach (string roleName in roleNames) {
+                roleNamesDataTable.AddRoleNamesRow(roleName);
+            }
+
+            queriesTableAdapter.AddRolesToUsers(userIdsDataTable, roleNamesDataTable);
+        }
     }
 }

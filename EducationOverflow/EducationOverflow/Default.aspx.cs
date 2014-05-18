@@ -18,9 +18,9 @@ namespace EducationOverflow {
 
         protected void Page_Load(object sender, EventArgs e) {
 
-            Business.CustomRoleProvider roleProvider = new Business.CustomRoleProvider();
+            //Business.CustomRoleProvider roleProvider = new Business.CustomRoleProvider();
 
-            roleProvider.AddUsersToRoles(new string[] { "sally" }, new string[] { "user", "admin" });
+            //roleProvider.AddUsersToRoles(new string[] { "sally" }, new string[] { "user", "admin" });
 
             /* Test Code */
 

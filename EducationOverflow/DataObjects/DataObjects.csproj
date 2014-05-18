@@ -47,6 +47,7 @@
     <Compile Include="Role.cs" />
     <Compile Include="StackExchangeSite.cs" />
     <Compile Include="Tag.cs" />
+    <Compile Include="UserIdentifier.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserMembershipInfo.cs" />
   </ItemGroup>

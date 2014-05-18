@@ -20,6 +20,9 @@ namespace Business {
         private static QueriesTableAdapter queriesTableAdapter = 
             new QueriesTableAdapter();
 
+        private static UsersWithRoleTableAdapter usersWithRoleTableAdapter = 
+            new UsersWithRoleTableAdapter();
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<string> SelectUserRoles(string username) {
             DataAccess.EducationOverflow.UserMembershipInfoDataTable userMemberDataTable =
@@ -40,6 +43,22 @@ namespace Business {
             }
 
             return roles;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<DataObjects.UserIdentifier> SelectUsersWithRole(string roleName) {
+            DataAccess.EducationOverflow.UsersWithRoleDataTable usersWithRoleDataTable =
+                usersWithRoleTableAdapter.GetData(roleName);
+
+            List<DataObjects.UserIdentifier> userIdentifiers = new List<DataObjects.UserIdentifier>();
+            foreach (DataAccess.EducationOverflow.UsersWithRoleRow row in usersWithRoleDataTable.Rows) {
+                userIdentifiers.Add(new DataObjects.UserIdentifier() {
+                    UserId = row.UserId,
+                    Username = row.Username
+                });
+            }
+
+            return userIdentifiers;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

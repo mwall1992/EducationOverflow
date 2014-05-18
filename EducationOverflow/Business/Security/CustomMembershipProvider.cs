@@ -147,10 +147,10 @@ namespace Business {
             int startingIndex = pageSize * pageIndex;
             for (int i = startingIndex; i < pageSize; i++) {
                 currentMember = matchedUserMembership[i];
-                membershipCollection.Add(new System.Web.Security.MembershipUser(currentMember.UserId.ToString(), 
-                    currentMember.Username, null, currentMember.Email, null, null, IS_APPROVED, currentMember.IsLocked, 
-                    DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, DateTime.MinValue, 
-                    DateTime.MinValue));
+                membershipCollection.Add(new System.Web.Security.MembershipUser(null, 
+                    currentMember.Username, currentMember.UserId, currentMember.Email, null, null, IS_APPROVED, 
+                    currentMember.IsLocked, DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, 
+                    DateTime.MinValue, DateTime.MinValue));
             }
 
             return membershipCollection;
@@ -171,10 +171,10 @@ namespace Business {
             int startingIndex = pageSize * pageIndex;
             for (int i = startingIndex; i < pageSize; i++) {
                 currentMember = matchedUserMembership[i];
-                membershipCollection.Add(new System.Web.Security.MembershipUser(currentMember.UserId.ToString(),
-                    currentMember.Username, null, currentMember.Email, null, null, IS_APPROVED, currentMember.IsLocked,
-                    DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, DateTime.MinValue,
-                    DateTime.MinValue));
+                membershipCollection.Add(new System.Web.Security.MembershipUser(null,
+                    currentMember.Username, currentMember.UserId, currentMember.Email, null, null, IS_APPROVED, 
+                    currentMember.IsLocked, DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, 
+                    DateTime.MinValue, DateTime.MinValue));
             }
 
             return membershipCollection;
@@ -191,9 +191,10 @@ namespace Business {
             int startingIndex = pageSize * pageIndex;
             for (int i = startingIndex; i < pageSize; i++) {
                 currentMember = allUserMembership[i];
-                membershipCollection.Add(new System.Web.Security.MembershipUser(currentMember.UserId.ToString(), currentMember.Username, 
-                    null, currentMember.Email, null, null, IS_APPROVED, currentMember.IsLocked, DateTime.MinValue, DateTime.MinValue, 
-                    currentMember.LastActivityDate, DateTime.MinValue, DateTime.MinValue));
+                membershipCollection.Add(new System.Web.Security.MembershipUser(null, currentMember.Username, 
+                    currentMember.UserId, currentMember.Email, null, null, IS_APPROVED, currentMember.IsLocked, 
+                    DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, DateTime.MinValue, 
+                    DateTime.MinValue));
             }
 
             return membershipCollection;
@@ -222,8 +223,8 @@ namespace Business {
             System.Web.Security.MembershipUser membership = null;
             DataObjects.UserMembership retrievedMembership = UserMembership.SelectUserMembership(username);
             if (retrievedMembership != null) {
-                membership = new System.Web.Security.MembershipUser(retrievedMembership.UserId.ToString(), 
-                    retrievedMembership.Username, null, retrievedMembership.Email, null, null, true, 
+                membership = new System.Web.Security.MembershipUser(null, 
+                    retrievedMembership.Username, retrievedMembership.UserId, retrievedMembership.Email, null, null, true, 
                     retrievedMembership.IsLocked, DateTime.MinValue, DateTime.MinValue, 
                     retrievedMembership.LastActivityDate, DateTime.MinValue, DateTime.MinValue);
 
@@ -237,11 +238,21 @@ namespace Business {
         }
 
         public override System.Web.Security.MembershipUser GetUser(object providerUserKey, bool userIsOnline) {
-            // SUMMARY:
-            // Need to update database schema first. 
-            // This method can be implemented.
-            
-            throw new NotImplementedException();
+            System.Web.Security.MembershipUser membership = null;
+            DataObjects.UserMembership retrievedMembership = UserMembership.SelectUserMembershipForUserId((long)providerUserKey);
+            if (retrievedMembership != null) {
+                membership = new System.Web.Security.MembershipUser(null,
+                    retrievedMembership.Username, retrievedMembership.UserId, retrievedMembership.Email, null, null, true,
+                    retrievedMembership.IsLocked, DateTime.MinValue, DateTime.MinValue,
+                    retrievedMembership.LastActivityDate, DateTime.MinValue, DateTime.MinValue);
+
+                if (userIsOnline) {
+                    UserMembership.UpdateUserMembership(retrievedMembership.ApplicationName, retrievedMembership.Username,
+                        retrievedMembership.Email, retrievedMembership.IsLocked, DateTime.Now, retrievedMembership.UserId);
+                }
+            }
+
+            return membership;
         }
 
         public override string GetUserNameByEmail(string email) {

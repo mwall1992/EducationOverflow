@@ -29,6 +29,9 @@ namespace Business {
         private static UserMembershipMatchingUsernameTableAdapter membershipMatchingUsernameTableAdapter = 
             new UserMembershipMatchingUsernameTableAdapter();
 
+        private static UserMembershipForUserIdTableAdapter membershipForUserIdTableAdapter = 
+            new UserMembershipForUserIdTableAdapter();
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static DataObjects.UserMembership SelectUserMembership(string username) {
             DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
@@ -39,6 +42,30 @@ namespace Business {
 
                 DataAccess.EducationOverflow.UserMembershipRow memberInfoRow =
                     (DataAccess.EducationOverflow.UserMembershipRow)userMemberDataTable.Rows[0];
+
+                memberInfo = new DataObjects.UserMembership() {
+                    UserId = memberInfoRow.UserId,
+                    Username = memberInfoRow.Username,
+                    ApplicationName = memberInfoRow.ApplicationName,
+                    Email = memberInfoRow.Email,
+                    IsLocked = memberInfoRow.IsLocked,
+                    LastActivityDate = memberInfoRow.LastActivityDate
+                };
+            }
+
+            return memberInfo;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static DataObjects.UserMembership SelectUserMembershipForUserId(long userId) {
+            DataAccess.EducationOverflow.UserMembershipForUserIdDataTable userMemberDataTable =
+                membershipForUserIdTableAdapter.GetData(userId);
+
+            DataObjects.UserMembership memberInfo = null;
+            if (userMemberDataTable.Count > 0) {
+
+                DataAccess.EducationOverflow.UserMembershipForUserIdRow memberInfoRow =
+                    (DataAccess.EducationOverflow.UserMembershipForUserIdRow)userMemberDataTable.Rows[0];
 
                 memberInfo = new DataObjects.UserMembership() {
                     UserId = memberInfoRow.UserId,

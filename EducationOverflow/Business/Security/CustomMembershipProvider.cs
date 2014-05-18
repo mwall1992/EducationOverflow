@@ -122,18 +122,62 @@ namespace Business {
             }
         }
 
-        public override System.Web.Security.MembershipUserCollection FindUsersByEmail(string emailToMatch, int pageIndex, int pageSize, out int totalRecords) {
-            // SUMMARY:
-            // Can be done.
+        public override System.Web.Security.MembershipUserCollection FindUsersByEmail(string emailToMatch, 
+                int pageIndex, int pageSize, out int totalRecords) {
+            const bool IS_APPROVED = true;
             
-            throw new NotImplementedException();
+            const int EMAIL_NAME_INDEX = 0;
+            const int EMAIL_DOMAIN_INDEX = 1;
+            const int EMAIL_COMPONENT_COUNT = 2;
+            string[] emailComponents = emailToMatch.Split(new char[] { '@' });
+
+            if (emailComponents.Length != EMAIL_COMPONENT_COUNT) {
+                throw new ArgumentException("The specified email must include a single '@'");
+            }
+
+            List<DataObjects.UserMembership> matchedUserMembership = 
+                UserMembership.SelectUserMembershipMatchingEmail(emailComponents[EMAIL_NAME_INDEX], 
+                    emailComponents[EMAIL_DOMAIN_INDEX]);
+            totalRecords = matchedUserMembership.Count;
+
+            System.Web.Security.MembershipUserCollection membershipCollection = 
+                new System.Web.Security.MembershipUserCollection();
+
+            DataObjects.UserMembership currentMember;
+            int startingIndex = pageSize * pageIndex;
+            for (int i = startingIndex; i < pageSize; i++) {
+                currentMember = matchedUserMembership[i];
+                membershipCollection.Add(new System.Web.Security.MembershipUser(currentMember.UserId.ToString(), 
+                    currentMember.Username, null, currentMember.Email, null, null, IS_APPROVED, currentMember.IsLocked, 
+                    DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, DateTime.MinValue, 
+                    DateTime.MinValue));
+            }
+
+            return membershipCollection;
         }
 
-        public override System.Web.Security.MembershipUserCollection FindUsersByName(string usernameToMatch, int pageIndex, int pageSize, out int totalRecords) {
-            // SUMMARY:
-            // Can be done.
+        public override System.Web.Security.MembershipUserCollection FindUsersByName(string usernameToMatch, 
+                int pageIndex, int pageSize, out int totalRecords) {
+            const bool IS_APPROVED = true;
 
-            throw new NotImplementedException();
+            List<DataObjects.UserMembership> matchedUserMembership =
+                UserMembership.SelectUserMembershipMatchingUsername(usernameToMatch);
+            totalRecords = matchedUserMembership.Count;
+
+            System.Web.Security.MembershipUserCollection membershipCollection =
+                new System.Web.Security.MembershipUserCollection();
+
+            DataObjects.UserMembership currentMember;
+            int startingIndex = pageSize * pageIndex;
+            for (int i = startingIndex; i < pageSize; i++) {
+                currentMember = matchedUserMembership[i];
+                membershipCollection.Add(new System.Web.Security.MembershipUser(currentMember.UserId.ToString(),
+                    currentMember.Username, null, currentMember.Email, null, null, IS_APPROVED, currentMember.IsLocked,
+                    DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, DateTime.MinValue,
+                    DateTime.MinValue));
+            }
+
+            return membershipCollection;
         }
 
         public override System.Web.Security.MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords) {

@@ -23,6 +23,12 @@ namespace Business {
         private static UserMembershipForEmailTableAdapter userMembershipForEmailTableAdapter =
             new UserMembershipForEmailTableAdapter();
 
+        private static UserMembershipMatchingEmailTableAdapter userMembershipMatchingEmailTableAdapter =
+             new UserMembershipMatchingEmailTableAdapter();
+
+        private static UserMembershipMatchingUsernameTableAdapter membershipMatchingUsernameTableAdapter = 
+            new UserMembershipMatchingUsernameTableAdapter();
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static DataObjects.UserMembership SelectUserMembership(string username) {
             DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
@@ -105,6 +111,46 @@ namespace Business {
             }
 
             return memberInfo;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<DataObjects.UserMembership> SelectUserMembershipMatchingEmail(string email, string domain) {
+            List<DataObjects.UserMembership> allUserMembership = new List<DataObjects.UserMembership>();
+            DataAccess.EducationOverflow.UserMembershipMatchingEmailDataTable userMemberDataTable =
+                userMembershipMatchingEmailTableAdapter.GetData(email, domain);
+
+            foreach (DataAccess.EducationOverflow.UserMembershipMatchingEmailRow row in userMemberDataTable.Rows) {
+                allUserMembership.Add(new DataObjects.UserMembership() {
+                    UserId = row.UserId,
+                    Username = row.Username,
+                    ApplicationName = row.ApplicationName,
+                    Email = row.Email,
+                    IsLocked = row.IsLocked,
+                    LastActivityDate = row.LastActivityDate
+                });
+            }
+
+            return allUserMembership;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<DataObjects.UserMembership> SelectUserMembershipMatchingUsername(string username) {
+            List<DataObjects.UserMembership> allUserMembership = new List<DataObjects.UserMembership>();
+            DataAccess.EducationOverflow.UserMembershipMatchingUsernameDataTable userMemberDataTable =
+                membershipMatchingUsernameTableAdapter.GetData(username);
+
+            foreach (DataAccess.EducationOverflow.UserMembershipMatchingUsernameRow row in userMemberDataTable.Rows) {
+                allUserMembership.Add(new DataObjects.UserMembership() {
+                    UserId = row.UserId,
+                    Username = row.Username,
+                    ApplicationName = row.ApplicationName,
+                    Email = row.Email,
+                    IsLocked = row.IsLocked,
+                    LastActivityDate = row.LastActivityDate
+                });
+            }
+
+            return allUserMembership;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

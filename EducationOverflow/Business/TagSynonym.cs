@@ -28,11 +28,7 @@ namespace Business {
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static void InsertTagSynonym(string tagName, string synonym) {
-            try {
-                tagSynonymTableAdapter.Insert(synonym, tagName);
-            } catch (Exception e) {
-                // stub
-            }
+            tagSynonymTableAdapter.Insert(synonym, tagName);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]

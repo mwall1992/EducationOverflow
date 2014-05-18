@@ -32,11 +32,7 @@ namespace Business {
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static void InsertTag(string name, string description, int count) {
-            try {
-                tagTableAdapter.Insert(name, description, count);
-            } catch (Exception e) {
-                // stub
-            }
+            tagTableAdapter.Insert(name, description, count);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]

@@ -59,7 +59,7 @@ namespace Business {
 
         public override bool EnablePasswordReset {
             get {
-                return true;
+                return false;
             }
         }
 

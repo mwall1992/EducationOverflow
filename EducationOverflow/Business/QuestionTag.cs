@@ -29,11 +29,7 @@ namespace Business {
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static void InsertQuestionTag(string questionUrl, string tagName) {
-            try {
-                questionTagTableAdapter.Insert(questionUrl, tagName);
-            } catch (Exception e) {
-                // stub
-            }
+            questionTagTableAdapter.Insert(questionUrl, tagName);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]

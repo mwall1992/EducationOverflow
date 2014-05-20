@@ -23,7 +23,7 @@ namespace Business {
             // retrieve user ids for usernames
             long[] userIds = new long[usernames.Length];
             for (int i = 0; i < usernames.Length; i++) {
-                DataObjects.UserMembership memberInfo = UserMembership.SelectUserMembership(usernames[i]);
+                Data.EducationOverflow.UserMembershipRow memberInfo = UserMembership.SelectUserMembership(usernames[i]);
                 if (memberInfo == null) {
                     throw new ProviderException("Specified username does not exist.");
                 }
@@ -71,15 +71,15 @@ namespace Business {
             }
 
             if (throwOnPopulatedRole) {
-                List<DataObjects.UserIdentifier> usersInRole = UserRoles.SelectUsersWithRole(roleName);
+                Data.EducationOverflow.UsersWithRoleDataTable usersInRole = UserRoles.SelectUsersWithRole(roleName);
                 if (usersInRole.Count > 0) {
                     throw new ProviderException("Role deletion prevented because it was shared by users.");
                 } else {
                     roleDeleted = this.DeleteRole(roleName);
                 }
             } else {
-                List<DataObjects.UserIdentifier> usersWithRole = UserRoles.SelectUsersWithRole(roleName);
-                foreach (DataObjects.UserIdentifier userWithRole in usersWithRole) {
+                Data.EducationOverflow.UsersWithRoleDataTable usersWithRole = UserRoles.SelectUsersWithRole(roleName);
+                foreach (Data.EducationOverflow.UsersWithRoleRow userWithRole in usersWithRole) {
                     UserRoles.DeleteUserRole(roleName, userWithRole.UserId);
                 }
 
@@ -94,7 +94,8 @@ namespace Business {
                 throw new ProviderException("The specified role name does not exist.");
             }
 
-            List<DataObjects.UserIdentifier> usersInRole = UserRoles.SelectMatchedUsersWithRole(roleName, usernameToMatch);
+            Data.EducationOverflow.MatchedUsersWithRoleDataTable usersInRole = 
+                UserRoles.SelectMatchedUsersWithRole(roleName, usernameToMatch);
 
             string[] usernamesInRole = new string[usersInRole.Count];
             for (int i = 0; i < usersInRole.Count; i++) {
@@ -105,7 +106,7 @@ namespace Business {
         }
 
         public override string[] GetAllRoles() {
-            List<DataObjects.Role> roles = Role.SelectRoles();
+            Data.EducationOverflow.RolesDataTable roles = Role.SelectRoles();
 
             string[] roleNames = new string[roles.Count];
             for (int i = 0; i < roles.Count; i++) {
@@ -117,7 +118,16 @@ namespace Business {
 
         public override string[] GetRolesForUser(string username) {
             CustomRoleProvider.ValidateUsername(username);
-            return UserRoles.SelectUserRoles(username).ToArray();
+                
+            Data.EducationOverflow.UserRolesDataTable userRolesDataTable = 
+                UserRoles.SelectUserRoles(username);
+
+            string[] roles = new string[userRolesDataTable.Count];
+            for (int i = 0; i < userRolesDataTable.Count; i++) {
+                roles[i] = ((Data.EducationOverflow.UserRolesRow)userRolesDataTable.Rows[i]).RoleName;
+            }
+
+            return roles;
         }
 
         public override string[] GetUsersInRole(string roleName) {
@@ -127,7 +137,7 @@ namespace Business {
                 throw new ProviderException("The specified role name does not exist.");
             }
 
-            List<DataObjects.UserIdentifier> usersInRole = UserRoles.SelectUsersWithRole(roleName);
+            Data.EducationOverflow.UsersWithRoleDataTable usersInRole = UserRoles.SelectUsersWithRole(roleName);
 
             string[] usernamesInRole = new string[usersInRole.Count];
             for (int i = 0; i < usersInRole.Count; i++) {
@@ -152,10 +162,10 @@ namespace Business {
 
             // determine if user has specified role
             bool isInRole = false;
-            List<string> userRoles = UserRoles.SelectUserRoles(username);
+            Data.EducationOverflow.UserRolesDataTable userRoles = UserRoles.SelectUserRoles(username);
 
-            foreach (string role in userRoles) {
-                if (role.Equals(roleName)) {
+            foreach (Data.EducationOverflow.UserRolesRow roleRow in userRoles) {
+                if (roleRow.RoleName.Equals(roleName)) {
                     isInRole = true;
                     break;
                 }
@@ -177,7 +187,7 @@ namespace Business {
             // retrieve user ids for usernames
             long[] userIds = new long[usernames.Length];
             for (int i = 0; i < usernames.Length; i++) {
-                DataObjects.UserMembership memberInfo = UserMembership.SelectUserMembership(usernames[i]);
+                Data.EducationOverflow.UserMembershipRow memberInfo = UserMembership.SelectUserMembership(usernames[i]);
                 if (memberInfo == null) {
                     throw new ProviderException("Specified username does not exist.");
                 }

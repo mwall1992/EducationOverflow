@@ -9,28 +9,31 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
+    [DataObject]
     public class Answer {
 
         private static AnswerTableAdapter answerTableAdapter = new AnswerTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.Answer> SelectAnswers(long questionId) {
-            List<DataObjects.Answer> answers = new List<DataObjects.Answer>();
-            DataAccess.EducationOverflow.AnswerDataTable answerDataTable = 
-                answerTableAdapter.GetData(questionId);
+        public static Data.EducationOverflow.AnswerDataTable SelectAnswers(long questionId) {
+            return answerTableAdapter.GetData(questionId);
 
-            foreach (DataAccess.EducationOverflow.AnswerRow row in answerDataTable.Rows) {
-                answers.Add(new DataObjects.Answer() {
-                    QuestionId = row.QuestionId, 
-                    ApiAnswerId = row.APIAnswerId,
-                    Body = row.Body,
-                    DownVotes = row.DownVotes,
-                    UpVotes = row.UpVotes,
-                    IsAccepted = row.IsAccepted
-                });
-            }
+            //List<DataObjects.Answer> answers = new List<DataObjects.Answer>();
+            //DataAccess.EducationOverflow.AnswerDataTable answerDataTable = 
+            //    answerTableAdapter.GetData(questionId);
 
-            return answers;
+            //foreach (DataAccess.EducationOverflow.AnswerRow row in answerDataTable.Rows) {
+            //    answers.Add(new DataObjects.Answer() {
+            //        QuestionId = row.QuestionId, 
+            //        ApiAnswerId = row.APIAnswerId,
+            //        Body = row.Body,
+            //        DownVotes = row.DownVotes,
+            //        UpVotes = row.UpVotes,
+            //        IsAccepted = row.IsAccepted
+            //    });
+            //}
+
+            //return answers;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

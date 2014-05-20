@@ -94,6 +94,7 @@
     <Compile Include="TagSynonym.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserMembership.cs" />
+    <Compile Include="UserPassword.cs" />
     <Compile Include="UserReportedQuestions.cs" />
     <Compile Include="UserRoles.cs" />
   </ItemGroup>
@@ -105,6 +106,10 @@
     <ProjectReference Include="..\DataObjects\DataObjects.csproj">
       <Project>{0c42537b-f382-4044-85be-4d7c50a9c4b9}</Project>
       <Name>DataObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.vbproj">
+      <Project>{f9cf681f-4577-4562-9fa9-8bb882ecf0ef}</Project>
+      <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

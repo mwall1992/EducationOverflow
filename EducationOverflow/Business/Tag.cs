@@ -10,24 +10,27 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
+    [DataObject]
     public class Tag {
 
         private static TagTableAdapter tagTableAdapter = new TagTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.Tag> SelectTag() {
-            List<DataObjects.Tag> tags = new List<DataObjects.Tag>();
-            DataAccess.EducationOverflow.TagDataTable tagDataTable = tagTableAdapter.GetData();
+        public static Data.EducationOverflow.TagDataTable SelectTag() {
+            return tagTableAdapter.GetData();
 
-            foreach (DataAccess.EducationOverflow.TagRow row in tagDataTable.Rows) {
-                tags.Add(new DataObjects.Tag() {
-                    Name = row.Name,
-                    Description = row.Description,
-                    Count = row.Count
-                });
-            }
+            //List<DataObjects.Tag> tags = new List<DataObjects.Tag>();
+            //DataAccess.EducationOverflow.TagDataTable tagDataTable = tagTableAdapter.GetData();
 
-            return tags;
+            //foreach (DataAccess.EducationOverflow.TagRow row in tagDataTable.Rows) {
+            //    tags.Add(new DataObjects.Tag() {
+            //        Name = row.Name,
+            //        Description = row.Description,
+            //        Count = row.Count
+            //    });
+            //}
+
+            //return tags;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

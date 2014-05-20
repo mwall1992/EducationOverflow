@@ -9,29 +9,30 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
+    [DataObject]
     public class QuestionInfo {
 
         private static QuestionInfoTableAdapter questionInfoTableAdapter = 
             new QuestionInfoTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.QuestionInfo> SelectQuestionInfo() {
-            questionInfoTableAdapter.GetData();
+        public static Data.EducationOverflow.QuestionInfoDataTable SelectQuestionInfo() {
+            return questionInfoTableAdapter.GetData();
 
-            List<DataObjects.QuestionInfo> questions = new List<DataObjects.QuestionInfo>();
-            DataAccess.EducationOverflow.QuestionInfoDataTable questionInfoDataTable =
-                questionInfoTableAdapter.GetData();
+            //List<DataObjects.QuestionInfo> questions = new List<DataObjects.QuestionInfo>();
+            //DataAccess.EducationOverflow.QuestionInfoDataTable questionInfoDataTable =
+            //    questionInfoTableAdapter.GetData();
 
-            foreach (DataAccess.EducationOverflow.QuestionInfoRow row in questionInfoDataTable.Rows) {
-                questions.Add(new DataObjects.QuestionInfo() {
-                    Id = row.QuestionId,
-                    Body = row.Body,
-                    UpVotes = row.UpVotes,
-                    DownVotes = row.DownVotes
-                });
-            }
+            //foreach (DataAccess.EducationOverflow.QuestionInfoRow row in questionInfoDataTable.Rows) {
+            //    questions.Add(new DataObjects.QuestionInfo() {
+            //        Id = row.QuestionId,
+            //        Body = row.Body,
+            //        UpVotes = row.UpVotes,
+            //        DownVotes = row.DownVotes
+            //    });
+            //}
 
-            return questions;
+            //return questions;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

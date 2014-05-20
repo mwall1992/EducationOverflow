@@ -9,23 +9,26 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
+    [DataObject]
     public class StackExchangeSite {
 
         private static StackExchangeSiteTableAdapter siteTableAdapter = new StackExchangeSiteTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.StackExchangeSite> SelectStackExchangeSites() {
-            List<DataObjects.StackExchangeSite> sites = new List<DataObjects.StackExchangeSite>();
-            DataAccess.EducationOverflow.StackExchangeSiteDataTable siteDataTable = siteTableAdapter.GetData();
+        public static Data.EducationOverflow.StackExchangeSiteDataTable SelectStackExchangeSites() {
+            return siteTableAdapter.GetData();
 
-            foreach (DataAccess.EducationOverflow.StackExchangeSiteRow row in siteDataTable.Rows) {
-                sites.Add(new DataObjects.StackExchangeSite() { 
-                    APISiteParameter = row.APISiteParameter, 
-                    Name = row.Name, TotalAcceptedAnswers = row.TotalAcceptedAnswers 
-                }); 
-            }
+            //List<DataObjects.StackExchangeSite> sites = new List<DataObjects.StackExchangeSite>();
+            //DataAccess.EducationOverflow.StackExchangeSiteDataTable siteDataTable = siteTableAdapter.GetData();
 
-            return sites;
+            //foreach (DataAccess.EducationOverflow.StackExchangeSiteRow row in siteDataTable.Rows) {
+            //    sites.Add(new DataObjects.StackExchangeSite() { 
+            //        APISiteParameter = row.APISiteParameter, 
+            //        Name = row.Name, TotalAcceptedAnswers = row.TotalAcceptedAnswers 
+            //    }); 
+            //}
+
+            //return sites;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

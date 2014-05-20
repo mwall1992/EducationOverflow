@@ -9,6 +9,7 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
+    [DataObject]
     public class UserRoles {
         
         private static UserRolesTableAdapter userRolesTableAdapter = 
@@ -27,57 +28,65 @@ namespace Business {
             new MatchedUsersWithRoleTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<string> SelectUserRoles(string username) {
-            DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
+        public static Data.EducationOverflow.UserRolesDataTable SelectUserRoles(string username) {
+            Data.EducationOverflow.UserMembershipDataTable userMembershipDataTable = 
                 userMembershipInfoTableAdapter.GetData(username);
+            return userRolesTableAdapter.GetData(userMembershipDataTable[0].UserId);
 
-            List<string> roles = new List<string>();
-            if (userMemberDataTable.Count > 0) {
+            //DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
+            //    userMembershipInfoTableAdapter.GetData(username);
 
-                DataAccess.EducationOverflow.UserMembershipRow memberInfoRow =
-                    (DataAccess.EducationOverflow.UserMembershipRow)userMemberDataTable.Rows[0];
+            //List<string> roles = new List<string>();
+            //if (userMemberDataTable.Count > 0) {
 
-                DataAccess.EducationOverflow.UserRolesDataTable userRolesDataTable =
-                    userRolesTableAdapter.GetData(memberInfoRow.UserId);
+            //    DataAccess.EducationOverflow.UserMembershipRow memberInfoRow =
+            //        (DataAccess.EducationOverflow.UserMembershipRow)userMemberDataTable.Rows[0];
 
-                foreach (DataAccess.EducationOverflow.UserRolesRow row in userRolesDataTable.Rows) {
-                    roles.Add(row.RoleName);
-                }
-            }
+            //    DataAccess.EducationOverflow.UserRolesDataTable userRolesDataTable =
+            //        userRolesTableAdapter.GetData(memberInfoRow.UserId);
 
-            return roles;
+            //    foreach (DataAccess.EducationOverflow.UserRolesRow row in userRolesDataTable.Rows) {
+            //        roles.Add(row.RoleName);
+            //    }
+            //}
+
+            //return roles;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.UserIdentifier> SelectUsersWithRole(string roleName) {
-            DataAccess.EducationOverflow.UsersWithRoleDataTable usersWithRoleDataTable =
-                usersWithRoleTableAdapter.GetData(roleName);
+        public static Data.EducationOverflow.UsersWithRoleDataTable SelectUsersWithRole(string roleName) {
+            return usersWithRoleTableAdapter.GetData(roleName);
 
-            List<DataObjects.UserIdentifier> userIdentifiers = new List<DataObjects.UserIdentifier>();
-            foreach (DataAccess.EducationOverflow.UsersWithRoleRow row in usersWithRoleDataTable.Rows) {
-                userIdentifiers.Add(new DataObjects.UserIdentifier() {
-                    UserId = row.UserId,
-                    Username = row.Username
-                });
-            }
+            //DataAccess.EducationOverflow.UsersWithRoleDataTable usersWithRoleDataTable =
+            //    usersWithRoleTableAdapter.GetData(roleName);
 
-            return userIdentifiers;
+            //List<DataObjects.UserIdentifier> userIdentifiers = new List<DataObjects.UserIdentifier>();
+            //foreach (DataAccess.EducationOverflow.UsersWithRoleRow row in usersWithRoleDataTable.Rows) {
+            //    userIdentifiers.Add(new DataObjects.UserIdentifier() {
+            //        UserId = row.UserId,
+            //        Username = row.Username
+            //    });
+            //}
+
+            //return userIdentifiers;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.UserIdentifier> SelectMatchedUsersWithRole(string roleName, string matchedUsername) {
-            DataAccess.EducationOverflow.MatchedUsersWithRoleDataTable matchedUsersWithRoleDataTable =
-                matchedUsersWithRoleTableAdapter.GetData(roleName, matchedUsername);
+        public static Data.EducationOverflow.MatchedUsersWithRoleDataTable SelectMatchedUsersWithRole(string roleName, string matchedUsername) {
+            return matchedUsersWithRoleTableAdapter.GetData(roleName, matchedUsername);
 
-            List<DataObjects.UserIdentifier> userIdentifiers = new List<DataObjects.UserIdentifier>();
-            foreach (DataAccess.EducationOverflow.UsersWithRoleRow row in matchedUsersWithRoleDataTable.Rows) {
-                userIdentifiers.Add(new DataObjects.UserIdentifier() {
-                    UserId = row.UserId,
-                    Username = row.Username
-                });
-            }
+            //DataAccess.EducationOverflow.MatchedUsersWithRoleDataTable matchedUsersWithRoleDataTable =
+            //    matchedUsersWithRoleTableAdapter.GetData(roleName, matchedUsername);
 
-            return userIdentifiers;
+            //List<DataObjects.UserIdentifier> userIdentifiers = new List<DataObjects.UserIdentifier>();
+            //foreach (DataAccess.EducationOverflow.UsersWithRoleRow row in matchedUsersWithRoleDataTable.Rows) {
+            //    userIdentifiers.Add(new DataObjects.UserIdentifier() {
+            //        UserId = row.UserId,
+            //        Username = row.Username
+            //    });
+            //}
+
+            //return userIdentifiers;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
@@ -98,14 +107,14 @@ namespace Business {
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static void InsertRolesForUsers(string[] roleNames, long[] userIds) {
-            DataAccess.EducationOverflow.UserIdsDataTable userIdsDataTable = 
-                new DataAccess.EducationOverflow.UserIdsDataTable();
+            Data.EducationOverflow.UserIdsDataTable userIdsDataTable = 
+                new Data.EducationOverflow.UserIdsDataTable();
             foreach (long userId in userIds) {
                 userIdsDataTable.AddUserIdsRow(userId);
             }
 
-            DataAccess.EducationOverflow.RoleNamesDataTable roleNamesDataTable = 
-                new DataAccess.EducationOverflow.RoleNamesDataTable();
+            Data.EducationOverflow.RoleNamesDataTable roleNamesDataTable = 
+                new Data.EducationOverflow.RoleNamesDataTable();
             foreach (string roleName in roleNames) {
                 roleNamesDataTable.AddRoleNamesRow(roleName);
             }
@@ -115,14 +124,14 @@ namespace Business {
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public static void DeleteRolesFromUsers(string[] roleNames, long[] userIds) {
-            DataAccess.EducationOverflow.UserIdsDataTable userIdsDataTable =
-                new DataAccess.EducationOverflow.UserIdsDataTable();
+            Data.EducationOverflow.UserIdsDataTable userIdsDataTable =
+                new Data.EducationOverflow.UserIdsDataTable();
             foreach (long userId in userIds) {
                 userIdsDataTable.AddUserIdsRow(userId);
             }
 
-            DataAccess.EducationOverflow.RoleNamesDataTable roleNamesDataTable =
-                new DataAccess.EducationOverflow.RoleNamesDataTable();
+            Data.EducationOverflow.RoleNamesDataTable roleNamesDataTable =
+                new Data.EducationOverflow.RoleNamesDataTable();
             foreach (string roleName in roleNames) {
                 roleNamesDataTable.AddRoleNamesRow(roleName);
             }

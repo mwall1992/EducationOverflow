@@ -9,24 +9,27 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
+    [DataObject]
     public class TagInfo {
 
         private static TagsInfoUserViewTableAdapter tagsTableAdapter = new TagsInfoUserViewTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.Tag> SelectQuestionsFromUserView() {
-            List<DataObjects.Tag> tags = new List<DataObjects.Tag>();
-            DataAccess.EducationOverflow.TagsInfoUserViewDataTable tagsDataTable = tagsTableAdapter.GetData();
+        public static Data.EducationOverflow.TagsInfoUserViewDataTable SelectTags() {
+            return tagsTableAdapter.GetData();
 
-            foreach (DataAccess.EducationOverflow.TagsInfoUserViewRow row in tagsDataTable.Rows) {
-                tags.Add(new DataObjects.Tag() {
-                    Name = row.Name,
-                    Description = row.Description,
-                    Count = row.SynonymCount
-                });
-            }
+            //List<DataObjects.Tag> tags = new List<DataObjects.Tag>();
+            //DataAccess.EducationOverflow.TagsInfoUserViewDataTable tagsDataTable = tagsTableAdapter.GetData();
 
-            return tags;
+            //foreach (DataAccess.EducationOverflow.TagsInfoUserViewRow row in tagsDataTable.Rows) {
+            //    tags.Add(new DataObjects.Tag() {
+            //        Name = row.Name,
+            //        Description = row.Description,
+            //        Count = row.SynonymCount
+            //    });
+            //}
+
+            //return tags;
         }
     }
 }

@@ -8,22 +8,25 @@ using System.ComponentModel;
 using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
-
+    
+    [DataObject]
     public class User {
 
         private static UserTableAdapter userTableAdapter = new UserTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static DataObjects.User SelectUser(int userId) {
-            DataAccess.EducationOverflow.UserDataTable userDataTable = userTableAdapter.GetData(userId);
-            DataAccess.EducationOverflow.UserRow userDataRow = 
-                (DataAccess.EducationOverflow.UserRow)userDataTable.Rows[0];
+        public static Data.EducationOverflow.UserRow SelectUser(long userId) {
+            return (Data.EducationOverflow.UserRow)userTableAdapter.GetData(userId).Rows[0];
 
-            return new DataObjects.User() {
-                FirstName = userDataRow.FirstName,
-                LastName = userDataRow.LastName,
-                DateOfBirth = userDataRow.DateOfBirth
-            };
+            //DataAccess.EducationOverflow.UserDataTable userDataTable = userTableAdapter.GetData(userId);
+            //DataAccess.EducationOverflow.UserRow userDataRow = 
+            //    (DataAccess.EducationOverflow.UserRow)userDataTable.Rows[0];
+
+            //return new DataObjects.User() {
+            //    FirstName = userDataRow.FirstName,
+            //    LastName = userDataRow.LastName,
+            //    DateOfBirth = userDataRow.DateOfBirth
+            //};
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

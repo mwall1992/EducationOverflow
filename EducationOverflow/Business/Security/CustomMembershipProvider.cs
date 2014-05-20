@@ -33,14 +33,16 @@ namespace Business {
         public override bool ChangePassword(string username, string oldPassword, string newPassword) {
             const int INVALID_AFFECTED_ROWS = 0;
             bool passwordChanged = false;
-            DataObjects.UserMembership membership = UserMembership.SelectUserMembership(username);
+            Data.EducationOverflow.UserMembershipRow membership = UserMembership.SelectUserMembership(username);
 
             try {
                 if (this.ValidateUser(username, oldPassword) && membership != null) {
-                    int affectedRows = UserMembership.UpdateUserMembership(membership.ApplicationName, membership.Username, 
-                        newPassword, membership.Email, membership.IsLocked, membership.LastActivityDate, membership.IsApproved, 
-                        DateTime.Now, membership.CreationDate, membership.LastLockedOutDate, membership.Comment, 
-                        membership.PasswordQuestion, membership.PasswordAnswer, membership.UserId);
+                    int affectedRows = UserPassword.UpdateUserPassword(newPassword, membership.UserId, membership.UserId);
+
+                    //int affectedRows = UserMembership.UpdateUserMembership(membership.ApplicationName, membership.Username, 
+                    //    newPassword, membership.Email, membership.IsLocked, membership.LastActivityDate, membership.IsApproved, 
+                    //    DateTime.Now, membership.CreationDate, membership.LastLockedOutDate, membership.Comment, 
+                    //    membership.PasswordQuestion, membership.PasswordAnswer, membership.UserId);
                     passwordChanged = (affectedRows != INVALID_AFFECTED_ROWS);
                 }
             } catch {
@@ -86,7 +88,7 @@ namespace Business {
         public override bool DeleteUser(string username, bool deleteAllRelatedData) {
             const int INVALID_AFFFECTED_ROWS = 0;
             bool userDeleted = false;
-            DataObjects.UserMembership membership = UserMembership.SelectUserMembership(username);
+            Data.EducationOverflow.UserMembershipRow membership = UserMembership.SelectUserMembership(username);
 
             // TODO: REMOVE ALL USER INFORMATION! (via cascade)
 
@@ -94,8 +96,14 @@ namespace Business {
                 if (membership != null && deleteAllRelatedData) {
                     
                     // remove role information
-                    List<string> roles = UserRoles.SelectUserRoles(username);
-                    UserRoles.DeleteRolesFromUsers(roles.ToArray(), new long[] { membership.UserId });
+                    Data.EducationOverflow.UserRolesDataTable roles = UserRoles.SelectUserRoles(username);
+
+                    string[] roleNames = new string[roles.Count];
+                    for (int i = 0; i < roles.Count; i++) {
+                        roleNames[i] = roles[i].RoleName;
+                    }
+
+                    UserRoles.DeleteRolesFromUsers(roleNames, new long[] { membership.UserId });
 
                     // remove user information
                     User.DeleteUser(membership.UserId);
@@ -136,7 +144,7 @@ namespace Business {
                 throw new ArgumentException("The specified email must include a single '@'");
             }
 
-            List<DataObjects.UserMembership> matchedUserMembership = 
+            Data.EducationOverflow.UserMembershipMatchingEmailDataTable matchedUserMembership = 
                 UserMembership.SelectUserMembershipMatchingEmail(emailComponents[EMAIL_NAME_INDEX], 
                     emailComponents[EMAIL_DOMAIN_INDEX]);
             totalRecords = matchedUserMembership.Count;
@@ -144,10 +152,10 @@ namespace Business {
             System.Web.Security.MembershipUserCollection membershipCollection = 
                 new System.Web.Security.MembershipUserCollection();
 
-            DataObjects.UserMembership currentMember;
+            Data.EducationOverflow.UserMembershipMatchingEmailRow currentMember;
             int startingIndex = pageSize * pageIndex;
             for (int i = startingIndex; i < pageSize; i++) {
-                currentMember = matchedUserMembership[i];
+                currentMember = (Data.EducationOverflow.UserMembershipMatchingEmailRow)matchedUserMembership.Rows[i];
                 membershipCollection.Add(new System.Web.Security.MembershipUser(this.Name, 
                     currentMember.Username, currentMember.UserId, currentMember.Email, null, null, IS_APPROVED, 
                     currentMember.IsLocked, DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, 
@@ -161,17 +169,17 @@ namespace Business {
                 int pageIndex, int pageSize, out int totalRecords) {
             const bool IS_APPROVED = true;
 
-            List<DataObjects.UserMembership> matchedUserMembership =
+            Data.EducationOverflow.UserMembershipMatchingUsernameDataTable matchedUserMembership =
                 UserMembership.SelectUserMembershipMatchingUsername(usernameToMatch);
             totalRecords = matchedUserMembership.Count;
 
             System.Web.Security.MembershipUserCollection membershipCollection =
                 new System.Web.Security.MembershipUserCollection();
 
-            DataObjects.UserMembership currentMember;
+            Data.EducationOverflow.UserMembershipMatchingUsernameRow currentMember;
             int startingIndex = pageSize * pageIndex;
             for (int i = startingIndex; i < pageSize; i++) {
-                currentMember = matchedUserMembership[i];
+                currentMember = (Data.EducationOverflow.UserMembershipMatchingUsernameRow)matchedUserMembership.Rows[i];
                 membershipCollection.Add(new System.Web.Security.MembershipUser(this.Name,
                     currentMember.Username, currentMember.UserId, currentMember.Email, null, null, IS_APPROVED, 
                     currentMember.IsLocked, DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, 
@@ -183,15 +191,15 @@ namespace Business {
 
         public override System.Web.Security.MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords) {
             const bool IS_APPROVED = true;
-            List<DataObjects.UserMembership> allUserMembership = UserMembership.SelectAllUserMembership();
+            Data.EducationOverflow.AllUserMembershipDataTable allUserMembership = UserMembership.SelectAllUserMembership();
             totalRecords = allUserMembership.Count;
 
             System.Web.Security.MembershipUserCollection membershipCollection = new System.Web.Security.MembershipUserCollection();
 
-            DataObjects.UserMembership currentMember;
+            Data.EducationOverflow.AllUserMembershipRow currentMember;
             int startingIndex = pageSize * pageIndex;
             for (int i = startingIndex; i < pageSize; i++) {
-                currentMember = allUserMembership[i];
+                currentMember = (Data.EducationOverflow.AllUserMembershipRow)allUserMembership.Rows[i];
                 membershipCollection.Add(new System.Web.Security.MembershipUser(this.Name, currentMember.Username, 
                     currentMember.UserId, currentMember.Email, null, null, IS_APPROVED, currentMember.IsLocked, 
                     DateTime.MinValue, DateTime.MinValue, currentMember.LastActivityDate, DateTime.MinValue, 
@@ -205,8 +213,8 @@ namespace Business {
             const int NEGATIVE_MULTIPLER = -1;
             int onlineCount = 0;
 
-            List<DataObjects.UserMembership> allUserMembership = UserMembership.SelectAllUserMembership();
-            foreach (DataObjects.UserMembership membership in allUserMembership) {
+            Data.EducationOverflow.AllUserMembershipDataTable allUserMembership = UserMembership.SelectAllUserMembership();
+            foreach (Data.EducationOverflow.AllUserMembershipRow membership in allUserMembership) {
                 if (membership.LastActivityDate
                         >= DateTime.Now.AddMinutes(NEGATIVE_MULTIPLER * System.Web.Security.Membership.UserIsOnlineTimeWindow)) {
                     onlineCount++;
@@ -222,7 +230,7 @@ namespace Business {
 
         public override System.Web.Security.MembershipUser GetUser(string username, bool userIsOnline) {
             System.Web.Security.MembershipUser membership = null;
-            DataObjects.UserMembership retrievedMembership = UserMembership.SelectUserMembership(username);
+            Data.EducationOverflow.UserMembershipRow retrievedMembership = UserMembership.SelectUserMembership(username);
             if (retrievedMembership != null) {
                 membership = new System.Web.Security.MembershipUser(this.Name, 
                     retrievedMembership.Username, retrievedMembership.UserId, retrievedMembership.Email, null, null, true, 
@@ -230,6 +238,8 @@ namespace Business {
                     retrievedMembership.LastActivityDate, DateTime.MinValue, DateTime.MinValue);
 
                 if (userIsOnline) {
+                    // TODO: update data set
+
                     UserMembership.UpdateUserMembership(retrievedMembership.ApplicationName, retrievedMembership.Username,
                         retrievedMembership.Email, retrievedMembership.IsLocked, DateTime.Now, retrievedMembership.IsApproved, 
                         retrievedMembership.LastPasswordChangeDate, retrievedMembership.CreationDate, 
@@ -243,7 +253,11 @@ namespace Business {
 
         public override System.Web.Security.MembershipUser GetUser(object providerUserKey, bool userIsOnline) {
             System.Web.Security.MembershipUser membership = null;
-            DataObjects.UserMembership retrievedMembership = UserMembership.SelectUserMembershipForUserId((long)providerUserKey);
+            Data.EducationOverflow.UserMembershipForUserIdRow retrievedMembership = 
+                UserMembership.SelectUserMembershipForUserId((long)providerUserKey);
+
+                // TODO: address casting issues
+
             if (retrievedMembership != null) {
                 membership = new System.Web.Security.MembershipUser(this.Name,
                     retrievedMembership.Username, retrievedMembership.UserId, retrievedMembership.Email, null, null, true,
@@ -264,7 +278,8 @@ namespace Business {
 
         public override string GetUserNameByEmail(string email) {
             string username = "";
-            DataObjects.UserMembership membership = UserMembership.SelectUserMembershipWithEmail(email);
+            Data.EducationOverflow.UserMembershipForEmailRow membership = 
+                UserMembership.SelectUserMembershipWithEmail(email);
 
             if (membership != null) {
                 username = membership.Username;
@@ -331,7 +346,9 @@ namespace Business {
             const bool IS_LOCKED = false;
             bool isUnlocked = false;
 
-            DataObjects.UserMembership membership = UserMembership.SelectUserMembership(userName);
+            // TODO: Address casting issues
+
+            Data.EducationOverflow.UserMembershipRow membership = UserMembership.SelectUserMembership(userName);
             if (membership != null) {
                 int affectedRows = UserMembership.UpdateUserMembership(membership.ApplicationName, membership.Username,
                         membership.Email, IS_LOCKED, DateTime.Now, membership.IsApproved,
@@ -345,10 +362,12 @@ namespace Business {
         }
 
         public override void UpdateUser(System.Web.Security.MembershipUser user) {
-            DataObjects.UserMembership membership = UserMembership.SelectUserMembership(user.UserName);
+            Data.EducationOverflow.UserMembershipRow membership = UserMembership.SelectUserMembership(user.UserName);
             if (membership == null) {
                 throw new ProviderException("Invalid user was specified for updating.");
             }
+
+            // TODO: address casting issues
 
             UserMembership.UpdateUserMembership(membership.UserId.ToString(), user.UserName, user.Email, 
                 user.IsLockedOut, user.LastActivityDate, user.IsApproved, user.LastPasswordChangedDate, 

@@ -9,22 +9,25 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
+    [DataObject]
     public class QuestionTag {
 
         private static QuestionTagTableAdapter questionTagTableAdapter =
             new QuestionTagTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<string> SelectQuestionTags(long questionId) {
-            List<string> tags = new List<string>();
+        public static Data.EducationOverflow.QuestionTagDataTable SelectQuestionTags(long questionId) {
+            return questionTagTableAdapter.GetData(questionId);
 
-            DataAccess.EducationOverflow.QuestionTagDataTable questionTagDataTable =
-                questionTagTableAdapter.GetData(questionId);
-            foreach (DataAccess.EducationOverflow.QuestionTagRow row in questionTagDataTable.Rows) {
-                tags.Add(row.TagName);
-            }
+            //List<string> tags = new List<string>();
 
-            return tags;
+            //DataAccess.EducationOverflow.QuestionTagDataTable questionTagDataTable =
+            //    questionTagTableAdapter.GetData(questionId);
+            //foreach (DataAccess.EducationOverflow.QuestionTagRow row in questionTagDataTable.Rows) {
+            //    tags.Add(row.TagName);
+            //}
+
+            //return tags;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

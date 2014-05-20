@@ -9,6 +9,7 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
+    [DataObject]
     public class UserMembership {
 
         private static UserMembershipTableAdapter membershipTableAdapter =
@@ -33,69 +34,73 @@ namespace Business {
             new UserMembershipForUserIdTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static DataObjects.UserMembership SelectUserMembership(string username) {
-            DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
-                membershipTableAdapter.GetData(username);
+        public static Data.EducationOverflow.UserMembershipRow SelectUserMembership(string username) {
+            return (Data.EducationOverflow.UserMembershipRow)membershipTableAdapter.GetData(username).Rows[0];
 
-            DataObjects.UserMembership memberInfo = null;
-            if (userMemberDataTable.Count > 0) {
+            //DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
+            //    membershipTableAdapter.GetData(username);
 
-                DataAccess.EducationOverflow.UserMembershipRow memberInfoRow =
-                    (DataAccess.EducationOverflow.UserMembershipRow)userMemberDataTable.Rows[0];
+            //DataObjects.UserMembership memberInfo = null;
+            //if (userMemberDataTable.Count > 0) {
 
-                memberInfo = new DataObjects.UserMembership() {
-                    UserId = memberInfoRow.UserId,
-                    Username = memberInfoRow.Username,
-                    ApplicationName = memberInfoRow.ApplicationName,
-                    Email = memberInfoRow.Email,
-                    IsLocked = memberInfoRow.IsLocked,
-                    LastActivityDate = memberInfoRow.LastActivityDate
-                };
-            }
+            //    DataAccess.EducationOverflow.UserMembershipRow memberInfoRow =
+            //        (DataAccess.EducationOverflow.UserMembershipRow)userMemberDataTable.Rows[0];
 
-            return memberInfo;
+            //    memberInfo = new DataObjects.UserMembership() {
+            //        UserId = memberInfoRow.UserId,
+            //        Username = memberInfoRow.Username,
+            //        ApplicationName = memberInfoRow.ApplicationName,
+            //        Email = memberInfoRow.Email,
+            //        IsLocked = memberInfoRow.IsLocked,
+            //        LastActivityDate = memberInfoRow.LastActivityDate
+            //    };
+            //}
+
+            //return memberInfo;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static DataObjects.UserMembership SelectUserMembershipForUserId(long userId) {
-            DataAccess.EducationOverflow.UserMembershipForUserIdDataTable userMemberDataTable =
-                membershipForUserIdTableAdapter.GetData(userId);
+        public static Data.EducationOverflow.UserMembershipForUserIdRow SelectUserMembershipForUserId(long userId) {
+            return (Data.EducationOverflow.UserMembershipForUserIdRow)membershipForUserIdTableAdapter.GetData(userId).Rows[0];
 
-            DataObjects.UserMembership memberInfo = null;
-            if (userMemberDataTable.Count > 0) {
+            //DataAccess.EducationOverflow.UserMembershipForUserIdDataTable userMemberDataTable =
+            //    membershipForUserIdTableAdapter.GetData(userId);
 
-                DataAccess.EducationOverflow.UserMembershipForUserIdRow memberInfoRow =
-                    (DataAccess.EducationOverflow.UserMembershipForUserIdRow)userMemberDataTable.Rows[0];
+            //DataObjects.UserMembership memberInfo = null;
+            //if (userMemberDataTable.Count > 0) {
 
-                memberInfo = new DataObjects.UserMembership() {
-                    UserId = memberInfoRow.UserId,
-                    Username = memberInfoRow.Username,
-                    ApplicationName = memberInfoRow.ApplicationName,
-                    Email = memberInfoRow.Email,
-                    IsLocked = memberInfoRow.IsLocked,
-                    LastActivityDate = memberInfoRow.LastActivityDate, 
-                    IsApproved = memberInfo.IsApproved,
-                    LastPasswordChangeDate = memberInfo.LastPasswordChangeDate,
-                    CreationDate = memberInfo.CreationDate,
-                    LastLockedOutDate = memberInfo.LastLockedOutDate,
-                    Comment = memberInfo.Comment,
-                    PasswordQuestion = memberInfo.PasswordQuestion,
-                    PasswordAnswer = memberInfo.PasswordAnswer
-                };
-            }
+            //    DataAccess.EducationOverflow.UserMembershipForUserIdRow memberInfoRow =
+            //        (DataAccess.EducationOverflow.UserMembershipForUserIdRow)userMemberDataTable.Rows[0];
 
-            return memberInfo;
+            //    memberInfo = new DataObjects.UserMembership() {
+            //        UserId = memberInfoRow.UserId,
+            //        Username = memberInfoRow.Username,
+            //        ApplicationName = memberInfoRow.ApplicationName,
+            //        Email = memberInfoRow.Email,
+            //        IsLocked = memberInfoRow.IsLocked,
+            //        LastActivityDate = memberInfoRow.LastActivityDate, 
+            //        IsApproved = memberInfo.IsApproved,
+            //        LastPasswordChangeDate = memberInfo.LastPasswordChangeDate,
+            //        CreationDate = memberInfo.CreationDate,
+            //        LastLockedOutDate = memberInfo.LastLockedOutDate,
+            //        Comment = memberInfo.Comment,
+            //        PasswordQuestion = memberInfo.PasswordQuestion,
+            //        PasswordAnswer = memberInfo.PasswordAnswer
+            //    };
+            //}
+
+            //return memberInfo;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static string SelectPassword(string username) {
             string password = null;
-            DataAccess.EducationOverflow.UserMembershipDataTable userMemberDataTable =
+            Data.EducationOverflow.UserMembershipDataTable userMemberDataTable =
                 membershipTableAdapter.GetData(username);
 
             if (userMemberDataTable.Count > 0) {
-                DataAccess.EducationOverflow.UserMembershipRow memberInfoRow =
-                    (DataAccess.EducationOverflow.UserMembershipRow)userMemberDataTable.Rows[0];
+                Data.EducationOverflow.UserMembershipRow memberInfoRow =
+                    (Data.EducationOverflow.UserMembershipRow)userMemberDataTable.Rows[0];
 
                 password = memberInfoRow.Password;
             }
@@ -104,87 +109,95 @@ namespace Business {
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.UserMembership> SelectAllUserMembership() {
-            List<DataObjects.UserMembership> allUserMembership = new List<DataObjects.UserMembership>();
-            DataAccess.EducationOverflow.AllUserMembershipDataTable userMemberDataTable =
-                allUserMembershipTableAdapter.GetData();
+        public static Data.EducationOverflow.AllUserMembershipDataTable SelectAllUserMembership() {
+            return allUserMembershipTableAdapter.GetData();
 
-            foreach (DataAccess.EducationOverflow.AllUserMembershipRow row in userMemberDataTable.Rows) {
-                allUserMembership.Add(new DataObjects.UserMembership() {
-                    UserId = row.UserId,
-                    Username = row.Username,
-                    ApplicationName = row.ApplicationName,
-                    Email = row.Email,
-                    IsLocked = row.IsLocked,
-                    LastActivityDate = row.LastActivityDate
-                });
-            }
+            //List<DataObjects.UserMembership> allUserMembership = new List<DataObjects.UserMembership>();
+            //DataAccess.EducationOverflow.AllUserMembershipDataTable userMemberDataTable =
+            //    allUserMembershipTableAdapter.GetData();
 
-            return allUserMembership;
+            //foreach (DataAccess.EducationOverflow.AllUserMembershipRow row in userMemberDataTable.Rows) {
+            //    allUserMembership.Add(new DataObjects.UserMembership() {
+            //        UserId = row.UserId,
+            //        Username = row.Username,
+            //        ApplicationName = row.ApplicationName,
+            //        Email = row.Email,
+            //        IsLocked = row.IsLocked,
+            //        LastActivityDate = row.LastActivityDate
+            //    });
+            //}
+
+            //return allUserMembership;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static DataObjects.UserMembership SelectUserMembershipWithEmail(string email) {
-            DataAccess.EducationOverflow.UserMembershipForEmailDataTable userMemberDataTable =
-                userMembershipForEmailTableAdapter.GetData(email);
+        public static Data.EducationOverflow.UserMembershipForEmailRow SelectUserMembershipWithEmail(string email) {
+            return (Data.EducationOverflow.UserMembershipForEmailRow)userMembershipForEmailTableAdapter.GetData(email).Rows[0];
 
-            DataObjects.UserMembership memberInfo = null;
-            if (userMemberDataTable.Count > 0) {
+            //DataAccess.EducationOverflow.UserMembershipForEmailDataTable userMemberDataTable =
+            //    userMembershipForEmailTableAdapter.GetData(email);
 
-                DataAccess.EducationOverflow.UserMembershipForEmailRow memberInfoRow =
-                    (DataAccess.EducationOverflow.UserMembershipForEmailRow)userMemberDataTable.Rows[0];
+            //DataObjects.UserMembership memberInfo = null;
+            //if (userMemberDataTable.Count > 0) {
 
-                memberInfo = new DataObjects.UserMembership() {
-                    UserId = memberInfoRow.UserId,
-                    Username = memberInfoRow.Username,
-                    ApplicationName = memberInfoRow.ApplicationName,
-                    Email = memberInfoRow.Email,
-                    IsLocked = memberInfoRow.IsLocked,
-                    LastActivityDate = memberInfoRow.LastActivityDate
-                };
-            }
+            //    DataAccess.EducationOverflow.UserMembershipForEmailRow memberInfoRow =
+            //        (DataAccess.EducationOverflow.UserMembershipForEmailRow)userMemberDataTable.Rows[0];
 
-            return memberInfo;
+            //    memberInfo = new DataObjects.UserMembership() {
+            //        UserId = memberInfoRow.UserId,
+            //        Username = memberInfoRow.Username,
+            //        ApplicationName = memberInfoRow.ApplicationName,
+            //        Email = memberInfoRow.Email,
+            //        IsLocked = memberInfoRow.IsLocked,
+            //        LastActivityDate = memberInfoRow.LastActivityDate
+            //    };
+            //}
+
+            //return memberInfo;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.UserMembership> SelectUserMembershipMatchingEmail(string email, string domain) {
-            List<DataObjects.UserMembership> allUserMembership = new List<DataObjects.UserMembership>();
-            DataAccess.EducationOverflow.UserMembershipMatchingEmailDataTable userMemberDataTable =
-                userMembershipMatchingEmailTableAdapter.GetData(email, domain);
+        public static Data.EducationOverflow.UserMembershipMatchingEmailDataTable SelectUserMembershipMatchingEmail(string email, string domain) {
+            return userMembershipMatchingEmailTableAdapter.GetData(email, domain);
 
-            foreach (DataAccess.EducationOverflow.UserMembershipMatchingEmailRow row in userMemberDataTable.Rows) {
-                allUserMembership.Add(new DataObjects.UserMembership() {
-                    UserId = row.UserId,
-                    Username = row.Username,
-                    ApplicationName = row.ApplicationName,
-                    Email = row.Email,
-                    IsLocked = row.IsLocked,
-                    LastActivityDate = row.LastActivityDate
-                });
-            }
+            //List<DataObjects.UserMembership> allUserMembership = new List<DataObjects.UserMembership>();
+            //DataAccess.EducationOverflow.UserMembershipMatchingEmailDataTable userMemberDataTable =
+            //    userMembershipMatchingEmailTableAdapter.GetData(email, domain);
 
-            return allUserMembership;
+            //foreach (DataAccess.EducationOverflow.UserMembershipMatchingEmailRow row in userMemberDataTable.Rows) {
+            //    allUserMembership.Add(new DataObjects.UserMembership() {
+            //        UserId = row.UserId,
+            //        Username = row.Username,
+            //        ApplicationName = row.ApplicationName,
+            //        Email = row.Email,
+            //        IsLocked = row.IsLocked,
+            //        LastActivityDate = row.LastActivityDate
+            //    });
+            //}
+
+            //return allUserMembership;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.UserMembership> SelectUserMembershipMatchingUsername(string username) {
-            List<DataObjects.UserMembership> allUserMembership = new List<DataObjects.UserMembership>();
-            DataAccess.EducationOverflow.UserMembershipMatchingUsernameDataTable userMemberDataTable =
-                membershipMatchingUsernameTableAdapter.GetData(username);
+        public static Data.EducationOverflow.UserMembershipMatchingUsernameDataTable SelectUserMembershipMatchingUsername(string username) {
+            return membershipMatchingUsernameTableAdapter.GetData(username);
 
-            foreach (DataAccess.EducationOverflow.UserMembershipMatchingUsernameRow row in userMemberDataTable.Rows) {
-                allUserMembership.Add(new DataObjects.UserMembership() {
-                    UserId = row.UserId,
-                    Username = row.Username,
-                    ApplicationName = row.ApplicationName,
-                    Email = row.Email,
-                    IsLocked = row.IsLocked,
-                    LastActivityDate = row.LastActivityDate
-                });
-            }
+            //List<DataObjects.UserMembership> allUserMembership = new List<DataObjects.UserMembership>();
+            //DataAccess.EducationOverflow.UserMembershipMatchingUsernameDataTable userMemberDataTable =
+            //    membershipMatchingUsernameTableAdapter.GetData(username);
 
-            return allUserMembership;
+            //foreach (DataAccess.EducationOverflow.UserMembershipMatchingUsernameRow row in userMemberDataTable.Rows) {
+            //    allUserMembership.Add(new DataObjects.UserMembership() {
+            //        UserId = row.UserId,
+            //        Username = row.Username,
+            //        ApplicationName = row.ApplicationName,
+            //        Email = row.Email,
+            //        IsLocked = row.IsLocked,
+            //        LastActivityDate = row.LastActivityDate
+            //    });
+            //}
+
+            //return allUserMembership;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

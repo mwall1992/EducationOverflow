@@ -9,21 +9,24 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
+    [DataObject]
     public class TagSynonym {
     
         private static TagSynonymTableAdapter tagSynonymTableAdapter = new TagSynonymTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<string> SelectTagSynonyms(string tagName) {
-            List<string> synonyms = new List<string>();
+        public static Data.EducationOverflow.TagSynonymDataTable SelectTagSynonyms(string tagName) {
+            return tagSynonymTableAdapter.GetData(tagName);
 
-            DataAccess.EducationOverflow.TagSynonymDataTable tagSynonymDataTable = 
-                tagSynonymTableAdapter.GetData(tagName);
-            foreach (DataAccess.EducationOverflow.TagSynonymRow row in tagSynonymDataTable.Rows) {
-                synonyms.Add(row.Synonym);
-            }
+            //List<string> synonyms = new List<string>();
 
-            return synonyms;
+            //DataAccess.EducationOverflow.TagSynonymDataTable tagSynonymDataTable = 
+            //    tagSynonymTableAdapter.GetData(tagName);
+            //foreach (DataAccess.EducationOverflow.TagSynonymRow row in tagSynonymDataTable.Rows) {
+            //    synonyms.Add(row.Synonym);
+            //}
+
+            //return synonyms;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

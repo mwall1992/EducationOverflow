@@ -9,28 +9,31 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
+    [DataObject]
     public class UserReportedQuestions {
 
         private static UserReportedQuestionsTableAdapter reportedQuestionsTableAdapter =
             new UserReportedQuestionsTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.ReportedQuestionInfo> SelectQuestionsFromUserView(int userId) {
-            List<DataObjects.ReportedQuestionInfo> reportedQuestions = new List<DataObjects.ReportedQuestionInfo>();
-            DataAccess.EducationOverflow.UserReportedQuestionsDataTable reportedQuestionsDataTable =
-                reportedQuestionsTableAdapter.GetData(userId);
+        public static Data.EducationOverflow.UserReportedQuestionsDataTable SelectQuestionsFromUserView(long userId) {
+            return reportedQuestionsTableAdapter.GetData(userId);
 
-            foreach (DataAccess.EducationOverflow.UserReportedQuestionsRow row in reportedQuestionsDataTable.Rows) {
-                reportedQuestions.Add(new DataObjects.ReportedQuestionInfo() {
-                    OptionalDescription = row.OptionalDescription,
-                    PredefinedDescription = row.PredefinedDescription,
-                    Title = row.Title,
-                    SiteName = row.Title,
-                    QuestionId = row.Id
-                });
-            }
+            //List<DataObjects.ReportedQuestionInfo> reportedQuestions = new List<DataObjects.ReportedQuestionInfo>();
+            //DataAccess.EducationOverflow.UserReportedQuestionsDataTable reportedQuestionsDataTable =
+            //    reportedQuestionsTableAdapter.GetData(userId);
 
-            return reportedQuestions;
+            //foreach (DataAccess.EducationOverflow.UserReportedQuestionsRow row in reportedQuestionsDataTable.Rows) {
+            //    reportedQuestions.Add(new DataObjects.ReportedQuestionInfo() {
+            //        OptionalDescription = row.OptionalDescription,
+            //        PredefinedDescription = row.PredefinedDescription,
+            //        Title = row.Title,
+            //        SiteName = row.Title,
+            //        QuestionId = row.Id
+            //    });
+            //}
+
+            //return reportedQuestions;
         }
     }
 }

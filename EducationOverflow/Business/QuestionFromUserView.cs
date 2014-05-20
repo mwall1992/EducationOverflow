@@ -9,26 +9,29 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
     
+    [DataObject]
     public class QuestionFromUserView {
 
         private static QuestionsUserViewTableAdapter questionsTableAdapter = new QuestionsUserViewTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<DataObjects.QuestionSummary> SelectQuestionsFromUserView() {
-            List<DataObjects.QuestionSummary> questions = new List<DataObjects.QuestionSummary>();
-            DataAccess.EducationOverflow.QuestionsUserViewDataTable questionDataTable = questionsTableAdapter.GetData();
+        public static Data.EducationOverflow.QuestionsUserViewDataTable SelectQuestionsFromUserView() {
+            return questionsTableAdapter.GetData();
 
-            foreach (DataAccess.EducationOverflow.QuestionsUserViewRow row in questionDataTable.Rows) {
-                questions.Add(new DataObjects.QuestionSummary() {
-                    Title = row.Title, 
-                    Body = row.Body,
-                    Likes = row.Likes,
-                    Dislikes = row.Dislikes,
-                    MostCommonSummaryAdjective = row.MostCommonSummaryAdjective
-                });
-            }
+            //List<DataObjects.QuestionSummary> questions = new List<DataObjects.QuestionSummary>();
+            //DataAccess.EducationOverflow.QuestionsUserViewDataTable questionDataTable = questionsTableAdapter.GetData();
 
-            return questions;
+            //foreach (DataAccess.EducationOverflow.QuestionsUserViewRow row in questionDataTable.Rows) {
+            //    questions.Add(new DataObjects.QuestionSummary() {
+            //        Title = row.Title, 
+            //        Body = row.Body,
+            //        Likes = row.Likes,
+            //        Dislikes = row.Dislikes,
+            //        MostCommonSummaryAdjective = row.MostCommonSummaryAdjective
+            //    });
+            //}
+
+            //return questions;
         }
     }
 }

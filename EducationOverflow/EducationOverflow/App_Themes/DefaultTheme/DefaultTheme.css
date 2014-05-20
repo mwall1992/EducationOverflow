@@ -125,19 +125,32 @@ body {
 	background-color: #D9D5CA;
 }
 
-#navigation-bar {}
+#navigation-bar-left {
+    text-align: left;
+    width: 75%;
+    float: left;
+}
 
-#navigation-bar ul {
+#navigation-bar-right {
+    padding: 0 2.5% 0 0;
+    text-align: right;
+    width: 20%;
+    float: right;
+}
+
+.navigation-bar {}
+
+.navigation-bar ul {
 	margin: 0 0 0 4px;
 	padding: 0;
 }
 
-#navigation-bar ul li {
+.navigation-bar ul li {
 	display: inline-block;
 	margin-right: 1.66666667%;
 }
 
-#navigation-bar ul li a {
+.navigation-bar ul li a {
 	display: block;
 	height: 50px;
 	line-height: 50px;
@@ -148,7 +161,7 @@ body {
 	color: #606060;
 }
 
-#navigation-bar ul li a:hover {
+.navigation-bar ul li a:hover {
     color: #93425A;
 }
 

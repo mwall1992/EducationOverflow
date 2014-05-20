@@ -69,6 +69,7 @@
     <Content Include="Content\Member Pages\AccountDetails.aspx" />
     <Content Include="Content\Member Pages\ChangePassword.aspx" />
     <Content Include="Content\Admin Pages\Admins.aspx" />
+    <Content Include="Content\Member Pages\Question.aspx" />
     <Content Include="Content\Member Pages\Users.aspx" />
     <Content Include="Content\Member Pages\QuestionHistory.aspx" />
     <Content Include="Content\Questions.aspx" />
@@ -82,6 +83,7 @@
     <Content Include="Content\Member Pages\SignOut.aspx" />
     <Content Include="Style Sheets\MainContentWithoutSidebar.css" />
     <Content Include="Style Sheets\MainContentWithSidebar.css" />
+    <Content Include="Style Sheets\RepeaterStyles.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -156,6 +158,13 @@
     </Compile>
     <Compile Include="Content\Admin Pages\Admins.aspx.designer.cs">
       <DependentUpon>Admins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\Member Pages\Question.aspx.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Member Pages\Question.aspx.designer.cs">
+      <DependentUpon>Question.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Member Pages\Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>

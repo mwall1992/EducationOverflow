@@ -11,7 +11,7 @@
     <asp:Repeater ID="QuestionRepeater" runat="server" DataSourceID="QuestionDataSource">
         <ItemTemplate>
             <div class="QuestionElement">
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id", "~/Content/Member Pages/Question.aspx?id={0}") %>'><%# Eval("Title") %></asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id", "~/Content/MemberPages/Question.aspx?id={0}") %>'><%# Eval("Title") %></asp:HyperLink>
             </div>
         </ItemTemplate>
     </asp:Repeater>

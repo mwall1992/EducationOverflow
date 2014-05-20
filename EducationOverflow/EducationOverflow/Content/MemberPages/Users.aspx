@@ -9,9 +9,9 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
     Welcome to the members only page.
     <br />
-    <a runat="server" href="~/Content/Member Pages/ChangePassword.aspx">Change password</a>
+    <a runat="server" href="~/Content/MemberPages/ChangePassword.aspx">Change password</a>
     <br />
-    <a runat="server" href="~/Content/Member Pages/ReportQuestion.aspx">Report Question</a>
+    <a runat="server" href="~/Content/MemberPages/ReportQuestion.aspx">Report Question</a>
     <br />
-    <a runat="server" href="~/Content/Member Pages/AccountDetails.aspx">Account Details</a>
+    <a runat="server" href="~/Content/MemberPages/AccountDetails.aspx">Account Details</a>
 </asp:Content>

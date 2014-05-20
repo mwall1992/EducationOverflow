@@ -37,7 +37,6 @@
 					    <li><a id="A2" runat="server" href="~/Content/Tour.aspx">Tour</a></li>
 					    <li><a id="A3" runat="server" href="~/Content/Questions.aspx">Questions</a></li>
 					    <li><a id="A4" runat="server" href="~/Content/Tags.aspx">Tags</a></li>
-                        <li><a id="A5" runat="server" href="~/Content/MemberPages/Users.aspx">Users</a></li>
 				    </ul>
 			    </div>
                 <div id="navigation-bar-right" class="navigation-bar">

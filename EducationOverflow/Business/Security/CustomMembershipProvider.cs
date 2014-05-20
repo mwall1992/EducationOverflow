@@ -328,8 +328,6 @@ namespace Business {
             const int INVALID_AFFECTED_ROWS = 0;
             bool isUnlocked = false;
 
-            // TODO: Address casting issues
-
             Data.EducationOverflow.UserMembershipRow membership = UserMembership.SelectUserMembership(userName);
             if (membership != null) {
                 int affectedRows = Queries.UnlockUser(membership.UserId);

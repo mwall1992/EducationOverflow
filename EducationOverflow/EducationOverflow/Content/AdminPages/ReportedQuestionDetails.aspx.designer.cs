@@ -10,24 +10,24 @@
 namespace EducationOverflow.Content.AdminPages {
     
     
-    public partial class ReportedQuestions {
+    public partial class ReportedQuestionDetails {
         
         /// <summary>
-        /// GridView1 control.
+        /// DetailsView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
         
         /// <summary>
-        /// ReportedQuestionSummariesDataSource control.
+        /// ReportedQuestionDetailsDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ReportedQuestionSummariesDataSource;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ReportedQuestionDetailsDataSource;
     }
 }

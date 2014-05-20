@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace EducationOverflow.Content.Admin_Pages {
+namespace EducationOverflow.Content.AdminPages {
     public partial class ReportedQuestions : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
 

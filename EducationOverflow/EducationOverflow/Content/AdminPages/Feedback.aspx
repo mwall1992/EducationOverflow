@@ -20,7 +20,7 @@
             <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:HyperLink ID="DetailsLink" runat="server" NavigateUrl='<%# string.Format("~/Content/MemberPages/Question.aspx?UserId={0}&QuestionId={1}",
+                    <asp:HyperLink ID="DetailsLink" runat="server" NavigateUrl='<%# string.Format("~/Content/AdminPages/FeedbackDetails.aspx?UserId={0}&QuestionId={1}",
                         HttpUtility.UrlEncode(Eval("UserId").ToString()), HttpUtility.UrlEncode(Eval("Id").ToString())) %>'
                         Text="View Details" />
                 </ItemTemplate>

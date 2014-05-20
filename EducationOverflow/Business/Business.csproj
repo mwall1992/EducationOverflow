@@ -45,7 +45,10 @@
   <ItemGroup>
     <Compile Include="Answer.cs" />
     <Compile Include="Queries.cs" />
+    <Compile Include="QuestionFeedbackDetails.cs" />
     <Compile Include="QuestionFeedbackSummary.cs" />
+    <Compile Include="ReportedQuestionDetails.cs" />
+    <Compile Include="ReportedQuestionSummary.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Security\CustomMembershipProvider.cs" />
     <Compile Include="QuestionInfo.cs" />

@@ -7,15 +7,20 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
-    <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" DataSourceID="QuestionDataSource" Height="50px" Width="125px">
+    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataSourceID="UserInfoDataSource" Height="50px" Width="125px">
         <Fields>
-            <asp:BoundField DataField="Length" HeaderText="Length" ReadOnly="True" SortExpression="Length" />
-            <asp:BoundField DataField="Length" HeaderText="Name" SortExpression="Length" />
+            <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
+            <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+            <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+            <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
+            <asp:BoundField DataField="RowError" HeaderText="RowError" SortExpression="RowError" />
+            <asp:BoundField DataField="RowState" HeaderText="RowState" ReadOnly="True" SortExpression="RowState" />
+            <asp:CheckBoxField DataField="HasErrors" HeaderText="HasErrors" ReadOnly="True" SortExpression="HasErrors" />
         </Fields>
     </asp:DetailsView>
-    <asp:ObjectDataSource ID="QuestionDataSource" runat="server" SelectMethod="SelectQuestionTags" TypeName="Business.QuestionTag">
+    <asp:ObjectDataSource ID="UserInfoDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectUser" TypeName="Business.User">
         <SelectParameters>
-            <asp:QueryStringParameter DefaultValue="1" Name="questionId" QueryStringField="id" Type="Int64" />
+            <asp:QueryStringParameter DefaultValue="1" Name="userId" QueryStringField="UserId" Type="Int64" />
         </SelectParameters>
     </asp:ObjectDataSource>
 </asp:Content>

@@ -11,22 +11,42 @@ namespace Business {
     
     public class QuestionInfo {
 
-        private static QuestionInfoTableAdapter questionInfoTableAdapter = new QuestionInfoTableAdapter();
+        private static QuestionInfoTableAdapter questionInfoTableAdapter = 
+            new QuestionInfoTableAdapter();
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<DataObjects.QuestionInfo> SelectQuestionInfo() {
+            questionInfoTableAdapter.GetData();
+
+            List<DataObjects.QuestionInfo> questions = new List<DataObjects.QuestionInfo>();
+            DataAccess.EducationOverflow.QuestionInfoDataTable questionInfoDataTable =
+                questionInfoTableAdapter.GetData();
+
+            foreach (DataAccess.EducationOverflow.QuestionInfoRow row in questionInfoDataTable.Rows) {
+                questions.Add(new DataObjects.QuestionInfo() {
+                    Id = row.QuestionId,
+                    Body = row.Body,
+                    UpVotes = row.UpVotes,
+                    DownVotes = row.DownVotes
+                });
+            }
+
+            return questions;
+        }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public static void InsertQuestionInfo(string questionUrl, string body, int upVotes, int downVotes) {
-            questionInfoTableAdapter.Insert(questionUrl, body, upVotes, downVotes);
+        public static void InsertQuestionInfo(string body, int upVotes, int downVotes) {
+            questionInfoTableAdapter.Insert(body, upVotes, downVotes);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public static void UpdateQuestionInfo(string questionUrl, string body, int upVotes, int downVotes,
-                string originalQuestionUrl) {
-            questionInfoTableAdapter.Update(questionUrl, body, upVotes, downVotes, originalQuestionUrl);
+        public static void UpdateQuestionInfo(string body, int upVotes, int downVotes, long questionId) {
+            questionInfoTableAdapter.Update(body, upVotes, downVotes, questionId);
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public static void DeleteQuestionInfo(string questionUrl) {
-            questionInfoTableAdapter.Delete(questionUrl);
+        public static void DeleteQuestionInfo(long questionId) {
+            questionInfoTableAdapter.Delete(questionId);
         }
     }
 }

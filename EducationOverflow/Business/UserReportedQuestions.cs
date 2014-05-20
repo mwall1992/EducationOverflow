@@ -26,7 +26,7 @@ namespace Business {
                     PredefinedDescription = row.PredefinedDescription,
                     Title = row.Title,
                     SiteName = row.Title,
-                    Url = row.URL
+                    QuestionId = row.Id
                 });
             }
 

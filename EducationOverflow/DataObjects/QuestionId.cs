@@ -7,10 +7,22 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 
 namespace DataObjects {
-    
+
     [DataObject]
-    public class Question {
-        
+    public class QuestionId {
+
+        private long id;
+        [DataObjectField(true)]
+        public long Id {
+            get {
+                return this.id;
+            }
+
+            set {
+                this.id = value;
+            }
+        }
+
         private string url;
         [DataObjectField(true)]
         public string URL {
@@ -23,9 +35,9 @@ namespace DataObjects {
             }
         }
 
-        private int apiQuestionId;
+        private long apiQuestionId;
         [DataObjectField(false)]
-        public int ApiQuestionId {
+        public long ApiQuestionId {
             get {
                 return this.apiQuestionId;
             }
@@ -56,42 +68,6 @@ namespace DataObjects {
 
             set {
                 this.apiSiteParameter = value;
-            }
-        }
-
-        private string body;
-        [DataObjectField(false)]
-        public string Body {
-            get {
-                return this.body;
-            }
-
-            set {
-                this.body = value;
-            }
-        }
-
-        private int upVotes;
-        [DataObjectField(false)]
-        public int UpVotes {
-            get {
-                return this.upVotes;
-            }
-
-            set {
-                this.upVotes = value;
-            }
-        }
-
-        private int downVotes;
-        [DataObjectField(false)]
-        public int DownVotes {
-            get {
-                return this.downVotes;
-            }
-
-            set {
-                this.downVotes = value;
             }
         }
     }

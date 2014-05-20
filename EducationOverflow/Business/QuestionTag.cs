@@ -11,16 +11,16 @@ namespace Business {
     
     public class QuestionTag {
 
-        private static QuestionTagsTableAdapter questionTagTableAdapter =
-            new QuestionTagsTableAdapter();
+        private static QuestionTagTableAdapter questionTagTableAdapter =
+            new QuestionTagTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<string> SelectQuestionTags(string questionUrl) {
+        public static List<string> SelectQuestionTags(long questionId) {
             List<string> tags = new List<string>();
 
-            DataAccess.EducationOverflow.QuestionTagsDataTable questionTagDataTable =
-                questionTagTableAdapter.GetData(questionUrl);
-            foreach (DataAccess.EducationOverflow.QuestionTagsRow row in questionTagDataTable.Rows) {
+            DataAccess.EducationOverflow.QuestionTagDataTable questionTagDataTable =
+                questionTagTableAdapter.GetData(questionId);
+            foreach (DataAccess.EducationOverflow.QuestionTagRow row in questionTagDataTable.Rows) {
                 tags.Add(row.TagName);
             }
 
@@ -28,19 +28,19 @@ namespace Business {
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public static void InsertQuestionTag(string questionUrl, string tagName) {
-            questionTagTableAdapter.Insert(questionUrl, tagName);
+        public static void InsertQuestionTag(long questionId, string tagName) {
+            questionTagTableAdapter.Insert(questionId, tagName);
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public static void UpdateQuestionTag(string questionUrl, string tagName, 
-                string originalQuestionUrl, string originalTagName) {
-            questionTagTableAdapter.Update(questionUrl, tagName, originalQuestionUrl, originalTagName);
+        public static void UpdateQuestionTag(long questionId, string tagName, 
+                long originalQuestionId, string originalTagName) {
+            questionTagTableAdapter.Update(questionId, tagName, originalQuestionId, originalTagName);
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public static void DeleteQuestionTag(string originalQuestionUrl, string originalTagName) {
-            questionTagTableAdapter.Delete(originalQuestionUrl, originalTagName);
+        public static void DeleteQuestionTag(long originalQuestionId, string originalTagName) {
+            questionTagTableAdapter.Delete(originalQuestionId, originalTagName);
         }
     }
 }

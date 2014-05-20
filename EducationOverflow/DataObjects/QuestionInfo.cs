@@ -9,29 +9,17 @@ using System.ComponentModel;
 namespace DataObjects {
 
     [DataObject]
-    public class Answer {
+    public class QuestionInfo {
 
-        private long questionId;
+        private long id;
         [DataObjectField(true)]
-        public long QuestionId {
+        public long Id {
             get {
-                return this.questionId;
+                return this.id;
             }
 
             set {
-                this.questionId = value;
-            }
-        }
-
-        private long apiAnswerId;
-        [DataObjectField(true)]
-        public long ApiAnswerId {
-            get {
-                return this.apiAnswerId;
-            }
-
-            set {
-                this.apiAnswerId = value;
+                this.id = value;
             }
         }
 
@@ -47,18 +35,6 @@ namespace DataObjects {
             }
         }
 
-        private int downVotes;
-        [DataObjectField(false)]
-        public int DownVotes {
-            get {
-                return this.downVotes;
-            }
-
-            set {
-                this.downVotes = value;
-            }
-        }
-
         private int upVotes;
         [DataObjectField(false)]
         public int UpVotes {
@@ -71,15 +47,15 @@ namespace DataObjects {
             }
         }
 
-        private bool isAccepted;
+        private int downVotes;
         [DataObjectField(false)]
-        public bool IsAccepted {
+        public int DownVotes {
             get {
-                return this.isAccepted;
+                return this.downVotes;
             }
 
             set {
-                this.isAccepted = value;
+                this.downVotes = value;
             }
         }
     }

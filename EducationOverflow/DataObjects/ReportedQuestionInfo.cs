@@ -59,15 +59,15 @@ namespace DataObjects {
             }
         }
 
-        private string url;
+        private long questionId;
         [DataObjectField(false)]
-        public string Url {
+        public long QuestionId {
             get {
-                return this.url;
+                return this.questionId;
             }
 
             set {
-                this.url = value;
+                this.questionId = value;
             }
         }
     }

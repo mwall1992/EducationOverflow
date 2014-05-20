@@ -17,21 +17,6 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.QuestionsUserViewDataTable SelectQuestionsFromUserView() {
             return questionsTableAdapter.GetData();
-
-            //List<DataObjects.QuestionSummary> questions = new List<DataObjects.QuestionSummary>();
-            //DataAccess.EducationOverflow.QuestionsUserViewDataTable questionDataTable = questionsTableAdapter.GetData();
-
-            //foreach (DataAccess.EducationOverflow.QuestionsUserViewRow row in questionDataTable.Rows) {
-            //    questions.Add(new DataObjects.QuestionSummary() {
-            //        Title = row.Title, 
-            //        Body = row.Body,
-            //        Likes = row.Likes,
-            //        Dislikes = row.Dislikes,
-            //        MostCommonSummaryAdjective = row.MostCommonSummaryAdjective
-            //    });
-            //}
-
-            //return questions;
         }
     }
 }

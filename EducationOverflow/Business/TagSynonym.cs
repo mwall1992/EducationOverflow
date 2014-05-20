@@ -17,16 +17,6 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.TagSynonymDataTable SelectTagSynonyms(string tagName) {
             return tagSynonymTableAdapter.GetData(tagName);
-
-            //List<string> synonyms = new List<string>();
-
-            //DataAccess.EducationOverflow.TagSynonymDataTable tagSynonymDataTable = 
-            //    tagSynonymTableAdapter.GetData(tagName);
-            //foreach (DataAccess.EducationOverflow.TagSynonymRow row in tagSynonymDataTable.Rows) {
-            //    synonyms.Add(row.Synonym);
-            //}
-
-            //return synonyms;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

@@ -17,18 +17,6 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.StackExchangeSiteDataTable SelectStackExchangeSites() {
             return siteTableAdapter.GetData();
-
-            //List<DataObjects.StackExchangeSite> sites = new List<DataObjects.StackExchangeSite>();
-            //DataAccess.EducationOverflow.StackExchangeSiteDataTable siteDataTable = siteTableAdapter.GetData();
-
-            //foreach (DataAccess.EducationOverflow.StackExchangeSiteRow row in siteDataTable.Rows) {
-            //    sites.Add(new DataObjects.StackExchangeSite() { 
-            //        APISiteParameter = row.APISiteParameter, 
-            //        Name = row.Name, TotalAcceptedAnswers = row.TotalAcceptedAnswers 
-            //    }); 
-            //}
-
-            //return sites;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

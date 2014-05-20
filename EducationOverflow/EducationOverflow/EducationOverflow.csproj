@@ -295,10 +295,6 @@
       <Project>{66bf89e9-1200-4b17-816a-22f6e484998a}</Project>
       <Name>Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataObjects\DataObjects.csproj">
-      <Project>{0c42537b-f382-4044-85be-4d7c50a9c4b9}</Project>
-      <Name>DataObjects</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

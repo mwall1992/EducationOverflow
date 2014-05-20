@@ -19,39 +19,11 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.RolesDataTable SelectRoles() {
             return rolesTableAdapter.GetData();
-
-            //List<DataObjects.Role> roles = new List<DataObjects.Role>();
-            //DataAccess.EducationOverflow.RolesDataTable rolesDataTable = rolesTableAdapter.GetData();
-
-            //foreach (DataAccess.EducationOverflow.RolesRow row in rolesDataTable.Rows) {
-            //    roles.Add(new DataObjects.Role() {
-            //        Name = row.Name,
-            //        Description = row.Description
-            //    });
-            //}
-
-            //return roles;
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.RoleDataTable SelectRole(string roleName) {
             return roleTableAdapter.GetData(roleName);
-
-            //DataAccess.EducationOverflow.RoleDataTable roleDataTable = roleTableAdapter.GetData(roleName);
-
-            //DataObjects.Role role = null;
-            //if (roleDataTable.Count > 0) {
-
-            //    DataAccess.EducationOverflow.RoleRow roleRow = 
-            //        (DataAccess.EducationOverflow.RoleRow)roleDataTable.Rows[0];
-
-            //    role = new DataObjects.Role() {
-            //        Name = roleRow.Name,
-            //        Description = roleRow.Name
-            //    };
-            //}
-
-            //return role;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
@@ -68,6 +40,5 @@ namespace Business {
         public static int DeleteRole(string originalRoleName) {
             return roleTableAdapter.Delete(originalRoleName);
         }
-    
     }
 }

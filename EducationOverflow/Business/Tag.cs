@@ -18,19 +18,6 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.TagDataTable SelectTag() {
             return tagTableAdapter.GetData();
-
-            //List<DataObjects.Tag> tags = new List<DataObjects.Tag>();
-            //DataAccess.EducationOverflow.TagDataTable tagDataTable = tagTableAdapter.GetData();
-
-            //foreach (DataAccess.EducationOverflow.TagRow row in tagDataTable.Rows) {
-            //    tags.Add(new DataObjects.Tag() {
-            //        Name = row.Name,
-            //        Description = row.Description,
-            //        Count = row.Count
-            //    });
-            //}
-
-            //return tags;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

@@ -37,12 +37,7 @@ namespace Business {
 
             try {
                 if (this.ValidateUser(username, oldPassword) && membership != null) {
-                    int affectedRows = UserPassword.UpdateUserPassword(newPassword, membership.UserId, membership.UserId);
-
-                    //int affectedRows = UserMembership.UpdateUserMembership(membership.ApplicationName, membership.Username, 
-                    //    newPassword, membership.Email, membership.IsLocked, membership.LastActivityDate, membership.IsApproved, 
-                    //    DateTime.Now, membership.CreationDate, membership.LastLockedOutDate, membership.Comment, 
-                    //    membership.PasswordQuestion, membership.PasswordAnswer, membership.UserId);
+                    int affectedRows = Queries.UpdateUserPassword(membership.UserId, newPassword);
                     passwordChanged = (affectedRows != INVALID_AFFECTED_ROWS);
                 }
             } catch {
@@ -238,13 +233,7 @@ namespace Business {
                     retrievedMembership.LastActivityDate, DateTime.MinValue, DateTime.MinValue);
 
                 if (userIsOnline) {
-                    // TODO: update data set
-
-                    UserMembership.UpdateUserMembership(retrievedMembership.ApplicationName, retrievedMembership.Username,
-                        retrievedMembership.Email, retrievedMembership.IsLocked, DateTime.Now, retrievedMembership.IsApproved, 
-                        retrievedMembership.LastPasswordChangeDate, retrievedMembership.CreationDate, 
-                        retrievedMembership.LastLockedOutDate, retrievedMembership.Comment, retrievedMembership.PasswordQuestion,
-                        retrievedMembership.PasswordAnswer, retrievedMembership.UserId);
+                    Queries.UpdateUserActivityDate(retrievedMembership.UserId, DateTime.Now);
                 }
             }
 
@@ -256,8 +245,6 @@ namespace Business {
             Data.EducationOverflow.UserMembershipForUserIdRow retrievedMembership = 
                 UserMembership.SelectUserMembershipForUserId((long)providerUserKey);
 
-                // TODO: address casting issues
-
             if (retrievedMembership != null) {
                 membership = new System.Web.Security.MembershipUser(this.Name,
                     retrievedMembership.Username, retrievedMembership.UserId, retrievedMembership.Email, null, null, true,
@@ -265,11 +252,7 @@ namespace Business {
                     retrievedMembership.LastActivityDate, DateTime.MinValue, DateTime.MinValue);
 
                 if (userIsOnline) {
-                    UserMembership.UpdateUserMembership(retrievedMembership.ApplicationName, retrievedMembership.Username,
-                        retrievedMembership.Email, retrievedMembership.IsLocked, DateTime.Now, retrievedMembership.IsApproved,
-                        retrievedMembership.LastPasswordChangeDate, retrievedMembership.CreationDate,
-                        retrievedMembership.LastLockedOutDate, retrievedMembership.Comment, retrievedMembership.PasswordQuestion,
-                        retrievedMembership.PasswordAnswer, retrievedMembership.UserId);
+                    Queries.UpdateUserActivityDate(retrievedMembership.UserId, DateTime.Now);
                 }
             }
 
@@ -343,18 +326,13 @@ namespace Business {
 
         public override bool UnlockUser(string userName) {
             const int INVALID_AFFECTED_ROWS = 0;
-            const bool IS_LOCKED = false;
             bool isUnlocked = false;
 
             // TODO: Address casting issues
 
             Data.EducationOverflow.UserMembershipRow membership = UserMembership.SelectUserMembership(userName);
             if (membership != null) {
-                int affectedRows = UserMembership.UpdateUserMembership(membership.ApplicationName, membership.Username,
-                        membership.Email, IS_LOCKED, DateTime.Now, membership.IsApproved,
-                        membership.LastPasswordChangeDate, membership.CreationDate,
-                        membership.LastLockedOutDate, membership.Comment, membership.PasswordQuestion,
-                        membership.PasswordAnswer, membership.UserId);
+                int affectedRows = Queries.UnlockUser(membership.UserId);
                 isUnlocked = (affectedRows != INVALID_AFFECTED_ROWS);
             }
 
@@ -366,8 +344,6 @@ namespace Business {
             if (membership == null) {
                 throw new ProviderException("Invalid user was specified for updating.");
             }
-
-            // TODO: address casting issues
 
             UserMembership.UpdateUserMembership(membership.UserId.ToString(), user.UserName, user.Email, 
                 user.IsLockedOut, user.LastActivityDate, user.IsApproved, user.LastPasswordChangedDate, 

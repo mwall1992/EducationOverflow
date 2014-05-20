@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Answer.cs" />
+    <Compile Include="Queries.cs" />
     <Compile Include="QuestionFeedbackSummary.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Security\CustomMembershipProvider.cs" />
@@ -102,10 +103,6 @@
     <ProjectReference Include="..\DataAccess\DataAccess.vbproj">
       <Project>{8e73ea7f-0e84-40e0-bdf6-3f09158f26d9}</Project>
       <Name>DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataObjects\DataObjects.csproj">
-      <Project>{0c42537b-f382-4044-85be-4d7c50a9c4b9}</Project>
-      <Name>DataObjects</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.vbproj">
       <Project>{f9cf681f-4577-4562-9fa9-8bb882ecf0ef}</Project>

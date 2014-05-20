@@ -17,16 +17,6 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.UserRow SelectUser(long userId) {
             return (Data.EducationOverflow.UserRow)userTableAdapter.GetData(userId).Rows[0];
-
-            //DataAccess.EducationOverflow.UserDataTable userDataTable = userTableAdapter.GetData(userId);
-            //DataAccess.EducationOverflow.UserRow userDataRow = 
-            //    (DataAccess.EducationOverflow.UserRow)userDataTable.Rows[0];
-
-            //return new DataObjects.User() {
-            //    FirstName = userDataRow.FirstName,
-            //    LastName = userDataRow.LastName,
-            //    DateOfBirth = userDataRow.DateOfBirth
-            //};
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

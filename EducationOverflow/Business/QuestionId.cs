@@ -18,22 +18,6 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.QuestionIdDataTable SelectQuestionId() {
             return questionIdTableAdapter.GetData();
-
-            //List<DataObjects.QuestionId> questions = new List<DataObjects.QuestionId>();
-            //DataAccess.EducationOverflow.QuestionIdDataTable questionIdDataTable = 
-            //    questionUrlTableAdapter.GetData();
-
-            //foreach (DataAccess.EducationOverflow.QuestionIdRow row in questionIdDataTable.Rows) {
-            //    questions.Add(new DataObjects.QuestionId() {
-            //        Id = row.Id,
-            //        URL = row.URL,
-            //        ApiQuestionId = row.APIQuestionId,
-            //        Title = row.Title,
-            //        ApiSiteParameter = row.APISiteParameter
-            //    });
-            //}
-
-            //return questions;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

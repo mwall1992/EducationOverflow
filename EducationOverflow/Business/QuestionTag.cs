@@ -18,16 +18,6 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.QuestionTagDataTable SelectQuestionTags(long questionId) {
             return questionTagTableAdapter.GetData(questionId);
-
-            //List<string> tags = new List<string>();
-
-            //DataAccess.EducationOverflow.QuestionTagDataTable questionTagDataTable =
-            //    questionTagTableAdapter.GetData(questionId);
-            //foreach (DataAccess.EducationOverflow.QuestionTagRow row in questionTagDataTable.Rows) {
-            //    tags.Add(row.TagName);
-            //}
-
-            //return tags;
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

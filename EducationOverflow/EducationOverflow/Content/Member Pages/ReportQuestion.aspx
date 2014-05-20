@@ -12,7 +12,6 @@
             <asp:BoundField DataField="PredefinedDescription" HeaderText="PredefinedDescription" SortExpression="PredefinedDescription" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
             <asp:BoundField DataField="SiteName" HeaderText="SiteName" SortExpression="SiteName" />
-            <asp:BoundField DataField="Url" HeaderText="Url" SortExpression="Url" />
         </Columns>
     </asp:GridView>
     <asp:ObjectDataSource ID="ReportedQuestionsDataSource" runat="server" SelectMethod="SelectQuestionsFromUserView" TypeName="Business.UserReportedQuestions">

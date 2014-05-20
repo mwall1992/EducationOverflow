@@ -22,12 +22,12 @@ namespace EducationOverflow {
         protected global::System.Web.UI.WebControls.Repeater ExampleRepeater;
         
         /// <summary>
-        /// RepeaterExampleDataSource control.
+        /// RepeaterDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource RepeaterExampleDataSource;
+        protected global::System.Web.UI.WebControls.ObjectDataSource RepeaterDataSource;
     }
 }

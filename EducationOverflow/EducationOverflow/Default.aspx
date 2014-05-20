@@ -18,7 +18,7 @@
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     <br />
-    <asp:Repeater ID="ExampleRepeater" runat="server" DataSourceID="RepeaterExampleDataSource">
+    <asp:Repeater ID="ExampleRepeater" runat="server" DataSourceID="RepeaterDataSource">
         <ItemTemplate>
             <ul>
                 <li>
@@ -27,8 +27,7 @@
             </ul>
         </ItemTemplate>
     </asp:Repeater>
-    <asp:ObjectDataSource ID="RepeaterExampleDataSource" runat="server" SelectMethod="SelectQuestionsFromUserView" TypeName="Business.QuestionFromUserView">
-    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="RepeaterDataSource" runat="server" SelectMethod="SelectQuestionId" TypeName="Business.QuestionId"></asp:ObjectDataSource>
 &nbsp;
 </asp:Content>
 

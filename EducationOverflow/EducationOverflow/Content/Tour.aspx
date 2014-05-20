@@ -9,6 +9,3 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
     This is a static web page for describing the Web application to the user.
 </asp:Content>
-
-<asp:Content ID="Content5" ContentPlaceHolderID="footer_content" runat="server">
-</asp:Content>

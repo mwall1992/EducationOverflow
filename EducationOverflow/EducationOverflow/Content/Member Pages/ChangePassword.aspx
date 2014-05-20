@@ -11,6 +11,3 @@
     <asp:ChangePassword ID="ChangePassword1" runat="server" ContinueDestinationPageUrl="~/Default.aspx">
     </asp:ChangePassword>
 </asp:Content>
-
-<asp:Content ID="Content5" ContentPlaceHolderID="footer_content" runat="server">
-</asp:Content>

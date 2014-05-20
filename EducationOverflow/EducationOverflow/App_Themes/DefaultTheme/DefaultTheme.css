@@ -18,8 +18,7 @@
  * 6. Main content styles
  * 7. Footer styles
  * 8. Miscellaneous styles
- * 9. Ryan Fait's Sticky Footer
- * 10. Forms
+ * 9. Forms
  */
 
 /**
@@ -39,6 +38,10 @@
  * N.B. The html and body tags have height listed as 100% as part of Ryan Fait's
  * Sticky Footer.
  */
+
+* {
+    margin: 0;
+}
 
 h1 {
 	font-size: 2em;
@@ -66,6 +69,7 @@ body {
 	padding: 0;
 	font: 100%/1.5 sans-serif;
     font-family: 'Arial Rounded MT', Arial, sans-serif;
+    background-color: #D9D5CA;
 }
 
 /**
@@ -164,10 +168,13 @@ body {
  * 7. Footer styles
  */
 
-#footer-wrapper {
-	height: 200px;
-	background-color: #606060;
-    color: #CCCCCC;
+footer {
+    padding: 0.75em 0 0.75em 0;
+    height: 50px;
+	background-color: #D9D5CA;
+    color: #606060;
+    font-size: 0.8em;
+    font-weight: bold;
 }
 
 /**
@@ -185,36 +192,8 @@ body {
     text-decoration: none;
 }
 
-/*
-@viewport {
-    width: device-width;
-}
-*/
-
 /**
- * 9. Ryan Fait's Sticky Footer
- *
- * Sourced from: http://ryanfait.com/resources/footer-stick-to-bottom-of-page/
- */
-
-* {
-	margin: 0;
-}
-
-#non-footer-wrapper {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -200px;
-    background-color: #CCCCCC;
-}
-
-.footer-push {
-	height: 200px;
-}
-
-/**
- * 10. Forms
+ * 9. Forms
  *
  * Note: A single id is used since each aspx page cannot support more than one form tag.
  */

@@ -34,6 +34,3 @@
         </UpdateParameters>
     </asp:ObjectDataSource>
 </asp:Content>
-
-<asp:Content ID="Content5" ContentPlaceHolderID="footer_content" runat="server">
-</asp:Content>

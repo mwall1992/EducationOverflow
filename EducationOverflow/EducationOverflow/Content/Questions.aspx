@@ -20,6 +20,3 @@
 
 <asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" runat="server">
 </asp:Content>
-
-<asp:Content ID="Content6" ContentPlaceHolderID="footer_content" runat="server">
-</asp:Content>

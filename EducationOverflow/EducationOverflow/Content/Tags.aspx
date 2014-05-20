@@ -16,6 +16,3 @@
     </asp:GridView>
     <asp:ObjectDataSource ID="TagsInfoDataSource" runat="server" SelectMethod="SelectQuestionsFromUserView" TypeName="Business.TagInfo"></asp:ObjectDataSource>
 </asp:Content>
-
-<asp:Content ID="Content5" ContentPlaceHolderID="footer_content" runat="server">
-</asp:Content>

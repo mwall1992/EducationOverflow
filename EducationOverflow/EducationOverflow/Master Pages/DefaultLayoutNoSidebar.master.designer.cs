@@ -38,14 +38,5 @@ namespace EducationOverflow.Master_Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder main_content_body_content;
-        
-        /// <summary>
-        /// footer_content control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder footer_content;
     }
 }

@@ -11,11 +11,6 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="header_content" runat="server">
-    <asp:ContentPlaceHolder id="header_content" runat="server">
-    </asp:ContentPlaceHolder>
-</asp:Content>
-
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_placeholder" runat="server">
     <div id="main-content-body">
         <asp:ContentPlaceHolder id="main_content_body_content" runat="server">

@@ -22,12 +22,12 @@ namespace EducationOverflow.Content.Member_Pages {
         protected global::System.Web.UI.WebControls.Repeater QuestionRepeater;
         
         /// <summary>
-        /// QuestionSummaryDataSource control.
+        /// QuestionDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource QuestionSummaryDataSource;
+        protected global::System.Web.UI.WebControls.ObjectDataSource QuestionDataSource;
     }
 }

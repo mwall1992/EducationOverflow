@@ -6,10 +6,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="status_bar_content" Runat="Server">
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="header_content" Runat="Server">
-    Header
-</asp:Content>
-
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" Runat="Server">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

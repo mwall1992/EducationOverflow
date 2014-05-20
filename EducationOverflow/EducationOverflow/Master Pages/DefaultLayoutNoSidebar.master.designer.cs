@@ -31,15 +31,6 @@ namespace EducationOverflow.Master_Pages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder status_bar_content;
         
         /// <summary>
-        /// header_content control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder header_content;
-        
-        /// <summary>
         /// main_content_body_content control.
         /// </summary>
         /// <remarks>

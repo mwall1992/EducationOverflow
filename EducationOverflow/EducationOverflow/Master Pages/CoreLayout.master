@@ -16,7 +16,7 @@
 		<!-- Status Bar -->
 		<div id="status-bar-wrapper" class="wrapper"> 
 			<div id="status-bar" class="wrapper-content">
-                <asp:LoginStatus id="LoginStatus" runat="server" />
+                <asp:LoginStatus CssClass="login-button" id="LoginStatus" runat="server" />
 				<asp:ContentPlaceHolder id="status_bar_content" runat="server">
                 </asp:ContentPlaceHolder>
 			</div>
@@ -24,8 +24,9 @@
 		<!-- Header -->
 		<div id="header-wrapper" class="wrapper">
 			<div class="wrapper-content">
-				<asp:ContentPlaceHolder id="header_content" runat="server">
-                </asp:ContentPlaceHolder>
+				<h1>
+                    Education Overflow
+                </h1>
 			</div>
 		</div>
 		<!-- Navigation bar -->

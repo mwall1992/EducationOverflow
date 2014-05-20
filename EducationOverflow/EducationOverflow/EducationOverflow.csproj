@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\DefaultTheme\DefaultTheme.css" />
+    <Content Include="Content\Admin Pages\Feedback.aspx" />
     <Content Include="Content\Admin Pages\QuestionInfo.aspx" />
     <Content Include="Content\Admin Pages\Questions.aspx" />
     <Content Include="Content\Admin Pages\ReportedQuestions.aspx" />
@@ -89,6 +90,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Content\Admin Pages\Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\Admin Pages\Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Content\Admin Pages\QuestionInfo.aspx.cs">
       <DependentUpon>QuestionInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

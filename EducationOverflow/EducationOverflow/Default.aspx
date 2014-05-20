@@ -44,9 +44,9 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" Runat="Server">
-    <h2>
+    <h3>
         Popular Questions
-    </h2>
+    </h3>
     <asp:Repeater ID="PopularQuestionsRepeater" runat="server" DataSourceID="PopularQuestionsDataSource">
         <ItemTemplate>
             <div class="question-title">

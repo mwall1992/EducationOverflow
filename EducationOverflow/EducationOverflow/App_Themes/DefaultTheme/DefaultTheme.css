@@ -57,7 +57,7 @@ h2 {
 
 h3 {
     margin: 0;
-    color: #606060;
+    color: #93425A;
 	font-size: 1.25em;
 }
 
@@ -220,12 +220,13 @@ footer {
 }
 
 .question-title a {
-    color: #000000;
+    color: #93425A;
     text-decoration: none;
 }
 
 .question-title a:hover {
     color: #93425A;
+    text-decoration: underline;
 }
 
 /**

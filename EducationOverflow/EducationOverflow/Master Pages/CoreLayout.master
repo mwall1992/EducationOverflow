@@ -15,7 +15,16 @@
 		<!-- Status Bar -->
 		<div id="status-bar-wrapper" class="wrapper"> 
 			<div id="status-bar" class="wrapper-content">
-                <asp:LoginStatus CssClass="login-button" id="LoginStatus" runat="server" />
+                <div class="status-bar-item">
+                    <asp:LoginView ID="SignUpView" runat="server">
+                        <AnonymousTemplate>
+                            <asp:HyperLink ID="SignUpLink" runat="server" NavigateUrl="~/Content/Register.aspx">Sign Up</asp:HyperLink>
+                        </AnonymousTemplate>
+                    </asp:LoginView>
+                </div>
+                <div class="status-bar-item">
+                    <asp:LoginStatus CssClass="login-button" id="LoginStatus" runat="server" />
+                </div>
 				<asp:ContentPlaceHolder id="status_bar_content" runat="server">
                 </asp:ContentPlaceHolder>
 			</div>

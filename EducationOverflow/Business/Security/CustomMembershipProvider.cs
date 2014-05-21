@@ -75,7 +75,7 @@ namespace Business {
             string providerKey = (userId == null) ? null : userId.ToString();
 
             isApproved = (status == System.Web.Security.MembershipCreateStatus.Success);
-            return new System.Web.Security.MembershipUser(providerKey, username, providerUserKey,
+            return new System.Web.Security.MembershipUser(this.Name, username, providerUserKey,
                     email, null, null, isApproved, IS_LOCKED, CURRENT_TIME, CURRENT_TIME, CURRENT_TIME,
                     CURRENT_TIME, DateTime.MinValue);
         }
@@ -227,7 +227,7 @@ namespace Business {
             System.Web.Security.MembershipUser membership = null;
             Data.EducationOverflow.UserMembershipRow retrievedMembership = UserMembership.SelectUserMembership(username);
             if (retrievedMembership != null) {
-                membership = new System.Web.Security.MembershipUser(this.Name, 
+                membership = new System.Web.Security.MembershipUser("CustomMembershipProvider", 
                     retrievedMembership.Username, retrievedMembership.UserId, retrievedMembership.Email, null, null, true, 
                     retrievedMembership.IsLocked, DateTime.MinValue, DateTime.MinValue, 
                     retrievedMembership.LastActivityDate, DateTime.MinValue, DateTime.MinValue);

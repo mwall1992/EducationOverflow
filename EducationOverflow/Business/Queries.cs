@@ -29,5 +29,10 @@ namespace Business {
         public static int UnlockUser(long userId) {
             return queriesTableAdapter.UnlockUserUpdate(userId);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public static int InsertUserForId(long userId, string firstName, string lastName, DateTime dateOfBirth) {
+            return queriesTableAdapter.InsertUserForId(userId, firstName, lastName, dateOfBirth.ToString());
+        }
     }
 }

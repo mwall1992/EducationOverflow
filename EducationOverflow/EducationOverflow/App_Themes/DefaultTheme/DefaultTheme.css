@@ -99,7 +99,22 @@ body {
 #status-bar {
     padding: 2px 3% 2px 0;
     text-align: right;
-	color: #CCCCCC;
+	color: #FFFFFF;
+    font-size: 0.95em;
+}
+
+.status-bar-item {
+    display: inline;
+    margin: 0 0 0 1em;
+}
+
+#status-bar a {
+    color: #FFFFFF;
+}
+
+#status-bar a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 /**
@@ -224,7 +239,6 @@ footer {
 .login-button {
     color: #FFFFFF;
     text-decoration: none;
-    font-size: 0.95em;
 }
 
 .login-button:hover {

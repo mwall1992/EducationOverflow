@@ -12,16 +12,11 @@ namespace EducationOverflow {
         }
 
         protected void CreateUserWizard_CreatedUser(object sender, EventArgs e) {
+            const string USER_ROLE = "user";
             const bool USER_IS_ONLINE = true;
             System.Web.Security.MembershipUser newUser = 
                 (new Business.CustomMembershipProvider()).GetUser(CreateUserWizard.UserName, USER_IS_ONLINE);
-
-            string firstName =
-                ((TextBox)CreateUserWizard.CreateUserStep.ContentTemplateContainer.FindControl("FirstNameTextBox")).Text;
-            string lastName =
-                ((TextBox)CreateUserWizard.CreateUserStep.ContentTemplateContainer.FindControl("LastNameTextBox")).Text;
-
-            Business.Queries.InsertUserForId((long)newUser.ProviderUserKey, firstName, lastName, DateTime.Now);
+            Business.UserRoles.InsertUserRole(USER_ROLE, (long)newUser.ProviderUserKey);
         }
     }
 }

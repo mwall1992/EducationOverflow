@@ -13,8 +13,7 @@
             <asp:CheckBoxField DataField="Liked" HeaderText="Liked" SortExpression="Liked" />
             <asp:BoundField DataField="SummaryAdjective" HeaderText="SummaryAdjective" SortExpression="SummaryAdjective" />
             <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
-            <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
-            <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+            <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
             <asp:BoundField DataField="APISiteParameter" HeaderText="APISiteParameter" SortExpression="APISiteParameter" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
             <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />

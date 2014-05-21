@@ -12,8 +12,7 @@
         <Columns>
             <asp:BoundField DataField="ReasonId" HeaderText="ReasonId" SortExpression="ReasonId" />
             <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
-            <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
-            <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+            <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
             <asp:BoundField DataField="APISiteParameter" HeaderText="APISiteParameter" SortExpression="APISiteParameter" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
             <asp:BoundField DataField="QuestionId" HeaderText="QuestionId" SortExpression="QuestionId" />

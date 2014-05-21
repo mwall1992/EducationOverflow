@@ -97,7 +97,6 @@
     <Compile Include="Tag.cs" />
     <Compile Include="TagInfo.cs" />
     <Compile Include="TagSynonym.cs" />
-    <Compile Include="User.cs" />
     <Compile Include="UserMembership.cs" />
     <Compile Include="UserPassword.cs" />
     <Compile Include="UserReportedQuestions.cs" />

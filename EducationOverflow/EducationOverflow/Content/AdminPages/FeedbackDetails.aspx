@@ -14,9 +14,6 @@
         <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
         <Fields>
             <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
-            <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
-            <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
-            <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
             <asp:CheckBoxField DataField="Liked" HeaderText="Liked" SortExpression="Liked" />
             <asp:BoundField DataField="SummaryAdjective" HeaderText="SummaryAdjective" SortExpression="SummaryAdjective" />
             <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />

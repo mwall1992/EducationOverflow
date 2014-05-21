@@ -100,9 +100,6 @@ namespace Business {
 
                     UserRoles.DeleteRolesFromUsers(roleNames, new long[] { membership.UserId });
 
-                    // remove user information
-                    User.DeleteUser(membership.UserId);
-
                     // remove membership information
                     int affectedRows = UserMembership.DeleteUserMembership(membership.UserId);
                     userDeleted = (affectedRows != INVALID_AFFFECTED_ROWS);

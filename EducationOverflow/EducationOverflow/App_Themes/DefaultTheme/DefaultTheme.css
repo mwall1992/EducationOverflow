@@ -16,31 +16,23 @@
  * 4. Header styles
  * 5. Navigation bar styles
  * 6. Main content styles
- * 7. Footer styles
- * 8. Miscellaneous styles
- * 9. Forms
- */
-
-/**
- * Colours:
- *
- *
- *
- *
- *
- *
- *
+ * 7. Side bar styles
+ * 8. Footer styles
+ * 9. Miscellaneous styles
+ * 10. Forms
  */
 
 /**
  * 1. Basic styles
- *
- * N.B. The html and body tags have height listed as 100% as part of Ryan Fait's
- * Sticky Footer.
  */
 
-* {
-    /*margin: 0;*/
+a {
+    color: #93425A;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 h1 {
@@ -185,8 +177,35 @@ body {
 	background-color: #F8F8F1;
 }
 
+#main-content-body {
+	margin: 1em 0.83333333% 1em 1.66666667%;
+    padding: 0 1.25% 0.5em 0;
+	float: left;
+	height: 100%;
+}
+
+.content-body-with-sidebar {
+    width: 61.25%;
+}
+
+.content-body-without-sidebar {
+    width: 96.25%;
+}
+
 /**
- * 7. Footer styles
+ * 7. Side bar styles
+ */
+
+#sidebar {
+	margin: 1em 1.66666667% 1em 0.83333333%;
+    padding: 0.5em 1.25% 0.5em 1.25%;
+	width: 27.5%;
+	float: right;
+    background-color: #D9D5CA;
+}
+
+/**
+ * 8. Footer styles
  */
 
 footer {
@@ -199,7 +218,7 @@ footer {
 }
 
 /**
- * 8. Miscellaneous styles
+ * 9. Miscellaneous styles
  */
 
 .login-button {
@@ -219,20 +238,8 @@ footer {
     padding: 5px 0 5px 0;
 }
 
-.question-title a {
-    color: #93425A;
-    text-decoration: none;
-}
-
-.question-title a:hover {
-    color: #93425A;
-    text-decoration: underline;
-}
-
 /**
- * 9. Forms
- *
- * Note: A single id is used since each aspx page cannot support more than one form tag.
+ * 10. Forms
  */
 
 #form {

@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Master Pages/CoreLayout.master" AutoEventWireup="true" CodeBehind="DefaultLayoutNoSidebar.master.cs" Inherits="EducationOverflow.Master_Pages.DefaultLayoutNoSidebar" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_content" runat="server">
-    <link rel="stylesheet" type="text/css" href="../Style Sheets/MainContentWithoutSidebar.css" />
     <asp:ContentPlaceHolder id="head_content" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
@@ -12,7 +11,7 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_placeholder" runat="server">
-    <div id="main-content-body">
+    <div id="main-content-body" class="content-body-without-sidebar">
         <asp:ContentPlaceHolder id="main_content_body_content" runat="server">
         </asp:ContentPlaceHolder>
 	</div>

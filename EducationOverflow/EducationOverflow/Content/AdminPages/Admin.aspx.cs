@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace EducationOverflow.Content.Admin_Pages {
-    public partial class Admins : System.Web.UI.Page {
+namespace EducationOverflow.Content.AdminPages {
+    public partial class Admin : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
 
         }

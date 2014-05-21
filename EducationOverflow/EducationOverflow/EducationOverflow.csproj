@@ -59,15 +59,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\DefaultTheme\DefaultTheme.css" />
+    <Content Include="Content\AdminPages\Admin.aspx" />
     <Content Include="Content\AdminPages\Feedback.aspx" />
     <Content Include="Content\AdminPages\FeedbackDetails.aspx" />
     <Content Include="Content\AdminPages\ReportedQuestionDetails.aspx" />
     <Content Include="Content\AdminPages\ReportedQuestions.aspx" />
     <Content Include="Content\MemberPages\AccountDetails.aspx" />
+    <Content Include="Content\MemberPages\AccountManagement.aspx" />
     <Content Include="Content\MemberPages\ChangePassword.aspx" />
-    <Content Include="Content\AdminPages\Admin.aspx" />
     <Content Include="Content\MemberPages\Question.aspx" />
-    <Content Include="Content\MemberPages\Users.aspx" />
     <Content Include="Content\MemberPages\QuestionHistory.aspx" />
     <Content Include="Content\Questions.aspx" />
     <Content Include="Content\MemberPages\RandomQuestion.aspx" />
@@ -78,14 +78,19 @@
     <Content Include="Login.aspx" />
     <Content Include="Content\Register.aspx" />
     <Content Include="Content\MemberPages\SignOut.aspx" />
-    <Content Include="Style Sheets\MainContentWithoutSidebar.css" />
-    <Content Include="Style Sheets\MainContentWithSidebar.css" />
     <Content Include="Style Sheets\RepeaterStyles.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Content\AdminPages\Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\AdminPages\Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Content\AdminPages\Feedback.aspx.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -121,6 +126,13 @@
     <Compile Include="Content\MemberPages\AccountDetails.aspx.designer.cs">
       <DependentUpon>AccountDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Content\MemberPages\AccountManagement.aspx.cs">
+      <DependentUpon>AccountManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\MemberPages\AccountManagement.aspx.designer.cs">
+      <DependentUpon>AccountManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Content\MemberPages\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -128,26 +140,12 @@
     <Compile Include="Content\MemberPages\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\AdminPages\Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\AdminPages\Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Content\MemberPages\Question.aspx.cs">
       <DependentUpon>Question.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Content\MemberPages\Question.aspx.designer.cs">
       <DependentUpon>Question.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\MemberPages\Users.aspx.cs">
-      <DependentUpon>Users.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\MemberPages\Users.aspx.designer.cs">
-      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\MemberPages\QuestionHistory.aspx.cs">
       <DependentUpon>QuestionHistory.aspx</DependentUpon>

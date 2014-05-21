@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Master Pages/CoreLayout.master" AutoEventWireup="true" CodeBehind="DefaultLayout.master.cs" Inherits="EducationOverflow.Master_Pages.DefaultLayout" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_content" runat="server">
-    <link rel="stylesheet" type="text/css" href="../Style Sheets/MainContentWithSidebar.css" />
     <asp:ContentPlaceHolder id="head_content" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
@@ -12,12 +11,10 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_placeholder" runat="server">
-    <div id="main-content-body">
+    <div id="main-content-body" class="content-body-with-sidebar">
         <asp:ContentPlaceHolder id="main_content_body_content" runat="server">
         </asp:ContentPlaceHolder>
 	</div>
-	
-    <!-- Sidebar -->
 	<div id="sidebar">
         <asp:ContentPlaceHolder id="sidebar_content" runat="server">
         </asp:ContentPlaceHolder>

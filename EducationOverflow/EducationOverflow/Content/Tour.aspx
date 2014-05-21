@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Pages/DefaultLayoutNoSidebar.master" AutoEventWireup="true" CodeBehind="Tour.aspx.cs" Inherits="EducationOverflow.Content.Tour" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_content" runat="server">
+    <link id="Link1" rel="stylesheet" type="text/css" runat="server" href="~/Style Sheets/MainContentWithoutSidebar.css" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="status_bar_content" runat="server">

@@ -19,24 +19,6 @@
                         </tr>
                         <tr>
                             <td align="right">
-                                <asp:Label ID="FirstNameLabel" runat="server" AssociatedControlID="FirstNameTextBox">First Name:</asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="FirstNameTextBox" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="FirstNameValidator" runat="server" ControlToValidate="FirstNameTextBox" ErrorMessage="First Name is required." ToolTip="First Name is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <asp:Label ID="LastNameLabel" runat="server" AssociatedControlID="LastNameTextBox">Last Name:</asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="LastNameTextBox" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="LastNameValidator" runat="server" ControlToValidate="LastNameTextBox" ErrorMessage="Last Name is required." ToolTip="Last Name is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
                                 <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
                             </td>
                             <td>
@@ -69,24 +51,6 @@
                             <td>
                                 <asp:TextBox ID="Email" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <asp:Label ID="QuestionLabel" runat="server" AssociatedControlID="Question">Security Question:</asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="Question" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question" ErrorMessage="Security question is required." ToolTip="Security question is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <asp:Label ID="AnswerLabel" runat="server" AssociatedControlID="Answer">Security Answer:</asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="Answer" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" ErrorMessage="Security answer is required." ToolTip="Security answer is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>

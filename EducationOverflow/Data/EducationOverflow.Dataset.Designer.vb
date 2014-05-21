@@ -75,15 +75,15 @@ Partial Public Class EducationOverflow
     
     Private tableUserPassword As UserPasswordDataTable
     
-    Private tableQuestionFeedbackDetails As QuestionFeedbackDetailsDataTable
-    
-    Private tableReportedQuestionDetails As ReportedQuestionDetailsDataTable
-    
     Private tablePopularQuestionsUserView As PopularQuestionsUserViewDataTable
     
     Private tableQuestionFeedbackSummaryView As QuestionFeedbackSummaryViewDataTable
     
     Private tableReportedQuestionSummaryView As ReportedQuestionSummaryViewDataTable
+    
+    Private tableReportedQuestionDetails As ReportedQuestionDetailsDataTable
+    
+    Private tableQuestionFeedbackDetails As QuestionFeedbackDetailsDataTable
     
     Private tableUserIds As UserIdsDataTable
     
@@ -187,12 +187,6 @@ Partial Public Class EducationOverflow
             If (Not (ds.Tables("UserPassword")) Is Nothing) Then
                 MyBase.Tables.Add(New UserPasswordDataTable(ds.Tables("UserPassword")))
             End If
-            If (Not (ds.Tables("QuestionFeedbackDetails")) Is Nothing) Then
-                MyBase.Tables.Add(New QuestionFeedbackDetailsDataTable(ds.Tables("QuestionFeedbackDetails")))
-            End If
-            If (Not (ds.Tables("ReportedQuestionDetails")) Is Nothing) Then
-                MyBase.Tables.Add(New ReportedQuestionDetailsDataTable(ds.Tables("ReportedQuestionDetails")))
-            End If
             If (Not (ds.Tables("PopularQuestionsUserView")) Is Nothing) Then
                 MyBase.Tables.Add(New PopularQuestionsUserViewDataTable(ds.Tables("PopularQuestionsUserView")))
             End If
@@ -201,6 +195,12 @@ Partial Public Class EducationOverflow
             End If
             If (Not (ds.Tables("ReportedQuestionSummaryView")) Is Nothing) Then
                 MyBase.Tables.Add(New ReportedQuestionSummaryViewDataTable(ds.Tables("ReportedQuestionSummaryView")))
+            End If
+            If (Not (ds.Tables("ReportedQuestionDetails")) Is Nothing) Then
+                MyBase.Tables.Add(New ReportedQuestionDetailsDataTable(ds.Tables("ReportedQuestionDetails")))
+            End If
+            If (Not (ds.Tables("QuestionFeedbackDetails")) Is Nothing) Then
+                MyBase.Tables.Add(New QuestionFeedbackDetailsDataTable(ds.Tables("QuestionFeedbackDetails")))
             End If
             If (Not (ds.Tables("UserIds")) Is Nothing) Then
                 MyBase.Tables.Add(New UserIdsDataTable(ds.Tables("UserIds")))
@@ -459,26 +459,6 @@ Partial Public Class EducationOverflow
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property QuestionFeedbackDetails() As QuestionFeedbackDetailsDataTable
-        Get
-            Return Me.tableQuestionFeedbackDetails
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property ReportedQuestionDetails() As ReportedQuestionDetailsDataTable
-        Get
-            Return Me.tableReportedQuestionDetails
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property PopularQuestionsUserView() As PopularQuestionsUserViewDataTable
         Get
             Return Me.tablePopularQuestionsUserView
@@ -502,6 +482,26 @@ Partial Public Class EducationOverflow
     Public ReadOnly Property ReportedQuestionSummaryView() As ReportedQuestionSummaryViewDataTable
         Get
             Return Me.tableReportedQuestionSummaryView
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property ReportedQuestionDetails() As ReportedQuestionDetailsDataTable
+        Get
+            Return Me.tableReportedQuestionDetails
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property QuestionFeedbackDetails() As QuestionFeedbackDetailsDataTable
+        Get
+            Return Me.tableQuestionFeedbackDetails
         End Get
     End Property
     
@@ -661,12 +661,6 @@ Partial Public Class EducationOverflow
             If (Not (ds.Tables("UserPassword")) Is Nothing) Then
                 MyBase.Tables.Add(New UserPasswordDataTable(ds.Tables("UserPassword")))
             End If
-            If (Not (ds.Tables("QuestionFeedbackDetails")) Is Nothing) Then
-                MyBase.Tables.Add(New QuestionFeedbackDetailsDataTable(ds.Tables("QuestionFeedbackDetails")))
-            End If
-            If (Not (ds.Tables("ReportedQuestionDetails")) Is Nothing) Then
-                MyBase.Tables.Add(New ReportedQuestionDetailsDataTable(ds.Tables("ReportedQuestionDetails")))
-            End If
             If (Not (ds.Tables("PopularQuestionsUserView")) Is Nothing) Then
                 MyBase.Tables.Add(New PopularQuestionsUserViewDataTable(ds.Tables("PopularQuestionsUserView")))
             End If
@@ -675,6 +669,12 @@ Partial Public Class EducationOverflow
             End If
             If (Not (ds.Tables("ReportedQuestionSummaryView")) Is Nothing) Then
                 MyBase.Tables.Add(New ReportedQuestionSummaryViewDataTable(ds.Tables("ReportedQuestionSummaryView")))
+            End If
+            If (Not (ds.Tables("ReportedQuestionDetails")) Is Nothing) Then
+                MyBase.Tables.Add(New ReportedQuestionDetailsDataTable(ds.Tables("ReportedQuestionDetails")))
+            End If
+            If (Not (ds.Tables("QuestionFeedbackDetails")) Is Nothing) Then
+                MyBase.Tables.Add(New QuestionFeedbackDetailsDataTable(ds.Tables("QuestionFeedbackDetails")))
             End If
             If (Not (ds.Tables("UserIds")) Is Nothing) Then
                 MyBase.Tables.Add(New UserIdsDataTable(ds.Tables("UserIds")))
@@ -852,18 +852,6 @@ Partial Public Class EducationOverflow
                 Me.tableUserPassword.InitVars
             End If
         End If
-        Me.tableQuestionFeedbackDetails = CType(MyBase.Tables("QuestionFeedbackDetails"),QuestionFeedbackDetailsDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableQuestionFeedbackDetails) Is Nothing) Then
-                Me.tableQuestionFeedbackDetails.InitVars
-            End If
-        End If
-        Me.tableReportedQuestionDetails = CType(MyBase.Tables("ReportedQuestionDetails"),ReportedQuestionDetailsDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableReportedQuestionDetails) Is Nothing) Then
-                Me.tableReportedQuestionDetails.InitVars
-            End If
-        End If
         Me.tablePopularQuestionsUserView = CType(MyBase.Tables("PopularQuestionsUserView"),PopularQuestionsUserViewDataTable)
         If (initTable = true) Then
             If (Not (Me.tablePopularQuestionsUserView) Is Nothing) Then
@@ -880,6 +868,18 @@ Partial Public Class EducationOverflow
         If (initTable = true) Then
             If (Not (Me.tableReportedQuestionSummaryView) Is Nothing) Then
                 Me.tableReportedQuestionSummaryView.InitVars
+            End If
+        End If
+        Me.tableReportedQuestionDetails = CType(MyBase.Tables("ReportedQuestionDetails"),ReportedQuestionDetailsDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableReportedQuestionDetails) Is Nothing) Then
+                Me.tableReportedQuestionDetails.InitVars
+            End If
+        End If
+        Me.tableQuestionFeedbackDetails = CType(MyBase.Tables("QuestionFeedbackDetails"),QuestionFeedbackDetailsDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableQuestionFeedbackDetails) Is Nothing) Then
+                Me.tableQuestionFeedbackDetails.InitVars
             End If
         End If
         Me.tableUserIds = CType(MyBase.Tables("UserIds"),UserIdsDataTable)
@@ -950,16 +950,16 @@ Partial Public Class EducationOverflow
         MyBase.Tables.Add(Me.tableUserReportedQuestions)
         Me.tableUserPassword = New UserPasswordDataTable()
         MyBase.Tables.Add(Me.tableUserPassword)
-        Me.tableQuestionFeedbackDetails = New QuestionFeedbackDetailsDataTable()
-        MyBase.Tables.Add(Me.tableQuestionFeedbackDetails)
-        Me.tableReportedQuestionDetails = New ReportedQuestionDetailsDataTable()
-        MyBase.Tables.Add(Me.tableReportedQuestionDetails)
         Me.tablePopularQuestionsUserView = New PopularQuestionsUserViewDataTable()
         MyBase.Tables.Add(Me.tablePopularQuestionsUserView)
         Me.tableQuestionFeedbackSummaryView = New QuestionFeedbackSummaryViewDataTable()
         MyBase.Tables.Add(Me.tableQuestionFeedbackSummaryView)
         Me.tableReportedQuestionSummaryView = New ReportedQuestionSummaryViewDataTable()
         MyBase.Tables.Add(Me.tableReportedQuestionSummaryView)
+        Me.tableReportedQuestionDetails = New ReportedQuestionDetailsDataTable()
+        MyBase.Tables.Add(Me.tableReportedQuestionDetails)
+        Me.tableQuestionFeedbackDetails = New QuestionFeedbackDetailsDataTable()
+        MyBase.Tables.Add(Me.tableQuestionFeedbackDetails)
         Me.tableUserIds = New UserIdsDataTable()
         MyBase.Tables.Add(Me.tableUserIds)
         Me.tableRoleNames = New RoleNamesDataTable()
@@ -1106,18 +1106,6 @@ Partial Public Class EducationOverflow
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeQuestionFeedbackDetails() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeReportedQuestionDetails() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializePopularQuestionsUserView() As Boolean
         Return false
     End Function
@@ -1131,6 +1119,18 @@ Partial Public Class EducationOverflow
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializeReportedQuestionSummaryView() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeReportedQuestionDetails() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeQuestionFeedbackDetails() As Boolean
         Return false
     End Function
     
@@ -1274,12 +1274,6 @@ Partial Public Class EducationOverflow
     Public Delegate Sub UserPasswordRowChangeEventHandler(ByVal sender As Object, ByVal e As UserPasswordRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub QuestionFeedbackDetailsRowChangeEventHandler(ByVal sender As Object, ByVal e As QuestionFeedbackDetailsRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub ReportedQuestionDetailsRowChangeEventHandler(ByVal sender As Object, ByVal e As ReportedQuestionDetailsRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub PopularQuestionsUserViewRowChangeEventHandler(ByVal sender As Object, ByVal e As PopularQuestionsUserViewRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -1287,6 +1281,12 @@ Partial Public Class EducationOverflow
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub ReportedQuestionSummaryViewRowChangeEventHandler(ByVal sender As Object, ByVal e As ReportedQuestionSummaryViewRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub ReportedQuestionDetailsRowChangeEventHandler(ByVal sender As Object, ByVal e As ReportedQuestionDetailsRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub QuestionFeedbackDetailsRowChangeEventHandler(ByVal sender As Object, ByVal e As QuestionFeedbackDetailsRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub UserIdsRowChangeEventHandler(ByVal sender As Object, ByVal e As UserIdsRowChangeEvent)
@@ -9046,922 +9046,6 @@ Partial Public Class EducationOverflow
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class QuestionFeedbackDetailsDataTable
-        Inherits Global.System.Data.TypedTableBase(Of QuestionFeedbackDetailsRow)
-        
-        Private columnUserId As Global.System.Data.DataColumn
-        
-        Private columnFirstName As Global.System.Data.DataColumn
-        
-        Private columnLastName As Global.System.Data.DataColumn
-        
-        Private columnDateOfBirth As Global.System.Data.DataColumn
-        
-        Private columnLiked As Global.System.Data.DataColumn
-        
-        Private columnSummaryAdjective As Global.System.Data.DataColumn
-        
-        Private columnId As Global.System.Data.DataColumn
-        
-        Private columnURL As Global.System.Data.DataColumn
-        
-        Private columnTitle As Global.System.Data.DataColumn
-        
-        Private columnAPISiteParameter As Global.System.Data.DataColumn
-        
-        Private columnAPIQuestionId As Global.System.Data.DataColumn
-        
-        Private columnBody As Global.System.Data.DataColumn
-        
-        Private columnUpVotes As Global.System.Data.DataColumn
-        
-        Private columnDownVotes As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "QuestionFeedbackDetails"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUserId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FirstNameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFirstName
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property LastNameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLastName
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DateOfBirthColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDateOfBirth
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property LikedColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLiked
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property SummaryAdjectiveColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSummaryAdjective
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property URLColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnURL
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property TitleColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTitle
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property APISiteParameterColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAPISiteParameter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property APIQuestionIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAPIQuestionId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property BodyColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBody
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property UpVotesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUpVotes
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DownVotesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDownVotes
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As QuestionFeedbackDetailsRow
-            Get
-                Return CType(Me.Rows(index),QuestionFeedbackDetailsRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event QuestionFeedbackDetailsRowChanging As QuestionFeedbackDetailsRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event QuestionFeedbackDetailsRowChanged As QuestionFeedbackDetailsRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event QuestionFeedbackDetailsRowDeleting As QuestionFeedbackDetailsRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event QuestionFeedbackDetailsRowDeleted As QuestionFeedbackDetailsRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddQuestionFeedbackDetailsRow(ByVal row As QuestionFeedbackDetailsRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddQuestionFeedbackDetailsRow(ByVal FirstName As String, ByVal LastName As String, ByVal DateOfBirth As Date, ByVal Liked As Boolean, ByVal SummaryAdjective As String, ByVal URL As String, ByVal Title As String, ByVal APISiteParameter As String, ByVal APIQuestionId As Integer, ByVal Body As String, ByVal UpVotes As Integer, ByVal DownVotes As Integer) As QuestionFeedbackDetailsRow
-            Dim rowQuestionFeedbackDetailsRow As QuestionFeedbackDetailsRow = CType(Me.NewRow,QuestionFeedbackDetailsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, FirstName, LastName, DateOfBirth, Liked, SummaryAdjective, Nothing, URL, Title, APISiteParameter, APIQuestionId, Body, UpVotes, DownVotes}
-            rowQuestionFeedbackDetailsRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowQuestionFeedbackDetailsRow)
-            Return rowQuestionFeedbackDetailsRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As QuestionFeedbackDetailsDataTable = CType(MyBase.Clone,QuestionFeedbackDetailsDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New QuestionFeedbackDetailsDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnUserId = MyBase.Columns("UserId")
-            Me.columnFirstName = MyBase.Columns("FirstName")
-            Me.columnLastName = MyBase.Columns("LastName")
-            Me.columnDateOfBirth = MyBase.Columns("DateOfBirth")
-            Me.columnLiked = MyBase.Columns("Liked")
-            Me.columnSummaryAdjective = MyBase.Columns("SummaryAdjective")
-            Me.columnId = MyBase.Columns("Id")
-            Me.columnURL = MyBase.Columns("URL")
-            Me.columnTitle = MyBase.Columns("Title")
-            Me.columnAPISiteParameter = MyBase.Columns("APISiteParameter")
-            Me.columnAPIQuestionId = MyBase.Columns("APIQuestionId")
-            Me.columnBody = MyBase.Columns("Body")
-            Me.columnUpVotes = MyBase.Columns("UpVotes")
-            Me.columnDownVotes = MyBase.Columns("DownVotes")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUserId)
-            Me.columnFirstName = New Global.System.Data.DataColumn("FirstName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFirstName)
-            Me.columnLastName = New Global.System.Data.DataColumn("LastName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLastName)
-            Me.columnDateOfBirth = New Global.System.Data.DataColumn("DateOfBirth", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDateOfBirth)
-            Me.columnLiked = New Global.System.Data.DataColumn("Liked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLiked)
-            Me.columnSummaryAdjective = New Global.System.Data.DataColumn("SummaryAdjective", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSummaryAdjective)
-            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnId)
-            Me.columnURL = New Global.System.Data.DataColumn("URL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnURL)
-            Me.columnTitle = New Global.System.Data.DataColumn("Title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTitle)
-            Me.columnAPISiteParameter = New Global.System.Data.DataColumn("APISiteParameter", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAPISiteParameter)
-            Me.columnAPIQuestionId = New Global.System.Data.DataColumn("APIQuestionId", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAPIQuestionId)
-            Me.columnBody = New Global.System.Data.DataColumn("Body", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBody)
-            Me.columnUpVotes = New Global.System.Data.DataColumn("UpVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUpVotes)
-            Me.columnDownVotes = New Global.System.Data.DataColumn("DownVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDownVotes)
-            Me.columnUserId.AutoIncrement = true
-            Me.columnUserId.AutoIncrementSeed = -1
-            Me.columnUserId.AutoIncrementStep = -1
-            Me.columnUserId.AllowDBNull = false
-            Me.columnUserId.ReadOnly = true
-            Me.columnFirstName.AllowDBNull = false
-            Me.columnFirstName.MaxLength = 35
-            Me.columnLastName.AllowDBNull = false
-            Me.columnLastName.MaxLength = 35
-            Me.columnDateOfBirth.AllowDBNull = false
-            Me.columnLiked.AllowDBNull = false
-            Me.columnSummaryAdjective.AllowDBNull = false
-            Me.columnSummaryAdjective.MaxLength = 20
-            Me.columnId.AutoIncrement = true
-            Me.columnId.AutoIncrementSeed = -1
-            Me.columnId.AutoIncrementStep = -1
-            Me.columnId.AllowDBNull = false
-            Me.columnId.ReadOnly = true
-            Me.columnURL.AllowDBNull = false
-            Me.columnURL.MaxLength = 300
-            Me.columnTitle.AllowDBNull = false
-            Me.columnTitle.MaxLength = 250
-            Me.columnAPISiteParameter.AllowDBNull = false
-            Me.columnAPISiteParameter.MaxLength = 50
-            Me.columnAPIQuestionId.AllowDBNull = false
-            Me.columnBody.AllowDBNull = false
-            Me.columnBody.MaxLength = 2147483647
-            Me.columnUpVotes.AllowDBNull = false
-            Me.columnDownVotes.AllowDBNull = false
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewQuestionFeedbackDetailsRow() As QuestionFeedbackDetailsRow
-            Return CType(Me.NewRow,QuestionFeedbackDetailsRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New QuestionFeedbackDetailsRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(QuestionFeedbackDetailsRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.QuestionFeedbackDetailsRowChangedEvent) Is Nothing) Then
-                RaiseEvent QuestionFeedbackDetailsRowChanged(Me, New QuestionFeedbackDetailsRowChangeEvent(CType(e.Row,QuestionFeedbackDetailsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.QuestionFeedbackDetailsRowChangingEvent) Is Nothing) Then
-                RaiseEvent QuestionFeedbackDetailsRowChanging(Me, New QuestionFeedbackDetailsRowChangeEvent(CType(e.Row,QuestionFeedbackDetailsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.QuestionFeedbackDetailsRowDeletedEvent) Is Nothing) Then
-                RaiseEvent QuestionFeedbackDetailsRowDeleted(Me, New QuestionFeedbackDetailsRowChangeEvent(CType(e.Row,QuestionFeedbackDetailsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.QuestionFeedbackDetailsRowDeletingEvent) Is Nothing) Then
-                RaiseEvent QuestionFeedbackDetailsRowDeleting(Me, New QuestionFeedbackDetailsRowChangeEvent(CType(e.Row,QuestionFeedbackDetailsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveQuestionFeedbackDetailsRow(ByVal row As QuestionFeedbackDetailsRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As EducationOverflow = New EducationOverflow()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "QuestionFeedbackDetailsDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class ReportedQuestionDetailsDataTable
-        Inherits Global.System.Data.TypedTableBase(Of ReportedQuestionDetailsRow)
-        
-        Private columnUserId As Global.System.Data.DataColumn
-        
-        Private columnFirstName As Global.System.Data.DataColumn
-        
-        Private columnLastName As Global.System.Data.DataColumn
-        
-        Private columnDateOfBirth As Global.System.Data.DataColumn
-        
-        Private columnAPISiteParameter As Global.System.Data.DataColumn
-        
-        Private columnName As Global.System.Data.DataColumn
-        
-        Private columnDescription As Global.System.Data.DataColumn
-        
-        Private columnOptionalDescription As Global.System.Data.DataColumn
-        
-        Private columnBody As Global.System.Data.DataColumn
-        
-        Private columnUpVotes As Global.System.Data.DataColumn
-        
-        Private columnDownVotes As Global.System.Data.DataColumn
-        
-        Private columnId As Global.System.Data.DataColumn
-        
-        Private columnURL As Global.System.Data.DataColumn
-        
-        Private columnTitle As Global.System.Data.DataColumn
-        
-        Private columnAPIQuestionId As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "ReportedQuestionDetails"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUserId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property FirstNameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFirstName
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property LastNameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnLastName
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DateOfBirthColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDateOfBirth
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property APISiteParameterColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAPISiteParameter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NameColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnName
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DescriptionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDescription
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property OptionalDescriptionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnOptionalDescription
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property BodyColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBody
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property UpVotesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUpVotes
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DownVotesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDownVotes
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property URLColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnURL
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property TitleColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTitle
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property APIQuestionIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAPIQuestionId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As ReportedQuestionDetailsRow
-            Get
-                Return CType(Me.Rows(index),ReportedQuestionDetailsRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ReportedQuestionDetailsRowChanging As ReportedQuestionDetailsRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ReportedQuestionDetailsRowChanged As ReportedQuestionDetailsRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ReportedQuestionDetailsRowDeleting As ReportedQuestionDetailsRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ReportedQuestionDetailsRowDeleted As ReportedQuestionDetailsRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddReportedQuestionDetailsRow(ByVal row As ReportedQuestionDetailsRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddReportedQuestionDetailsRow(ByVal FirstName As String, ByVal LastName As String, ByVal DateOfBirth As Date, ByVal APISiteParameter As String, ByVal Name As String, ByVal Description As String, ByVal OptionalDescription As String, ByVal Body As String, ByVal UpVotes As Integer, ByVal DownVotes As Integer, ByVal URL As String, ByVal Title As String, ByVal APIQuestionId As Integer) As ReportedQuestionDetailsRow
-            Dim rowReportedQuestionDetailsRow As ReportedQuestionDetailsRow = CType(Me.NewRow,ReportedQuestionDetailsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, FirstName, LastName, DateOfBirth, APISiteParameter, Name, Description, OptionalDescription, Body, UpVotes, DownVotes, Nothing, URL, Title, APIQuestionId}
-            rowReportedQuestionDetailsRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowReportedQuestionDetailsRow)
-            Return rowReportedQuestionDetailsRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As ReportedQuestionDetailsDataTable = CType(MyBase.Clone,ReportedQuestionDetailsDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New ReportedQuestionDetailsDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnUserId = MyBase.Columns("UserId")
-            Me.columnFirstName = MyBase.Columns("FirstName")
-            Me.columnLastName = MyBase.Columns("LastName")
-            Me.columnDateOfBirth = MyBase.Columns("DateOfBirth")
-            Me.columnAPISiteParameter = MyBase.Columns("APISiteParameter")
-            Me.columnName = MyBase.Columns("Name")
-            Me.columnDescription = MyBase.Columns("Description")
-            Me.columnOptionalDescription = MyBase.Columns("OptionalDescription")
-            Me.columnBody = MyBase.Columns("Body")
-            Me.columnUpVotes = MyBase.Columns("UpVotes")
-            Me.columnDownVotes = MyBase.Columns("DownVotes")
-            Me.columnId = MyBase.Columns("Id")
-            Me.columnURL = MyBase.Columns("URL")
-            Me.columnTitle = MyBase.Columns("Title")
-            Me.columnAPIQuestionId = MyBase.Columns("APIQuestionId")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUserId)
-            Me.columnFirstName = New Global.System.Data.DataColumn("FirstName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFirstName)
-            Me.columnLastName = New Global.System.Data.DataColumn("LastName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnLastName)
-            Me.columnDateOfBirth = New Global.System.Data.DataColumn("DateOfBirth", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDateOfBirth)
-            Me.columnAPISiteParameter = New Global.System.Data.DataColumn("APISiteParameter", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAPISiteParameter)
-            Me.columnName = New Global.System.Data.DataColumn("Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnName)
-            Me.columnDescription = New Global.System.Data.DataColumn("Description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDescription)
-            Me.columnOptionalDescription = New Global.System.Data.DataColumn("OptionalDescription", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnOptionalDescription)
-            Me.columnBody = New Global.System.Data.DataColumn("Body", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBody)
-            Me.columnUpVotes = New Global.System.Data.DataColumn("UpVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUpVotes)
-            Me.columnDownVotes = New Global.System.Data.DataColumn("DownVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDownVotes)
-            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnId)
-            Me.columnURL = New Global.System.Data.DataColumn("URL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnURL)
-            Me.columnTitle = New Global.System.Data.DataColumn("Title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTitle)
-            Me.columnAPIQuestionId = New Global.System.Data.DataColumn("APIQuestionId", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAPIQuestionId)
-            Me.columnUserId.AutoIncrement = true
-            Me.columnUserId.AutoIncrementSeed = -1
-            Me.columnUserId.AutoIncrementStep = -1
-            Me.columnUserId.AllowDBNull = false
-            Me.columnUserId.ReadOnly = true
-            Me.columnFirstName.AllowDBNull = false
-            Me.columnFirstName.MaxLength = 35
-            Me.columnLastName.AllowDBNull = false
-            Me.columnLastName.MaxLength = 35
-            Me.columnDateOfBirth.AllowDBNull = false
-            Me.columnAPISiteParameter.AllowDBNull = false
-            Me.columnAPISiteParameter.MaxLength = 50
-            Me.columnName.AllowDBNull = false
-            Me.columnName.MaxLength = 50
-            Me.columnDescription.AllowDBNull = false
-            Me.columnDescription.MaxLength = 150
-            Me.columnOptionalDescription.AllowDBNull = false
-            Me.columnOptionalDescription.MaxLength = 250
-            Me.columnBody.AllowDBNull = false
-            Me.columnBody.MaxLength = 2147483647
-            Me.columnUpVotes.AllowDBNull = false
-            Me.columnDownVotes.AllowDBNull = false
-            Me.columnId.AutoIncrement = true
-            Me.columnId.AutoIncrementSeed = -1
-            Me.columnId.AutoIncrementStep = -1
-            Me.columnId.AllowDBNull = false
-            Me.columnId.ReadOnly = true
-            Me.columnURL.AllowDBNull = false
-            Me.columnURL.MaxLength = 300
-            Me.columnTitle.AllowDBNull = false
-            Me.columnTitle.MaxLength = 250
-            Me.columnAPIQuestionId.AllowDBNull = false
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewReportedQuestionDetailsRow() As ReportedQuestionDetailsRow
-            Return CType(Me.NewRow,ReportedQuestionDetailsRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New ReportedQuestionDetailsRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(ReportedQuestionDetailsRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.ReportedQuestionDetailsRowChangedEvent) Is Nothing) Then
-                RaiseEvent ReportedQuestionDetailsRowChanged(Me, New ReportedQuestionDetailsRowChangeEvent(CType(e.Row,ReportedQuestionDetailsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.ReportedQuestionDetailsRowChangingEvent) Is Nothing) Then
-                RaiseEvent ReportedQuestionDetailsRowChanging(Me, New ReportedQuestionDetailsRowChangeEvent(CType(e.Row,ReportedQuestionDetailsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.ReportedQuestionDetailsRowDeletedEvent) Is Nothing) Then
-                RaiseEvent ReportedQuestionDetailsRowDeleted(Me, New ReportedQuestionDetailsRowChangeEvent(CType(e.Row,ReportedQuestionDetailsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.ReportedQuestionDetailsRowDeletingEvent) Is Nothing) Then
-                RaiseEvent ReportedQuestionDetailsRowDeleting(Me, New ReportedQuestionDetailsRowChangeEvent(CType(e.Row,ReportedQuestionDetailsRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveReportedQuestionDetailsRow(ByVal row As ReportedQuestionDetailsRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As EducationOverflow = New EducationOverflow()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "ReportedQuestionDetailsDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class PopularQuestionsUserViewDataTable
         Inherits Global.System.Data.TypedTableBase(Of PopularQuestionsUserViewRow)
         
@@ -10884,6 +9968,864 @@ Partial Public Class EducationOverflow
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "ReportedQuestionSummaryViewDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class ReportedQuestionDetailsDataTable
+        Inherits Global.System.Data.TypedTableBase(Of ReportedQuestionDetailsRow)
+        
+        Private columnUserId As Global.System.Data.DataColumn
+        
+        Private columnUsername As Global.System.Data.DataColumn
+        
+        Private columnAPISiteParameter As Global.System.Data.DataColumn
+        
+        Private columnName As Global.System.Data.DataColumn
+        
+        Private columnDescription As Global.System.Data.DataColumn
+        
+        Private columnOptionalDescription As Global.System.Data.DataColumn
+        
+        Private columnBody As Global.System.Data.DataColumn
+        
+        Private columnUpVotes As Global.System.Data.DataColumn
+        
+        Private columnDownVotes As Global.System.Data.DataColumn
+        
+        Private columnId As Global.System.Data.DataColumn
+        
+        Private columnURL As Global.System.Data.DataColumn
+        
+        Private columnTitle As Global.System.Data.DataColumn
+        
+        Private columnAPIQuestionId As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "ReportedQuestionDetails"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUserId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UsernameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUsername
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property APISiteParameterColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAPISiteParameter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnName
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DescriptionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDescription
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property OptionalDescriptionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOptionalDescription
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property BodyColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBody
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UpVotesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUpVotes
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DownVotesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDownVotes
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property URLColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnURL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TitleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTitle
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property APIQuestionIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAPIQuestionId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As ReportedQuestionDetailsRow
+            Get
+                Return CType(Me.Rows(index),ReportedQuestionDetailsRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event ReportedQuestionDetailsRowChanging As ReportedQuestionDetailsRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event ReportedQuestionDetailsRowChanged As ReportedQuestionDetailsRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event ReportedQuestionDetailsRowDeleting As ReportedQuestionDetailsRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event ReportedQuestionDetailsRowDeleted As ReportedQuestionDetailsRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddReportedQuestionDetailsRow(ByVal row As ReportedQuestionDetailsRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddReportedQuestionDetailsRow(ByVal Username As String, ByVal APISiteParameter As String, ByVal Name As String, ByVal Description As String, ByVal OptionalDescription As String, ByVal Body As String, ByVal UpVotes As Integer, ByVal DownVotes As Integer, ByVal URL As String, ByVal Title As String, ByVal APIQuestionId As Integer) As ReportedQuestionDetailsRow
+            Dim rowReportedQuestionDetailsRow As ReportedQuestionDetailsRow = CType(Me.NewRow,ReportedQuestionDetailsRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, Username, APISiteParameter, Name, Description, OptionalDescription, Body, UpVotes, DownVotes, Nothing, URL, Title, APIQuestionId}
+            rowReportedQuestionDetailsRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowReportedQuestionDetailsRow)
+            Return rowReportedQuestionDetailsRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As ReportedQuestionDetailsDataTable = CType(MyBase.Clone,ReportedQuestionDetailsDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New ReportedQuestionDetailsDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnUserId = MyBase.Columns("UserId")
+            Me.columnUsername = MyBase.Columns("Username")
+            Me.columnAPISiteParameter = MyBase.Columns("APISiteParameter")
+            Me.columnName = MyBase.Columns("Name")
+            Me.columnDescription = MyBase.Columns("Description")
+            Me.columnOptionalDescription = MyBase.Columns("OptionalDescription")
+            Me.columnBody = MyBase.Columns("Body")
+            Me.columnUpVotes = MyBase.Columns("UpVotes")
+            Me.columnDownVotes = MyBase.Columns("DownVotes")
+            Me.columnId = MyBase.Columns("Id")
+            Me.columnURL = MyBase.Columns("URL")
+            Me.columnTitle = MyBase.Columns("Title")
+            Me.columnAPIQuestionId = MyBase.Columns("APIQuestionId")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUserId)
+            Me.columnUsername = New Global.System.Data.DataColumn("Username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUsername)
+            Me.columnAPISiteParameter = New Global.System.Data.DataColumn("APISiteParameter", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAPISiteParameter)
+            Me.columnName = New Global.System.Data.DataColumn("Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnName)
+            Me.columnDescription = New Global.System.Data.DataColumn("Description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDescription)
+            Me.columnOptionalDescription = New Global.System.Data.DataColumn("OptionalDescription", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOptionalDescription)
+            Me.columnBody = New Global.System.Data.DataColumn("Body", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBody)
+            Me.columnUpVotes = New Global.System.Data.DataColumn("UpVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUpVotes)
+            Me.columnDownVotes = New Global.System.Data.DataColumn("DownVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDownVotes)
+            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnId)
+            Me.columnURL = New Global.System.Data.DataColumn("URL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnURL)
+            Me.columnTitle = New Global.System.Data.DataColumn("Title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTitle)
+            Me.columnAPIQuestionId = New Global.System.Data.DataColumn("APIQuestionId", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAPIQuestionId)
+            Me.columnUserId.AutoIncrement = true
+            Me.columnUserId.AutoIncrementSeed = -1
+            Me.columnUserId.AutoIncrementStep = -1
+            Me.columnUserId.AllowDBNull = false
+            Me.columnUserId.ReadOnly = true
+            Me.columnUsername.AllowDBNull = false
+            Me.columnUsername.MaxLength = 50
+            Me.columnAPISiteParameter.AllowDBNull = false
+            Me.columnAPISiteParameter.MaxLength = 50
+            Me.columnName.AllowDBNull = false
+            Me.columnName.MaxLength = 50
+            Me.columnDescription.AllowDBNull = false
+            Me.columnDescription.MaxLength = 150
+            Me.columnOptionalDescription.AllowDBNull = false
+            Me.columnOptionalDescription.MaxLength = 250
+            Me.columnBody.AllowDBNull = false
+            Me.columnBody.MaxLength = 2147483647
+            Me.columnUpVotes.AllowDBNull = false
+            Me.columnDownVotes.AllowDBNull = false
+            Me.columnId.AutoIncrement = true
+            Me.columnId.AutoIncrementSeed = -1
+            Me.columnId.AutoIncrementStep = -1
+            Me.columnId.AllowDBNull = false
+            Me.columnId.ReadOnly = true
+            Me.columnURL.AllowDBNull = false
+            Me.columnURL.MaxLength = 300
+            Me.columnTitle.AllowDBNull = false
+            Me.columnTitle.MaxLength = 250
+            Me.columnAPIQuestionId.AllowDBNull = false
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewReportedQuestionDetailsRow() As ReportedQuestionDetailsRow
+            Return CType(Me.NewRow,ReportedQuestionDetailsRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New ReportedQuestionDetailsRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(ReportedQuestionDetailsRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.ReportedQuestionDetailsRowChangedEvent) Is Nothing) Then
+                RaiseEvent ReportedQuestionDetailsRowChanged(Me, New ReportedQuestionDetailsRowChangeEvent(CType(e.Row,ReportedQuestionDetailsRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.ReportedQuestionDetailsRowChangingEvent) Is Nothing) Then
+                RaiseEvent ReportedQuestionDetailsRowChanging(Me, New ReportedQuestionDetailsRowChangeEvent(CType(e.Row,ReportedQuestionDetailsRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.ReportedQuestionDetailsRowDeletedEvent) Is Nothing) Then
+                RaiseEvent ReportedQuestionDetailsRowDeleted(Me, New ReportedQuestionDetailsRowChangeEvent(CType(e.Row,ReportedQuestionDetailsRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.ReportedQuestionDetailsRowDeletingEvent) Is Nothing) Then
+                RaiseEvent ReportedQuestionDetailsRowDeleting(Me, New ReportedQuestionDetailsRowChangeEvent(CType(e.Row,ReportedQuestionDetailsRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveReportedQuestionDetailsRow(ByVal row As ReportedQuestionDetailsRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As EducationOverflow = New EducationOverflow()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "ReportedQuestionDetailsDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class QuestionFeedbackDetailsDataTable
+        Inherits Global.System.Data.TypedTableBase(Of QuestionFeedbackDetailsRow)
+        
+        Private columnUserId As Global.System.Data.DataColumn
+        
+        Private columnUsername As Global.System.Data.DataColumn
+        
+        Private columnLiked As Global.System.Data.DataColumn
+        
+        Private columnSummaryAdjective As Global.System.Data.DataColumn
+        
+        Private columnId As Global.System.Data.DataColumn
+        
+        Private columnURL As Global.System.Data.DataColumn
+        
+        Private columnTitle As Global.System.Data.DataColumn
+        
+        Private columnAPISiteParameter As Global.System.Data.DataColumn
+        
+        Private columnAPIQuestionId As Global.System.Data.DataColumn
+        
+        Private columnBody As Global.System.Data.DataColumn
+        
+        Private columnUpVotes As Global.System.Data.DataColumn
+        
+        Private columnDownVotes As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "QuestionFeedbackDetails"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUserId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UsernameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUsername
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LikedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLiked
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property SummaryAdjectiveColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSummaryAdjective
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property URLColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnURL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TitleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTitle
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property APISiteParameterColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAPISiteParameter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property APIQuestionIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAPIQuestionId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property BodyColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBody
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UpVotesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUpVotes
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DownVotesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDownVotes
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As QuestionFeedbackDetailsRow
+            Get
+                Return CType(Me.Rows(index),QuestionFeedbackDetailsRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event QuestionFeedbackDetailsRowChanging As QuestionFeedbackDetailsRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event QuestionFeedbackDetailsRowChanged As QuestionFeedbackDetailsRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event QuestionFeedbackDetailsRowDeleting As QuestionFeedbackDetailsRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event QuestionFeedbackDetailsRowDeleted As QuestionFeedbackDetailsRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddQuestionFeedbackDetailsRow(ByVal row As QuestionFeedbackDetailsRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddQuestionFeedbackDetailsRow(ByVal Username As String, ByVal Liked As Boolean, ByVal SummaryAdjective As String, ByVal URL As String, ByVal Title As String, ByVal APISiteParameter As String, ByVal APIQuestionId As Integer, ByVal Body As String, ByVal UpVotes As Integer, ByVal DownVotes As Integer) As QuestionFeedbackDetailsRow
+            Dim rowQuestionFeedbackDetailsRow As QuestionFeedbackDetailsRow = CType(Me.NewRow,QuestionFeedbackDetailsRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, Username, Liked, SummaryAdjective, Nothing, URL, Title, APISiteParameter, APIQuestionId, Body, UpVotes, DownVotes}
+            rowQuestionFeedbackDetailsRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowQuestionFeedbackDetailsRow)
+            Return rowQuestionFeedbackDetailsRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As QuestionFeedbackDetailsDataTable = CType(MyBase.Clone,QuestionFeedbackDetailsDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New QuestionFeedbackDetailsDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnUserId = MyBase.Columns("UserId")
+            Me.columnUsername = MyBase.Columns("Username")
+            Me.columnLiked = MyBase.Columns("Liked")
+            Me.columnSummaryAdjective = MyBase.Columns("SummaryAdjective")
+            Me.columnId = MyBase.Columns("Id")
+            Me.columnURL = MyBase.Columns("URL")
+            Me.columnTitle = MyBase.Columns("Title")
+            Me.columnAPISiteParameter = MyBase.Columns("APISiteParameter")
+            Me.columnAPIQuestionId = MyBase.Columns("APIQuestionId")
+            Me.columnBody = MyBase.Columns("Body")
+            Me.columnUpVotes = MyBase.Columns("UpVotes")
+            Me.columnDownVotes = MyBase.Columns("DownVotes")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUserId)
+            Me.columnUsername = New Global.System.Data.DataColumn("Username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUsername)
+            Me.columnLiked = New Global.System.Data.DataColumn("Liked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLiked)
+            Me.columnSummaryAdjective = New Global.System.Data.DataColumn("SummaryAdjective", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSummaryAdjective)
+            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnId)
+            Me.columnURL = New Global.System.Data.DataColumn("URL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnURL)
+            Me.columnTitle = New Global.System.Data.DataColumn("Title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTitle)
+            Me.columnAPISiteParameter = New Global.System.Data.DataColumn("APISiteParameter", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAPISiteParameter)
+            Me.columnAPIQuestionId = New Global.System.Data.DataColumn("APIQuestionId", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAPIQuestionId)
+            Me.columnBody = New Global.System.Data.DataColumn("Body", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBody)
+            Me.columnUpVotes = New Global.System.Data.DataColumn("UpVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUpVotes)
+            Me.columnDownVotes = New Global.System.Data.DataColumn("DownVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDownVotes)
+            Me.columnUserId.AutoIncrement = true
+            Me.columnUserId.AutoIncrementSeed = -1
+            Me.columnUserId.AutoIncrementStep = -1
+            Me.columnUserId.AllowDBNull = false
+            Me.columnUserId.ReadOnly = true
+            Me.columnUsername.AllowDBNull = false
+            Me.columnUsername.MaxLength = 50
+            Me.columnLiked.AllowDBNull = false
+            Me.columnSummaryAdjective.AllowDBNull = false
+            Me.columnSummaryAdjective.MaxLength = 20
+            Me.columnId.AutoIncrement = true
+            Me.columnId.AutoIncrementSeed = -1
+            Me.columnId.AutoIncrementStep = -1
+            Me.columnId.AllowDBNull = false
+            Me.columnId.ReadOnly = true
+            Me.columnURL.AllowDBNull = false
+            Me.columnURL.MaxLength = 300
+            Me.columnTitle.AllowDBNull = false
+            Me.columnTitle.MaxLength = 250
+            Me.columnAPISiteParameter.AllowDBNull = false
+            Me.columnAPISiteParameter.MaxLength = 50
+            Me.columnAPIQuestionId.AllowDBNull = false
+            Me.columnBody.AllowDBNull = false
+            Me.columnBody.MaxLength = 2147483647
+            Me.columnUpVotes.AllowDBNull = false
+            Me.columnDownVotes.AllowDBNull = false
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewQuestionFeedbackDetailsRow() As QuestionFeedbackDetailsRow
+            Return CType(Me.NewRow,QuestionFeedbackDetailsRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New QuestionFeedbackDetailsRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(QuestionFeedbackDetailsRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.QuestionFeedbackDetailsRowChangedEvent) Is Nothing) Then
+                RaiseEvent QuestionFeedbackDetailsRowChanged(Me, New QuestionFeedbackDetailsRowChangeEvent(CType(e.Row,QuestionFeedbackDetailsRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.QuestionFeedbackDetailsRowChangingEvent) Is Nothing) Then
+                RaiseEvent QuestionFeedbackDetailsRowChanging(Me, New QuestionFeedbackDetailsRowChangeEvent(CType(e.Row,QuestionFeedbackDetailsRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.QuestionFeedbackDetailsRowDeletedEvent) Is Nothing) Then
+                RaiseEvent QuestionFeedbackDetailsRowDeleted(Me, New QuestionFeedbackDetailsRowChangeEvent(CType(e.Row,QuestionFeedbackDetailsRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.QuestionFeedbackDetailsRowDeletingEvent) Is Nothing) Then
+                RaiseEvent QuestionFeedbackDetailsRowDeleting(Me, New QuestionFeedbackDetailsRowChangeEvent(CType(e.Row,QuestionFeedbackDetailsRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveQuestionFeedbackDetailsRow(ByVal row As QuestionFeedbackDetailsRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As EducationOverflow = New EducationOverflow()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "QuestionFeedbackDetailsDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -14309,357 +14251,6 @@ Partial Public Class EducationOverflow
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class QuestionFeedbackDetailsRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableQuestionFeedbackDetails As QuestionFeedbackDetailsDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableQuestionFeedbackDetails = CType(Me.Table,QuestionFeedbackDetailsDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UserId() As Long
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.UserIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.UserIdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property FirstName() As String
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.FirstNameColumn),String)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.FirstNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property LastName() As String
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.LastNameColumn),String)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.LastNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property DateOfBirth() As Date
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.DateOfBirthColumn),Date)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.DateOfBirthColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Liked() As Boolean
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.LikedColumn),Boolean)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.LikedColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property SummaryAdjective() As String
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.SummaryAdjectiveColumn),String)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.SummaryAdjectiveColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Id() As Long
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.IdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.IdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property URL() As String
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.URLColumn),String)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.URLColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Title() As String
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.TitleColumn),String)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.TitleColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property APISiteParameter() As String
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.APISiteParameterColumn),String)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.APISiteParameterColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property APIQuestionId() As Integer
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.APIQuestionIdColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.APIQuestionIdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Body() As String
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.BodyColumn),String)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.BodyColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UpVotes() As Integer
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.UpVotesColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.UpVotesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property DownVotes() As Integer
-            Get
-                Return CType(Me(Me.tableQuestionFeedbackDetails.DownVotesColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableQuestionFeedbackDetails.DownVotesColumn) = value
-            End Set
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class ReportedQuestionDetailsRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableReportedQuestionDetails As ReportedQuestionDetailsDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableReportedQuestionDetails = CType(Me.Table,ReportedQuestionDetailsDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UserId() As Long
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.UserIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.UserIdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property FirstName() As String
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.FirstNameColumn),String)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.FirstNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property LastName() As String
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.LastNameColumn),String)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.LastNameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property DateOfBirth() As Date
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.DateOfBirthColumn),Date)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.DateOfBirthColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property APISiteParameter() As String
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.APISiteParameterColumn),String)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.APISiteParameterColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Name() As String
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.NameColumn),String)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.NameColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Description() As String
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.DescriptionColumn),String)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.DescriptionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property OptionalDescription() As String
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.OptionalDescriptionColumn),String)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.OptionalDescriptionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Body() As String
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.BodyColumn),String)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.BodyColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UpVotes() As Integer
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.UpVotesColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.UpVotesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property DownVotes() As Integer
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.DownVotesColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.DownVotesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Id() As Long
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.IdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.IdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property URL() As String
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.URLColumn),String)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.URLColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Title() As String
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.TitleColumn),String)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.TitleColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property APIQuestionId() As Integer
-            Get
-                Return CType(Me(Me.tableReportedQuestionDetails.APIQuestionIdColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableReportedQuestionDetails.APIQuestionIdColumn) = value
-            End Set
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
     Partial Public Class PopularQuestionsUserViewRow
         Inherits Global.System.Data.DataRow
         
@@ -14904,6 +14495,313 @@ Partial Public Class EducationOverflow
             End Get
             Set
                 Me(Me.tableReportedQuestionSummaryView.ReasonIdColumn) = value
+            End Set
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class ReportedQuestionDetailsRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableReportedQuestionDetails As ReportedQuestionDetailsDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableReportedQuestionDetails = CType(Me.Table,ReportedQuestionDetailsDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property UserId() As Long
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.UserIdColumn),Long)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.UserIdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Username() As String
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.UsernameColumn),String)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.UsernameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property APISiteParameter() As String
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.APISiteParameterColumn),String)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.APISiteParameterColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Name() As String
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.NameColumn),String)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.NameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Description() As String
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.DescriptionColumn),String)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.DescriptionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property OptionalDescription() As String
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.OptionalDescriptionColumn),String)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.OptionalDescriptionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Body() As String
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.BodyColumn),String)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.BodyColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property UpVotes() As Integer
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.UpVotesColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.UpVotesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DownVotes() As Integer
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.DownVotesColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.DownVotesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Id() As Long
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.IdColumn),Long)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.IdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property URL() As String
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.URLColumn),String)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.URLColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Title() As String
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.TitleColumn),String)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.TitleColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property APIQuestionId() As Integer
+            Get
+                Return CType(Me(Me.tableReportedQuestionDetails.APIQuestionIdColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableReportedQuestionDetails.APIQuestionIdColumn) = value
+            End Set
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class QuestionFeedbackDetailsRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableQuestionFeedbackDetails As QuestionFeedbackDetailsDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableQuestionFeedbackDetails = CType(Me.Table,QuestionFeedbackDetailsDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property UserId() As Long
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.UserIdColumn),Long)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.UserIdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Username() As String
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.UsernameColumn),String)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.UsernameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Liked() As Boolean
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.LikedColumn),Boolean)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.LikedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property SummaryAdjective() As String
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.SummaryAdjectiveColumn),String)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.SummaryAdjectiveColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Id() As Long
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.IdColumn),Long)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.IdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property URL() As String
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.URLColumn),String)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.URLColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Title() As String
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.TitleColumn),String)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.TitleColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property APISiteParameter() As String
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.APISiteParameterColumn),String)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.APISiteParameterColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property APIQuestionId() As Integer
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.APIQuestionIdColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.APIQuestionIdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Body() As String
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.BodyColumn),String)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.BodyColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property UpVotes() As Integer
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.UpVotesColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.UpVotesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DownVotes() As Integer
+            Get
+                Return CType(Me(Me.tableQuestionFeedbackDetails.DownVotesColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableQuestionFeedbackDetails.DownVotesColumn) = value
             End Set
         End Property
     End Class
@@ -15826,78 +15724,6 @@ Partial Public Class EducationOverflow
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class QuestionFeedbackDetailsRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As QuestionFeedbackDetailsRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As QuestionFeedbackDetailsRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As QuestionFeedbackDetailsRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class ReportedQuestionDetailsRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As ReportedQuestionDetailsRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As ReportedQuestionDetailsRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As ReportedQuestionDetailsRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Class PopularQuestionsUserViewRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -15988,6 +15814,78 @@ Partial Public Class EducationOverflow
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As ReportedQuestionSummaryViewRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class ReportedQuestionDetailsRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As ReportedQuestionDetailsRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As ReportedQuestionDetailsRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As ReportedQuestionDetailsRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class QuestionFeedbackDetailsRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As QuestionFeedbackDetailsRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As QuestionFeedbackDetailsRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As QuestionFeedbackDetailsRow
             Get
                 Return Me.eventRow
             End Get

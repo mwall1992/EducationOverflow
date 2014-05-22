@@ -18,7 +18,7 @@
     
     <!-- Question Hints -->
     <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="HintsUpdatePanel" runat="server" UpdateMode="Conditional">
+    <asp:UpdatePanel ID="HintsUpdatePanel" runat="server" UpdateMode="Conditional" Visible="False">
         <ContentTemplate>
             <h3>Hints:</h3>
             <asp:Repeater ID="HintRepeater" runat="server" DataSourceID="HintsDataSource">
@@ -36,14 +36,14 @@
             </asp:ObjectDataSource>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <asp:UpdateProgress ID="HintsUpdateProgress" runat="server">
+    <asp:UpdateProgress ID="HintsUpdateProgress" runat="server" AssociatedUpdatePanelID="HintsUpdatePanel" DisplayAfter="100">
         <ProgressTemplate>
             Retrieving hint...
         </ProgressTemplate>
     </asp:UpdateProgress>
 
     <!-- Solution -->
-    <asp:UpdatePanel ID="SolutionUpdatePanel" runat="server" UpdateMode="Conditional">
+    <asp:UpdatePanel ID="SolutionUpdatePanel" runat="server" UpdateMode="Conditional" Visible="false">
         <ContentTemplate>
             <h3>Solution:</h3>
             <div runat="server" id="SolutionContainer" class="question-answer-component">
@@ -51,6 +51,11 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <asp:UpdateProgress ID="SolutionUpdateProgress" runat="server" AssociatedUpdatePanelID="SolutionUpdatePanel" DisplayAfter="100">
+        <ProgressTemplate>
+            Retrieving solution...
+        </ProgressTemplate>
+    </asp:UpdateProgress>
 
     <!-- Answer -->
     <div id="answer">
@@ -64,8 +69,8 @@
         <asp:TextBox ID="NotesTextBox" runat="server" CssClass="input-box" TextMode="MultiLine" Rows="4"></asp:TextBox>
     </div>
 
-    <asp:Button ID="HintButton" runat="server" OnClick="HintButton_Click" Text="Request Hint" />
-    <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Save My Answer" />
+    <asp:Button ID="HintButton" runat="server" OnClick="HintButton_Click" Text="Request Hint" CausesValidation="False" />
+    <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Save My Answer" CausesValidation="False" />
     <asp:Button ID="SolutionButton" runat="server" OnClick="SolutionButton_Click" Text="View Solution" CausesValidation="False" />
 </asp:Content>
 

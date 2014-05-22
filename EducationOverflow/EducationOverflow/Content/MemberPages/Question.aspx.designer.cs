@@ -112,6 +112,15 @@ namespace EducationOverflow.Content.Member_Pages {
         protected global::System.Web.UI.WebControls.Label SolutionLabel;
         
         /// <summary>
+        /// SolutionButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SolutionButton;
+        
+        /// <summary>
         /// SolutionUpdateProgress control.
         /// </summary>
         /// <remarks>
@@ -146,15 +155,6 @@ namespace EducationOverflow.Content.Member_Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SaveButton;
-        
-        /// <summary>
-        /// SolutionButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SolutionButton;
         
         /// <summary>
         /// ReportedReasonList control.

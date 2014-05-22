@@ -43,12 +43,13 @@
     </asp:UpdateProgress>
 
     <!-- Solution -->
-    <asp:UpdatePanel ID="SolutionUpdatePanel" runat="server" UpdateMode="Conditional" Visible="false">
+    <asp:UpdatePanel ID="SolutionUpdatePanel" runat="server" UpdateMode="Conditional" Visible="true">
         <ContentTemplate>
             <h3>Solution:</h3>
             <div runat="server" id="SolutionContainer" class="question-answer-component">
                 <asp:Label ID="SolutionLabel" runat="server"></asp:Label>
             </div>
+            <asp:Button ID="SolutionButton" runat="server" OnClick="SolutionButton_Click" Text="View Solution" CausesValidation="False" />
         </ContentTemplate>
     </asp:UpdatePanel>
     <asp:UpdateProgress ID="SolutionUpdateProgress" runat="server" AssociatedUpdatePanelID="SolutionUpdatePanel" DisplayAfter="100">
@@ -71,7 +72,7 @@
 
     <asp:Button ID="HintButton" runat="server" OnClick="HintButton_Click" Text="Request Hint" CausesValidation="False" />
     <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Save My Answer" CausesValidation="False" />
-    <asp:Button ID="SolutionButton" runat="server" OnClick="SolutionButton_Click" Text="View Solution" CausesValidation="False" />
+    
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" runat="server">

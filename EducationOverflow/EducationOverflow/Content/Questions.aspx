@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Pages/DefaultLayout.master" AutoEventWireup="true" CodeBehind="Questions.aspx.cs" Inherits="EducationOverflow.Content.Member_Pages.Questions" %>
+<%@ Register TagPrefix="uc" TagName="PopularQuestionList" Src="~/UserControls/PopularQuestionsControl.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_content" runat="server">
     <link rel="stylesheet" type="text/css" href="../Style Sheets/RepeaterStyles.css" />
@@ -19,4 +20,8 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" runat="server">
+    <h3>
+        Popular Questions
+    </h3>
+    <uc:PopularQuestionList id="PopularQuestionList1" runat="server" MaxResultCount="10" />
 </asp:Content>

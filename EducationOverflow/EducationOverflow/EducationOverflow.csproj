@@ -78,6 +78,7 @@
     <Content Include="Content\Register.aspx" />
     <Content Include="Content\MemberPages\SignOut.aspx" />
     <Content Include="Style Sheets\RepeaterStyles.css" />
+    <Content Include="UserControls\PopularQuestionsControl.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -230,6 +231,13 @@
     </Compile>
     <Compile Include="Content\MemberPages\SignOut.aspx.designer.cs">
       <DependentUpon>SignOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PopularQuestionsControl.ascx.cs">
+      <DependentUpon>PopularQuestionsControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\PopularQuestionsControl.ascx.designer.cs">
+      <DependentUpon>PopularQuestionsControl.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

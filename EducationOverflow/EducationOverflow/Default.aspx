@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Pages/DefaultLayout.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="EducationOverflow.Default" %>
+<%@ Register TagPrefix="uc" TagName="PopularQuestionList" Src="~/UserControls/PopularQuestionsControl.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_content" Runat="Server">
 </asp:Content>
@@ -47,12 +48,5 @@
     <h3>
         Popular Questions
     </h3>
-    <asp:Repeater ID="PopularQuestionsRepeater" runat="server" DataSourceID="PopularQuestionsDataSource">
-        <ItemTemplate>
-            <div class="question-title">
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id", "~/Content/MemberPages/Question.aspx?id={0}") %>'><%# Eval("Title") %></asp:HyperLink>
-            </div>
-        </ItemTemplate>
-    </asp:Repeater>
-    <asp:ObjectDataSource ID="PopularQuestionsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectPopularQuestions" TypeName="Business.PopularQuestionsUserView"></asp:ObjectDataSource>
+    <uc:PopularQuestionList id="PopularQuestionList1" runat="server" MaxResultCount="6" />
 </asp:Content>

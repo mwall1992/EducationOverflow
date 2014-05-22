@@ -13,21 +13,12 @@ namespace EducationOverflow {
     public partial class Default {
         
         /// <summary>
-        /// PopularQuestionsRepeater control.
+        /// PopularQuestionList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater PopularQuestionsRepeater;
-        
-        /// <summary>
-        /// PopularQuestionsDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource PopularQuestionsDataSource;
+        protected global::EducationOverflow.UserControls.PopularQuestionsControl PopularQuestionList1;
     }
 }

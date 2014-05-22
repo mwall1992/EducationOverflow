@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcceptedAnswer.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="PopularQuestions.cs" />
     <Compile Include="Queries.cs" />

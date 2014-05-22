@@ -22,7 +22,7 @@
 
 .question {}
 
-.question pre {
+.question-answer-component pre {
     background-color: #D9D5CA;
     overflow: auto;
 }

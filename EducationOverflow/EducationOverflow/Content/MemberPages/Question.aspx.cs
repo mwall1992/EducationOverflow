@@ -15,7 +15,7 @@ namespace EducationOverflow.Content.Member_Pages {
             
             // handle initial page load
             if (!IsPostBack) {
-                
+
                 // retrieve question data
                 string questionId = Request.QueryString[QUESTION_ID_PARAMETER];
                 Data.EducationOverflow.QuestionAnswerInfoRow infoRow = 
@@ -32,15 +32,17 @@ namespace EducationOverflow.Content.Member_Pages {
         }
 
         protected void SaveButton_Click(object sender, EventArgs e) {
-
+            
         }
 
         protected void HintButton_Click(object sender, EventArgs e) {
-
+            HintsUpdatePanel.Update();
         }
 
         protected void SolutionButton_Click(object sender, EventArgs e) {
-
+            SolutionLabel.Text =
+                Business.AcceptedAnswer.SelectAcceptedAnswer(Convert.ToInt64(Request.QueryString[QUESTION_ID_PARAMETER])).Body;
+            SolutionUpdatePanel.Update();
         }
 
         protected void ReportQuestionButton_Click(object sender, EventArgs e) {

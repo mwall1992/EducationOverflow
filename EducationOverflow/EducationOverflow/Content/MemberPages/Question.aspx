@@ -14,15 +14,59 @@
     </div>
 
     <!-- Question Body -->
-    <div runat="server" id="question" class="question"></div>
+    <div runat="server" id="question" class="question-answer-component"></div>
     
+    <!-- Question Hints -->
+    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel ID="HintsUpdatePanel" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <h3>Hints:</h3>
+            <asp:Repeater ID="HintRepeater" runat="server" DataSourceID="HintsDataSource">
+                <ItemTemplate>
+                    <h4>Hint <%# Container.ItemIndex + 1 %>:</h4>
+                    <div runat="server" id="HintContainer" class="question-answer-component">
+                        <asp:Label ID="HintLabel" runat="server" Text='<%# Eval("Body") %>'></asp:Label>
+                    </div> 
+                </ItemTemplate>
+            </asp:Repeater>
+            <asp:ObjectDataSource ID="HintsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectAnswers" TypeName="Business.Answer">
+                <SelectParameters>
+                    <asp:QueryStringParameter Name="questionId" QueryStringField="QuestionId" Type="Int64" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <asp:UpdateProgress ID="HintsUpdateProgress" runat="server">
+        <ProgressTemplate>
+            Retrieving hint...
+        </ProgressTemplate>
+    </asp:UpdateProgress>
+
+    <!-- Solution -->
+    <asp:UpdatePanel ID="SolutionUpdatePanel" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <h3>Solution:</h3>
+            <div runat="server" id="SolutionContainer" class="question-answer-component">
+                <asp:Label ID="SolutionLabel" runat="server"></asp:Label>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
     <!-- Answer -->
     <div id="answer">
         <h3>Your Answer:</h3>
-        <textarea id="myAnswerTextArea" class="input-box" cols="50" name="S1" rows="10"></textarea><asp:Button ID="HintButton" runat="server" OnClick="HintButton_Click" Text="Request Hint" />
-&nbsp;<asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Save My Answer" />
-        <asp:Button ID="SolutionButton" runat="server" OnClick="SolutionButton_Click" Text="View Solution" />
+        <textarea id="myAnswerTextArea" class="input-box" cols="50" name="S1" rows="10"></textarea>
     </div>
+
+    <!-- Notes -->
+    <div id="notes">
+        <h3>Notes:</h3>
+        <asp:TextBox ID="NotesTextBox" runat="server" CssClass="input-box" TextMode="MultiLine" Rows="4"></asp:TextBox>
+    </div>
+
+    <asp:Button ID="HintButton" runat="server" OnClick="HintButton_Click" Text="Request Hint" />
+    <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Save My Answer" />
+    <asp:Button ID="SolutionButton" runat="server" OnClick="SolutionButton_Click" Text="View Solution" CausesValidation="False" />
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" runat="server">

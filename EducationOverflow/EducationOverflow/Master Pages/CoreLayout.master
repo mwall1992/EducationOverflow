@@ -61,6 +61,7 @@
                             <asp:RoleGroup Roles="admin">
                                 <ContentTemplate>
                                     <ul>
+                                        <li><a id="MemberLink" runat="server" href="~/Content/MemberPages/AccountManagement.aspx">Account</a></li>
 					                    <li><a id="AdminLink" runat="server" href="~/Content/AdminPages/Admin.aspx">Admin Portal</a></li>
 				                    </ul>
                                 </ContentTemplate>

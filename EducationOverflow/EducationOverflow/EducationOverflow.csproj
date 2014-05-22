@@ -64,7 +64,6 @@
     <Content Include="Content\AdminPages\FeedbackDetails.aspx" />
     <Content Include="Content\AdminPages\ReportedQuestionDetails.aspx" />
     <Content Include="Content\AdminPages\ReportedQuestions.aspx" />
-    <Content Include="Content\MemberPages\AccountDetails.aspx" />
     <Content Include="Content\MemberPages\AccountManagement.aspx" />
     <Content Include="Content\MemberPages\ChangePassword.aspx" />
     <Content Include="Content\MemberPages\Question.aspx" />
@@ -118,13 +117,6 @@
     </Compile>
     <Compile Include="Content\AdminPages\ReportedQuestions.aspx.designer.cs">
       <DependentUpon>ReportedQuestions.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\MemberPages\AccountDetails.aspx.cs">
-      <DependentUpon>AccountDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\MemberPages\AccountDetails.aspx.designer.cs">
-      <DependentUpon>AccountDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\MemberPages\AccountManagement.aspx.cs">
       <DependentUpon>AccountManagement.aspx</DependentUpon>

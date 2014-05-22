@@ -1,0 +1,39 @@
+﻿/**
+ * filename: QuestionStyles.css
+ * author: Morgan Wall
+ * date: 22-5-2014
+ * 
+ * The core external CSS stylesheet defining the structure of the question and
+ * answer web form of the Education Overflow Web application.
+ */
+
+/**
+ * Contents:
+ *
+ * 1. Basic styles
+ * 2. Structure styles
+ */
+
+/**
+ * 1. Basic styles
+ */
+
+.title {}
+
+.question {}
+
+.question pre {
+    background-color: #D9D5CA;
+    overflow: auto;
+}
+
+#answer {
+}
+
+/**
+ * 2. Structure styles
+ */
+
+.report-question-component {
+    margin: 10px 0 0 0;
+}

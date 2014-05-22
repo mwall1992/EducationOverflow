@@ -29,7 +29,7 @@
 <asp:Repeater ID="PopularQuestionsRepeater" runat="server" DataSourceID="PopularQuestionsDataSource">
     <ItemTemplate>
         <div class="question-title">
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id", "~/Content/MemberPages/Question.aspx?id={0}") %>'><%# Eval("Title") %></asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id", "~/Content/MemberPages/Question.aspx?QuestionId={0}") %>'><%# Eval("Title") %></asp:HyperLink>
         </div>
     </ItemTemplate>
 </asp:Repeater>

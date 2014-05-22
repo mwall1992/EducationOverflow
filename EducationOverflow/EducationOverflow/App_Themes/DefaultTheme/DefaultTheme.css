@@ -56,7 +56,7 @@ h3 {
 h4 {
     margin: 0;
     color: #606060;
-	font-size: 1.10em;
+	font-size: 1em;
 }
 
 html {
@@ -250,6 +250,11 @@ footer {
     font-size: 0.90em;
     font-weight: 400;
     padding: 5px 0 5px 0;
+}
+
+.input-box {
+    width: 100%;
+    resize: none;
 }
 
 /**

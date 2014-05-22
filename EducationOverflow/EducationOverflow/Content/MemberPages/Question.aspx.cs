@@ -36,17 +36,32 @@ namespace EducationOverflow.Content.Member_Pages {
         }
 
         protected void HintButton_Click(object sender, EventArgs e) {
-            HintsUpdatePanel.Update();
-            HintsUpdatePanel.Visible = true;
+            RepeaterItemCollection repeaterItems = HintRepeater.Items;
+
+            RepeaterItem currentRepeaterItem;
+            for (int i = 0; i < repeaterItems.Count; i++) {
+                currentRepeaterItem = repeaterItems[i];
+                Control hintContainer = currentRepeaterItem.FindControl("HintContainer");
+                
+                if (!hintContainer.Visible) {
+                    hintContainer.Visible = true;
+
+                    if (i == repeaterItems.Count - 1) {
+                        HintButton.Visible = false;
+                    }
+
+                    break;
+                }
+            }
+
             System.Threading.Thread.Sleep(3000);
         }
 
         protected void SolutionButton_Click(object sender, EventArgs e) {
+            SolutionButton.Visible = false;
             SolutionLabel.Text =
                 Business.AcceptedAnswer.SelectAcceptedAnswer(Convert.ToInt64(Request.QueryString[QUESTION_ID_PARAMETER])).Body;
-            SolutionUpdatePanel.Update();
             SolutionUpdatePanel.Visible = true;
-            System.Threading.Thread.Sleep(3000);
         }
 
         protected void ReportQuestionButton_Click(object sender, EventArgs e) {

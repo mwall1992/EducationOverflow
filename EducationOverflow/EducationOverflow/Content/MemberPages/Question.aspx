@@ -18,15 +18,21 @@
     
     <!-- Question Hints -->
     <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="HintsUpdatePanel" runat="server" UpdateMode="Conditional" Visible="False">
+    <asp:UpdatePanel ID="HintsUpdatePanel" runat="server" UpdateMode="Conditional" Visible="True">
+        <Triggers>
+            <asp:AsyncPostBackTrigger controlid="HintButton" eventname="Click" />
+        </Triggers>
         <ContentTemplate>
             <h3>Hints:</h3>
             <asp:Repeater ID="HintRepeater" runat="server" DataSourceID="HintsDataSource">
                 <ItemTemplate>
-                    <h4>Hint <%# Container.ItemIndex + 1 %>:</h4>
-                    <div runat="server" id="HintContainer" class="question-answer-component">
-                        <asp:Label ID="HintLabel" runat="server" Text='<%# Eval("Body") %>'></asp:Label>
-                    </div> 
+                    <div id="HintContainer" runat="server" visible="false">
+                        <asp:HiddenField ID="APIAnswerIdField" runat="server" Value='<%# Eval("APIAnswerId") %>' />
+                        <h4>Hint <%# Container.ItemIndex + 1 %>:</h4>
+                        <div runat="server" id="HintBodyContainer" class="question-answer-component">
+                            <asp:Label ID="HintLabel" runat="server" Text='<%# Eval("Body") %>'></asp:Label>
+                        </div>
+                    </div>
                 </ItemTemplate>
             </asp:Repeater>
             <asp:ObjectDataSource ID="HintsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectAnswers" TypeName="Business.Answer">
@@ -34,6 +40,7 @@
                     <asp:QueryStringParameter Name="questionId" QueryStringField="QuestionId" Type="Int64" />
                 </SelectParameters>
             </asp:ObjectDataSource>
+            <asp:Button ID="HintButton" runat="server" OnClick="HintButton_Click" Text="Request Hint" CausesValidation="False" />
         </ContentTemplate>
     </asp:UpdatePanel>
     <asp:UpdateProgress ID="HintsUpdateProgress" runat="server" AssociatedUpdatePanelID="HintsUpdatePanel" DisplayAfter="100">
@@ -44,6 +51,9 @@
 
     <!-- Solution -->
     <asp:UpdatePanel ID="SolutionUpdatePanel" runat="server" UpdateMode="Conditional" Visible="true">
+        <Triggers>
+            <asp:AsyncPostBackTrigger controlid="SolutionButton" eventname="Click" />
+        </Triggers>
         <ContentTemplate>
             <h3>Solution:</h3>
             <div runat="server" id="SolutionContainer" class="question-answer-component">
@@ -70,7 +80,6 @@
         <asp:TextBox ID="NotesTextBox" runat="server" CssClass="input-box" TextMode="MultiLine" Rows="4"></asp:TextBox>
     </div>
 
-    <asp:Button ID="HintButton" runat="server" OnClick="HintButton_Click" Text="Request Hint" CausesValidation="False" />
     <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Save My Answer" CausesValidation="False" />
     
 </asp:Content>

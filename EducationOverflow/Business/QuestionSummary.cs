@@ -10,12 +10,13 @@ using DataAccess.EducationOverflowTableAdapters;
 namespace Business {
     
     [DataObject]
-    public class QuestionFromUserView {
+    public class QuestionSummary {
 
-        private static QuestionsUserViewTableAdapter questionsTableAdapter = new QuestionsUserViewTableAdapter();
+        private static QuestionSummaryViewTableAdapter questionsTableAdapter = 
+            new QuestionSummaryViewTableAdapter();
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static Data.EducationOverflow.QuestionsUserViewDataTable SelectQuestionsFromUserView() {
+        public static Data.EducationOverflow.QuestionSummaryViewDataTable SelectQuestionSummaries() {
             return questionsTableAdapter.GetData();
         }
     }

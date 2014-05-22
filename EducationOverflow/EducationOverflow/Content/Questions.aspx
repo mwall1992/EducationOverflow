@@ -8,8 +8,14 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
-
-    <asp:ObjectDataSource ID="QuestionDataSource" runat="server" SelectMethod="SelectQuestionId" TypeName="Business.QuestionId"></asp:ObjectDataSource>
+    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="QuestionSummaryDataSource">
+        <ItemTemplate>
+            <div class="question-title">
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("QuestionId", "~/Content/MemberPages/Question.aspx?id={0}") %>'><%# Eval("Title") %></asp:HyperLink>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+    <asp:ObjectDataSource ID="QuestionSummaryDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectQuestionSummaries" TypeName="Business.QuestionSummary"></asp:ObjectDataSource>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" runat="server">

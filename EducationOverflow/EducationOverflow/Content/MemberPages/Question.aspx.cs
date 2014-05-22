@@ -44,7 +44,10 @@ namespace EducationOverflow.Content.Member_Pages {
         }
 
         protected void ReportQuestionButton_Click(object sender, EventArgs e) {
-
+            long questionId = Convert.ToInt64(Request.QueryString[QUESTION_ID_PARAMETER]);
+            System.Web.Security.MembershipUser user = System.Web.Security.Membership.GetUser();
+            Business.ReportedQuestion.InsertReportedQuestion(questionId, Convert.ToInt64(user.ProviderUserKey), 
+                Convert.ToInt32(ReportedReasonList.SelectedValue), ReportDescription.Text);
         }
     }
 }

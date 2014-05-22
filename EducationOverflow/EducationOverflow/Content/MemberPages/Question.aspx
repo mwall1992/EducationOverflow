@@ -36,13 +36,19 @@
     </p>
     <div class="report-question-component">
         <h4>What's wrong?</h4>
-        <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="ReportedQuestionReasonDataSource" DataTextField="Description" DataValueField="ReasonId">
+        <asp:RadioButtonList ID="ReportedReasonList" runat="server" DataSourceID="ReportedQuestionReasonDataSource" DataTextField="Description" DataValueField="ReasonId">
         </asp:RadioButtonList>
         <asp:ObjectDataSource ID="ReportedQuestionReasonDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectReportedQuestionReasons" TypeName="Business.ReportedQuestionReason"></asp:ObjectDataSource>
     </div>
     <div class="report-question-component">
         <h4>Description of issue:</h4>
-        <textarea id="ReportDescriptionTextArea" class="input-box" cols="20" name="S2" rows="4"></textarea>
+        <asp:TextBox ID="ReportDescription" runat="server" class="input-box" TextMode="MultiLine" Rows="4"></asp:TextBox>
         <asp:Button ID="ReportQuestionButton" runat="server" OnClick="ReportQuestionButton_Click" Text="Report Question" />
+        <div>
+            <asp:RequiredFieldValidator ID="ReportedReasonValidator" runat="server" ControlToValidate="ReportedReasonList" ErrorMessage="* A reason for reporting a question must be selected." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+        </div>
+        <div>
+            <asp:RequiredFieldValidator ID="DescriptionFieldValidator" runat="server" ControlToValidate="ReportDescription" ErrorMessage="* A description of the issue is required." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+        </div>
     </div>
 </asp:Content>

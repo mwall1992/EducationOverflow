@@ -67,13 +67,13 @@ namespace EducationOverflow.Content.Member_Pages {
         protected global::System.Web.UI.WebControls.Button SolutionButton;
         
         /// <summary>
-        /// RadioButtonList1 control.
+        /// ReportedReasonList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        protected global::System.Web.UI.WebControls.RadioButtonList ReportedReasonList;
         
         /// <summary>
         /// ReportedQuestionReasonDataSource control.
@@ -85,6 +85,15 @@ namespace EducationOverflow.Content.Member_Pages {
         protected global::System.Web.UI.WebControls.ObjectDataSource ReportedQuestionReasonDataSource;
         
         /// <summary>
+        /// ReportDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ReportDescription;
+        
+        /// <summary>
         /// ReportQuestionButton control.
         /// </summary>
         /// <remarks>
@@ -92,5 +101,23 @@ namespace EducationOverflow.Content.Member_Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ReportQuestionButton;
+        
+        /// <summary>
+        /// ReportedReasonValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReportedReasonValidator;
+        
+        /// <summary>
+        /// DescriptionFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DescriptionFieldValidator;
     }
 }

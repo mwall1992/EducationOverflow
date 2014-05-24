@@ -55,7 +55,7 @@ namespace Business {
             // attempt to change the user's password
             try {
                 if (this.ValidateUser(username, oldPassword) && membership != null) {
-                    int affectedRows = Queries.UpdateUserPassword(membership.UserId, newPassword);
+                    int affectedRows = Queries.UpdateUserPassword(membership.UserId, EncryptUserPassword(newPassword));
                     passwordChanged = (affectedRows != INVALID_AFFECTED_ROWS);
                 }
             } catch {
@@ -99,9 +99,10 @@ namespace Business {
             // attempt to create user
             long? userId = null;
             try {
-                int insertedRows = UserMembership.InsertUserMembership(this.ApplicationName, username, password,
-                    email, IS_LOCKED, CURRENT_TIME, isApproved, lastPasswordChangeDate, CURRENT_TIME, 
-                    lastLockedOutDate, COMMENT, PASSWORD_QUESTION, PASSWORD_ANSWER);
+                int insertedRows = UserMembership.InsertUserMembership(this.ApplicationName, username, 
+                    EncryptUserPassword(password), email, IS_LOCKED, CURRENT_TIME, isApproved, 
+                    lastPasswordChangeDate, CURRENT_TIME, lastLockedOutDate, COMMENT, PASSWORD_QUESTION, 
+                    PASSWORD_ANSWER);
 
                 // determine if user information was created
                 Data.EducationOverflow.UserMembershipRow memberRow = UserMembership.SelectUserMembership(username);
@@ -387,11 +388,39 @@ namespace Business {
         public override bool ValidateUser(string username, string password) {
             bool isValid = false;
             string storedPassword = UserMembership.SelectPassword(username);
+
             if (storedPassword != null) {
-                isValid = storedPassword.Equals(password);
+                isValid = DecryptUserPassword(storedPassword).Equals(password);
             }
 
             return isValid;
+        }
+
+
+        // Helper Methods
+        
+
+        /// <summary>
+        /// Encrypt a password.
+        /// </summary>
+        /// <param name="passwordPlaintext">The plain text password.</param>
+        /// <returns>Then encrypted password</returns>
+        private string EncryptUserPassword(string passwordPlaintext) {
+            byte[] passwordBytes = System.Text.Encoding.Unicode.GetBytes(passwordPlaintext);
+            byte[] encryptedBytes = EncryptPassword(passwordBytes);
+            return System.Text.Encoding.Unicode.GetString(encryptedBytes);
+        }
+
+        /// <summary>
+        /// Decrypt an encrypted password.
+        /// </summary>
+        /// <param name="encryptedPassword">The encrypted password.</param>
+        /// <returns>The plain text password.</returns>
+        private string DecryptUserPassword(string encryptedPassword) {
+            byte[] encryptedPasswordBytes = 
+                System.Text.Encoding.Unicode.GetBytes(encryptedPassword);
+            byte[] decryptedBytes = DecryptPassword(encryptedPasswordBytes);
+            return System.Text.Encoding.Unicode.GetString(decryptedBytes);
         }
     }
 }

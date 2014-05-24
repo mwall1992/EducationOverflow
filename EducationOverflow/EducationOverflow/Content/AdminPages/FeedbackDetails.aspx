@@ -7,28 +7,20 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="main_content_body_content" runat="server">
-    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataSourceID="QuestionFeedbackDetailsDataSource" Height="50px" Width="125px" CellPadding="4" ForeColor="#333333" GridLines="None">
-        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-        <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
-        <EditRowStyle BackColor="#999999" />
-        <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
+    <asp:DetailsView ID="FeedbackDetailsView" runat="server" AutoGenerateRows="False" DataSourceID="QuestionFeedbackDetailsDataSource">
         <Fields>
-            <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
+            <asp:BoundField DataField="UserId" HeaderText="User Id" SortExpression="UserId" />
             <asp:CheckBoxField DataField="Liked" HeaderText="Liked" SortExpression="Liked" />
-            <asp:BoundField DataField="SummaryAdjective" HeaderText="SummaryAdjective" SortExpression="SummaryAdjective" />
-            <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+            <asp:BoundField DataField="SummaryAdjective" HeaderText="Summary Adjective" SortExpression="SummaryAdjective" />
+            <asp:BoundField DataField="Id" HeaderText="Question Id" SortExpression="Id" />
             <asp:BoundField DataField="URL" HeaderText="URL" SortExpression="URL" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-            <asp:BoundField DataField="APISiteParameter" HeaderText="APISiteParameter" SortExpression="APISiteParameter" />
-            <asp:BoundField DataField="APIQuestionId" HeaderText="APIQuestionId" SortExpression="APIQuestionId" />
+            <asp:BoundField DataField="APISiteParameter" HeaderText="API Site Parameter" SortExpression="APISiteParameter" />
+            <asp:BoundField DataField="APIQuestionId" HeaderText="API Question Id" SortExpression="APIQuestionId" />
             <asp:BoundField DataField="Body" HeaderText="Body" SortExpression="Body" />
-            <asp:BoundField DataField="UpVotes" HeaderText="UpVotes" SortExpression="UpVotes" />
-            <asp:BoundField DataField="DownVotes" HeaderText="DownVotes" SortExpression="DownVotes" />
+            <asp:BoundField DataField="UpVotes" HeaderText="Up Votes" SortExpression="UpVotes" />
+            <asp:BoundField DataField="DownVotes" HeaderText="Down Votes" SortExpression="DownVotes" />
         </Fields>
-        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
     </asp:DetailsView>
     <asp:ObjectDataSource ID="QuestionFeedbackDetailsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectQuestionFeedbackDetails" TypeName="Business.QuestionFeedbackDetails">
         <SelectParameters>

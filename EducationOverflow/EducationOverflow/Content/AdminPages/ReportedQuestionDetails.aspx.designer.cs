@@ -13,13 +13,13 @@ namespace EducationOverflow.Content.AdminPages {
     public partial class ReportedQuestionDetails {
         
         /// <summary>
-        /// DetailsView1 control.
+        /// ReportedQuestionDetailsView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
+        protected global::System.Web.UI.WebControls.DetailsView ReportedQuestionDetailsView;
         
         /// <summary>
         /// ReportedQuestionDetailsDataSource control.

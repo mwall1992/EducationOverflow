@@ -11,7 +11,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="QuestionSummaryDataSource">
         <ItemTemplate>
-            <div class="question-title">
+            <div class="question-element">
                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("QuestionId", "~/Content/MemberPages/Question.aspx?QuestionId={0}") %>'><%# Eval("Title") %></asp:HyperLink>
             </div>
         </ItemTemplate>

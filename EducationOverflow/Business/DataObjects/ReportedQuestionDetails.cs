@@ -33,5 +33,10 @@ namespace Business {
                 reportedQuestionDetailsTableAdapter.GetData(userId, questionId);
             return DataSetUtilities.GetFirstRow<Data.EducationOverflow.ReportedQuestionDetailsRow>(reportedQuestionsTable);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public static int DeleteQuestionReport(long userId, long questionId) {
+            return ReportedQuestion.DeleteReportedQuestion(questionId, userId);
+        }
     }
 }

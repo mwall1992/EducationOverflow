@@ -80,6 +80,7 @@
     <Content Include="Content\Register.aspx" />
     <Content Include="Content\MemberPages\SignOut.aspx" />
     <Content Include="Style Sheets\QuestionStyles.css" />
+    <Content Include="Style Sheets\RepeaterStyles.css" />
     <Content Include="UserControls\PopularQuestionsControl.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

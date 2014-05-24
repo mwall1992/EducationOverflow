@@ -1,0 +1,25 @@
+﻿/**
+ * filename: RepeaterStyles.css
+ * author: Morgan Wall
+ * date: 25-5-2014
+ * 
+ * The core external CSS stylesheet defining the structure of repeaters
+ * in the Education Overflow Web application.
+ */
+
+/**
+ * Contents:
+ *
+ * 1. Basic styles
+ * 2. Structure styles
+ */
+
+/**
+ * 1. Basic styles
+ */
+
+.question-element {
+    padding: 7.5px;
+    margin: 0 0 20px 0;
+    background-color: #E2DED6;
+}

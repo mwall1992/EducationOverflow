@@ -34,5 +34,11 @@ namespace Business {
                 questionFeedbackDetailsTableAdapter.GetData(questionId, userId);
             return DataSetUtilities.GetFirstRow<Data.EducationOverflow.QuestionFeedbackDetailsRow>(feedbackDataTable);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public static int DeleteQuestionFeedback(long userId, long questionId) {
+            //Business.Question
+            return 0;
+        }
     }
 }

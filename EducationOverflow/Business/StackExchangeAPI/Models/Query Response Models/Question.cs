@@ -2,7 +2,12 @@
 using System.Runtime.Serialization;
 
 namespace StackExchangeAPI {
-    
+
+    /// <summary>
+    /// The model class corresponding to the "Question" response object 
+    /// as defined in the Stack Exchange API documentation:
+    /// http://api.stackexchange.com/docs/types/question
+    /// </summary>
     [DataContract]
     public class Question {
 
@@ -109,6 +114,8 @@ namespace StackExchangeAPI {
         private void OnDeserializing(StreamingContext context) {
             this.SetPlaceholderValues();
         }
+
+        // helper methods
 
         private void SetPlaceholderValues() {
             this.AcceptedAnswerId = StackExchangeAPI.DEFAULT_INT_VALUE;

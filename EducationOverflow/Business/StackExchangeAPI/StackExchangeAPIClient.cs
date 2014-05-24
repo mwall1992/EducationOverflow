@@ -13,23 +13,38 @@ using System.IO.Compression;
 
 namespace StackExchangeAPI {
 
+    /// <summary>
+    /// A client responsible for sending/retrieving data to/from the Stack Exchange API servers.
+    /// </summary>
     public class StackExchangeAPIClient {
 
+        /// <summary>
+        /// Retrieve a response from the Stack Exchange API for a specified query.
+        /// </summary>
+        /// <typeparam name="T">The model class used for storing response data.</typeparam>
+        /// <param name="query">The query.</param>
+        /// <returns>A model object containing the response of the query.</returns>
         public static ResponseWrapper<T> GetResponse<T>(IQuery<T> query) where T : class {
             const string REQUEST_METHOD = "GET";
 
             WebRequest request = WebRequest.Create(query.GetURL());
             request.Method = REQUEST_METHOD;
-
             WebResponse response = request.GetResponse();
-
             ResponseWrapper<T> responseObj = ParseResponse<T>(response);
 
             return responseObj;
         }
 
+
         // helper methods
 
+
+        /// <summary>
+        /// Parse a response from the Stack Exchange API servers into a model object.
+        /// </summary>
+        /// <typeparam name="T">The model class used for storing response data.</typeparam>
+        /// <param name="response">The response from the Stack Exchange API servers.</param>
+        /// <returns>A model object containing the response data.</returns>
         private static ResponseWrapper<T> ParseResponse<T>(WebResponse response) {
             const int STREAM_OFFSET = 0;
             String parsedResponse;

@@ -3,6 +3,11 @@ using System.Runtime.Serialization;
 
 namespace StackExchangeAPI {
 
+    /// <summary>
+    /// The model class corresponding to the "Answer" response object 
+    /// as defined in the Stack Exchange API documentation:
+    /// http://api.stackexchange.com/docs/types/answer
+    /// </summary>
     [DataContract]
     public class Answer {
 

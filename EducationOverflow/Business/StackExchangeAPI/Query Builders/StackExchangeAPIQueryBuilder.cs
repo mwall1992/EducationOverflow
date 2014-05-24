@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Web;
 
 namespace StackExchangeAPI {
 
-    // Builder design pattern (fluent interface) - Abstract Builder
-
+    /// <summary>
+    /// An abstract builder for queries to the Stack Exchange servers. This class
+    /// has a fluent interface.
+    /// </summary>
+    /// <typeparam name="T">The model class used for storing response data to the query.</typeparam>
+    /// <typeparam name="V">The class.</typeparam>
+    /// <remarks>
+    /// The 'V' generic parameter is required for a fluent interface to ensure subclasses
+    /// return their own class type.
+    /// </remarks>
     public abstract class StackExchangeAPIQueryBuilder<T, V> 
     where T : class 
     where V : StackExchangeAPIQueryBuilder<T, V> {
@@ -18,31 +25,61 @@ namespace StackExchangeAPI {
 
         private static string BASE_QUERY_URL = "http://api.stackexchange.com";
 
+        /// <summary>
+        /// The API version.
+        /// </summary>
         private string apiVersion;
 
+        /// <summary>
+        /// The API method.
+        /// </summary>
         private string apiMethod;
+
+        /// <summary>
+        /// The API method extension.
+        /// </summary>
+        private string apiMethodExtension;
+
+        /// <summary>
+        /// The parameter values of the API method.
+        /// </summary>
+        private List<String> parameterValues;
+
+        /// <summary>
+        /// The filter applied to the query.
+        /// </summary>
+        private string filter;
+
+        /// <summary>
+        /// Get the API method of the query.
+        /// </summary>
         public string ApiMethod { 
             get {
                 return this.apiMethod;
             }
         }
 
-        private string apiMethodExtension;
+        /// <summary>
+        /// Get the API method extension of the query.
+        /// </summary>
         public string ApiMethodExtension {
             get {
                 return this.apiMethodExtension;
             }
         }
 
-        private List<String> parameterValues;
-
-        private string filter;
+        /// <summary>
+        /// Get the filter applied to the query.
+        /// </summary>
         public string Filter {
             get {
                 return this.filter;
             }
         }
 
+        /// <summary>
+        /// Reset the state of the query builder.
+        /// </summary>
         public virtual void Reset() {
             this.apiVersion = null;
             this.apiMethod = null;
@@ -51,8 +88,17 @@ namespace StackExchangeAPI {
             this.parameterValues = null;
         }
 
+        /// <summary>
+        /// Build the query.
+        /// </summary>
+        /// <returns>The query.</returns>
         public abstract IQuery<T> GetQuery();
 
+        /// <summary>
+        /// Set the API version of the query.
+        /// </summary>
+        /// <param name="apiVersion">The API version.</param>
+        /// <returns>The updated query builder.</returns>
         public V SetAPIVersion(string apiVersion) {
             if (apiVersion == null) {
                 throw new ArgumentNullException("The api version cannot be null.");
@@ -62,16 +108,31 @@ namespace StackExchangeAPI {
             return (V)this;
         }
 
+        /// <summary>
+        /// Set the API method of the query.
+        /// </summary>
+        /// <param name="apiMethod">The API method.</param>
+        /// <returns>The updated query builder.</returns>
         public V SetAPIMethod(string apiMethod) {
             this.apiMethod = apiMethod;
             return (V)this;
         }
 
+        /// <summary>
+        /// Set the API method extension of the query.
+        /// </summary>
+        /// <param name="methodExtension">The API method extension.</param>
+        /// <returns>The updated query builder.</returns>
         public V SetApiMethodExtension(string methodExtension) {
             this.apiMethodExtension = HttpUtility.UrlEncode(methodExtension);
             return (V)this;
         }
 
+        /// <summary>
+        /// Set the parameter values of the API method of the query.
+        /// </summary>
+        /// <param name="parameterValues">The parameter values.</param>
+        /// <returns>The updated query builder.</returns>
         public V SetMethodParameterValues(List<String> parameterValues) {
             if (parameterValues.Count > MAX_PARAMETER_COUNT) {
                 throw new ArgumentException(
@@ -89,11 +150,20 @@ namespace StackExchangeAPI {
             return (V)this;
         }
 
+        /// <summary>
+        /// Set the filter of the query.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns>The updated query builder.</returns>
         public V SetFilter(string filter) {
             this.filter = filter;
             return (V)this;
         }
 
+        /// <summary>
+        /// Generate the url for the query.
+        /// </summary>
+        /// <returns>The base url for the query.</returns>
         protected virtual string GetBaseQueryUrl() {
             if (this.apiVersion == null || this.apiMethod == null) {
                 throw new ArgumentException("Missing Arguments: All Stack Exchange API queries" 
@@ -109,8 +179,15 @@ namespace StackExchangeAPI {
             return queryUrl;
         }
 
+
         // helper methods 
 
+        /// <summary>
+        /// Generate the full API method of the query.
+        /// </summary>
+        /// <returns>
+        /// The full API method (includes api method, parameters, and extension) of the query.
+        /// </returns>
         private string GetApiMethod() {
             if (this.ApiMethod == null) {
                 throw new ArgumentNullException("The api method cannot be null.");

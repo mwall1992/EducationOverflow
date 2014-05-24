@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace StackExchangeAPI {
 
-    // Builder design pattern (fluent interface) - Concrete Builder
-
+    /// <summary>
+    /// A concrete builder for queries to the Stack Exchange API which return tag objects.
+    /// For more information on 'tag objects', consider the Stack Exchange API documentation:
+    /// http://api.stackexchange.com/docs/types/tag
+    /// </summary>
     public class TagQueryBuilder : StackExchangeSiteQueryBuilder<Tag, TagQueryBuilder> {
 
         public override IQuery<Tag> GetQuery() {

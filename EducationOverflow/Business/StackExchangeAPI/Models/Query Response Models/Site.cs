@@ -3,6 +3,11 @@ using System.Runtime.Serialization;
 
 namespace StackExchangeAPI {
 
+    /// <summary>
+    /// The model class corresponding to the "Site" response object 
+    /// as defined in the Stack Exchange API documentation:
+    /// http://api.stackexchange.com/docs/types/site
+    /// </summary>
     [DataContract]
     public class Site {
 
@@ -55,6 +60,8 @@ namespace StackExchangeAPI {
         private void OnDeserializing(StreamingContext context) {
             this.SetPlaceholderValues();
         }
+
+        // helper methods
 
         private void SetPlaceholderValues() {
             this.Aliases = (string[])StackExchangeAPI.DEFAULT_OBJ_VALUE;

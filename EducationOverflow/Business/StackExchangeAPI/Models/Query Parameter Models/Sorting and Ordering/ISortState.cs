@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace StackExchangeAPI {
 
-    // State design pattern - State Interface
-
+    /// <summary>
+    /// An interface required for all sort states that can be applied 
+    /// to a query to the Stack Exchange API servers.
+    /// </summary>
     public interface ISortState {
 
         string MinBound {

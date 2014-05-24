@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace StackExchangeAPI {
 
-    // Builder design pattern (fluent interface) - Concrete Builder
-
+    /// <summary>
+    /// A concrete builder for queries to the Stack Exchange API which return answer objects.
+    /// For more information on 'answer objects', consider the Stack Exchange API documentation:
+    /// http://api.stackexchange.com/docs/types/answer
+    /// </summary>
     public class AnswerQueryBuilder : StackExchangeSiteQueryBuilder<Answer, AnswerQueryBuilder> {
 
         public override IQuery<Answer> GetQuery() {

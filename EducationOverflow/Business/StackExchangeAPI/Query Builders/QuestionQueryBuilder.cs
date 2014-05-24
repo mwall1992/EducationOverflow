@@ -7,11 +7,17 @@ using System.Threading.Tasks;
 using System.Web;
 
 namespace StackExchangeAPI {
-
-    // Builder design pattern (fluent interface) - Concrete Builder
-
+    
+    /// <summary>
+    /// A concrete builder for queries to the Stack Exchange API which return question objects.
+    /// For more information on 'question objects', consider the Stack Exchange API documentation:
+    /// http://api.stackexchange.com/docs/types/question
+    /// </summary>
     public class QuestionQueryBuilder : StackExchangeSiteQueryBuilder<Question, QuestionQueryBuilder> {
 
+        /// <summary>
+        /// The tags applied to the question(s) retrieved by the query.
+        /// </summary>
         protected List<string> tagNames;
 
         public override IQuery<Question> GetQuery() {
@@ -36,6 +42,11 @@ namespace StackExchangeAPI {
             this.tagNames = null;
         }
 
+        /// <summary>
+        /// Set the tags applied to the question(s) retrieved by the query.
+        /// </summary>
+        /// <param name="tagNames">The tags applied to the question.</param>
+        /// <returns>The updated query builder.</returns>
         public QuestionQueryBuilder SetTagNames(List<string> tagNames) {
             for (int i = 0; i < tagNames.Count; i++) {
                 tagNames[i] = HttpUtility.UrlEncode(tagNames[i]);

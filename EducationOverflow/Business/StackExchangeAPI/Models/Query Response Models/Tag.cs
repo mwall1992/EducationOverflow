@@ -3,6 +3,11 @@ using System.Runtime.Serialization;
 
 namespace StackExchangeAPI {
 
+    /// <summary>
+    /// The model class corresponding to the "Tag" response object 
+    /// as defined in the Stack Exchange API documentation:
+    /// http://api.stackexchange.com/docs/types/tag
+    /// </summary>
     [DataContract]
     public class Tag {
 
@@ -37,6 +42,8 @@ namespace StackExchangeAPI {
         private void OnDeserializing(StreamingContext context) {
             this.SetPlaceholderValues();
         }
+
+        // helper methods
 
         private void SetPlaceholderValues() {
             this.Count = StackExchangeAPI.DEFAULT_INT_VALUE;

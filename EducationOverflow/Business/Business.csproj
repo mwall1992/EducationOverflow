@@ -94,7 +94,6 @@
     <Compile Include="StackExchangeAPI\Query Builders\SiteInfoQueryBuilder.cs" />
     <Compile Include="StackExchangeAPI\Query Builders\QuestionQueryBuilder.cs" />
     <Compile Include="StackExchangeAPI\Query Builders\SearchQueryBuilder.cs" />
-    <Compile Include="StackExchangeAPI\Query Builders\SimilarQueryBuilder.cs" />
     <Compile Include="StackExchangeAPI\Query Builders\SiteQueryBuilder.cs" />
     <Compile Include="StackExchangeAPI\Query Builders\TagQueryBuilder.cs" />
     <Compile Include="StackExchangeAPI\StackExchangeAPIClient.cs" />

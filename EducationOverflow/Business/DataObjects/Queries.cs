@@ -57,21 +57,6 @@ namespace Business {
             return queriesTableAdapter.UnlockUserUpdate(userId);
         }
 
-        // TODO: check the following method out.
-
-        /// <summary>
-        /// Create a user 
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="firstName"></param>
-        /// <param name="lastName"></param>
-        /// <param name="dateOfBirth"></param>
-        /// <returns></returns>
-        [DataObjectMethod(DataObjectMethodType.Insert)]
-        public static int InsertUserForId(long userId, string firstName, string lastName, DateTime dateOfBirth) {
-            return queriesTableAdapter.InsertUserForId(userId, firstName, lastName, dateOfBirth.ToString());
-        }
-
         /// <summary>
         /// Insert a user's answer for a question.
         /// </summary>

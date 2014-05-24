@@ -25,17 +25,6 @@ namespace Business {
         private static UserPasswordTableAdapter passwordTableAdapter = 
             new UserPasswordTableAdapter();
 
-            // TODO: is this necessary?
-
-        /// <summary>
-        /// Retrieve 
-        /// </summary>
-        /// <returns></returns>
-        [DataObjectMethod(DataObjectMethodType.Select)]
-        public static Data.EducationOverflow.UserPasswordDataTable SelectUserPasswords() {
-            return passwordTableAdapter.GetData();
-        }
-
         /// <summary>
         /// Update a password for a specific user.
         /// </summary>

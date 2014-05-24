@@ -20,6 +20,9 @@ namespace Business {
     [DataObject]
     public class Tag {
 
+        /// <summary>
+        /// The table adapter used for tags.
+        /// </summary>
         private static TagTableAdapter tagTableAdapter = new TagTableAdapter();
 
         /// <summary>

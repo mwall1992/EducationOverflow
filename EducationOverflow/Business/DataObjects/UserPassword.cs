@@ -13,12 +13,15 @@ namespace Business {
     /// The DataObject class for performing CRUD operations on data associated with user roles.
     /// </summary>
     /// <remarks>
-    /// This class is commonly used by the custom membership provide class for managing 
-    /// membership information.
+    /// This class is commonly used by the custom membership provider class for managing membership 
+    /// information.
     /// </remarks>
     [DataObject]
     public class UserPassword {
-        
+
+        /// <summary>
+        /// The table adapter used for passwords.
+        /// </summary>
         private static UserPasswordTableAdapter passwordTableAdapter = 
             new UserPasswordTableAdapter();
 

@@ -14,8 +14,11 @@ namespace Business {
     /// </summary>
     [DataObject]
     public class PopularQuestions {
-        
-        private static PopularQuestionsUserViewTableAdapter popularQuestionsTableAdapter = 
+
+        /// <summary>
+        /// The table adapter used for popular questions.
+        /// </summary>
+        private static PopularQuestionsUserViewTableAdapter popularQuestionsTableAdapter =
             new PopularQuestionsUserViewTableAdapter();
 
         /// <summary>
@@ -29,7 +32,7 @@ namespace Business {
             Data.EducationOverflow.PopularQuestionsUserViewDataTable allResults = popularQuestionsTableAdapter.GetData();
 
             // extract necessary information
-            Data.EducationOverflow.PopularQuestionsUserViewDataTable results = 
+            Data.EducationOverflow.PopularQuestionsUserViewDataTable results =
                 (Data.EducationOverflow.PopularQuestionsUserViewDataTable)allResults.Clone();
             for (int i = 0; i < maxResultCount && i < allResults.Count; i++) {
                 results.ImportRow(allResults.Rows[i]);

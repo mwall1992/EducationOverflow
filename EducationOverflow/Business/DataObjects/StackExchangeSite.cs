@@ -19,6 +19,9 @@ namespace Business {
     [DataObject]
     public class StackExchangeSite {
 
+        /// <summary>
+        /// The table adapter used for Stack Exchange site information.
+        /// </summary>
         private static StackExchangeSiteTableAdapter siteTableAdapter = new StackExchangeSiteTableAdapter();
 
         /// <summary>

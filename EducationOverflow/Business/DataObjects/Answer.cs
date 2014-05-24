@@ -19,6 +19,9 @@ namespace Business {
     [DataObject]
     public class Answer {
 
+        /// <summary>
+        /// The table adapter used for answers.
+        /// </summary>
         private static AnswerTableAdapter answerTableAdapter = new AnswerTableAdapter();
 
         /// <summary>

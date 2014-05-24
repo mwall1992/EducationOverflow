@@ -13,13 +13,19 @@ namespace Business {
     /// The DataObject class for performing CRUD operations on data associated with user roles.
     /// </summary>
     /// <remarks>
-    /// This class is commonly used by the custom role provide class for managing role information.
+    /// This class is commonly used by the custom role provider class for managing role information.
     /// </remarks>
     [DataObject]
     public class Role {
-    
+
+        /// <summary>
+        /// The table adapter used for individual role information.
+        /// </summary>
         private static RoleTableAdapter roleTableAdapter = new RoleTableAdapter();
 
+        /// <summary>
+        /// The table adapter used for information on roles.
+        /// </summary>
         private static RolesTableAdapter rolesTableAdapter = new RolesTableAdapter();
 
         /// <summary>

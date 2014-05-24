@@ -10,11 +10,14 @@ using DataAccess.EducationOverflowTableAdapters;
 namespace Business {
 
     /// <summary>
-    /// The DataObject class for performing a variety of un-categorised update and insert operations.
+    /// The DataObject class for performing a variety of uncategorised update and insert operations.
     /// </summary>
     [DataObject]
     public class Queries {
 
+        /// <summary>
+        /// The table adapter used for uncategorised queries.
+        /// </summary>
         private static QueriesTableAdapter queriesTableAdapter = 
             new QueriesTableAdapter();
 

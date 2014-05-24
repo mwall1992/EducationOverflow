@@ -19,6 +19,9 @@ namespace Business {
     [DataObject]
     public class QuestionInfo {
 
+        /// <summary>
+        /// The table adapter used for question information.
+        /// </summary>
         private static QuestionInfoTableAdapter questionInfoTableAdapter = 
             new QuestionInfoTableAdapter();
 

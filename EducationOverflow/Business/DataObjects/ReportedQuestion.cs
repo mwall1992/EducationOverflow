@@ -14,7 +14,10 @@ namespace Business {
     /// </summary>
     [DataObject]
     public class ReportedQuestion {
-        
+
+        /// <summary>
+        /// The table adapter used for question reports.
+        /// </summary>
         private static ReportedQuestionTableAdapter reportedQuestionTableAdapter = 
             new ReportedQuestionTableAdapter();
 

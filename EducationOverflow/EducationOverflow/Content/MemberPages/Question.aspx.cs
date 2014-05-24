@@ -19,7 +19,7 @@ namespace EducationOverflow.Content.Member_Pages {
                 // retrieve question data
                 string questionId = Request.QueryString[QUESTION_ID_PARAMETER];
                 Data.EducationOverflow.QuestionAnswerInfoRow infoRow = 
-                    Business.QuestionAnswerInfo.SelectQuestionAnswerInfo(Convert.ToInt64(questionId));
+                    Business.AnswerInfo.SelectAnswerInfo(Convert.ToInt64(questionId));
 
                 // populate web form
                 generatedTitle.InnerText = (string)infoRow["Title"];

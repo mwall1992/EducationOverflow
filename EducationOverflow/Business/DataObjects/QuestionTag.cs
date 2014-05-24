@@ -19,6 +19,9 @@ namespace Business {
     [DataObject]
     public class QuestionTag {
 
+        /// <summary>
+        /// The table adapter used for tags associated with questions.
+        /// </summary>
         private static QuestionTagTableAdapter questionTagTableAdapter =
             new QuestionTagTableAdapter();
 

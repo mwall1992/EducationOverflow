@@ -18,7 +18,10 @@ namespace Business {
     /// </remarks>
     [DataObject]
     public class TagSynonym {
-    
+
+        /// <summary>
+        /// The table adapter used for tag synonyms.
+        /// </summary>
         private static TagSynonymTableAdapter tagSynonymTableAdapter = new TagSynonymTableAdapter();
 
         /// <summary>

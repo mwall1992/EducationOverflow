@@ -15,10 +15,18 @@ namespace Business {
     /// </summary>
     [DataObject]
     public class AcceptedAnswer {
-        
+
+        /// <summary>
+        /// The table adapter for accepted answers.
+        /// </summary>
         private static AcceptedAnswerTableAdapter acceptedAnswerTableAdapter = 
             new AcceptedAnswerTableAdapter();
 
+        /// <summary>
+        /// Retrieve the accepted answer for question.
+        /// </summary>
+        /// <param name="questionId">The question id.</param>
+        /// <returns>A row containing information on the accepted answer.</returns>
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.AcceptedAnswerRow SelectAcceptedAnswer(long questionId) {
             Data.EducationOverflow.AcceptedAnswerDataTable answerDataTable = 

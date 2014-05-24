@@ -50,6 +50,7 @@
     <Compile Include="QuestionAnswerInfo.cs" />
     <Compile Include="QuestionFeedbackDetails.cs" />
     <Compile Include="QuestionFeedbackSummary.cs" />
+    <Compile Include="QuestionHint.cs" />
     <Compile Include="ReportedQuestion.cs" />
     <Compile Include="ReportedQuestionDetails.cs" />
     <Compile Include="ReportedQuestionReason.cs" />

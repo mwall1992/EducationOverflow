@@ -11,6 +11,11 @@ namespace EducationOverflow.Content.Member_Pages {
         
         private static string QUESTION_ID_PARAMETER = "QuestionId";
 
+        protected void Page_Init(object sender, EventArgs e) {
+            HintRepeater.DataSource = new Data.EducationOverflow.HintForQuestionDataTable();
+            HintRepeater.DataBind();
+        }
+
         protected void Page_Load(object sender, EventArgs e) {
             
             // handle initial page load
@@ -27,7 +32,9 @@ namespace EducationOverflow.Content.Member_Pages {
 
                 // set state of controls
                 const int MIN_ANSWERS_FOR_HINT = 2;
-                HintButton.Enabled = ((int)infoRow["AnswerCount"] >= MIN_ANSWERS_FOR_HINT); 
+                HintButton.Enabled = ((int)infoRow["AnswerCount"] >= MIN_ANSWERS_FOR_HINT);
+
+                HintRepeater.DataSource = new Data.EducationOverflow.HintForQuestionDataTable();
             }
         }
 
@@ -36,32 +43,60 @@ namespace EducationOverflow.Content.Member_Pages {
         }
 
         protected void HintButton_Click(object sender, EventArgs e) {
-            RepeaterItemCollection repeaterItems = HintRepeater.Items;
+            
+            // retrieve existing hints
+            Data.EducationOverflow.HintForQuestionDataTable hintDataTable = 
+                (Data.EducationOverflow.HintForQuestionDataTable)HintRepeater.DataSource; 
+            int existingHintCount = (hintDataTable == null) ? 0 : hintDataTable.Rows.Count;
 
-            RepeaterItem currentRepeaterItem;
-            for (int i = 0; i < repeaterItems.Count; i++) {
-                currentRepeaterItem = repeaterItems[i];
-                Control hintContainer = currentRepeaterItem.FindControl("HintContainer");
-                
-                if (!hintContainer.Visible) {
-                    hintContainer.Visible = true;
-
-                    if (i == repeaterItems.Count - 1) {
-                        HintButton.Visible = false;
-                    }
-
-                    break;
-                }
+            long[] existingHintIds = new long[existingHintCount];
+            for (int i = 0; i < existingHintCount; i++) {
+                existingHintIds[i] = 
+                    ((Data.EducationOverflow.HintForQuestionRow)hintDataTable.Rows[i]).APIAnswerId;
             }
 
-            System.Threading.Thread.Sleep(3000);
+            // retrieve hint data
+            long questionId = Convert.ToInt64(Request.QueryString[QUESTION_ID_PARAMETER]);
+            Data.EducationOverflow.HintForQuestionRow hintRow = 
+                Business.QuestionHint.SelectHintForQuestion(questionId, existingHintIds);
+
+            // bind data to repeater
+            if (hintDataTable == null) {
+                hintDataTable = new Data.EducationOverflow.HintForQuestionDataTable();
+            }
+
+            hintDataTable.ImportRow(hintRow);
+            HintRepeater.DataSource = hintDataTable;
+            HintRepeater.DataBind();
+
+
+            //HintRepeater.DataSource = dataTable;
+            //HintRepeater.DataBind();
+            
+
+            //RepeaterItemCollection repeaterItems = HintRepeater.Items;
+
+            //RepeaterItem currentRepeaterItem;
+            //for (int i = 0; i < repeaterItems.Count; i++) {
+            //    currentRepeaterItem = repeaterItems[i];
+            //    Control hintContainer = currentRepeaterItem.FindControl("HintContainer");
+                
+            //    if (!hintContainer.Visible) {
+            //        hintContainer.Visible = true;
+
+            //        if (i == repeaterItems.Count - 1) {
+            //            HintButton.Visible = false;
+            //        }
+
+            //        break;
+            //    }
+            //}
         }
 
         protected void SolutionButton_Click(object sender, EventArgs e) {
             SolutionButton.Visible = false;
             SolutionLabel.Text =
                 Business.AcceptedAnswer.SelectAcceptedAnswer(Convert.ToInt64(Request.QueryString[QUESTION_ID_PARAMETER])).Body;
-            SolutionUpdatePanel.Visible = true;
         }
 
         protected void ReportQuestionButton_Click(object sender, EventArgs e) {

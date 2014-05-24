@@ -24,9 +24,9 @@
         </Triggers>
         <ContentTemplate>
             <h3>Hints:</h3>
-            <asp:Repeater ID="HintRepeater" runat="server" DataSourceID="HintsDataSource">
+            <asp:Repeater ID="HintRepeater" runat="server">
                 <ItemTemplate>
-                    <div id="HintContainer" runat="server" visible="false">
+                    <div id="HintContainer" runat="server">
                         <asp:HiddenField ID="APIAnswerIdField" runat="server" Value='<%# Eval("APIAnswerId") %>' />
                         <h4>Hint <%# Container.ItemIndex + 1 %>:</h4>
                         <div runat="server" id="HintBodyContainer" class="question-answer-component">
@@ -35,11 +35,11 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-            <asp:ObjectDataSource ID="HintsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectAnswers" TypeName="Business.Answer">
+            <%--<asp:ObjectDataSource ID="HintsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectAnswers" TypeName="Business.Answer">
                 <SelectParameters>
                     <asp:QueryStringParameter Name="questionId" QueryStringField="QuestionId" Type="Int64" />
                 </SelectParameters>
-            </asp:ObjectDataSource>
+            </asp:ObjectDataSource>--%>
             <asp:Button ID="HintButton" runat="server" OnClick="HintButton_Click" Text="Request Hint" CausesValidation="False" />
         </ContentTemplate>
     </asp:UpdatePanel>

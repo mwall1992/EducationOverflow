@@ -27,6 +27,9 @@
         </Fields>
         <EmptyDataTemplate>
             The specified question report does not exist (see query string parameters in url).
+            <p>
+                <asp:HyperLink ID="ReportedQuestionLink" runat="server" NavigateUrl="~/Content/AdminPages/ReportedQuestions.aspx">Click here to return to the main question reports page.</asp:HyperLink>
+            </p>
         </EmptyDataTemplate>
     </asp:DetailsView>
     <asp:ObjectDataSource ID="ReportedQuestionDetailsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectReportedQuestionDetails" DeleteMethod="DeleteQuestionReport" TypeName="Business.ReportedQuestionDetails">

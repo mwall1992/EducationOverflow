@@ -27,6 +27,9 @@
         </Fields>
         <EmptyDataTemplate>
             The specified question feedback does not exist (see query string parameters in url).
+            <p>
+                <asp:HyperLink ID="QuestionFeedbackLink" runat="server" NavigateUrl="~/Content/AdminPages/Feedback.aspx">Click here to return to the main question feedback page.</asp:HyperLink>
+            </p>
         </EmptyDataTemplate>
     </asp:DetailsView>
     <asp:ObjectDataSource ID="QuestionFeedbackDetailsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" 

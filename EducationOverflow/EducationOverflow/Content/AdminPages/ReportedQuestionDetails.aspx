@@ -22,8 +22,8 @@
             <asp:BoundField DataField="Body" HeaderText="Body" SortExpression="Body" HtmlEncode="false" />
             <asp:BoundField DataField="UserId" HeaderText="User Id" SortExpression="UserId" />
             <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
-            <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-            <asp:BoundField DataField="OptionalDescription" HeaderText="Optional Description" SortExpression="OptionalDescription" />
+            <asp:BoundField DataField="Description" HeaderText="Reason" SortExpression="Description" />
+            <asp:BoundField DataField="OptionalDescription" HeaderText="Description" SortExpression="OptionalDescription" />
         </Fields>
         <EmptyDataTemplate>
             The specified question report does not exist (see query string parameters in url).

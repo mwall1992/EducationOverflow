@@ -7,15 +7,19 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="main_content_body_content" runat="server">
-    <asp:GridView ID="FeedbackGridView" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="QuestionSummaryFeedbackDataSource">
+    <h1>
+        Question Feedback
+    </h1>
+    <asp:GridView ID="FeedbackGridView" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" 
+        DataSourceID="QuestionSummaryFeedbackDataSource" Height="100%" Width="100%">
         <Columns>
-            <asp:CheckBoxField DataField="Liked" HeaderText="Liked" SortExpression="Liked" />
-            <asp:BoundField DataField="SummaryAdjective" HeaderText="Summary Adjective" SortExpression="SummaryAdjective" />
-            <asp:BoundField DataField="UserId" HeaderText="User Id" SortExpression="UserId" />
-            <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
+            <asp:BoundField DataField="Id" HeaderText="Question Id" SortExpression="Id" />
             <asp:BoundField DataField="APISiteParameter" HeaderText="API Site Parameter" SortExpression="APISiteParameter" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-            <asp:BoundField DataField="Id" HeaderText="Question Id" SortExpression="Id" />
+            <asp:BoundField DataField="UserId" HeaderText="User Id" SortExpression="UserId" />
+            <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
+            <asp:CheckBoxField DataField="Liked" HeaderText="Liked" SortExpression="Liked" />
+            <asp:BoundField DataField="SummaryAdjective" HeaderText="Summary Adjective" SortExpression="SummaryAdjective" />
             <asp:TemplateField>
                 <ItemTemplate>
                     <asp:HyperLink ID="DetailsLink" runat="server" NavigateUrl='<%# string.Format("~/Content/AdminPages/FeedbackDetails.aspx?UserId={0}&QuestionId={1}",

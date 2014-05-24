@@ -35,10 +35,18 @@ namespace Business {
             return DataSetUtilities.GetFirstRow<Data.EducationOverflow.QuestionFeedbackDetailsRow>(feedbackDataTable);
         }
 
+        /// <summary>
+        /// Delete question feedback.
+        /// </summary>
+        /// <param name="userId">The user id.</param>
+        /// <param name="questionId">The question id.</param>
+        /// <returns>The number of rows affected by the deletion.</returns>
+        /// <remarks>
+        /// This method is included to allow admins to delete question feedback.
+        /// </remarks>
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public static int DeleteQuestionFeedback(long userId, long questionId) {
-            //Business.Question
-            return 0;
+            return QuestionFeedback.DeleteQuestionFeedback(questionId, userId);
         }
     }
 }

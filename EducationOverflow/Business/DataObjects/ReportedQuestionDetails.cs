@@ -34,6 +34,15 @@ namespace Business {
             return DataSetUtilities.GetFirstRow<Data.EducationOverflow.ReportedQuestionDetailsRow>(reportedQuestionsTable);
         }
 
+        /// <summary>
+        /// Delete a question report.
+        /// </summary>
+        /// <param name="userId">The user id.</param>
+        /// <param name="questionId">The question id.</param>
+        /// <returns>The number of rows affected by the deletion.</returns>
+        /// <remarks>
+        /// This method is included to allow admins to delete question reports.
+        /// </remarks>
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public static int DeleteQuestionReport(long userId, long questionId) {
             return ReportedQuestion.DeleteReportedQuestion(questionId, userId);

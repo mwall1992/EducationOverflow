@@ -1,12 +1,12 @@
 ﻿<%-- Named control skins --%>
 
 <asp:GridView runat="server" ForeColor="#333333" GridLines="None" CellPadding="4">
-    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+    <AlternatingRowStyle BackColor="White" ForeColor="#284775" HorizontalAlign="Center" />
     <EditRowStyle BackColor="#999999" />
     <FooterStyle BackColor="#93425A" Font-Bold="True" ForeColor="White" />
-    <HeaderStyle BackColor="#93425A" Font-Bold="True" ForeColor="White" />
+    <HeaderStyle BackColor="#93425A" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
     <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" HorizontalAlign="Center" />
     <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
     <SortedAscendingCellStyle BackColor="#E9E7E2" />
     <SortedAscendingHeaderStyle BackColor="#506C8C" />
@@ -16,7 +16,7 @@
 
 <asp:DetailsView runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
     <AlternatingRowStyle BackColor="White" ForeColor="#93425A" />
-    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+    <CommandRowStyle BackColor="#93425A" Font-Bold="True" ForeColor="#F7F6F3" />
     <EditRowStyle BackColor="#999999" />
     <FieldHeaderStyle BackColor="#D9D5CA" Font-Bold="True" />
     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

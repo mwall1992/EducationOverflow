@@ -24,6 +24,9 @@
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
+        <EmptyDataTemplate>
+            No question feedback was found.
+        </EmptyDataTemplate>
     </asp:GridView>
     <asp:ObjectDataSource ID="QuestionSummaryFeedbackDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectQuestionFeedbackSummaries" TypeName="Business.QuestionFeedbackSummary"></asp:ObjectDataSource>
 </asp:Content>

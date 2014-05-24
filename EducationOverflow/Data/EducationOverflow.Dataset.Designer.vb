@@ -93,13 +93,11 @@ Partial Public Class EducationOverflow
     
     Private tableAcceptedAnswer As AcceptedAnswerDataTable
     
-    Private tableHintForQuestion As HintForQuestionDataTable
-    
     Private tableUserIds As UserIdsDataTable
     
     Private tableRoleNames As RoleNamesDataTable
     
-    Private tableApiAnswerIds As ApiAnswerIdsDataTable
+    Private tableHints As HintsDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -226,17 +224,14 @@ Partial Public Class EducationOverflow
             If (Not (ds.Tables("AcceptedAnswer")) Is Nothing) Then
                 MyBase.Tables.Add(New AcceptedAnswerDataTable(ds.Tables("AcceptedAnswer")))
             End If
-            If (Not (ds.Tables("HintForQuestion")) Is Nothing) Then
-                MyBase.Tables.Add(New HintForQuestionDataTable(ds.Tables("HintForQuestion")))
-            End If
             If (Not (ds.Tables("UserIds")) Is Nothing) Then
                 MyBase.Tables.Add(New UserIdsDataTable(ds.Tables("UserIds")))
             End If
             If (Not (ds.Tables("RoleNames")) Is Nothing) Then
                 MyBase.Tables.Add(New RoleNamesDataTable(ds.Tables("RoleNames")))
             End If
-            If (Not (ds.Tables("ApiAnswerIds")) Is Nothing) Then
-                MyBase.Tables.Add(New ApiAnswerIdsDataTable(ds.Tables("ApiAnswerIds")))
+            If (Not (ds.Tables("Hints")) Is Nothing) Then
+                MyBase.Tables.Add(New HintsDataTable(ds.Tables("Hints")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -579,16 +574,6 @@ Partial Public Class EducationOverflow
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property HintForQuestion() As HintForQuestionDataTable
-        Get
-            Return Me.tableHintForQuestion
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property UserIds() As UserIdsDataTable
         Get
             Return Me.tableUserIds
@@ -609,9 +594,9 @@ Partial Public Class EducationOverflow
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property ApiAnswerIds() As ApiAnswerIdsDataTable
+    Public ReadOnly Property Hints() As HintsDataTable
         Get
-            Return Me.tableApiAnswerIds
+            Return Me.tableHints
         End Get
     End Property
     
@@ -778,17 +763,14 @@ Partial Public Class EducationOverflow
             If (Not (ds.Tables("AcceptedAnswer")) Is Nothing) Then
                 MyBase.Tables.Add(New AcceptedAnswerDataTable(ds.Tables("AcceptedAnswer")))
             End If
-            If (Not (ds.Tables("HintForQuestion")) Is Nothing) Then
-                MyBase.Tables.Add(New HintForQuestionDataTable(ds.Tables("HintForQuestion")))
-            End If
             If (Not (ds.Tables("UserIds")) Is Nothing) Then
                 MyBase.Tables.Add(New UserIdsDataTable(ds.Tables("UserIds")))
             End If
             If (Not (ds.Tables("RoleNames")) Is Nothing) Then
                 MyBase.Tables.Add(New RoleNamesDataTable(ds.Tables("RoleNames")))
             End If
-            If (Not (ds.Tables("ApiAnswerIds")) Is Nothing) Then
-                MyBase.Tables.Add(New ApiAnswerIdsDataTable(ds.Tables("ApiAnswerIds")))
+            If (Not (ds.Tables("Hints")) Is Nothing) Then
+                MyBase.Tables.Add(New HintsDataTable(ds.Tables("Hints")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -1014,12 +996,6 @@ Partial Public Class EducationOverflow
                 Me.tableAcceptedAnswer.InitVars
             End If
         End If
-        Me.tableHintForQuestion = CType(MyBase.Tables("HintForQuestion"),HintForQuestionDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableHintForQuestion) Is Nothing) Then
-                Me.tableHintForQuestion.InitVars
-            End If
-        End If
         Me.tableUserIds = CType(MyBase.Tables("UserIds"),UserIdsDataTable)
         If (initTable = true) Then
             If (Not (Me.tableUserIds) Is Nothing) Then
@@ -1032,10 +1008,10 @@ Partial Public Class EducationOverflow
                 Me.tableRoleNames.InitVars
             End If
         End If
-        Me.tableApiAnswerIds = CType(MyBase.Tables("ApiAnswerIds"),ApiAnswerIdsDataTable)
+        Me.tableHints = CType(MyBase.Tables("Hints"),HintsDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableApiAnswerIds) Is Nothing) Then
-                Me.tableApiAnswerIds.InitVars
+            If (Not (Me.tableHints) Is Nothing) Then
+                Me.tableHints.InitVars
             End If
         End If
     End Sub
@@ -1112,14 +1088,12 @@ Partial Public Class EducationOverflow
         MyBase.Tables.Add(Me.tableReportedQuestion)
         Me.tableAcceptedAnswer = New AcceptedAnswerDataTable()
         MyBase.Tables.Add(Me.tableAcceptedAnswer)
-        Me.tableHintForQuestion = New HintForQuestionDataTable()
-        MyBase.Tables.Add(Me.tableHintForQuestion)
         Me.tableUserIds = New UserIdsDataTable()
         MyBase.Tables.Add(Me.tableUserIds)
         Me.tableRoleNames = New RoleNamesDataTable()
         MyBase.Tables.Add(Me.tableRoleNames)
-        Me.tableApiAnswerIds = New ApiAnswerIdsDataTable()
-        MyBase.Tables.Add(Me.tableApiAnswerIds)
+        Me.tableHints = New HintsDataTable()
+        MyBase.Tables.Add(Me.tableHints)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1316,12 +1290,6 @@ Partial Public Class EducationOverflow
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeHintForQuestion() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializeUserIds() As Boolean
         Return false
     End Function
@@ -1334,7 +1302,7 @@ Partial Public Class EducationOverflow
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeApiAnswerIds() As Boolean
+    Private Function ShouldSerializeHints() As Boolean
         Return false
     End Function
     
@@ -1493,16 +1461,13 @@ Partial Public Class EducationOverflow
     Public Delegate Sub AcceptedAnswerRowChangeEventHandler(ByVal sender As Object, ByVal e As AcceptedAnswerRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub HintForQuestionRowChangeEventHandler(ByVal sender As Object, ByVal e As HintForQuestionRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub UserIdsRowChangeEventHandler(ByVal sender As Object, ByVal e As UserIdsRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub RoleNamesRowChangeEventHandler(ByVal sender As Object, ByVal e As RoleNamesRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub ApiAnswerIdsRowChangeEventHandler(ByVal sender As Object, ByVal e As ApiAnswerIdsRowChangeEvent)
+    Public Delegate Sub HintsRowChangeEventHandler(ByVal sender As Object, ByVal e As HintsRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -12276,341 +12241,6 @@ Partial Public Class EducationOverflow
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class HintForQuestionDataTable
-        Inherits Global.System.Data.TypedTableBase(Of HintForQuestionRow)
-        
-        Private columnQuestionId As Global.System.Data.DataColumn
-        
-        Private columnAPIAnswerId As Global.System.Data.DataColumn
-        
-        Private columnBody As Global.System.Data.DataColumn
-        
-        Private columnUpVotes As Global.System.Data.DataColumn
-        
-        Private columnDownVotes As Global.System.Data.DataColumn
-        
-        Private columnIsAccepted As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "HintForQuestion"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property QuestionIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnQuestionId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property APIAnswerIdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnAPIAnswerId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property BodyColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBody
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property UpVotesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnUpVotes
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property DownVotesColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDownVotes
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IsAcceptedColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIsAccepted
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As HintForQuestionRow
-            Get
-                Return CType(Me.Rows(index),HintForQuestionRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event HintForQuestionRowChanging As HintForQuestionRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event HintForQuestionRowChanged As HintForQuestionRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event HintForQuestionRowDeleting As HintForQuestionRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event HintForQuestionRowDeleted As HintForQuestionRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddHintForQuestionRow(ByVal row As HintForQuestionRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddHintForQuestionRow(ByVal APIAnswerId As Long, ByVal Body As String, ByVal UpVotes As Integer, ByVal DownVotes As Integer, ByVal IsAccepted As Boolean) As HintForQuestionRow
-            Dim rowHintForQuestionRow As HintForQuestionRow = CType(Me.NewRow,HintForQuestionRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, APIAnswerId, Body, UpVotes, DownVotes, IsAccepted}
-            rowHintForQuestionRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowHintForQuestionRow)
-            Return rowHintForQuestionRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByQuestionIdAPIAnswerId(ByVal QuestionId As Long, ByVal APIAnswerId As Long) As HintForQuestionRow
-            Return CType(Me.Rows.Find(New Object() {QuestionId, APIAnswerId}),HintForQuestionRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As HintForQuestionDataTable = CType(MyBase.Clone,HintForQuestionDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New HintForQuestionDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnQuestionId = MyBase.Columns("QuestionId")
-            Me.columnAPIAnswerId = MyBase.Columns("APIAnswerId")
-            Me.columnBody = MyBase.Columns("Body")
-            Me.columnUpVotes = MyBase.Columns("UpVotes")
-            Me.columnDownVotes = MyBase.Columns("DownVotes")
-            Me.columnIsAccepted = MyBase.Columns("IsAccepted")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnQuestionId = New Global.System.Data.DataColumn("QuestionId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnQuestionId)
-            Me.columnAPIAnswerId = New Global.System.Data.DataColumn("APIAnswerId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAPIAnswerId)
-            Me.columnBody = New Global.System.Data.DataColumn("Body", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBody)
-            Me.columnUpVotes = New Global.System.Data.DataColumn("UpVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUpVotes)
-            Me.columnDownVotes = New Global.System.Data.DataColumn("DownVotes", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDownVotes)
-            Me.columnIsAccepted = New Global.System.Data.DataColumn("IsAccepted", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIsAccepted)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnQuestionId, Me.columnAPIAnswerId}, true))
-            Me.columnQuestionId.AutoIncrement = true
-            Me.columnQuestionId.AutoIncrementSeed = -1
-            Me.columnQuestionId.AutoIncrementStep = -1
-            Me.columnQuestionId.AllowDBNull = false
-            Me.columnQuestionId.ReadOnly = true
-            Me.columnAPIAnswerId.AllowDBNull = false
-            Me.columnBody.AllowDBNull = false
-            Me.columnBody.MaxLength = 2147483647
-            Me.columnUpVotes.AllowDBNull = false
-            Me.columnDownVotes.AllowDBNull = false
-            Me.columnIsAccepted.AllowDBNull = false
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewHintForQuestionRow() As HintForQuestionRow
-            Return CType(Me.NewRow,HintForQuestionRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New HintForQuestionRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(HintForQuestionRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.HintForQuestionRowChangedEvent) Is Nothing) Then
-                RaiseEvent HintForQuestionRowChanged(Me, New HintForQuestionRowChangeEvent(CType(e.Row,HintForQuestionRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.HintForQuestionRowChangingEvent) Is Nothing) Then
-                RaiseEvent HintForQuestionRowChanging(Me, New HintForQuestionRowChangeEvent(CType(e.Row,HintForQuestionRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.HintForQuestionRowDeletedEvent) Is Nothing) Then
-                RaiseEvent HintForQuestionRowDeleted(Me, New HintForQuestionRowChangeEvent(CType(e.Row,HintForQuestionRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.HintForQuestionRowDeletingEvent) Is Nothing) Then
-                RaiseEvent HintForQuestionRowDeleting(Me, New HintForQuestionRowChangeEvent(CType(e.Row,HintForQuestionRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveHintForQuestionRow(ByVal row As HintForQuestionRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As EducationOverflow = New EducationOverflow()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "HintForQuestionDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class UserIdsDataTable
         Inherits Global.System.Data.TypedTableBase(Of UserIdsRow)
         
@@ -13115,16 +12745,18 @@ Partial Public Class EducationOverflow
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class ApiAnswerIdsDataTable
-        Inherits Global.System.Data.TypedTableBase(Of ApiAnswerIdsRow)
+    Partial Public Class HintsDataTable
+        Inherits Global.System.Data.TypedTableBase(Of HintsRow)
         
         Private columnApiAnswerId As Global.System.Data.DataColumn
+        
+        Private columnDateViewed As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "ApiAnswerIds"
+            Me.TableName = "Hints"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -13164,6 +12796,14 @@ Partial Public Class EducationOverflow
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DateViewedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDateViewed
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -13174,44 +12814,44 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As ApiAnswerIdsRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As HintsRow
             Get
-                Return CType(Me.Rows(index),ApiAnswerIdsRow)
+                Return CType(Me.Rows(index),HintsRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ApiAnswerIdsRowChanging As ApiAnswerIdsRowChangeEventHandler
+        Public Event HintsRowChanging As HintsRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ApiAnswerIdsRowChanged As ApiAnswerIdsRowChangeEventHandler
+        Public Event HintsRowChanged As HintsRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ApiAnswerIdsRowDeleting As ApiAnswerIdsRowChangeEventHandler
+        Public Event HintsRowDeleting As HintsRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ApiAnswerIdsRowDeleted As ApiAnswerIdsRowChangeEventHandler
+        Public Event HintsRowDeleted As HintsRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddApiAnswerIdsRow(ByVal row As ApiAnswerIdsRow)
+        Public Overloads Sub AddHintsRow(ByVal row As HintsRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddApiAnswerIdsRow(ByVal ApiAnswerId As Long) As ApiAnswerIdsRow
-            Dim rowApiAnswerIdsRow As ApiAnswerIdsRow = CType(Me.NewRow,ApiAnswerIdsRow)
-            Dim columnValuesArray() As Object = New Object() {ApiAnswerId}
-            rowApiAnswerIdsRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowApiAnswerIdsRow)
-            Return rowApiAnswerIdsRow
+        Public Overloads Function AddHintsRow(ByVal ApiAnswerId As Long, ByVal DateViewed As Date) As HintsRow
+            Dim rowHintsRow As HintsRow = CType(Me.NewRow,HintsRow)
+            Dim columnValuesArray() As Object = New Object() {ApiAnswerId, DateViewed}
+            rowHintsRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowHintsRow)
+            Return rowHintsRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As ApiAnswerIdsDataTable = CType(MyBase.Clone,ApiAnswerIdsDataTable)
+            Dim cln As HintsDataTable = CType(MyBase.Clone,HintsDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -13219,13 +12859,14 @@ Partial Public Class EducationOverflow
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New ApiAnswerIdsDataTable()
+            Return New HintsDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnApiAnswerId = MyBase.Columns("ApiAnswerId")
+            Me.columnDateViewed = MyBase.Columns("DateViewed")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13233,32 +12874,34 @@ Partial Public Class EducationOverflow
         Private Sub InitClass()
             Me.columnApiAnswerId = New Global.System.Data.DataColumn("ApiAnswerId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnApiAnswerId)
+            Me.columnDateViewed = New Global.System.Data.DataColumn("DateViewed", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDateViewed)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewApiAnswerIdsRow() As ApiAnswerIdsRow
-            Return CType(Me.NewRow,ApiAnswerIdsRow)
+        Public Function NewHintsRow() As HintsRow
+            Return CType(Me.NewRow,HintsRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New ApiAnswerIdsRow(builder)
+            Return New HintsRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(ApiAnswerIdsRow)
+            Return GetType(HintsRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.ApiAnswerIdsRowChangedEvent) Is Nothing) Then
-                RaiseEvent ApiAnswerIdsRowChanged(Me, New ApiAnswerIdsRowChangeEvent(CType(e.Row,ApiAnswerIdsRow), e.Action))
+            If (Not (Me.HintsRowChangedEvent) Is Nothing) Then
+                RaiseEvent HintsRowChanged(Me, New HintsRowChangeEvent(CType(e.Row,HintsRow), e.Action))
             End If
         End Sub
         
@@ -13266,8 +12909,8 @@ Partial Public Class EducationOverflow
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.ApiAnswerIdsRowChangingEvent) Is Nothing) Then
-                RaiseEvent ApiAnswerIdsRowChanging(Me, New ApiAnswerIdsRowChangeEvent(CType(e.Row,ApiAnswerIdsRow), e.Action))
+            If (Not (Me.HintsRowChangingEvent) Is Nothing) Then
+                RaiseEvent HintsRowChanging(Me, New HintsRowChangeEvent(CType(e.Row,HintsRow), e.Action))
             End If
         End Sub
         
@@ -13275,8 +12918,8 @@ Partial Public Class EducationOverflow
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.ApiAnswerIdsRowDeletedEvent) Is Nothing) Then
-                RaiseEvent ApiAnswerIdsRowDeleted(Me, New ApiAnswerIdsRowChangeEvent(CType(e.Row,ApiAnswerIdsRow), e.Action))
+            If (Not (Me.HintsRowDeletedEvent) Is Nothing) Then
+                RaiseEvent HintsRowDeleted(Me, New HintsRowChangeEvent(CType(e.Row,HintsRow), e.Action))
             End If
         End Sub
         
@@ -13284,14 +12927,14 @@ Partial Public Class EducationOverflow
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.ApiAnswerIdsRowDeletingEvent) Is Nothing) Then
-                RaiseEvent ApiAnswerIdsRowDeleting(Me, New ApiAnswerIdsRowChangeEvent(CType(e.Row,ApiAnswerIdsRow), e.Action))
+            If (Not (Me.HintsRowDeletingEvent) Is Nothing) Then
+                RaiseEvent HintsRowDeleting(Me, New HintsRowChangeEvent(CType(e.Row,HintsRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveApiAnswerIdsRow(ByVal row As ApiAnswerIdsRow)
+        Public Sub RemoveHintsRow(ByVal row As HintsRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -13318,7 +12961,7 @@ Partial Public Class EducationOverflow
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "ApiAnswerIdsDataTable"
+            attribute2.FixedValue = "HintsDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -16973,88 +16616,6 @@ Partial Public Class EducationOverflow
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class HintForQuestionRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableHintForQuestion As HintForQuestionDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableHintForQuestion = CType(Me.Table,HintForQuestionDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property QuestionId() As Long
-            Get
-                Return CType(Me(Me.tableHintForQuestion.QuestionIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableHintForQuestion.QuestionIdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property APIAnswerId() As Long
-            Get
-                Return CType(Me(Me.tableHintForQuestion.APIAnswerIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableHintForQuestion.APIAnswerIdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Body() As String
-            Get
-                Return CType(Me(Me.tableHintForQuestion.BodyColumn),String)
-            End Get
-            Set
-                Me(Me.tableHintForQuestion.BodyColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UpVotes() As Integer
-            Get
-                Return CType(Me(Me.tableHintForQuestion.UpVotesColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableHintForQuestion.UpVotesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property DownVotes() As Integer
-            Get
-                Return CType(Me(Me.tableHintForQuestion.DownVotesColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableHintForQuestion.DownVotesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IsAccepted() As Boolean
-            Get
-                Return CType(Me(Me.tableHintForQuestion.IsAcceptedColumn),Boolean)
-            End Get
-            Set
-                Me(Me.tableHintForQuestion.IsAcceptedColumn) = value
-            End Set
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
     Partial Public Class UserIdsRow
         Inherits Global.System.Data.DataRow
         
@@ -17141,16 +16702,16 @@ Partial Public Class EducationOverflow
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class ApiAnswerIdsRow
+    Partial Public Class HintsRow
         Inherits Global.System.Data.DataRow
         
-        Private tableApiAnswerIds As ApiAnswerIdsDataTable
+        Private tableHints As HintsDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableApiAnswerIds = CType(Me.Table,ApiAnswerIdsDataTable)
+            Me.tableHints = CType(Me.Table,HintsDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17158,26 +16719,53 @@ Partial Public Class EducationOverflow
         Public Property ApiAnswerId() As Long
             Get
                 Try 
-                    Return CType(Me(Me.tableApiAnswerIds.ApiAnswerIdColumn),Long)
+                    Return CType(Me(Me.tableHints.ApiAnswerIdColumn),Long)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ApiAnswerId' in table 'ApiAnswerIds' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ApiAnswerId' in table 'Hints' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableApiAnswerIds.ApiAnswerIdColumn) = value
+                Me(Me.tableHints.ApiAnswerIdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DateViewed() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableHints.DateViewedColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DateViewed' in table 'Hints' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableHints.DateViewedColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsApiAnswerIdNull() As Boolean
-            Return Me.IsNull(Me.tableApiAnswerIds.ApiAnswerIdColumn)
+            Return Me.IsNull(Me.tableHints.ApiAnswerIdColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetApiAnswerIdNull()
-            Me(Me.tableApiAnswerIds.ApiAnswerIdColumn) = Global.System.Convert.DBNull
+            Me(Me.tableHints.ApiAnswerIdColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDateViewedNull() As Boolean
+            Return Me.IsNull(Me.tableHints.DateViewedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDateViewedNull()
+            Me(Me.tableHints.DateViewedColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -18337,42 +17925,6 @@ Partial Public Class EducationOverflow
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class HintForQuestionRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As HintForQuestionRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As HintForQuestionRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As HintForQuestionRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Class UserIdsRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -18445,16 +17997,16 @@ Partial Public Class EducationOverflow
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class ApiAnswerIdsRowChangeEvent
+    Public Class HintsRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As ApiAnswerIdsRow
+        Private eventRow As HintsRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As ApiAnswerIdsRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As HintsRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -18462,7 +18014,7 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As ApiAnswerIdsRow
+        Public ReadOnly Property Row() As HintsRow
             Get
                 Return Me.eventRow
             End Get

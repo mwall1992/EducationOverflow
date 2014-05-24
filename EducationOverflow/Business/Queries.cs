@@ -34,5 +34,12 @@ namespace Business {
         public static int InsertUserForId(long userId, string firstName, string lastName, DateTime dateOfBirth) {
             return queriesTableAdapter.InsertUserForId(userId, firstName, lastName, dateOfBirth.ToString());
         }
+
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public static void InsertUserAnswerForQuestion(long userId, long questionId, string answerBody, 
+                string answerNotes, bool isAnswered, Data.EducationOverflow.HintsDataTable hintsTable) {
+            queriesTableAdapter.InsertUserAnswerForQuestion(userId, questionId, answerBody, answerNotes, 
+                isAnswered, hintsTable);
+        }
     }
 }

@@ -17,39 +17,28 @@
     <div runat="server" id="question" class="question-answer-component"></div>
     
     <!-- Question Hints -->
-    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="HintsUpdatePanel" runat="server" UpdateMode="Conditional" Visible="True">
-        <Triggers>
-            <asp:AsyncPostBackTrigger controlid="HintButton" eventname="Click" />
-        </Triggers>
-        <ContentTemplate>
-            <h3>Hints:</h3>
-            <asp:Repeater ID="HintRepeater" runat="server">
-                <ItemTemplate>
-                    <div id="HintContainer" runat="server">
-                        <asp:HiddenField ID="APIAnswerIdField" runat="server" Value='<%# Eval("APIAnswerId") %>' />
-                        <h4>Hint <%# Container.ItemIndex + 1 %>:</h4>
-                        <div runat="server" id="HintBodyContainer" class="question-answer-component">
-                            <asp:Label ID="HintLabel" runat="server" Text='<%# Eval("Body") %>'></asp:Label>
-                        </div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
-            <%--<asp:ObjectDataSource ID="HintsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectAnswers" TypeName="Business.Answer">
-                <SelectParameters>
-                    <asp:QueryStringParameter Name="questionId" QueryStringField="QuestionId" Type="Int64" />
-                </SelectParameters>
-            </asp:ObjectDataSource>--%>
-            <asp:Button ID="HintButton" runat="server" OnClick="HintButton_Click" Text="Request Hint" CausesValidation="False" />
-        </ContentTemplate>
-    </asp:UpdatePanel>
-    <asp:UpdateProgress ID="HintsUpdateProgress" runat="server" AssociatedUpdatePanelID="HintsUpdatePanel" DisplayAfter="100">
-        <ProgressTemplate>
-            Retrieving hint...
-        </ProgressTemplate>
-    </asp:UpdateProgress>
+    <h3>Hints:</h3>
+    <asp:Repeater ID="HintRepeater" runat="server" DataSourceID="HintsDataSource">
+        <ItemTemplate>
+            <div id="HintContainer" runat="server" visible="false">
+                <asp:HiddenField ID="APIAnswerIdField" runat="server" Value='<%# Eval("APIAnswerId") %>' />
+                <asp:HiddenField ID="HintDateViewed" runat="server" />
+                <h4>Hint <%# Container.ItemIndex + 1 %>:</h4>
+                <div runat="server" id="HintBodyContainer" class="question-answer-component">
+                    <asp:Label ID="HintLabel" runat="server" Text='<%# Eval("Body") %>'></asp:Label>
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+    <asp:ObjectDataSource ID="HintsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectAnswers" TypeName="Business.Answer">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="questionId" QueryStringField="QuestionId" Type="Int64" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:Button ID="HintButton" runat="server" OnClick="HintButton_Click" Text="Request Hint" CausesValidation="False" />
 
     <!-- Solution -->
+    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="SolutionUpdatePanel" runat="server" UpdateMode="Conditional" Visible="true">
         <Triggers>
             <asp:AsyncPostBackTrigger controlid="SolutionButton" eventname="Click" />
@@ -57,7 +46,7 @@
         <ContentTemplate>
             <h3>Solution:</h3>
             <div runat="server" id="SolutionContainer" class="question-answer-component">
-                <asp:Label ID="SolutionLabel" runat="server"></asp:Label>
+                <asp:Label ID="SolutionLabel" runat="server">Be sure that you have answered the question to the best of your ability before viewing the answer.</asp:Label>
             </div>
             <asp:Button ID="SolutionButton" runat="server" OnClick="SolutionButton_Click" Text="View Solution" CausesValidation="False" />
         </ContentTemplate>
@@ -71,7 +60,7 @@
     <!-- Answer -->
     <div id="answer">
         <h3>Your Answer:</h3>
-        <textarea id="myAnswerTextArea" class="input-box" cols="50" name="S1" rows="10"></textarea>
+        <asp:TextBox ID="myAnswerTextBox" runat="server" CssClass="input-box" TextMode="MultiLine" Rows="10"></asp:TextBox>
     </div>
 
     <!-- Notes -->

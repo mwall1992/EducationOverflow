@@ -8102,791 +8102,657 @@ Namespace EducationOverflowTableAdapters
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class HintForQuestionTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
-        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
-        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "HintForQuestion"
-            tableMapping.ColumnMappings.Add("QuestionId", "QuestionId")
-            tableMapping.ColumnMappings.Add("APIAnswerId", "APIAnswerId")
-            tableMapping.ColumnMappings.Add("Body", "Body")
-            tableMapping.ColumnMappings.Add("UpVotes", "UpVotes")
-            tableMapping.ColumnMappings.Add("DownVotes", "DownVotes")
-            tableMapping.ColumnMappings.Add("IsAccepted", "IsAccepted")
-            Me._adapter.TableMappings.Add(tableMapping)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "dbo.RetrieveHintForQuestion"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApiAnswerIds", Global.System.Data.SqlDbType.Structured, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QuestionId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 19, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Data.EducationOverflow.HintForQuestionDataTable, ByVal ApiAnswerIds As Object, ByVal QuestionId As Global.System.Nullable(Of Long)) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (ApiAnswerIds Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ApiAnswerIds,Object)
-            End If
-            If (QuestionId.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(QuestionId.Value,Long)
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal ApiAnswerIds As Object, ByVal QuestionId As Global.System.Nullable(Of Long)) As Data.EducationOverflow.HintForQuestionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (ApiAnswerIds Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(ApiAnswerIds,Object)
-            End If
-            If (QuestionId.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(QuestionId.Value,Long)
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            Dim dataTable As Data.EducationOverflow.HintForQuestionDataTable = New Data.EducationOverflow.HintForQuestionDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class QueriesTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private _commandCollection() As Global.System.Data.IDbCommand
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.IDbCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.IDbCommand(5) {}
+            Me._commandCollection = New Global.System.Data.IDbCommand(6) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
-            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.AddRolesToUsers"
-            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
-            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserIds", Global.System.Data.SqlDbType.Structured, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(0),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Roles", Global.System.Data.SqlDbType.Structured, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
+            CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.AddRolesToUsers"
+            CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
+            CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserIds", Global.System.Data.SqlDbType.Structured, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Roles", Global.System.Data.SqlDbType.Structured, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
-            CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
-            CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.RemoveRolesFromUsers"
-            CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
-            CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserIds", Global.System.Data.SqlDbType.Structured, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(1),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Roles", Global.System.Data.SqlDbType.Structured, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
+            CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.RemoveRolesFromUsers"
+            CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
+            CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserIds", Global.System.Data.SqlDbType.Structured, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Roles", Global.System.Data.SqlDbType.Structured, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.UserPasswordUpdate"
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@newPassword", Global.System.Data.SqlDbType.NVarChar, 256, Global.System.Data.ParameterDirection.Input, 0, 0, "Password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(2),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
+            CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.UserPasswordUpdate"
+            CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
+            CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@newPassword", Global.System.Data.SqlDbType.NVarChar, 256, Global.System.Data.ParameterDirection.Input, 0, 0, "Password", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.UserActivityDateUpdate"
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastActivityDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "LastActivityDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(3),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
+            CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.UserActivityDateUpdate"
+            CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
+            CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastActivityDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "LastActivityDate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
-            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
-            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.UnlockUserUpdate"
-            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
-            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(4),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
+            CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.UnlockUserUpdate"
+            CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
+            CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
-            CType(Me._commandCollection(5),Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
-            CType(Me._commandCollection(5),Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.InsertUserForId"
-            CType(Me._commandCollection(5),Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
-            CType(Me._commandCollection(5),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(5),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(5),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Firstname", Global.System.Data.SqlDbType.NVarChar, 35, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(5),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.NVarChar, 35, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            CType(Me._commandCollection(5),Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateOfBirth", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            CType(Me._commandCollection(5), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
+            CType(Me._commandCollection(5), Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.InsertUserForId"
+            CType(Me._commandCollection(5), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
+            CType(Me._commandCollection(5), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.[Variant], 0, Global.System.Data.ParameterDirection.ReturnValue, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(5), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UserId", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(5), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Firstname", Global.System.Data.SqlDbType.NVarChar, 35, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(5), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.NVarChar, 35, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(5), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateOfBirth", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand()
+            CType(Me._commandCollection(6), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.DataAccess.My.MySettings.Default.EducationOverflowConnectionString)
+            CType(Me._commandCollection(6), Global.System.Data.SqlClient.SqlCommand).CommandText = "dbo.InsertUserAnswerForQuestion"
+            CType(Me._commandCollection(6), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.StoredProcedure
+            CType(Me._commandCollection(6), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(6), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 19, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(6), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QuestionId", Global.System.Data.SqlDbType.BigInt, 8, Global.System.Data.ParameterDirection.Input, 19, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(6), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AnswerBody", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(6), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AnswerNotes", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(6), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsAnswered", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 1, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            CType(Me._commandCollection(6), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Hints", Global.System.Data.SqlDbType.Structured, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function AddRolesToUsers(ByVal UserIds As Object, ByVal Roles As Object) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(0),Global.System.Data.SqlClient.SqlCommand)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function AddRolesToUsers(ByVal UserIds As Object, ByVal Roles As Object) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(0), Global.System.Data.SqlClient.SqlCommand)
             If (UserIds Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(UserIds,Object)
+                command.Parameters(1).Value = CType(UserIds, Object)
             End If
             If (Roles Is Nothing) Then
                 command.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(2).Value = CType(Roles,Object)
+                command.Parameters(2).Value = CType(Roles, Object)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+                command.Connection.Open()
             End If
             Dim returnValue As Integer
-            Try 
+            Try
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
+                    command.Connection.Close()
                 End If
             End Try
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function RemoveRolesFromUsers(ByVal UserIds As Object, ByVal Roles As Object) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(1),Global.System.Data.SqlClient.SqlCommand)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function RemoveRolesFromUsers(ByVal UserIds As Object, ByVal Roles As Object) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(1), Global.System.Data.SqlClient.SqlCommand)
             If (UserIds Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(UserIds,Object)
+                command.Parameters(1).Value = CType(UserIds, Object)
             End If
             If (Roles Is Nothing) Then
                 command.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(2).Value = CType(Roles,Object)
+                command.Parameters(2).Value = CType(Roles, Object)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+                command.Connection.Open()
             End If
             Dim returnValue As Integer
-            Try 
+            Try
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
+                    command.Connection.Close()
                 End If
             End Try
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function UserPasswordUpdate(ByVal newPassword As String, ByVal UserId As Long) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(2),Global.System.Data.SqlClient.SqlCommand)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)> _
+        Public Overridable Overloads Function UserPasswordUpdate(ByVal newPassword As String, ByVal UserId As Long) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(2), Global.System.Data.SqlClient.SqlCommand)
             If (newPassword Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("newPassword")
             Else
-                command.Parameters(1).Value = CType(newPassword,String)
+                command.Parameters(1).Value = CType(newPassword, String)
             End If
-            command.Parameters(2).Value = CType(UserId,Long)
+            command.Parameters(2).Value = CType(UserId, Long)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+                command.Connection.Open()
             End If
             Dim returnValue As Integer
-            Try 
+            Try
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
+                    command.Connection.Close()
                 End If
             End Try
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function UserActivityDateUpdate(ByVal LastActivityDate As Date, ByVal UserId As Long) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(3),Global.System.Data.SqlClient.SqlCommand)
-            command.Parameters(1).Value = CType(LastActivityDate,Date)
-            command.Parameters(2).Value = CType(UserId,Long)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)> _
+        Public Overridable Overloads Function UserActivityDateUpdate(ByVal LastActivityDate As Date, ByVal UserId As Long) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(3), Global.System.Data.SqlClient.SqlCommand)
+            command.Parameters(1).Value = CType(LastActivityDate, Date)
+            command.Parameters(2).Value = CType(UserId, Long)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+                command.Connection.Open()
             End If
             Dim returnValue As Integer
-            Try 
+            Try
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
+                    command.Connection.Close()
                 End If
             End Try
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function UnlockUserUpdate(ByVal UserId As Long) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(4),Global.System.Data.SqlClient.SqlCommand)
-            command.Parameters(1).Value = CType(UserId,Long)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)> _
+        Public Overridable Overloads Function UnlockUserUpdate(ByVal UserId As Long) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(4), Global.System.Data.SqlClient.SqlCommand)
+            command.Parameters(1).Value = CType(UserId, Long)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+                command.Connection.Open()
             End If
             Dim returnValue As Integer
-            Try 
+            Try
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
+                    command.Connection.Close()
                 End If
             End Try
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
-        Public Overloads Overridable Function InsertUserForId(ByVal UserId As Long, ByVal Firstname As String, ByVal LastName As String, ByVal DateOfBirth As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(5),Global.System.Data.SqlClient.SqlCommand)
-            command.Parameters(1).Value = CType(UserId,Long)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, False)> _
+        Public Overridable Overloads Function InsertUserForId(ByVal UserId As Long, ByVal Firstname As String, ByVal LastName As String, ByVal DateOfBirth As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(5), Global.System.Data.SqlClient.SqlCommand)
+            command.Parameters(1).Value = CType(UserId, Long)
             If (Firstname Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Firstname")
             Else
-                command.Parameters(2).Value = CType(Firstname,String)
+                command.Parameters(2).Value = CType(Firstname, String)
             End If
             If (LastName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("LastName")
             Else
-                command.Parameters(3).Value = CType(LastName,String)
+                command.Parameters(3).Value = CType(LastName, String)
             End If
             If (DateOfBirth Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DateOfBirth")
             Else
-                command.Parameters(4).Value = CType(DateOfBirth,String)
+                command.Parameters(4).Value = CType(DateOfBirth, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+                command.Connection.Open()
             End If
             Dim returnValue As Integer
-            Try 
+            Try
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
+                    command.Connection.Close()
                 End If
             End Try
             Return returnValue
         End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function InsertUserAnswerForQuestion(ByVal UserId As Global.System.Nullable(Of Long), ByVal QuestionId As Global.System.Nullable(Of Long), ByVal AnswerBody As String, ByVal AnswerNotes As String, ByVal IsAnswered As Global.System.Nullable(Of Boolean), ByVal Hints As Object) As Object
+            Dim command As Global.System.Data.SqlClient.SqlCommand = CType(Me.CommandCollection(6), Global.System.Data.SqlClient.SqlCommand)
+            If (UserId.HasValue = True) Then
+                command.Parameters(1).Value = CType(UserId.Value, Long)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (QuestionId.HasValue = True) Then
+                command.Parameters(2).Value = CType(QuestionId.Value, Long)
+            Else
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (AnswerBody Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(AnswerBody, String)
+            End If
+            If (AnswerNotes Is Nothing) Then
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(4).Value = CType(AnswerNotes, String)
+            End If
+            If (IsAnswered.HasValue = True) Then
+                command.Parameters(5).Value = CType(IsAnswered.Value, Boolean)
+            Else
+                command.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (Hints Is Nothing) Then
+                command.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(6).Value = CType(Hints, Object)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open()
+            End If
+            Dim returnValue As Object
+            Try
+                returnValue = command.ExecuteScalar
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close()
+                End If
+            End Try
+            If ((returnValue Is Nothing) _
+                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
+                Return Nothing
+            Else
+                Return CType(returnValue, Object)
+            End If
+        End Function
     End Class
-    
+
     '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerDesigner, Microsoft.VSD"& _ 
-        "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapterManager")>  _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerDesigner, Microsoft.VSD" & _
+        "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapterManager")> _
     Partial Public Class TableAdapterManager
         Inherits Global.System.ComponentModel.Component
-        
+
         Private _updateOrder As UpdateOrderOption
-        
+
         Private _stackExchangeSiteTableAdapter As StackExchangeSiteTableAdapter
-        
+
         Private _tagTableAdapter As TagTableAdapter
-        
+
         Private _tagSynonymTableAdapter As TagSynonymTableAdapter
-        
+
         Private _roleTableAdapter As RoleTableAdapter
-        
+
         Private _userRolesTableAdapter As UserRolesTableAdapter
-        
+
         Private _userMembershipWithoutPasswordTableAdapter As UserMembershipWithoutPasswordTableAdapter
-        
+
         Private _userMembershipTableAdapter As UserMembershipTableAdapter
-        
+
         Private _questionIdTableAdapter As QuestionIdTableAdapter
-        
+
         Private _questionTagTableAdapter As QuestionTagTableAdapter
-        
+
         Private _questionInfoTableAdapter As QuestionInfoTableAdapter
-        
+
         Private _answerTableAdapter As AnswerTableAdapter
-        
+
         Private _userPasswordTableAdapter As UserPasswordTableAdapter
-        
+
         Private _reportedQuestionReasonTableAdapter As ReportedQuestionReasonTableAdapter
-        
+
         Private _reportedQuestionTableAdapter As ReportedQuestionTableAdapter
-        
+
         Private _backupDataSetBeforeUpdate As Boolean
-        
+
         Private _connection As Global.System.Data.IDbConnection
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property UpdateOrder() As UpdateOrderOption
             Get
                 Return Me._updateOrder
             End Get
-            Set
+            Set(value As UpdateOrderOption)
                 Me._updateOrder = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property StackExchangeSiteTableAdapter() As StackExchangeSiteTableAdapter
             Get
                 Return Me._stackExchangeSiteTableAdapter
             End Get
-            Set
+            Set(value As StackExchangeSiteTableAdapter)
                 Me._stackExchangeSiteTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property TagTableAdapter() As TagTableAdapter
             Get
                 Return Me._tagTableAdapter
             End Get
-            Set
+            Set(value As TagTableAdapter)
                 Me._tagTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property TagSynonymTableAdapter() As TagSynonymTableAdapter
             Get
                 Return Me._tagSynonymTableAdapter
             End Get
-            Set
+            Set(value As TagSynonymTableAdapter)
                 Me._tagSynonymTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property RoleTableAdapter() As RoleTableAdapter
             Get
                 Return Me._roleTableAdapter
             End Get
-            Set
+            Set(value As RoleTableAdapter)
                 Me._roleTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property UserRolesTableAdapter() As UserRolesTableAdapter
             Get
                 Return Me._userRolesTableAdapter
             End Get
-            Set
+            Set(value As UserRolesTableAdapter)
                 Me._userRolesTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property UserMembershipWithoutPasswordTableAdapter() As UserMembershipWithoutPasswordTableAdapter
             Get
                 Return Me._userMembershipWithoutPasswordTableAdapter
             End Get
-            Set
+            Set(value As UserMembershipWithoutPasswordTableAdapter)
                 Me._userMembershipWithoutPasswordTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property UserMembershipTableAdapter() As UserMembershipTableAdapter
             Get
                 Return Me._userMembershipTableAdapter
             End Get
-            Set
+            Set(value As UserMembershipTableAdapter)
                 Me._userMembershipTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property QuestionIdTableAdapter() As QuestionIdTableAdapter
             Get
                 Return Me._questionIdTableAdapter
             End Get
-            Set
+            Set(value As QuestionIdTableAdapter)
                 Me._questionIdTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property QuestionTagTableAdapter() As QuestionTagTableAdapter
             Get
                 Return Me._questionTagTableAdapter
             End Get
-            Set
+            Set(value As QuestionTagTableAdapter)
                 Me._questionTagTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property QuestionInfoTableAdapter() As QuestionInfoTableAdapter
             Get
                 Return Me._questionInfoTableAdapter
             End Get
-            Set
+            Set(value As QuestionInfoTableAdapter)
                 Me._questionInfoTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property AnswerTableAdapter() As AnswerTableAdapter
             Get
                 Return Me._answerTableAdapter
             End Get
-            Set
+            Set(value As AnswerTableAdapter)
                 Me._answerTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property UserPasswordTableAdapter() As UserPasswordTableAdapter
             Get
                 Return Me._userPasswordTableAdapter
             End Get
-            Set
+            Set(value As UserPasswordTableAdapter)
                 Me._userPasswordTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property ReportedQuestionReasonTableAdapter() As ReportedQuestionReasonTableAdapter
             Get
                 Return Me._reportedQuestionReasonTableAdapter
             End Get
-            Set
+            Set(value As ReportedQuestionReasonTableAdapter)
                 Me._reportedQuestionReasonTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" & _
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" & _
+            "a", "System.Drawing.Design.UITypeEditor")> _
         Public Property ReportedQuestionTableAdapter() As ReportedQuestionTableAdapter
             Get
                 Return Me._reportedQuestionTableAdapter
             End Get
-            Set
+            Set(value As ReportedQuestionTableAdapter)
                 Me._reportedQuestionTableAdapter = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
                 Return Me._backupDataSetBeforeUpdate
             End Get
-            Set
+            Set(value As Boolean)
                 Me._backupDataSetBeforeUpdate = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Browsable(False)> _
         Public Property Connection() As Global.System.Data.IDbConnection
             Get
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
-                If ((Not (Me._stackExchangeSiteTableAdapter) Is Nothing)  _
+                If ((Not (Me._stackExchangeSiteTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._stackExchangeSiteTableAdapter.Connection) Is Nothing)) Then
                     Return Me._stackExchangeSiteTableAdapter.Connection
                 End If
-                If ((Not (Me._tagTableAdapter) Is Nothing)  _
+                If ((Not (Me._tagTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._tagTableAdapter.Connection) Is Nothing)) Then
                     Return Me._tagTableAdapter.Connection
                 End If
-                If ((Not (Me._tagSynonymTableAdapter) Is Nothing)  _
+                If ((Not (Me._tagSynonymTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._tagSynonymTableAdapter.Connection) Is Nothing)) Then
                     Return Me._tagSynonymTableAdapter.Connection
                 End If
-                If ((Not (Me._roleTableAdapter) Is Nothing)  _
+                If ((Not (Me._roleTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._roleTableAdapter.Connection) Is Nothing)) Then
                     Return Me._roleTableAdapter.Connection
                 End If
-                If ((Not (Me._userRolesTableAdapter) Is Nothing)  _
+                If ((Not (Me._userRolesTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._userRolesTableAdapter.Connection) Is Nothing)) Then
                     Return Me._userRolesTableAdapter.Connection
                 End If
-                If ((Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing)  _
+                If ((Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._userMembershipWithoutPasswordTableAdapter.Connection) Is Nothing)) Then
                     Return Me._userMembershipWithoutPasswordTableAdapter.Connection
                 End If
-                If ((Not (Me._userMembershipTableAdapter) Is Nothing)  _
+                If ((Not (Me._userMembershipTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._userMembershipTableAdapter.Connection) Is Nothing)) Then
                     Return Me._userMembershipTableAdapter.Connection
                 End If
-                If ((Not (Me._questionIdTableAdapter) Is Nothing)  _
+                If ((Not (Me._questionIdTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._questionIdTableAdapter.Connection) Is Nothing)) Then
                     Return Me._questionIdTableAdapter.Connection
                 End If
-                If ((Not (Me._questionTagTableAdapter) Is Nothing)  _
+                If ((Not (Me._questionTagTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._questionTagTableAdapter.Connection) Is Nothing)) Then
                     Return Me._questionTagTableAdapter.Connection
                 End If
-                If ((Not (Me._questionInfoTableAdapter) Is Nothing)  _
+                If ((Not (Me._questionInfoTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._questionInfoTableAdapter.Connection) Is Nothing)) Then
                     Return Me._questionInfoTableAdapter.Connection
                 End If
-                If ((Not (Me._answerTableAdapter) Is Nothing)  _
+                If ((Not (Me._answerTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._answerTableAdapter.Connection) Is Nothing)) Then
                     Return Me._answerTableAdapter.Connection
                 End If
-                If ((Not (Me._userPasswordTableAdapter) Is Nothing)  _
+                If ((Not (Me._userPasswordTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._userPasswordTableAdapter.Connection) Is Nothing)) Then
                     Return Me._userPasswordTableAdapter.Connection
                 End If
-                If ((Not (Me._reportedQuestionReasonTableAdapter) Is Nothing)  _
+                If ((Not (Me._reportedQuestionReasonTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._reportedQuestionReasonTableAdapter.Connection) Is Nothing)) Then
                     Return Me._reportedQuestionReasonTableAdapter.Connection
                 End If
-                If ((Not (Me._reportedQuestionTableAdapter) Is Nothing)  _
+                If ((Not (Me._reportedQuestionTableAdapter) Is Nothing) _
                             AndAlso (Not (Me._reportedQuestionTableAdapter.Connection) Is Nothing)) Then
                     Return Me._reportedQuestionTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
-            Set
+            Set(value As Global.System.Data.IDbConnection)
                 Me._connection = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Browsable(False)> _
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
@@ -8935,27 +8801,36 @@ Namespace EducationOverflowTableAdapters
                 Return count
             End Get
         End Property
-        
+
         '''<summary>
         '''Update rows in top-down order.
         '''</summary>
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Function UpdateUpdatedRows(ByVal dataSet As Data.EducationOverflow, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             If (Not (Me._stackExchangeSiteTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.StackExchangeSite.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._stackExchangeSiteTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._questionTagTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.QuestionTag.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing) _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._questionTagTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
             If (Not (Me._questionInfoTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.QuestionInfo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._questionInfoTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
@@ -8964,7 +8839,7 @@ Namespace EducationOverflowTableAdapters
             If (Not (Me._answerTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Answer.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._answerTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
@@ -8973,25 +8848,25 @@ Namespace EducationOverflowTableAdapters
             If (Not (Me._userPasswordTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.UserPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._userPasswordTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._questionTagTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.QuestionTag.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._questionIdTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.QuestionId.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._questionTagTableAdapter.Update(updatedRows))
+                    result = (result + Me._questionIdTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
             If (Not (Me._reportedQuestionReasonTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.ReportedQuestionReason.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._reportedQuestionReasonTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
@@ -9000,43 +8875,25 @@ Namespace EducationOverflowTableAdapters
             If (Not (Me._reportedQuestionTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.ReportedQuestion.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._reportedQuestionTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._questionIdTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.QuestionId.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._questionIdTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
             If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.UserMembership.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._userMembershipTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
             If (Not (Me._tagTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Tag.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._tagTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
@@ -9045,7 +8902,7 @@ Namespace EducationOverflowTableAdapters
             If (Not (Me._tagSynonymTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.TagSynonym.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._tagSynonymTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
@@ -9054,7 +8911,7 @@ Namespace EducationOverflowTableAdapters
             If (Not (Me._roleTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Role.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._roleTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
@@ -9063,33 +8920,50 @@ Namespace EducationOverflowTableAdapters
             If (Not (Me._userRolesTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.UserRoles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
+                If ((Not (updatedRows) Is Nothing) _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._userRolesTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing) _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             Return result
         End Function
-        
+
         '''<summary>
         '''Insert rows in top-down order.
         '''</summary>
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Function UpdateInsertedRows(ByVal dataSet As Data.EducationOverflow, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             If (Not (Me._stackExchangeSiteTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.StackExchangeSite.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._stackExchangeSiteTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._questionTagTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.QuestionTag.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing) _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._questionTagTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._questionInfoTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.QuestionInfo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._questionInfoTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
@@ -9097,7 +8971,7 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._answerTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Answer.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._answerTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
@@ -9105,23 +8979,23 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._userPasswordTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.UserPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._userPasswordTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._questionTagTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.QuestionTag.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+            If (Not (Me._questionIdTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.QuestionId.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._questionTagTableAdapter.Update(addedRows))
+                    result = (result + Me._questionIdTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
             If (Not (Me._reportedQuestionReasonTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.ReportedQuestionReason.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._reportedQuestionReasonTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
@@ -9129,39 +9003,23 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._reportedQuestionTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.ReportedQuestion.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._reportedQuestionTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._questionIdTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.QuestionId.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._questionIdTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.UserMembership.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._userMembershipTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._tagTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Tag.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._tagTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
@@ -9169,7 +9027,7 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._tagSynonymTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.TagSynonym.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._tagSynonymTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
@@ -9177,7 +9035,7 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._roleTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Role.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._roleTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
@@ -9185,25 +9043,41 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._userRolesTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.UserRoles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
+                If ((Not (addedRows) Is Nothing) _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._userRolesTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing) _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             Return result
         End Function
-        
+
         '''<summary>
         '''Delete rows in bottom-up order.
         '''</summary>
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Function UpdateDeletedRows(ByVal dataSet As Data.EducationOverflow, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing) _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._userRolesTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.UserRoles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._userRolesTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
@@ -9211,7 +9085,7 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._roleTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Role.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._roleTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
@@ -9219,7 +9093,7 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._tagSynonymTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.TagSynonym.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._tagSynonymTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
@@ -9227,39 +9101,23 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._tagTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Tag.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._tagTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.UserMembershipWithoutPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._userMembershipWithoutPasswordTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.UserMembership.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._userMembershipTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._questionIdTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.QuestionId.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._questionIdTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._reportedQuestionTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.ReportedQuestion.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._reportedQuestionTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
@@ -9267,23 +9125,23 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._reportedQuestionReasonTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.ReportedQuestionReason.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._reportedQuestionReasonTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._questionTagTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.QuestionTag.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+            If (Not (Me._questionIdTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.QuestionId.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._questionTagTableAdapter.Update(deletedRows))
+                    result = (result + Me._questionIdTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
             If (Not (Me._userPasswordTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.UserPassword.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._userPasswordTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
@@ -9291,7 +9149,7 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._answerTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Answer.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._answerTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
@@ -9299,15 +9157,23 @@ Namespace EducationOverflowTableAdapters
             End If
             If (Not (Me._questionInfoTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.QuestionInfo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._questionInfoTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._questionTagTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.QuestionTag.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing) _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._questionTagTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._stackExchangeSiteTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.StackExchangeSite.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
+                If ((Not (deletedRows) Is Nothing) _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._stackExchangeSiteTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
@@ -9315,18 +9181,18 @@ Namespace EducationOverflowTableAdapters
             End If
             Return result
         End Function
-        
+
         '''<summary>
         '''Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
         '''</summary>
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Function GetRealUpdatedRows(ByVal updatedRows() As Global.System.Data.DataRow, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Global.System.Data.DataRow()
-            If ((updatedRows Is Nothing)  _
+            If ((updatedRows Is Nothing) _
                         OrElse (updatedRows.Length < 1)) Then
                 Return updatedRows
             End If
-            If ((allAddedRows Is Nothing)  _
+            If ((allAddedRows Is Nothing) _
                         OrElse (allAddedRows.Count < 1)) Then
                 Return updatedRows
             End If
@@ -9334,113 +9200,113 @@ Namespace EducationOverflowTableAdapters
             Dim i As Integer = 0
             Do While (i < updatedRows.Length)
                 Dim row As Global.System.Data.DataRow = updatedRows(i)
-                If (allAddedRows.Contains(row) = false) Then
+                If (allAddedRows.Contains(row) = False) Then
                     realUpdatedRows.Add(row)
                 End If
                 i = (i + 1)
             Loop
             Return realUpdatedRows.ToArray
         End Function
-        
+
         '''<summary>
         '''Update all changes to the dataset.
         '''</summary>
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Overridable Function UpdateAll(ByVal dataSet As Data.EducationOverflow) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If
-            If (dataSet.HasChanges = false) Then
+            If (dataSet.HasChanges = False) Then
                 Return 0
             End If
-            If ((Not (Me._stackExchangeSiteTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._stackExchangeSiteTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._stackExchangeSiteTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._stackExchangeSiteTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._tagTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._tagTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._tagTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._tagTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._tagSynonymTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._tagSynonymTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._tagSynonymTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._tagSynonymTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._roleTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._roleTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._roleTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._roleTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._userRolesTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._userRolesTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._userRolesTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._userRolesTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._userMembershipWithoutPasswordTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._userMembershipWithoutPasswordTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._userMembershipTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._userMembershipTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._userMembershipTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._userMembershipTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._questionIdTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._questionIdTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._questionIdTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._questionIdTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._questionTagTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._questionTagTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._questionTagTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._questionTagTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._questionInfoTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._questionInfoTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._questionInfoTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._questionInfoTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._answerTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._answerTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._answerTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._answerTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._userPasswordTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._userPasswordTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._userPasswordTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._userPasswordTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._reportedQuestionReasonTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._reportedQuestionReasonTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._reportedQuestionReasonTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._reportedQuestionReasonTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
-            If ((Not (Me._reportedQuestionTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._reportedQuestionTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+            If ((Not (Me._reportedQuestionTableAdapter) Is Nothing) _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._reportedQuestionTableAdapter.Connection) = False)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" & _
                         "tring.")
             End If
             Dim workConnection As Global.System.Data.IDbConnection = Me.Connection
             If (workConnection Is Nothing) Then
-                Throw New Global.System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana"& _ 
+                Throw New Global.System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" & _
                         "ger TableAdapter property to a valid TableAdapter instance.")
             End If
-            Dim workConnOpened As Boolean = false
-            If ((workConnection.State And Global.System.Data.ConnectionState.Broken)  _
+            Dim workConnOpened As Boolean = False
+            If ((workConnection.State And Global.System.Data.ConnectionState.Broken) _
                         = Global.System.Data.ConnectionState.Broken) Then
-                workConnection.Close
+                workConnection.Close()
             End If
             If (workConnection.State = Global.System.Data.ConnectionState.Closed) Then
-                workConnection.Open
-                workConnOpened = true
+                workConnection.Open()
+                workConnOpened = True
             End If
             Dim workTransaction As Global.System.Data.IDbTransaction = workConnection.BeginTransaction
             If (workTransaction Is Nothing) Then
-                Throw New Global.System.ApplicationException("The transaction cannot begin. The current data connection does not support transa"& _ 
+                Throw New Global.System.ApplicationException("The transaction cannot begin. The current data connection does not support transa" & _
                         "ctions or the current state is not allowing the transaction to begin.")
             End If
             Dim allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow) = New Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)()
@@ -9453,132 +9319,132 @@ Namespace EducationOverflowTableAdapters
                 backupDataSet = New Global.System.Data.DataSet()
                 backupDataSet.Merge(dataSet)
             End If
-            Try 
+            Try
                 '---- Prepare for update -----------
                 '
                 If (Not (Me._stackExchangeSiteTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._stackExchangeSiteTableAdapter, Me._stackExchangeSiteTableAdapter.Connection)
-                    Me._stackExchangeSiteTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._stackExchangeSiteTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._stackExchangeSiteTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._stackExchangeSiteTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._stackExchangeSiteTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._stackExchangeSiteTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._stackExchangeSiteTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._stackExchangeSiteTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._tagTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._tagTableAdapter, Me._tagTableAdapter.Connection)
-                    Me._tagTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._tagTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._tagTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._tagTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._tagTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._tagTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._tagTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._tagTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._tagSynonymTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._tagSynonymTableAdapter, Me._tagSynonymTableAdapter.Connection)
-                    Me._tagSynonymTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._tagSynonymTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._tagSynonymTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._tagSynonymTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._tagSynonymTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._tagSynonymTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._tagSynonymTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._tagSynonymTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._roleTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._roleTableAdapter, Me._roleTableAdapter.Connection)
-                    Me._roleTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._roleTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._roleTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._roleTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._roleTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._roleTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._roleTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._roleTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._userRolesTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._userRolesTableAdapter, Me._userRolesTableAdapter.Connection)
-                    Me._userRolesTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._userRolesTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._userRolesTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._userRolesTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._userRolesTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._userRolesTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._userRolesTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._userRolesTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._userMembershipWithoutPasswordTableAdapter, Me._userMembershipWithoutPasswordTableAdapter.Connection)
-                    Me._userMembershipWithoutPasswordTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._userMembershipWithoutPasswordTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._userMembershipWithoutPasswordTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._userMembershipWithoutPasswordTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._userMembershipWithoutPasswordTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._userMembershipWithoutPasswordTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._userMembershipWithoutPasswordTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._userMembershipWithoutPasswordTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._userMembershipTableAdapter, Me._userMembershipTableAdapter.Connection)
-                    Me._userMembershipTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._userMembershipTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._userMembershipTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._userMembershipTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._userMembershipTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._userMembershipTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._userMembershipTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._userMembershipTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._questionIdTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._questionIdTableAdapter, Me._questionIdTableAdapter.Connection)
-                    Me._questionIdTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._questionIdTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._questionIdTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._questionIdTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._questionIdTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._questionIdTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._questionIdTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._questionIdTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._questionTagTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._questionTagTableAdapter, Me._questionTagTableAdapter.Connection)
-                    Me._questionTagTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._questionTagTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._questionTagTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._questionTagTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._questionTagTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._questionTagTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._questionTagTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._questionTagTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._questionInfoTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._questionInfoTableAdapter, Me._questionInfoTableAdapter.Connection)
-                    Me._questionInfoTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._questionInfoTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._questionInfoTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._questionInfoTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._questionInfoTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._questionInfoTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._questionInfoTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._questionInfoTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._answerTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._answerTableAdapter, Me._answerTableAdapter.Connection)
-                    Me._answerTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._answerTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._answerTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._answerTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._answerTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._answerTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._answerTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._answerTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._userPasswordTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._userPasswordTableAdapter, Me._userPasswordTableAdapter.Connection)
-                    Me._userPasswordTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._userPasswordTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._userPasswordTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._userPasswordTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._userPasswordTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._userPasswordTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._userPasswordTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._userPasswordTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._reportedQuestionReasonTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._reportedQuestionReasonTableAdapter, Me._reportedQuestionReasonTableAdapter.Connection)
-                    Me._reportedQuestionReasonTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._reportedQuestionReasonTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._reportedQuestionReasonTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._reportedQuestionReasonTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._reportedQuestionReasonTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._reportedQuestionReasonTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._reportedQuestionReasonTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._reportedQuestionReasonTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._reportedQuestionTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._reportedQuestionTableAdapter, Me._reportedQuestionTableAdapter.Connection)
-                    Me._reportedQuestionTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._reportedQuestionTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    Me._reportedQuestionTableAdapter.Connection = CType(workConnection, Global.System.Data.SqlClient.SqlConnection)
+                    Me._reportedQuestionTableAdapter.Transaction = CType(workTransaction, Global.System.Data.SqlClient.SqlTransaction)
                     If Me._reportedQuestionTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._reportedQuestionTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        Me._reportedQuestionTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._reportedQuestionTableAdapter.Adapter)
                     End If
                 End If
@@ -9596,14 +9462,14 @@ Namespace EducationOverflowTableAdapters
                 '
                 '---- Commit updates -----------
                 '
-                workTransaction.Commit
+                workTransaction.Commit()
                 If (0 < allAddedRows.Count) Then
                     Dim rows((allAddedRows.Count) - 1) As Global.System.Data.DataRow
                     allAddedRows.CopyTo(rows)
                     Dim i As Integer = 0
                     Do While (i < rows.Length)
                         Dim row As Global.System.Data.DataRow = rows(i)
-                        row.AcceptChanges
+                        row.AcceptChanges()
                         i = (i + 1)
                     Loop
                 End If
@@ -9613,16 +9479,16 @@ Namespace EducationOverflowTableAdapters
                     Dim i As Integer = 0
                     Do While (i < rows.Length)
                         Dim row As Global.System.Data.DataRow = rows(i)
-                        row.AcceptChanges
+                        row.AcceptChanges()
                         i = (i + 1)
                     Loop
                 End If
             Catch ex As Global.System.Exception
-                workTransaction.Rollback
+                workTransaction.Rollback()
                 '---- Restore the dataset -----------
                 If Me.BackupDataSetBeforeUpdate Then
                     Global.System.Diagnostics.Debug.Assert((Not (backupDataSet) Is Nothing))
-                    dataSet.Clear
+                    dataSet.Clear()
                     dataSet.Merge(backupDataSet)
                 Else
                     If (0 < allAddedRows.Count) Then
@@ -9631,8 +9497,8 @@ Namespace EducationOverflowTableAdapters
                         Dim i As Integer = 0
                         Do While (i < rows.Length)
                             Dim row As Global.System.Data.DataRow = rows(i)
-                            row.AcceptChanges
-                            row.SetAdded
+                            row.AcceptChanges()
+                            row.SetAdded()
                             i = (i + 1)
                         Loop
                     End If
@@ -9640,62 +9506,62 @@ Namespace EducationOverflowTableAdapters
                 Throw ex
             Finally
                 If workConnOpened Then
-                    workConnection.Close
+                    workConnection.Close()
                 End If
                 If (Not (Me._stackExchangeSiteTableAdapter) Is Nothing) Then
-                    Me._stackExchangeSiteTableAdapter.Connection = CType(revertConnections(Me._stackExchangeSiteTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._stackExchangeSiteTableAdapter.Connection = CType(revertConnections(Me._stackExchangeSiteTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._stackExchangeSiteTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._tagTableAdapter) Is Nothing) Then
-                    Me._tagTableAdapter.Connection = CType(revertConnections(Me._tagTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._tagTableAdapter.Connection = CType(revertConnections(Me._tagTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._tagTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._tagSynonymTableAdapter) Is Nothing) Then
-                    Me._tagSynonymTableAdapter.Connection = CType(revertConnections(Me._tagSynonymTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._tagSynonymTableAdapter.Connection = CType(revertConnections(Me._tagSynonymTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._tagSynonymTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._roleTableAdapter) Is Nothing) Then
-                    Me._roleTableAdapter.Connection = CType(revertConnections(Me._roleTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._roleTableAdapter.Connection = CType(revertConnections(Me._roleTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._roleTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._userRolesTableAdapter) Is Nothing) Then
-                    Me._userRolesTableAdapter.Connection = CType(revertConnections(Me._userRolesTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._userRolesTableAdapter.Connection = CType(revertConnections(Me._userRolesTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._userRolesTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._userMembershipWithoutPasswordTableAdapter) Is Nothing) Then
-                    Me._userMembershipWithoutPasswordTableAdapter.Connection = CType(revertConnections(Me._userMembershipWithoutPasswordTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._userMembershipWithoutPasswordTableAdapter.Connection = CType(revertConnections(Me._userMembershipWithoutPasswordTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._userMembershipWithoutPasswordTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._userMembershipTableAdapter) Is Nothing) Then
-                    Me._userMembershipTableAdapter.Connection = CType(revertConnections(Me._userMembershipTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._userMembershipTableAdapter.Connection = CType(revertConnections(Me._userMembershipTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._userMembershipTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._questionIdTableAdapter) Is Nothing) Then
-                    Me._questionIdTableAdapter.Connection = CType(revertConnections(Me._questionIdTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._questionIdTableAdapter.Connection = CType(revertConnections(Me._questionIdTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._questionIdTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._questionTagTableAdapter) Is Nothing) Then
-                    Me._questionTagTableAdapter.Connection = CType(revertConnections(Me._questionTagTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._questionTagTableAdapter.Connection = CType(revertConnections(Me._questionTagTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._questionTagTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._questionInfoTableAdapter) Is Nothing) Then
-                    Me._questionInfoTableAdapter.Connection = CType(revertConnections(Me._questionInfoTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._questionInfoTableAdapter.Connection = CType(revertConnections(Me._questionInfoTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._questionInfoTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._answerTableAdapter) Is Nothing) Then
-                    Me._answerTableAdapter.Connection = CType(revertConnections(Me._answerTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._answerTableAdapter.Connection = CType(revertConnections(Me._answerTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._answerTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._userPasswordTableAdapter) Is Nothing) Then
-                    Me._userPasswordTableAdapter.Connection = CType(revertConnections(Me._userPasswordTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._userPasswordTableAdapter.Connection = CType(revertConnections(Me._userPasswordTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._userPasswordTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._reportedQuestionReasonTableAdapter) Is Nothing) Then
-                    Me._reportedQuestionReasonTableAdapter.Connection = CType(revertConnections(Me._reportedQuestionReasonTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._reportedQuestionReasonTableAdapter.Connection = CType(revertConnections(Me._reportedQuestionReasonTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._reportedQuestionReasonTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._reportedQuestionTableAdapter) Is Nothing) Then
-                    Me._reportedQuestionTableAdapter.Connection = CType(revertConnections(Me._reportedQuestionTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._reportedQuestionTableAdapter.Connection = CType(revertConnections(Me._reportedQuestionTableAdapter), Global.System.Data.SqlClient.SqlConnection)
                     Me._reportedQuestionTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
@@ -9704,63 +9570,63 @@ Namespace EducationOverflowTableAdapters
                     Dim i As Integer = 0
                     Do While (i < adapters.Length)
                         Dim adapter As Global.System.Data.Common.DataAdapter = adapters(i)
-                        adapter.AcceptChangesDuringUpdate = true
+                        adapter.AcceptChangesDuringUpdate = True
                         i = (i + 1)
                     Loop
                 End If
             End Try
             Return result
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Overridable Sub SortSelfReferenceRows(ByVal rows() As Global.System.Data.DataRow, ByVal relation As Global.System.Data.DataRelation, ByVal childFirst As Boolean)
             Global.System.Array.Sort(Of Global.System.Data.DataRow)(rows, New SelfReferenceComparer(relation, childFirst))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Overridable Function MatchTableAdapterConnection(ByVal inputConnection As Global.System.Data.IDbConnection) As Boolean
             If (Not (Me._connection) Is Nothing) Then
-                Return true
+                Return True
             End If
-            If ((Me.Connection Is Nothing)  _
+            If ((Me.Connection Is Nothing) _
                         OrElse (inputConnection Is Nothing)) Then
-                Return true
+                Return True
             End If
             If String.Equals(Me.Connection.ConnectionString, inputConnection.ConnectionString, Global.System.StringComparison.Ordinal) Then
-                Return true
+                Return True
             End If
-            Return false
+            Return False
         End Function
-        
+
         '''<summary>
         '''Update Order Option
         '''</summary>
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Enum UpdateOrderOption
-            
+
             InsertUpdateDelete = 0
-            
+
             UpdateInsertDelete = 1
         End Enum
-        
+
         '''<summary>
         '''Used to sort self-referenced table's rows
         '''</summary>
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Class SelfReferenceComparer
             Inherits Object
             Implements Global.System.Collections.Generic.IComparer(Of Global.System.Data.DataRow)
-            
+
             Private _relation As Global.System.Data.DataRelation
-            
+
             Private _childFirst As Integer
-            
-            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Friend Sub New(ByVal relation As Global.System.Data.DataRelation, ByVal childFirst As Boolean)
-                MyBase.New
+                MyBase.New()
                 Me._relation = relation
                 If childFirst Then
                     Me._childFirst = -1
@@ -9768,9 +9634,9 @@ Namespace EducationOverflowTableAdapters
                     Me._childFirst = 1
                 End If
             End Sub
-            
-            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Private Function GetRoot(ByVal row As Global.System.Data.DataRow, ByRef distance As Integer) As Global.System.Data.DataRow
                 Global.System.Diagnostics.Debug.Assert((Not (row) Is Nothing))
                 Dim root As Global.System.Data.DataRow = row
@@ -9781,8 +9647,8 @@ Namespace EducationOverflowTableAdapters
 
                 Dim parent As Global.System.Data.DataRow = row.GetParentRow(Me._relation, Global.System.Data.DataRowVersion.[Default])
 
-                Do While ((Not (parent) Is Nothing)  _
-                            AndAlso (traversedRows.ContainsKey(parent) = false))
+                Do While ((Not (parent) Is Nothing) _
+                            AndAlso (traversedRows.ContainsKey(parent) = False))
                     distance = (distance + 1)
                     root = parent
                     traversedRows(parent) = parent
@@ -9791,12 +9657,12 @@ Namespace EducationOverflowTableAdapters
                 Loop
 
                 If (distance = 0) Then
-                    traversedRows.Clear
+                    traversedRows.Clear()
                     traversedRows(row) = row
                     parent = row.GetParentRow(Me._relation, Global.System.Data.DataRowVersion.Original)
 
-                    Do While ((Not (parent) Is Nothing)  _
-                                AndAlso (traversedRows.ContainsKey(parent) = false))
+                    Do While ((Not (parent) Is Nothing) _
+                                AndAlso (traversedRows.ContainsKey(parent) = False))
                         distance = (distance + 1)
                         root = parent
                         traversedRows(parent) = parent
@@ -9807,9 +9673,9 @@ Namespace EducationOverflowTableAdapters
 
                 Return root
             End Function
-            
-            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function Compare(ByVal row1 As Global.System.Data.DataRow, ByVal row2 As Global.System.Data.DataRow) As Integer Implements Global.System.Collections.Generic.IComparer(Of Global.System.Data.DataRow).Compare
                 If Object.ReferenceEquals(row1, row2) Then
                     Return 0
@@ -9830,7 +9696,7 @@ Namespace EducationOverflowTableAdapters
                 If Object.ReferenceEquals(root1, root2) Then
                     Return (Me._childFirst * distance1.CompareTo(distance2))
                 Else
-                    Global.System.Diagnostics.Debug.Assert(((Not (root1.Table) Is Nothing)  _
+                    Global.System.Diagnostics.Debug.Assert(((Not (root1.Table) Is Nothing) _
                                     AndAlso (Not (root2.Table) Is Nothing)))
                     If (root1.Table.Rows.IndexOf(root1) < root2.Table.Rows.IndexOf(root2)) Then
                         Return -1

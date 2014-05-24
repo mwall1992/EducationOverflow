@@ -40,24 +40,6 @@ namespace EducationOverflow.Content.Member_Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl question;
         
         /// <summary>
-        /// ScriptManager control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager;
-        
-        /// <summary>
-        /// HintsUpdatePanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel HintsUpdatePanel;
-        
-        /// <summary>
         /// HintRepeater control.
         /// </summary>
         /// <remarks>
@@ -65,6 +47,15 @@ namespace EducationOverflow.Content.Member_Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater HintRepeater;
+        
+        /// <summary>
+        /// HintsDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource HintsDataSource;
         
         /// <summary>
         /// HintButton control.
@@ -76,13 +67,13 @@ namespace EducationOverflow.Content.Member_Pages {
         protected global::System.Web.UI.WebControls.Button HintButton;
         
         /// <summary>
-        /// HintsUpdateProgress control.
+        /// ScriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdateProgress HintsUpdateProgress;
+        protected global::System.Web.UI.ScriptManager ScriptManager;
         
         /// <summary>
         /// SolutionUpdatePanel control.
@@ -128,6 +119,15 @@ namespace EducationOverflow.Content.Member_Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdateProgress SolutionUpdateProgress;
+        
+        /// <summary>
+        /// myAnswerTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox myAnswerTextBox;
         
         /// <summary>
         /// NotesTextBox control.

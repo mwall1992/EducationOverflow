@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Pages/DefaultLayout.master" AutoEventWireup="true" CodeBehind="ReportQuestion.aspx.cs" Inherits="EducationOverflow.Content.Member_Pages.ReportQuestion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Pages/DefaultLayoutNoSidebar.master" AutoEventWireup="true" CodeBehind="ReportedQuestions.aspx.cs" Inherits="EducationOverflow.Content.Member_Pages.ReportQuestion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head_content" runat="server">
 </asp:Content>
@@ -22,5 +22,3 @@
     </asp:ObjectDataSource>
 </asp:Content>
 
-<asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" runat="server">
-</asp:Content>

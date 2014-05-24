@@ -66,11 +66,13 @@
     <Content Include="Content\AdminPages\ReportedQuestions.aspx" />
     <Content Include="Content\MemberPages\AccountManagement.aspx" />
     <Content Include="Content\MemberPages\ChangePassword.aspx" />
+    <Content Include="Content\MemberPages\Feedback.aspx" />
+    <Content Include="Content\MemberPages\FeedbackDetails.aspx" />
     <Content Include="Content\MemberPages\Question.aspx" />
     <Content Include="Content\MemberPages\QuestionHistory.aspx" />
+    <Content Include="Content\MemberPages\ReportedQuestionDetails.aspx" />
     <Content Include="Content\Questions.aspx" />
-    <Content Include="Content\MemberPages\RandomQuestion.aspx" />
-    <Content Include="Content\MemberPages\ReportQuestion.aspx" />
+    <Content Include="Content\MemberPages\ReportedQuestions.aspx" />
     <Content Include="Content\Tags.aspx" />
     <Content Include="Content\Tour.aspx" />
     <Content Include="Default.aspx" />
@@ -78,7 +80,6 @@
     <Content Include="Content\Register.aspx" />
     <Content Include="Content\MemberPages\SignOut.aspx" />
     <Content Include="Style Sheets\QuestionStyles.css" />
-    <Content Include="Style Sheets\RepeaterStyles.css" />
     <Content Include="UserControls\PopularQuestionsControl.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -134,6 +135,20 @@
     <Compile Include="Content\MemberPages\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Content\MemberPages\Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\MemberPages\Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\MemberPages\FeedbackDetails.aspx.cs">
+      <DependentUpon>FeedbackDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\MemberPages\FeedbackDetails.aspx.designer.cs">
+      <DependentUpon>FeedbackDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Content\MemberPages\Question.aspx.cs">
       <DependentUpon>Question.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,6 +163,13 @@
     <Compile Include="Content\MemberPages\QuestionHistory.aspx.designer.cs">
       <DependentUpon>QuestionHistory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Content\MemberPages\ReportedQuestionDetails.aspx.cs">
+      <DependentUpon>ReportedQuestionDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\MemberPages\ReportedQuestionDetails.aspx.designer.cs">
+      <DependentUpon>ReportedQuestionDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Content\Questions.aspx.cs">
       <DependentUpon>Questions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,19 +177,12 @@
     <Compile Include="Content\Questions.aspx.designer.cs">
       <DependentUpon>Questions.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\MemberPages\RandomQuestion.aspx.cs">
-      <DependentUpon>RandomQuestion.aspx</DependentUpon>
+    <Compile Include="Content\MemberPages\ReportedQuestions.aspx.cs">
+      <DependentUpon>ReportedQuestions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\MemberPages\RandomQuestion.aspx.designer.cs">
-      <DependentUpon>RandomQuestion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\MemberPages\ReportQuestion.aspx.cs">
-      <DependentUpon>ReportQuestion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\MemberPages\ReportQuestion.aspx.designer.cs">
-      <DependentUpon>ReportQuestion.aspx</DependentUpon>
+    <Compile Include="Content\MemberPages\ReportedQuestions.aspx.designer.cs">
+      <DependentUpon>ReportedQuestions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Tags.aspx.cs">
       <DependentUpon>Tags.aspx</DependentUpon>

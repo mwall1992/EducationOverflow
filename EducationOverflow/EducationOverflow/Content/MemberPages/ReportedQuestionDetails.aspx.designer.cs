@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EducationOverflow.Content.Member_Pages {
+namespace EducationOverflow.Content.MemberPages {
 
 
-    public partial class RandomQuestion {
+    public partial class ReportedQuestionDetails {
     }
 }

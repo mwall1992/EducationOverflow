@@ -65,7 +65,7 @@
     <Content Include="Content\AdminPages\ReportedQuestionDetails.aspx" />
     <Content Include="Content\AdminPages\ReportedQuestions.aspx" />
     <Content Include="Content\MemberPages\AccountManagement.aspx" />
-    <Content Include="Content\MemberPages\ChangePassword.aspx" />
+    <Content Include="Content\MemberAndAdminPages\ChangePassword.aspx" />
     <Content Include="Content\MemberPages\Feedback.aspx" />
     <Content Include="Content\MemberPages\FeedbackDetails.aspx" />
     <Content Include="Content\MemberPages\Question.aspx" />
@@ -78,7 +78,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Content\Register.aspx" />
-    <Content Include="Content\MemberPages\SignOut.aspx" />
+    <Content Include="Content\MemberAndAdminPages\SignOut.aspx" />
     <Content Include="Style Sheets\QuestionStyles.css" />
     <Content Include="Style Sheets\RepeaterStyles.css" />
     <Content Include="UserControls\PopularQuestionsControl.ascx" />
@@ -129,11 +129,11 @@
     <Compile Include="Content\MemberPages\AccountManagement.aspx.designer.cs">
       <DependentUpon>AccountManagement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\MemberPages\ChangePassword.aspx.cs">
+    <Compile Include="Content\MemberAndAdminPages\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\MemberPages\ChangePassword.aspx.designer.cs">
+    <Compile Include="Content\MemberAndAdminPages\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\MemberPages\Feedback.aspx.cs">
@@ -242,11 +242,11 @@
     <Compile Include="Content\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\MemberPages\SignOut.aspx.cs">
+    <Compile Include="Content\MemberAndAdminPages\SignOut.aspx.cs">
       <DependentUpon>SignOut.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Content\MemberPages\SignOut.aspx.designer.cs">
+    <Compile Include="Content\MemberAndAdminPages\SignOut.aspx.designer.cs">
       <DependentUpon>SignOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PopularQuestionsControl.ascx.cs">

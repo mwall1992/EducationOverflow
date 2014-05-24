@@ -7,5 +7,8 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
+    <h1>
+        Sign Out
+    </h1>
     <asp:Button ID="SignOutButton" runat="server" OnClick="SignOutButton_Click" Text="Sign Out" />
 </asp:Content>

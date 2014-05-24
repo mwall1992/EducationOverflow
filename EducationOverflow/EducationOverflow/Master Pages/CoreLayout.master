@@ -20,10 +20,13 @@
                         <AnonymousTemplate>
                             <asp:HyperLink ID="SignUpLink" runat="server" NavigateUrl="~/Content/Register.aspx">Sign Up</asp:HyperLink>
                         </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome, <asp:LoginName ID="UserLoginName" runat="server" />.
+                        </LoggedInTemplate>
                     </asp:LoginView>
                 </div>
                 <div class="status-bar-item">
-                    <asp:LoginStatus CssClass="login-button" id="LoginStatus" runat="server" />
+                    <asp:LoginStatus CssClass="login-button" id="LoginStatus" runat="server" LogoutPageUrl="~/Default.aspx" />
                 </div>
 				<asp:ContentPlaceHolder id="status_bar_content" runat="server">
                 </asp:ContentPlaceHolder>
@@ -61,7 +64,6 @@
                             <asp:RoleGroup Roles="admin">
                                 <ContentTemplate>
                                     <ul>
-                                        <li><a id="MemberLink" runat="server" href="~/Content/MemberPages/AccountManagement.aspx">Account</a></li>
 					                    <li><a id="AdminLink" runat="server" href="~/Content/AdminPages/Admin.aspx">Admin Portal</a></li>
 				                    </ul>
                                 </ContentTemplate>

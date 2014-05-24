@@ -16,7 +16,7 @@
         Nam eget elit a orci vestibulum molestie ut non neque. Duis a diam arcu.
     </p>
     <p>
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Content/MemberPages/ChangePassword.aspx">Click here to change your password</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Content/MemberAndAdminPages/ChangePassword.aspx">Click here to change your password</asp:HyperLink>
     </p>
     <h4>Reported Questions</h4>
     <p>
@@ -39,5 +39,9 @@
     </p>
     <p>
         <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Content/MemberPages/AccountManagement.aspx">Click here to managed your question feedback</asp:HyperLink>
+    </p>
+    <h4>Sign out</h4>
+    <p>
+        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Content/MemberAndAdminPages/SignOut.aspx">Click here to sign out</asp:HyperLink>
     </p>
 </asp:Content>

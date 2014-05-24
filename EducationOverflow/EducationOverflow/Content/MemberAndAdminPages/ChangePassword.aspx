@@ -8,6 +8,6 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
     <h1>Change Password</h1>
-    <asp:ChangePassword ID="ChangePassword1" runat="server" ContinueDestinationPageUrl="~/Default.aspx">
+    <asp:ChangePassword ID="ChangePasswordControl" runat="server" ContinueDestinationPageUrl="~/Default.aspx">
     </asp:ChangePassword>
 </asp:Content>

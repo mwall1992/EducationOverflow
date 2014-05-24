@@ -43,24 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcceptedAnswer.cs" />
-    <Compile Include="Answer.cs" />
-    <Compile Include="PopularQuestions.cs" />
-    <Compile Include="Queries.cs" />
-    <Compile Include="QuestionAnswerInfo.cs" />
-    <Compile Include="QuestionFeedbackDetails.cs" />
-    <Compile Include="QuestionFeedbackSummary.cs" />
-    <Compile Include="ReportedQuestion.cs" />
-    <Compile Include="ReportedQuestionDetails.cs" />
-    <Compile Include="ReportedQuestionReason.cs" />
-    <Compile Include="ReportedQuestionSummary.cs" />
-    <Compile Include="Role.cs" />
+    <Compile Include="DataObjects\AcceptedAnswer.cs" />
+    <Compile Include="DataObjects\Answer.cs" />
+    <Compile Include="DataObjects\Utilities\DataSetUtilities.cs" />
+    <Compile Include="DataObjects\PopularQuestions.cs" />
+    <Compile Include="DataObjects\Queries.cs" />
+    <Compile Include="DataObjects\QuestionAnswerInfo.cs" />
+    <Compile Include="DataObjects\QuestionFeedbackDetails.cs" />
+    <Compile Include="DataObjects\QuestionFeedbackSummary.cs" />
+    <Compile Include="DataObjects\ReportedQuestion.cs" />
+    <Compile Include="DataObjects\ReportedQuestionDetails.cs" />
+    <Compile Include="DataObjects\ReportedQuestionReason.cs" />
+    <Compile Include="DataObjects\ReportedQuestionSummary.cs" />
+    <Compile Include="DataObjects\Role.cs" />
     <Compile Include="Security\CustomMembershipProvider.cs" />
-    <Compile Include="QuestionInfo.cs" />
+    <Compile Include="DataObjects\QuestionInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestionSummary.cs" />
-    <Compile Include="QuestionTag.cs" />
-    <Compile Include="QuestionId.cs" />
+    <Compile Include="DataObjects\QuestionSummary.cs" />
+    <Compile Include="DataObjects\QuestionTag.cs" />
+    <Compile Include="DataObjects\QuestionId.cs" />
     <Compile Include="Security\CustomProvider.cs" />
     <Compile Include="Security\CustomRoleProvider.cs" />
     <Compile Include="StackExchangeAPI\Models\Query Parameter Models\Sorting and Ordering\Named Sort States\CreationSortState.cs" />
@@ -97,14 +98,14 @@
     <Compile Include="StackExchangeAPI\Query Builders\SiteQueryBuilder.cs" />
     <Compile Include="StackExchangeAPI\Query Builders\TagQueryBuilder.cs" />
     <Compile Include="StackExchangeAPI\StackExchangeAPIClient.cs" />
-    <Compile Include="StackExchangeSite.cs" />
-    <Compile Include="Tag.cs" />
-    <Compile Include="TagInfo.cs" />
-    <Compile Include="TagSynonym.cs" />
-    <Compile Include="UserMembership.cs" />
-    <Compile Include="UserPassword.cs" />
-    <Compile Include="UserReportedQuestions.cs" />
-    <Compile Include="UserRoles.cs" />
+    <Compile Include="DataObjects\StackExchangeSite.cs" />
+    <Compile Include="DataObjects\Tag.cs" />
+    <Compile Include="DataObjects\TagInfo.cs" />
+    <Compile Include="DataObjects\TagSynonym.cs" />
+    <Compile Include="DataObjects\UserMembership.cs" />
+    <Compile Include="DataObjects\UserPassword.cs" />
+    <Compile Include="DataObjects\UserReportedQuestions.cs" />
+    <Compile Include="DataObjects\UserRoles.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.vbproj">

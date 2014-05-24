@@ -8,6 +8,14 @@ using System.Configuration.Provider;
 
 namespace Business {
     
+    /// <summary>
+    /// The membership provider used for the Education Overflow Web application.
+    /// </summary>
+    /// <remarks>
+    /// For detailed documentation of overriden methods in this class, consult 
+    /// the class documentation for System.Web.Security.MembershipProvide. Comments 
+    /// have been included in this class only to document special implementation details.
+    /// </remarks>
     public class CustomMembershipProvider : System.Web.Security.MembershipProvider {
 
         private static int MAX_INVALID_PASSWORD_ATTEMPTS = 5;
@@ -18,6 +26,14 @@ namespace Business {
 
         private static int MIN_COUNT_NON_ALPHANUMERIC_CHARACTERS = 1;
 
+        /// <summary>
+        /// Get and set the application name associated with the membership provider.
+        /// </summary>
+        /// <remarks>
+        /// The Education Overflow Web application does not currently use application
+        /// names. As such, this property throws an exception if a value is set which is not
+        /// equal to the current application name.
+        /// </remarks>
         public override string ApplicationName {
             get {
                 return CustomProvider.ApplicationName;
@@ -33,8 +49,10 @@ namespace Business {
         public override bool ChangePassword(string username, string oldPassword, string newPassword) {
             const int INVALID_AFFECTED_ROWS = 0;
             bool passwordChanged = false;
-            Data.EducationOverflow.UserMembershipRow membership = UserMembership.SelectUserMembership(username);
+            Data.EducationOverflow.UserMembershipRow membership = 
+                UserMembership.SelectUserMembership(username);
 
+            // attempt to change the user's password
             try {
                 if (this.ValidateUser(username, oldPassword) && membership != null) {
                     int affectedRows = Queries.UpdateUserPassword(membership.UserId, newPassword);
@@ -47,6 +65,18 @@ namespace Business {
             return passwordChanged;
         }
 
+        /// <summary>
+        /// Updates the password question and answer for the membership user in the membership data store.
+        /// </summary>
+        /// <param name="username">The username for the membership user.</param>
+        /// <param name="password">The current password for the membership user.</param>
+        /// <param name="newPasswordQuestion">The new password question value for the membership user.</param>
+        /// <param name="newPasswordAnswer">The new password answer value for the membership user.</param>
+        /// <returns>false</returns>
+        /// <remarks>
+        /// A security question and answer is not required for this membership provider. Hence, security questions
+        /// and answers cannot be changed.
+        /// </remarks>
         public override bool ChangePasswordQuestionAndAnswer(string username, string password, 
                 string newPasswordQuestion, string newPasswordAnswer) {
             return false;
@@ -55,60 +85,49 @@ namespace Business {
         public override System.Web.Security.MembershipUser CreateUser(string username, string password, string email, 
                 string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, 
                 out System.Web.Security.MembershipCreateStatus status) {
-                            
+            const int VALID_INSERTED_ROWS = 1;
+
+            // initialise known constants for creating a new user
             const bool IS_LOCKED = false;
-            const int INVALID_AFFECTED_ROWS = 0;
             DateTime CURRENT_TIME = DateTime.Now;
-            
+            DateTime? lastPasswordChangeDate = null;
+            DateTime? lastLockedOutDate = null;
+            const string COMMENT = null;
+            const string PASSWORD_QUESTION = null;
+            const string PASSWORD_ANSWER = null;
+
+            // attempt to create user
             long? userId = null;
             try {
-                int affectedRows = UserMembership.InsertUserMembership(this.ApplicationName, username, password, 
-                    email, IS_LOCKED, DateTime.Now, isApproved, null, DateTime.Now, null, null, null, null);
-                userId = UserMembership.SelectUserMembership(username).UserId;
+                int insertedRows = UserMembership.InsertUserMembership(this.ApplicationName, username, password,
+                    email, IS_LOCKED, CURRENT_TIME, isApproved, lastPasswordChangeDate, CURRENT_TIME, 
+                    lastLockedOutDate, COMMENT, PASSWORD_QUESTION, PASSWORD_ANSWER);
 
-                status = (affectedRows != INVALID_AFFECTED_ROWS) ? System.Web.Security.MembershipCreateStatus.Success 
-                                                                 : System.Web.Security.MembershipCreateStatus.ProviderError;
+                // determine if user information was created
+                Data.EducationOverflow.UserMembershipRow memberRow = UserMembership.SelectUserMembership(username);
+                if (insertedRows == VALID_INSERTED_ROWS && memberRow != null) {
+                    userId = memberRow.UserId;
+                    status = System.Web.Security.MembershipCreateStatus.Success;
+                } else {
+                    status = System.Web.Security.MembershipCreateStatus.ProviderError;
+                }
             } catch {
                 status = System.Web.Security.MembershipCreateStatus.ProviderError;
             }
 
+            // initialise user membership object 
             string providerKey = (userId == null) ? null : userId.ToString();
-
             isApproved = (status == System.Web.Security.MembershipCreateStatus.Success);
-            return new System.Web.Security.MembershipUser(this.Name, username, providerUserKey,
-                    email, null, null, isApproved, IS_LOCKED, CURRENT_TIME, CURRENT_TIME, CURRENT_TIME,
+            System.Web.Security.MembershipUser createdUser = 
+                new System.Web.Security.MembershipUser(this.Name, username, providerUserKey,
+                    email, PASSWORD_QUESTION, COMMENT, isApproved, IS_LOCKED, CURRENT_TIME, CURRENT_TIME, CURRENT_TIME,
                     CURRENT_TIME, DateTime.MinValue);
+
+            return createdUser;
         }
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData) {
-            const int INVALID_AFFFECTED_ROWS = 0;
-            bool userDeleted = false;
-            Data.EducationOverflow.UserMembershipRow membership = UserMembership.SelectUserMembership(username);
-
-            // TODO: REMOVE ALL USER INFORMATION! (via cascade)
-
-            try {
-                if (membership != null && deleteAllRelatedData) {
-                    
-                    // remove role information
-                    Data.EducationOverflow.UserRolesDataTable roles = UserRoles.SelectUserRoles(username);
-
-                    string[] roleNames = new string[roles.Count];
-                    for (int i = 0; i < roles.Count; i++) {
-                        roleNames[i] = roles[i].RoleName;
-                    }
-
-                    UserRoles.DeleteRolesFromUsers(roleNames, new long[] { membership.UserId });
-
-                    // remove membership information
-                    int affectedRows = UserMembership.DeleteUserMembership(membership.UserId);
-                    userDeleted = (affectedRows != INVALID_AFFFECTED_ROWS);
-                }
-            } catch {
-                userDeleted = false;
-            }
-
-            return userDeleted;
+            throw new NotSupportedException("Deleting users is disabled.");
         }
 
         public override bool EnablePasswordReset {
@@ -127,6 +146,7 @@ namespace Business {
                 int pageIndex, int pageSize, out int totalRecords) {
             const bool IS_APPROVED = true;
             
+            //  validate email
             const int EMAIL_NAME_INDEX = 0;
             const int EMAIL_DOMAIN_INDEX = 1;
             const int EMAIL_COMPONENT_COUNT = 2;
@@ -136,6 +156,7 @@ namespace Business {
                 throw new ArgumentException("The specified email must include a single '@'");
             }
 
+            // retrieved matched users
             Data.EducationOverflow.UserMembershipMatchingEmailDataTable matchedUserMembership = 
                 UserMembership.SelectUserMembershipMatchingEmail(emailComponents[EMAIL_NAME_INDEX], 
                     emailComponents[EMAIL_DOMAIN_INDEX]);
@@ -144,6 +165,7 @@ namespace Business {
             System.Web.Security.MembershipUserCollection membershipCollection = 
                 new System.Web.Security.MembershipUserCollection();
 
+            // parse retrieved users into data model
             Data.EducationOverflow.UserMembershipMatchingEmailRow currentMember;
             int startingIndex = pageSize * pageIndex;
             for (int i = startingIndex; i < pageSize; i++) {
@@ -161,10 +183,12 @@ namespace Business {
                 int pageIndex, int pageSize, out int totalRecords) {
             const bool IS_APPROVED = true;
 
+            // retrieve matched users
             Data.EducationOverflow.UserMembershipMatchingUsernameDataTable matchedUserMembership =
                 UserMembership.SelectUserMembershipMatchingUsername(usernameToMatch);
             totalRecords = matchedUserMembership.Count;
 
+            // parse retrieved users into data model
             System.Web.Security.MembershipUserCollection membershipCollection =
                 new System.Web.Security.MembershipUserCollection();
 
@@ -183,9 +207,12 @@ namespace Business {
 
         public override System.Web.Security.MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords) {
             const bool IS_APPROVED = true;
+
+            // retrieve users
             Data.EducationOverflow.AllUserMembershipDataTable allUserMembership = UserMembership.SelectAllUserMembership();
             totalRecords = allUserMembership.Count;
 
+            // parse retrieved users into data model
             System.Web.Security.MembershipUserCollection membershipCollection = new System.Web.Security.MembershipUserCollection();
 
             Data.EducationOverflow.AllUserMembershipRow currentMember;
@@ -223,6 +250,7 @@ namespace Business {
         public override System.Web.Security.MembershipUser GetUser(string username, bool userIsOnline) {
             System.Web.Security.MembershipUser membership = null;
             Data.EducationOverflow.UserMembershipRow retrievedMembership = UserMembership.SelectUserMembership(username);
+            
             if (retrievedMembership != null) {
                 membership = new System.Web.Security.MembershipUser("CustomMembershipProvider", 
                     retrievedMembership.Username, retrievedMembership.UserId, retrievedMembership.Email, null, null, true, 
@@ -298,8 +326,14 @@ namespace Business {
             }
         }
 
+        /// <summary>
+        /// Retrieve the regular expression used for determining password strength.
+        /// </summary>
+        /// <remarks>
+        /// The returned regular expression is sourced from:
+        /// http://stackoverflow.com/questions/447638/a-sensible-passwordstrengthregularexpression
+        /// </remarks>
         public override string PasswordStrengthRegularExpression {
-            // Source: http://stackoverflow.com/questions/447638/a-sensible-passwordstrengthregularexpression
             get { 
                 return "^.*(?=.{" + this.MinRequiredPasswordLength + ",})(?=.*\\d).*$"; 
             }
@@ -322,20 +356,24 @@ namespace Business {
         }
 
         public override bool UnlockUser(string userName) {
-            const int INVALID_AFFECTED_ROWS = 0;
+            const int VALID_AFFECTED_ROWS = 1;
             bool isUnlocked = false;
 
-            Data.EducationOverflow.UserMembershipRow membership = UserMembership.SelectUserMembership(userName);
+            Data.EducationOverflow.UserMembershipRow membership = 
+                UserMembership.SelectUserMembership(userName);
             if (membership != null) {
                 int affectedRows = Queries.UnlockUser(membership.UserId);
-                isUnlocked = (affectedRows != INVALID_AFFECTED_ROWS);
+                isUnlocked = (affectedRows == VALID_AFFECTED_ROWS);
             }
 
             return isUnlocked;
         }
 
         public override void UpdateUser(System.Web.Security.MembershipUser user) {
-            Data.EducationOverflow.UserMembershipRow membership = UserMembership.SelectUserMembership(user.UserName);
+            
+            // determine if user exists
+            Data.EducationOverflow.UserMembershipRow membership = 
+                UserMembership.SelectUserMembership(user.UserName);
             if (membership == null) {
                 throw new ProviderException("Invalid user was specified for updating.");
             }

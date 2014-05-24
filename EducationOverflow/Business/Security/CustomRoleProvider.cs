@@ -8,6 +8,15 @@ using System.Configuration.Provider;
 
 namespace Business {
 
+    /// <summary>
+    /// The role provider used for the Education Overflow Web application.
+    /// </summary>
+    /// <remarks>
+    /// For detailed documentation of overriden methods in this class, consult 
+    /// the class documentation for System.Web.Security.RoleProvider. Comments 
+    /// have been included in this class only to document special 
+    /// implementation details.
+    /// </remarks>
     public class CustomRoleProvider : System.Web.Security.RoleProvider {
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames) {
@@ -39,6 +48,14 @@ namespace Business {
             }
         }
 
+        /// <summary>
+        /// Get and set the application name associated with the role provider.
+        /// </summary>
+        /// <remarks>
+        /// The Education Overflow Web application does not currently use application
+        /// names. As such, this property throws an exception if a value is set which is not
+        /// equal to the current application name.
+        /// </remarks>
         public override string ApplicationName {
             get {
                 return CustomProvider.ApplicationName;
@@ -52,10 +69,11 @@ namespace Business {
         }
 
         public override void CreateRole(string roleName) {
+            const string ROLE_DESCRIPTION = null;
             CustomRoleProvider.ValidateRoleName(roleName);
 
             try {
-                Role.InsertRole(roleName, null);
+                Role.InsertRole(roleName, ROLE_DESCRIPTION);
             } catch (Exception e) {
                 throw new ProviderException("Failed to create role. Error message: " + e.Message);
             }
@@ -70,6 +88,7 @@ namespace Business {
                 throw new ArgumentException("The specified role name does not exist.");
             }
 
+            // attempt to delete the specified role
             if (throwOnPopulatedRole) {
                 Data.EducationOverflow.UsersWithRoleDataTable usersInRole = UserRoles.SelectUsersWithRole(roleName);
                 if (usersInRole.Count > 0) {
@@ -78,6 +97,8 @@ namespace Business {
                     roleDeleted = this.DeleteRole(roleName);
                 }
             } else {
+
+                // TODO: replace with transaction.
                 Data.EducationOverflow.UsersWithRoleDataTable usersWithRole = UserRoles.SelectUsersWithRole(roleName);
                 foreach (Data.EducationOverflow.UsersWithRoleRow userWithRole in usersWithRole) {
                     UserRoles.DeleteUserRole(roleName, userWithRole.UserId);
@@ -208,13 +229,37 @@ namespace Business {
             return (Role.SelectRole(roleName) != null);
         }
 
+
         // helper methods
 
+
+        /// <summary>
+        /// Delete a role from the application.
+        /// </summary>
+        /// <param name="roleName">The name of the role to be deleted.</param>
+        /// <returns>True if the role was successfully deleted; otherwise, false.</returns>
         private bool DeleteRole(string roleName) {
             const int SUCCESSFUL_DELETE_COUNT = 1;
-            return (Role.DeleteRole(roleName) >= SUCCESSFUL_DELETE_COUNT);
+
+            // attempt to delete the specified role
+            bool roleDeleted;
+            try {
+                roleDeleted = (Role.DeleteRole(roleName) >= SUCCESSFUL_DELETE_COUNT);
+            } catch {
+                roleDeleted = false;
+            }
+
+            return roleDeleted;
         }
 
+        /// <summary>
+        /// Validate the format of a role name.
+        /// </summary>
+        /// <param name="roleName">The role name to be validated.</param>
+        /// <remarks>
+        /// This method throws exceptions in the event that a role name is invalid. Many abstract
+        /// methods of System.Web.Security.RoleProvider require such exceptions to be thrown.
+        /// </remarks>
         private static void ValidateRoleName(string roleName) {
             const string INVALID_ROLE_NAME = "";
             const string INVALID_ROLE_NAME_CHARACTER = ",";
@@ -228,6 +273,14 @@ namespace Business {
             }
         }
 
+        /// <summary>
+        /// Validate the format of a username.
+        /// </summary>
+        /// <param name="username">The username to be validated.</param>
+        /// <remarks>
+        /// This method throws exceptions in the event that a username is invalid. Many abstract
+        /// methods of System.Web.Security.RoleProvider require such exceptions to be thrown.
+        /// </remarks>
         private static void ValidateUsername(string username) {
             const string INVALID_USERNAME = "";
 

@@ -9,6 +9,10 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
+    /// <summary>
+    /// The DataObject class for performing read operations on accepted answers 
+    /// sourced from Stack Exchange.
+    /// </summary>
     [DataObject]
     public class AcceptedAnswer {
         
@@ -17,7 +21,9 @@ namespace Business {
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.AcceptedAnswerRow SelectAcceptedAnswer(long questionId) {
-            return (Data.EducationOverflow.AcceptedAnswerRow)acceptedAnswerTableAdapter.GetData(questionId).Rows[0];
+            Data.EducationOverflow.AcceptedAnswerDataTable answerDataTable = 
+                acceptedAnswerTableAdapter.GetData(questionId);
+            return DataSetUtilities.GetFirstRow<Data.EducationOverflow.AcceptedAnswerRow>(answerDataTable);
         }
     }
 }

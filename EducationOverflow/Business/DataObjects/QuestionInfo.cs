@@ -25,6 +25,9 @@ namespace Business {
         private static QuestionInfoTableAdapter questionInfoTableAdapter = 
             new QuestionInfoTableAdapter();
 
+        private static QueriesTableAdapter queriesTableAdapter = 
+            new QueriesTableAdapter();
+
         /// <summary>
         /// Retrieve all question information.
         /// </summary>
@@ -34,18 +37,16 @@ namespace Business {
             return questionInfoTableAdapter.GetData();
         }
 
-        // TODO: redo data set - table adapter.
-
         /// <summary>
-        /// Insert information for question.
+        /// Insert information for a question.
         /// </summary>
-        /// <param name="body"></param>
-        /// <param name="upVotes"></param>
-        /// <param name="downVotes"></param>
-        /// <returns></returns>
+        /// <param name="questionId">The id for the question.</param>
+        /// <param name="body">The body of a question (including HTML tags).</param>
+        /// <param name="upVotes">The number of up votes the question has (on Stack Exchange).</param>
+        /// <param name="downVotes">The number of down votes the question has (on Stack Exchange).</param>
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public static int InsertQuestionInfo(string body, int upVotes, int downVotes) {
-            return questionInfoTableAdapter.Insert(body, upVotes, downVotes);
+        public static void InsertQuestionInfo(long questionId, string body, int upVotes, int downVotes) {
+            queriesTableAdapter.InsertQuestionInfoForId(questionId, body, upVotes, downVotes);
         }
 
         /// <summary>

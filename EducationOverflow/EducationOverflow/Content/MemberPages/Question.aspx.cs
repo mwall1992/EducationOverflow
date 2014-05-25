@@ -34,20 +34,23 @@ namespace EducationOverflow.Content.Member_Pages {
                 // set state of controls
                 string userAnswerId;
                 if ((userAnswerId = Request.QueryString[USER_ANSWER_ID_PARAMETER]) != null) {
+
+                    // populate answer and notes sections
                     Data.EducationOverflow.UserAnswerToQuestionRow answer =
                         Business.UserAnswerToQuestion.SelectUserAnswerToQuestion(userId, Convert.ToInt64(userAnswerId));
-                        if (answer != null) {
-                            myAnswerTextBox.Text = answer.Body;
-                            NotesTextBox.Text = answer.Notes;
+                    if (answer != null) {
+                        myAnswerTextBox.Text = answer.Body;
+                        NotesTextBox.Text = answer.Notes;
 
-                            if (answer.IsAnswered) {
-                                HintButton.Visible = false;
-                                SaveButton.Visible = false;
-                                SolutionButton.Visible = false;
-                                SolutionLabel.Text =
-                                    Business.AcceptedAnswer.SelectAcceptedAnswer(questionIdNumber).Body;
-                            }
+                        if (answer.IsAnswered) {
+                            HintButton.Visible = false;
+                            SaveButton.Visible = false;
+                            SolutionButton.Visible = false;
+                            SolutionLabel.Text =
+                                Business.AcceptedAnswer.SelectAcceptedAnswer(questionIdNumber).Body;
                         }
+                    }
+
                 } else {
                     const int MIN_ANSWERS_FOR_HINT = 2;
                     HintButton.Enabled = ((int)infoRow["AnswerCount"] >= MIN_ANSWERS_FOR_HINT);
@@ -57,7 +60,7 @@ namespace EducationOverflow.Content.Member_Pages {
 
         protected void SaveButton_Click(object sender, EventArgs e) {
             long questionId = Convert.ToInt64(Request.QueryString[QUESTION_ID_PARAMETER]);
-            
+
             // retrieve user information
             System.Web.Security.MembershipUser user = System.Web.Security.Membership.GetUser();
             long userId = Convert.ToInt64(user.ProviderUserKey);
@@ -112,8 +115,15 @@ namespace EducationOverflow.Content.Member_Pages {
 
         protected void SolutionButton_Click(object sender, EventArgs e) {
             SolutionButton.Visible = false;
-            SolutionLabel.Text =
+
+            string solutionText = 
                 Business.AcceptedAnswer.SelectAcceptedAnswer(Convert.ToInt64(Request.QueryString[QUESTION_ID_PARAMETER])).Body;
+
+            if (solutionText != null) {
+                SolutionLabel.Text = solutionText;
+            } else {
+                SolutionLabel.Text = "No answer was found.";
+            }
         }
 
         protected void ReportQuestionButton_Click(object sender, EventArgs e) {
@@ -151,6 +161,37 @@ namespace EducationOverflow.Content.Member_Pages {
                 FeedbackSuccessLabel.Visible = true;
             } catch {
                 ErrorLabelFeedback.Visible = true;
+            }
+        }
+
+        protected void HintRepeater_PreRender(object sender, EventArgs e) {
+            // retrieve user information
+            System.Web.Security.MembershipUser user = System.Web.Security.Membership.GetUser();
+            long userId = Convert.ToInt64(user.ProviderUserKey);
+
+            // set state of controls
+            string userAnswerId;
+            if ((userAnswerId = Request.QueryString[USER_ANSWER_ID_PARAMETER]) != null) {
+
+                // populate hints section
+                Data.EducationOverflow.OrderHintsForUserAnswerDataTable hintsTable =
+                    Business.OrderHintsForUserAnswer.SelectHintsForUserAnswer(userId, Convert.ToInt64(userAnswerId));
+
+                RepeaterItemCollection repeaterItems = HintRepeater.Items;
+
+                RepeaterItem currentRepeaterItem;
+                for (int i = 0; i < hintsTable.Rows.Count; i++) {
+                    currentRepeaterItem = repeaterItems[i];
+                    Control hintContainer = currentRepeaterItem.FindControl("HintContainer");
+
+                    long apiAnswerId = Convert.ToInt64(((HiddenField)hintContainer.FindControl("APIAnswerIdField")).Value);
+                    long usedHintRowApiId =
+                        ((Data.EducationOverflow.OrderHintsForUserAnswerRow)hintsTable.Rows[i]).APIAnswerId;
+
+                    if (apiAnswerId == usedHintRowApiId) {
+                        hintContainer.Visible = true;
+                    }
+                }
             }
         }
     }

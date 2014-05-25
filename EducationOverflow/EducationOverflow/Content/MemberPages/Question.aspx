@@ -18,7 +18,7 @@
     
     <!-- Question Hints -->
     <h3>Hints:</h3>
-    <asp:Repeater ID="HintRepeater" runat="server" DataSourceID="HintsDataSource">
+    <asp:Repeater ID="HintRepeater" runat="server" DataSourceID="HintsDataSource" OnPreRender="HintRepeater_PreRender">
         <ItemTemplate>
             <div id="HintContainer" runat="server" visible="false">
                 <asp:HiddenField ID="APIAnswerIdField" runat="server" Value='<%# Eval("APIAnswerId") %>' />
@@ -94,6 +94,7 @@
             <asp:Label ID="FeedbackSuccessLabel" runat="server" ForeColor="Red" Text="Thank you for your feedback!" Visible="false"></asp:Label>
         </div>
     </div>
+    <h3>Report Question</h3>
     <div class="report-question-component">
         <h4>What's wrong?</h4>
         <asp:RadioButtonList ID="ReportedReasonList" runat="server" DataSourceID="ReportedQuestionReasonDataSource" DataTextField="Description" DataValueField="ReasonId">

@@ -9,33 +9,38 @@ using DataAccess.EducationOverflowTableAdapters;
 
 namespace Business {
 
+    /// <summary>
+    /// The DataObject class for performing CRUD operations on question feedback from specific users.
+    /// </summary>
+    /// <remarks>
+    /// This class is used in the Feedback.aspx page.
+    /// </remarks>
     [DataObject]
     public class UserQuestionFeedback {
 
         // <summary>
-        // The table adapter used for answers.
+        // The table adapter used for user question feedback.
         // </summary>
         private static UserQuestionFeedbackTableAdapter feedbackTableAdapter = 
             new UserQuestionFeedbackTableAdapter();
 
         // <summary>
-        // Retrieve answers associated with a question.
+        // Retrieve feedback for questions from a given user.
         // </summary>
-        // <param name="questionId">The question identifier.</param>
-        // <returns>A table of answers associated with the question identifier.</returns>
+        // <param name="questionId">The user id.</param>
+        // <returns>A table containing information on feedback from a specific user.</returns>
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.UserQuestionFeedbackDataTable SelectUserQuestionFeedback(long userId) {
             return feedbackTableAdapter.GetData(userId);
         }
 
         /// <summary>
-        /// Insert an answer for a specific question.
+        /// Insert feedback for questions from a given user.
         /// </summary>
-        /// <param name="apiAnswerId">The identifier assigned to the answer by the Stack Exchange API.</param>
-        /// <param name="body">The body of the question (including html tags).</param>
-        /// <param name="upVotes">The number of up votes the answer received via Stack Exchange.</param>
-        /// <param name="downVotes">The number of down votes the answer received via Stack Exchange.</param>
-        /// <param name="isAccepted">Denotes whether the answer is accepted or not.</param>
+        /// <param name="questionId">The question id.</param>
+        /// <param name="userId">The user id.</param>
+        /// <param name="liked">Denotes if the user liked (true) or disliked (false) the question.</param>
+        /// <param name="summaryAdjective">The user's summary adjective for the question.</param>
         /// <returns>The number of rows affected by the insertion.</returns>
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static int InsertUserQuestionFeedback(long questionId, long userId, bool liked,
@@ -44,20 +49,14 @@ namespace Business {
         }
 
         /// <summary>
-        /// Update an answer for a specific question
+        /// Update a user's feedback for a specific question.
         /// </summary>
-        /// <param name="questionId"></param>
-        /// <param name="apiAnswerId">The identifier assigned to the answer by the Stack Exchange API.</param>
-        /// <param name="body">The body of the question (including html tags).</param>
-        /// <param name="upVotes">The number of up votes the answer received via Stack Exchange.</param>
-        /// <param name="downVotes">The number of down votes the answer received via Stack Exchange.</param>
-        /// <param name="isAccepted">Denotes whether the answer is accepted or not.</param>
-        /// <param name="originalQuestionId">
-        /// The question id of the question originally associated with the answer.
-        /// </param>
-        /// <param name="originalApiAnswerId">
-        /// The id originally associated with the answer as provided by the Stack Exchange API.
-        /// </param>
+        /// <param name="questionId">The question id.</param>
+        /// <param name="userId">The user id.</param>
+        /// <param name="liked">Denotes if the user liked (true) or disliked (false) the question.</param>
+        /// <param name="summaryAdjective">The user's summary adjective for the question.</param>
+        /// <param name="originalQuestionId">The original question id.</param>
+        /// <param name="originalUserId">The original user id.</param>
         /// <returns>The number of rows affected by the update.</returns>
         [DataObjectMethod(DataObjectMethodType.Update)]
         public static int UpdateUserQuestionFeedback(long questionId, long userId, bool liked,
@@ -66,14 +65,10 @@ namespace Business {
         }
 
         /// <summary>
-        /// Delete an answer for a specific question.
+        /// Delete a user's feedback for a given question.
         /// </summary>
-        /// <param name="originalQuestionId">
-        /// The question id of the question originally associated with the answer.
-        /// </param>
-        /// <param name="originalApiAnswerId">
-        /// The id originally associated with the answer as provided by the Stack Exchange API.
-        /// </param>
+        /// <param name="userId">The user id.</param>
+        /// <param name="originalQuestionId">The original question id.</param>
         /// <returns>The number of rows affected by the deletion.</returns>
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public static int DeleteUserQuestionFeedback(long userId, long originalQuestionId) {

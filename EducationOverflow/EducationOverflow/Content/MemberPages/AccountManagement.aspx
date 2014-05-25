@@ -18,6 +18,17 @@
     <p>
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Content/MemberAndAdminPages/ChangePassword.aspx">Click here to change your password</asp:HyperLink>
     </p>
+    <h4>Answer History</h4>
+    <p>
+        Praesent pretium libero ac accumsan adipiscing. Aliquam mattis ante nec enim sagittis, et dictum neque 
+        consequat. Curabitur ultricies iaculis elit et condimentum. In hac habitasse platea dictumst. Mauris 
+        dictum dignissim placerat. In ut ligula eget nibh ornare rhoncus vitae vel est. Quisque id est ornare, 
+        suscipit libero nec, varius libero. Morbi tellus lectus, ornare eu dui suscipit, posuere tempus leo. 
+        Nam eget elit a orci vestibulum molestie ut non neque. Duis a diam arcu.
+    </p>
+    <p>
+        <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Content/MemberPages/QuestionHistory.aspx">Click here to view your answer history</asp:HyperLink>
+    </p>
     <h4>Reported Questions</h4>
     <p>
         Praesent pretium libero ac accumsan adipiscing. Aliquam mattis ante nec enim sagittis, et dictum neque 

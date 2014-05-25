@@ -13,13 +13,13 @@ namespace EducationOverflow.Content.Member_Pages {
     public partial class Questions {
         
         /// <summary>
-        /// Repeater1 control.
+        /// QuestionGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.WebControls.GridView QuestionGridView;
         
         /// <summary>
         /// QuestionSummaryDataSource control.

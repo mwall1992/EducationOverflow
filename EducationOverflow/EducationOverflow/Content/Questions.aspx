@@ -9,14 +9,25 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
-    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="QuestionSummaryDataSource">
-        <ItemTemplate>
-            <div class="question-element">
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("QuestionId", "~/Content/MemberPages/Question.aspx?QuestionId={0}") %>'><%# Eval("Title") %></asp:HyperLink>
-            </div>
-        </ItemTemplate>
-    </asp:Repeater>
-    <asp:ObjectDataSource ID="QuestionSummaryDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectQuestionSummaries" TypeName="Business.QuestionSummary"></asp:ObjectDataSource>
+    <asp:GridView ID="QuestionGridView" runat="server" AllowPaging="True" DataSourceID="QuestionSummaryDataSource" 
+        DataKeyNames="QuestionId" AutoGenerateColumns="False">
+        <Columns>
+            <asp:BoundField DataField="Name" HeaderText="Site Name" SortExpression="Name" />
+            <asp:BoundField DataField="Title" HeaderText="Question" SortExpression="Title" />
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <asp:HyperLink ID="DetailsLink" runat="server" NavigateUrl='<%# string.Format("~/Content/MemberPages/Question.aspx?QuestionId={0}",
+                        HttpUtility.UrlEncode(Eval("QuestionId").ToString())) %>'
+                        Text="Attempt Question" />
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+        <EmptyDataTemplate>
+            There are not questions.
+        </EmptyDataTemplate>
+    </asp:GridView>
+    <asp:ObjectDataSource ID="QuestionSummaryDataSource" runat="server" SelectMethod="SelectQuestionSummaries" TypeName="Business.QuestionSummary">
+    </asp:ObjectDataSource>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" runat="server">

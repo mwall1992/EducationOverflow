@@ -7,7 +7,15 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="true" AllowPaging="True" DataSourceID="TagsDataSource">
+    <h1>
+        Tag Information
+    </h1>
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AllowPaging="True" 
+        DataSourceID="TagsDataSource" Height="100%" Width="100%">
+        <Columns>
+            <asp:BoundField DataField="Name" HeaderText="Tag" SortExpression="Name" />
+            <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Title" />
+        </Columns>
     </asp:GridView>
     <asp:ObjectDataSource ID="TagsDataSource" runat="server" SelectMethod="SelectTags" TypeName="Business.TagInfo"></asp:ObjectDataSource>
 </asp:Content>

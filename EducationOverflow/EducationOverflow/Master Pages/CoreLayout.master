@@ -46,7 +46,6 @@
                 <div id="navigation-bar-left" class="navigation-bar">
 				    <ul>
 					    <li><a id="A1" runat="server" href="~/Default.aspx">Home</a></li>
-					    <li><a id="A2" runat="server" href="~/Content/Tour.aspx">Tour</a></li>
 					    <li><a id="A3" runat="server" href="~/Content/Questions.aspx">Questions</a></li>
 					    <li><a id="A4" runat="server" href="~/Content/Tags.aspx">Tags</a></li>
 				    </ul>

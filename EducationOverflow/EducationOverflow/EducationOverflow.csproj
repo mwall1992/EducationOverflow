@@ -72,7 +72,6 @@
     <Content Include="Content\Questions.aspx" />
     <Content Include="Content\MemberPages\ReportedQuestions.aspx" />
     <Content Include="Content\Tags.aspx" />
-    <Content Include="Content\Tour.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Content\Register.aspx" />
@@ -175,13 +174,6 @@
     </Compile>
     <Compile Include="Content\Tags.aspx.designer.cs">
       <DependentUpon>Tags.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Tour.aspx.cs">
-      <DependentUpon>Tour.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\Tour.aspx.designer.cs">
-      <DependentUpon>Tour.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

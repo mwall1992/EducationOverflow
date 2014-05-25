@@ -69,4 +69,7 @@
             <asp:CompleteWizardStep runat="server" />
         </WizardSteps>
     </asp:CreateUserWizard>
+    <div>
+        <asp:Label ID="RegisterFailLabel" runat="server" ForeColor="Red" Text="Failed to register user. Please refresh your browser and try again." Visible="false"></asp:Label>
+    </div>
 </asp:Content>

@@ -14,9 +14,14 @@ namespace EducationOverflow {
         protected void CreateUserWizard_CreatedUser(object sender, EventArgs e) {
             const string USER_ROLE = "user";
             const bool USER_IS_ONLINE = true;
-            System.Web.Security.MembershipUser newUser = 
+
+            try {
+                System.Web.Security.MembershipUser newUser =
                 (new Business.CustomMembershipProvider()).GetUser(CreateUserWizard.UserName, USER_IS_ONLINE);
-            Business.UserRoles.InsertUserRole(USER_ROLE, (long)newUser.ProviderUserKey);
+                Business.UserRoles.InsertUserRole(USER_ROLE, (long)newUser.ProviderUserKey);
+            } catch {
+                RegisterFailLabel.Visible = true;
+            }
         }
     }
 }

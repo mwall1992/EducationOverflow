@@ -245,10 +245,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Code\" />
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{66bf89e9-1200-4b17-816a-22f6e484998a}</Project>

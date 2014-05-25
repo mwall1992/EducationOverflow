@@ -12617,13 +12617,19 @@ Partial Public Class EducationOverflow
     Partial Public Class UserQuestionFeedbackDataTable
         Inherits Global.System.Data.TypedTableBase(Of UserQuestionFeedbackRow)
         
-        Private columnUserId As Global.System.Data.DataColumn
-        
         Private columnQuestionId As Global.System.Data.DataColumn
+        
+        Private columnUserId As Global.System.Data.DataColumn
         
         Private columnLiked As Global.System.Data.DataColumn
         
         Private columnSummaryAdjective As Global.System.Data.DataColumn
+        
+        Private columnURL As Global.System.Data.DataColumn
+        
+        Private columnTitle As Global.System.Data.DataColumn
+        
+        Private columnName As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -12662,17 +12668,17 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property QuestionIdColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnUserId
+                Return Me.columnQuestionId
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property QuestionIdColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnQuestionId
+                Return Me.columnUserId
             End Get
         End Property
         
@@ -12689,6 +12695,30 @@ Partial Public Class EducationOverflow
         Public ReadOnly Property SummaryAdjectiveColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnSummaryAdjective
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property URLColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnURL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TitleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTitle
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnName
             End Get
         End Property
         
@@ -12729,9 +12759,9 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddUserQuestionFeedbackRow(ByVal UserId As Long, ByVal QuestionId As Long, ByVal Liked As Boolean, ByVal SummaryAdjective As String) As UserQuestionFeedbackRow
+        Public Overloads Function AddUserQuestionFeedbackRow(ByVal QuestionId As Long, ByVal UserId As Long, ByVal Liked As Boolean, ByVal SummaryAdjective As String, ByVal URL As String, ByVal Title As String, ByVal Name As String) As UserQuestionFeedbackRow
             Dim rowUserQuestionFeedbackRow As UserQuestionFeedbackRow = CType(Me.NewRow,UserQuestionFeedbackRow)
-            Dim columnValuesArray() As Object = New Object() {UserId, QuestionId, Liked, SummaryAdjective}
+            Dim columnValuesArray() As Object = New Object() {QuestionId, UserId, Liked, SummaryAdjective, URL, Title, Name}
             rowUserQuestionFeedbackRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUserQuestionFeedbackRow)
             Return rowUserQuestionFeedbackRow
@@ -12739,8 +12769,8 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByUserIdQuestionId(ByVal UserId As Long, ByVal QuestionId As Long) As UserQuestionFeedbackRow
-            Return CType(Me.Rows.Find(New Object() {UserId, QuestionId}),UserQuestionFeedbackRow)
+        Public Function FindByQuestionIdUserId(ByVal QuestionId As Long, ByVal UserId As Long) As UserQuestionFeedbackRow
+            Return CType(Me.Rows.Find(New Object() {QuestionId, UserId}),UserQuestionFeedbackRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12760,29 +12790,44 @@ Partial Public Class EducationOverflow
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnUserId = MyBase.Columns("UserId")
             Me.columnQuestionId = MyBase.Columns("QuestionId")
+            Me.columnUserId = MyBase.Columns("UserId")
             Me.columnLiked = MyBase.Columns("Liked")
             Me.columnSummaryAdjective = MyBase.Columns("SummaryAdjective")
+            Me.columnURL = MyBase.Columns("URL")
+            Me.columnTitle = MyBase.Columns("Title")
+            Me.columnName = MyBase.Columns("Name")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUserId)
             Me.columnQuestionId = New Global.System.Data.DataColumn("QuestionId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQuestionId)
+            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUserId)
             Me.columnLiked = New Global.System.Data.DataColumn("Liked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLiked)
             Me.columnSummaryAdjective = New Global.System.Data.DataColumn("SummaryAdjective", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSummaryAdjective)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId, Me.columnQuestionId}, true))
-            Me.columnUserId.AllowDBNull = false
+            Me.columnURL = New Global.System.Data.DataColumn("URL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnURL)
+            Me.columnTitle = New Global.System.Data.DataColumn("Title", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTitle)
+            Me.columnName = New Global.System.Data.DataColumn("Name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnName)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnQuestionId, Me.columnUserId}, true))
             Me.columnQuestionId.AllowDBNull = false
+            Me.columnUserId.AllowDBNull = false
             Me.columnLiked.AllowDBNull = false
             Me.columnSummaryAdjective.AllowDBNull = false
             Me.columnSummaryAdjective.MaxLength = 20
+            Me.columnURL.AllowDBNull = false
+            Me.columnURL.MaxLength = 300
+            Me.columnTitle.AllowDBNull = false
+            Me.columnTitle.MaxLength = 250
+            Me.columnName.AllowDBNull = false
+            Me.columnName.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17366,23 +17411,23 @@ Partial Public Class EducationOverflow
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property UserId() As Long
-            Get
-                Return CType(Me(Me.tableUserQuestionFeedback.UserIdColumn),Long)
-            End Get
-            Set
-                Me(Me.tableUserQuestionFeedback.UserIdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property QuestionId() As Long
             Get
                 Return CType(Me(Me.tableUserQuestionFeedback.QuestionIdColumn),Long)
             End Get
             Set
                 Me(Me.tableUserQuestionFeedback.QuestionIdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property UserId() As Long
+            Get
+                Return CType(Me(Me.tableUserQuestionFeedback.UserIdColumn),Long)
+            End Get
+            Set
+                Me(Me.tableUserQuestionFeedback.UserIdColumn) = value
             End Set
         End Property
         
@@ -17405,6 +17450,39 @@ Partial Public Class EducationOverflow
             End Get
             Set
                 Me(Me.tableUserQuestionFeedback.SummaryAdjectiveColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property URL() As String
+            Get
+                Return CType(Me(Me.tableUserQuestionFeedback.URLColumn),String)
+            End Get
+            Set
+                Me(Me.tableUserQuestionFeedback.URLColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Title() As String
+            Get
+                Return CType(Me(Me.tableUserQuestionFeedback.TitleColumn),String)
+            End Get
+            Set
+                Me(Me.tableUserQuestionFeedback.TitleColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Name() As String
+            Get
+                Return CType(Me(Me.tableUserQuestionFeedback.NameColumn),String)
+            End Get
+            Set
+                Me(Me.tableUserQuestionFeedback.NameColumn) = value
             End Set
         End Property
     End Class

@@ -12,17 +12,17 @@ namespace Business {
     [DataObject]
     public class UserQuestionFeedback {
 
-        /// <summary>
-        /// The table adapter used for answers.
-        /// </summary>
+        // <summary>
+        // The table adapter used for answers.
+        // </summary>
         private static UserQuestionFeedbackTableAdapter feedbackTableAdapter = 
             new UserQuestionFeedbackTableAdapter();
 
-        /// <summary>
-        /// Retrieve answers associated with a question.
-        /// </summary>
-        /// <param name="questionId">The question identifier.</param>
-        /// <returns>A table of answers associated with the question identifier.</returns>
+        // <summary>
+        // Retrieve answers associated with a question.
+        // </summary>
+        // <param name="questionId">The question identifier.</param>
+        // <returns>A table of answers associated with the question identifier.</returns>
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Data.EducationOverflow.UserQuestionFeedbackDataTable SelectUserQuestionFeedback(long userId) {
             return feedbackTableAdapter.GetData(userId);
@@ -40,7 +40,7 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static int InsertUserQuestionFeedback(long questionId, long userId, bool liked,
                 string summaryAdjective) {
-            return feedbackTableAdapter.Insert(questionId, userId, liked, summaryAdjective);
+            return Business.QuestionFeedback.InsertQuestionFeedback(questionId, userId, liked, summaryAdjective);
         }
 
         /// <summary>
@@ -62,8 +62,7 @@ namespace Business {
         [DataObjectMethod(DataObjectMethodType.Update)]
         public static int UpdateUserQuestionFeedback(long questionId, long userId, bool liked,
                 string summaryAdjective, long originalQuestionId, long originalUserId) {
-            return feedbackTableAdapter.Update(questionId, userId, liked, summaryAdjective, 
-                originalQuestionId, originalUserId);
+            return Business.QuestionFeedback.UpdateQuestionFeedback(questionId, userId, liked, summaryAdjective, originalQuestionId, originalUserId);
         }
 
         /// <summary>
@@ -78,7 +77,7 @@ namespace Business {
         /// <returns>The number of rows affected by the deletion.</returns>
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public static int DeleteUserQuestionFeedback(long userId, long originalQuestionId) {
-            return feedbackTableAdapter.Delete(originalQuestionId, userId);
+            return Business.QuestionFeedback.DeleteQuestionFeedback(originalQuestionId, userId);
         }
     }
 }

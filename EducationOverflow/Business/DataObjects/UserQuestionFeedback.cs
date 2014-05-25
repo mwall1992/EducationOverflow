@@ -77,8 +77,8 @@ namespace Business {
         /// </param>
         /// <returns>The number of rows affected by the deletion.</returns>
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public static int DeleteUserQuestionFeedback(long originalQuestionId, long originalUserId) {
-            return feedbackTableAdapter.Delete(originalQuestionId, originalUserId);
+        public static int DeleteUserQuestionFeedback(long userId, long originalQuestionId) {
+            return feedbackTableAdapter.Delete(originalQuestionId, userId);
         }
     }
 }

@@ -34,12 +34,11 @@ namespace Business {
         /// <summary>
         /// Delete a question report for a user.
         /// </summary>
-        /// <param name="questionId">The question id.</param>
         /// <param name="userId">The user id.</param>
+        /// <param name="questionId">The question id.</param>
         /// <returns>The number of rows affected by the deletion.</returns>
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public static int DeleteReportedQuestionFromUserView(long questionId, 
-                long userId) {
+        public static int DeleteReportedQuestionFromUserView(long userId, long questionId) {
             return Business.ReportedQuestion.DeleteReportedQuestion(questionId, userId);
         }
     }

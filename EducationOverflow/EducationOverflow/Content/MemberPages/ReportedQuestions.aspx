@@ -21,24 +21,13 @@
         </EmptyDataTemplate>
     </asp:GridView>
     
-    <asp:ObjectDataSource ID="ReportedQuestionsDataSource" runat="server" DeleteMethod="DeleteReportedQuestionFromUserView" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectQuestionsFromUserView" TypeName="Business.UserReportedQuestions">
+    <asp:ObjectDataSource ID="ReportedQuestionsDataSource" runat="server" DeleteMethod="DeleteReportedQuestionFromUserView" OldValuesParameterFormatString="question{0}" SelectMethod="SelectQuestionsFromUserView" TypeName="Business.UserReportedQuestions">
         <DeleteParameters>
-            <asp:Parameter Name="questionId" Type="Int64" />
             <asp:Parameter Name="userId" Type="Int64" />
         </DeleteParameters>
         <SelectParameters>
             <asp:Parameter Name="userId" Type="Int64" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    
-    <%--<asp:ObjectDataSource ID="ReportedQuestionsDataSource" runat="server" DeleteMethod="DeleteReportedQuestionFromUserView"
-        SelectMethod="SelectQuestionsFromUserView" TypeName="Business.UserReportedQuestions" OldValuesParameterFormatString="original_{0}">
-        <SelectParameters>
-            <asp:Parameter Name="userId" Type="Int64" />
-        </SelectParameters>
-        <DeleteParameters>
-            <asp:Parameter Name="userId" Type="Int64" />
-        </DeleteParameters>
-    </asp:ObjectDataSource>--%>
 </asp:Content>
 

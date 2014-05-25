@@ -148,6 +148,60 @@ namespace EducationOverflow.Content.Member_Pages {
         protected global::System.Web.UI.WebControls.Button SaveButton;
         
         /// <summary>
+        /// LikedCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox LikedCheckBox;
+        
+        /// <summary>
+        /// AdjectiveList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList AdjectiveList;
+        
+        /// <summary>
+        /// SummaryAdjectiveDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource SummaryAdjectiveDataSource;
+        
+        /// <summary>
+        /// FeedbackButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button FeedbackButton;
+        
+        /// <summary>
+        /// ErrorLabelFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorLabelFeedback;
+        
+        /// <summary>
+        /// FeedbackSuccessLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FeedbackSuccessLabel;
+        
+        /// <summary>
         /// ReportedReasonList control.
         /// </summary>
         /// <remarks>
@@ -191,6 +245,15 @@ namespace EducationOverflow.Content.Member_Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ErrorLabel;
+        
+        /// <summary>
+        /// ReportSuccessLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ReportSuccessLabel;
         
         /// <summary>
         /// ReportedReasonValidator control.

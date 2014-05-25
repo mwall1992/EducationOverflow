@@ -126,8 +126,31 @@ namespace EducationOverflow.Content.Member_Pages {
                 System.Web.Security.MembershipUser user = System.Web.Security.Membership.GetUser();
                 Business.ReportedQuestion.InsertReportedQuestion(questionId, Convert.ToInt64(user.ProviderUserKey),
                     Convert.ToInt32(ReportedReasonList.SelectedValue), ReportDescription.Text);
+
+                ReportSuccessLabel.Visible = true;
             } catch {
                 ErrorLabel.Visible = true;
+            }
+        }
+
+        protected void FeedbackButton_Click(object sender, EventArgs e) {
+            try {
+                LikedCheckBox.Enabled = false;
+                AdjectiveList.Enabled = false;
+                FeedbackButton.Enabled = false;
+
+                long questionId = Convert.ToInt64(Request.QueryString[QUESTION_ID_PARAMETER]);
+                
+                // retrieve user information
+                System.Web.Security.MembershipUser user = System.Web.Security.Membership.GetUser();
+                long userId = Convert.ToInt64(user.ProviderUserKey);
+
+                Business.QuestionFeedback.InsertQuestionFeedback(questionId, userId, 
+                    LikedCheckBox.Checked, AdjectiveList.SelectedValue);
+
+                FeedbackSuccessLabel.Visible = true;
+            } catch {
+                ErrorLabelFeedback.Visible = true;
             }
         }
     }

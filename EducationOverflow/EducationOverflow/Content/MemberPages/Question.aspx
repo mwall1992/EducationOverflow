@@ -74,14 +74,26 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="sidebar_content" runat="server">
-    <h3>Question Information</h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-    <h3>Report Question</h3>
-    <p>
-        Remember to read through the question and check your answer against the provided answer.
-    </p>
+    <h3>Give Feedback</h3>
+    <div class="report-question-component">
+        <h4>Did you like this question?</h4>
+        <asp:CheckBox ID="LikedCheckBox" runat="server" />
+    </div>
+    <div class="report-question-component">
+        <h4>What term best describes this question?</h4>
+        <asp:DropDownList ID="AdjectiveList" runat="server" DataSourceID="SummaryAdjectiveDataSource" DataValueField="Adjective" DataTextField="Adjective">
+        </asp:DropDownList>
+        <asp:ObjectDataSource ID="SummaryAdjectiveDataSource" runat="server" SelectMethod="SelectSummaryAdjectives" TypeName="Business.QuestionSummaryAdjective"></asp:ObjectDataSource>
+        <div>
+            <asp:Button ID="FeedbackButton" runat="server" Text="Send Feedback" OnClick="FeedbackButton_Click" CausesValidation="False" />
+        </div>
+        <div>
+            <asp:Label ID="ErrorLabelFeedback" runat="server" ForeColor="Red" Text="You have already given feedback for this question. This feedback will be ignored." Visible="false"></asp:Label>
+        </div>
+        <div>
+            <asp:Label ID="FeedbackSuccessLabel" runat="server" ForeColor="Red" Text="Thank you for your feedback!" Visible="false"></asp:Label>
+        </div>
+    </div>
     <div class="report-question-component">
         <h4>What's wrong?</h4>
         <asp:RadioButtonList ID="ReportedReasonList" runat="server" DataSourceID="ReportedQuestionReasonDataSource" DataTextField="Description" DataValueField="ReasonId">
@@ -94,6 +106,9 @@
         <asp:Button ID="ReportQuestionButton" runat="server" OnClick="ReportQuestionButton_Click" Text="Report Question" />
         <div>
             <asp:Label ID="ErrorLabel" runat="server" ForeColor="Red" Text="Each question can only be reported once per user. You have already reported this question. This report has been ignored." Visible="false"></asp:Label>
+        </div>
+        <div>
+            <asp:Label ID="ReportSuccessLabel" runat="server" ForeColor="Red" Text="Thank you for your report!" Visible="false"></asp:Label>
         </div>
         <div>
             <asp:RequiredFieldValidator ID="ReportedReasonValidator" runat="server" ControlToValidate="ReportedReasonList" ErrorMessage="* A reason for reporting a question must be selected." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>

@@ -30,7 +30,7 @@
             </div>
         </ItemTemplate>
     </asp:Repeater>
-    <asp:ObjectDataSource ID="HintsDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectAnswers" TypeName="Business.Answer">
+    <asp:ObjectDataSource ID="HintsDataSource" runat="server" SelectMethod="SelectOrderedHints" TypeName="Business.OrderedHints">
         <SelectParameters>
             <asp:QueryStringParameter Name="questionId" QueryStringField="QuestionId" Type="Int64" />
         </SelectParameters>

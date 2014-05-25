@@ -27,7 +27,7 @@
         Nam eget elit a orci vestibulum molestie ut non neque. Duis a diam arcu.
     </p>
     <p>
-        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Content/MemberPages/AccountManagement.aspx">Click here to managed your reported questions</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Content/MemberPages/ReportedQuestions.aspx">Click here to managed your reported questions</asp:HyperLink>
     </p>
     <h4>Question Feedback</h4>
     <p>
@@ -38,7 +38,7 @@
         Nam eget elit a orci vestibulum molestie ut non neque. Duis a diam arcu.
     </p>
     <p>
-        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Content/MemberPages/AccountManagement.aspx">Click here to managed your question feedback</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Content/MemberPages/Feedback.aspx">Click here to managed your question feedback</asp:HyperLink>
     </p>
     <h4>Sign out</h4>
     <p>

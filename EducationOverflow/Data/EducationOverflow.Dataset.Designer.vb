@@ -95,6 +95,8 @@ Partial Public Class EducationOverflow
     
     Private tableQuestionFeedback As QuestionFeedbackDataTable
     
+    Private tableUserQuestionFeedback As UserQuestionFeedbackDataTable
+    
     Private tableUserIds As UserIdsDataTable
     
     Private tableRoleNames As RoleNamesDataTable
@@ -228,6 +230,9 @@ Partial Public Class EducationOverflow
             End If
             If (Not (ds.Tables("QuestionFeedback")) Is Nothing) Then
                 MyBase.Tables.Add(New QuestionFeedbackDataTable(ds.Tables("QuestionFeedback")))
+            End If
+            If (Not (ds.Tables("UserQuestionFeedback")) Is Nothing) Then
+                MyBase.Tables.Add(New UserQuestionFeedbackDataTable(ds.Tables("UserQuestionFeedback")))
             End If
             If (Not (ds.Tables("UserIds")) Is Nothing) Then
                 MyBase.Tables.Add(New UserIdsDataTable(ds.Tables("UserIds")))
@@ -589,6 +594,16 @@ Partial Public Class EducationOverflow
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property UserQuestionFeedback() As UserQuestionFeedbackDataTable
+        Get
+            Return Me.tableUserQuestionFeedback
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property UserIds() As UserIdsDataTable
         Get
             Return Me.tableUserIds
@@ -780,6 +795,9 @@ Partial Public Class EducationOverflow
             End If
             If (Not (ds.Tables("QuestionFeedback")) Is Nothing) Then
                 MyBase.Tables.Add(New QuestionFeedbackDataTable(ds.Tables("QuestionFeedback")))
+            End If
+            If (Not (ds.Tables("UserQuestionFeedback")) Is Nothing) Then
+                MyBase.Tables.Add(New UserQuestionFeedbackDataTable(ds.Tables("UserQuestionFeedback")))
             End If
             If (Not (ds.Tables("UserIds")) Is Nothing) Then
                 MyBase.Tables.Add(New UserIdsDataTable(ds.Tables("UserIds")))
@@ -1020,6 +1038,12 @@ Partial Public Class EducationOverflow
                 Me.tableQuestionFeedback.InitVars
             End If
         End If
+        Me.tableUserQuestionFeedback = CType(MyBase.Tables("UserQuestionFeedback"),UserQuestionFeedbackDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableUserQuestionFeedback) Is Nothing) Then
+                Me.tableUserQuestionFeedback.InitVars
+            End If
+        End If
         Me.tableUserIds = CType(MyBase.Tables("UserIds"),UserIdsDataTable)
         If (initTable = true) Then
             If (Not (Me.tableUserIds) Is Nothing) Then
@@ -1114,6 +1138,8 @@ Partial Public Class EducationOverflow
         MyBase.Tables.Add(Me.tableAcceptedAnswer)
         Me.tableQuestionFeedback = New QuestionFeedbackDataTable()
         MyBase.Tables.Add(Me.tableQuestionFeedback)
+        Me.tableUserQuestionFeedback = New UserQuestionFeedbackDataTable()
+        MyBase.Tables.Add(Me.tableUserQuestionFeedback)
         Me.tableUserIds = New UserIdsDataTable()
         MyBase.Tables.Add(Me.tableUserIds)
         Me.tableRoleNames = New RoleNamesDataTable()
@@ -1322,6 +1348,12 @@ Partial Public Class EducationOverflow
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeUserQuestionFeedback() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializeUserIds() As Boolean
         Return false
     End Function
@@ -1494,6 +1526,9 @@ Partial Public Class EducationOverflow
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub QuestionFeedbackRowChangeEventHandler(ByVal sender As Object, ByVal e As QuestionFeedbackRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub UserQuestionFeedbackRowChangeEventHandler(ByVal sender As Object, ByVal e As UserQuestionFeedbackRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub UserIdsRowChangeEventHandler(ByVal sender As Object, ByVal e As UserIdsRowChangeEvent)
@@ -12579,6 +12614,309 @@ Partial Public Class EducationOverflow
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class UserQuestionFeedbackDataTable
+        Inherits Global.System.Data.TypedTableBase(Of UserQuestionFeedbackRow)
+        
+        Private columnUserId As Global.System.Data.DataColumn
+        
+        Private columnQuestionId As Global.System.Data.DataColumn
+        
+        Private columnLiked As Global.System.Data.DataColumn
+        
+        Private columnSummaryAdjective As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "UserQuestionFeedback"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property UserIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUserId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property QuestionIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnQuestionId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property LikedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLiked
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property SummaryAdjectiveColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSummaryAdjective
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As UserQuestionFeedbackRow
+            Get
+                Return CType(Me.Rows(index),UserQuestionFeedbackRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserQuestionFeedbackRowChanging As UserQuestionFeedbackRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserQuestionFeedbackRowChanged As UserQuestionFeedbackRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserQuestionFeedbackRowDeleting As UserQuestionFeedbackRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event UserQuestionFeedbackRowDeleted As UserQuestionFeedbackRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddUserQuestionFeedbackRow(ByVal row As UserQuestionFeedbackRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddUserQuestionFeedbackRow(ByVal UserId As Long, ByVal QuestionId As Long, ByVal Liked As Boolean, ByVal SummaryAdjective As String) As UserQuestionFeedbackRow
+            Dim rowUserQuestionFeedbackRow As UserQuestionFeedbackRow = CType(Me.NewRow,UserQuestionFeedbackRow)
+            Dim columnValuesArray() As Object = New Object() {UserId, QuestionId, Liked, SummaryAdjective}
+            rowUserQuestionFeedbackRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowUserQuestionFeedbackRow)
+            Return rowUserQuestionFeedbackRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function FindByUserIdQuestionId(ByVal UserId As Long, ByVal QuestionId As Long) As UserQuestionFeedbackRow
+            Return CType(Me.Rows.Find(New Object() {UserId, QuestionId}),UserQuestionFeedbackRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As UserQuestionFeedbackDataTable = CType(MyBase.Clone,UserQuestionFeedbackDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New UserQuestionFeedbackDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnUserId = MyBase.Columns("UserId")
+            Me.columnQuestionId = MyBase.Columns("QuestionId")
+            Me.columnLiked = MyBase.Columns("Liked")
+            Me.columnSummaryAdjective = MyBase.Columns("SummaryAdjective")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnUserId = New Global.System.Data.DataColumn("UserId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUserId)
+            Me.columnQuestionId = New Global.System.Data.DataColumn("QuestionId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnQuestionId)
+            Me.columnLiked = New Global.System.Data.DataColumn("Liked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLiked)
+            Me.columnSummaryAdjective = New Global.System.Data.DataColumn("SummaryAdjective", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSummaryAdjective)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUserId, Me.columnQuestionId}, true))
+            Me.columnUserId.AllowDBNull = false
+            Me.columnQuestionId.AllowDBNull = false
+            Me.columnLiked.AllowDBNull = false
+            Me.columnSummaryAdjective.AllowDBNull = false
+            Me.columnSummaryAdjective.MaxLength = 20
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewUserQuestionFeedbackRow() As UserQuestionFeedbackRow
+            Return CType(Me.NewRow,UserQuestionFeedbackRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New UserQuestionFeedbackRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(UserQuestionFeedbackRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.UserQuestionFeedbackRowChangedEvent) Is Nothing) Then
+                RaiseEvent UserQuestionFeedbackRowChanged(Me, New UserQuestionFeedbackRowChangeEvent(CType(e.Row,UserQuestionFeedbackRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.UserQuestionFeedbackRowChangingEvent) Is Nothing) Then
+                RaiseEvent UserQuestionFeedbackRowChanging(Me, New UserQuestionFeedbackRowChangeEvent(CType(e.Row,UserQuestionFeedbackRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.UserQuestionFeedbackRowDeletedEvent) Is Nothing) Then
+                RaiseEvent UserQuestionFeedbackRowDeleted(Me, New UserQuestionFeedbackRowChangeEvent(CType(e.Row,UserQuestionFeedbackRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.UserQuestionFeedbackRowDeletingEvent) Is Nothing) Then
+                RaiseEvent UserQuestionFeedbackRowDeleting(Me, New UserQuestionFeedbackRowChangeEvent(CType(e.Row,UserQuestionFeedbackRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveUserQuestionFeedbackRow(ByVal row As UserQuestionFeedbackRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As EducationOverflow = New EducationOverflow()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "UserQuestionFeedbackDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class UserIdsDataTable
         Inherits Global.System.Data.TypedTableBase(Of UserIdsRow)
         
@@ -17014,6 +17352,66 @@ Partial Public Class EducationOverflow
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
+    Partial Public Class UserQuestionFeedbackRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableUserQuestionFeedback As UserQuestionFeedbackDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableUserQuestionFeedback = CType(Me.Table,UserQuestionFeedbackDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property UserId() As Long
+            Get
+                Return CType(Me(Me.tableUserQuestionFeedback.UserIdColumn),Long)
+            End Get
+            Set
+                Me(Me.tableUserQuestionFeedback.UserIdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property QuestionId() As Long
+            Get
+                Return CType(Me(Me.tableUserQuestionFeedback.QuestionIdColumn),Long)
+            End Get
+            Set
+                Me(Me.tableUserQuestionFeedback.QuestionIdColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Liked() As Boolean
+            Get
+                Return CType(Me(Me.tableUserQuestionFeedback.LikedColumn),Boolean)
+            End Get
+            Set
+                Me(Me.tableUserQuestionFeedback.LikedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property SummaryAdjective() As String
+            Get
+                Return CType(Me(Me.tableUserQuestionFeedback.SummaryAdjectiveColumn),String)
+            End Get
+            Set
+                Me(Me.tableUserQuestionFeedback.SummaryAdjectiveColumn) = value
+            End Set
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
     Partial Public Class UserIdsRow
         Inherits Global.System.Data.DataRow
         
@@ -18341,6 +18739,42 @@ Partial Public Class EducationOverflow
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As QuestionFeedbackRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class UserQuestionFeedbackRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As UserQuestionFeedbackRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As UserQuestionFeedbackRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As UserQuestionFeedbackRow
             Get
                 Return Me.eventRow
             End Get

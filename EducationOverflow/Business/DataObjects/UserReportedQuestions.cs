@@ -30,5 +30,17 @@ namespace Business {
         public static Data.EducationOverflow.UserReportedQuestionsDataTable SelectQuestionsFromUserView(long userId) {
             return reportedQuestionsTableAdapter.GetData(userId);
         }
+
+        /// <summary>
+        /// Delete a question report for a user.
+        /// </summary>
+        /// <param name="questionId">The question id.</param>
+        /// <param name="userId">The user id.</param>
+        /// <returns>The number of rows affected by the deletion.</returns>
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public static int DeleteReportedQuestionFromUserView(long questionId, 
+                long userId) {
+            return Business.ReportedQuestion.DeleteReportedQuestion(questionId, userId);
+        }
     }
 }

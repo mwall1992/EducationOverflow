@@ -67,10 +67,8 @@
     <Content Include="Content\MemberPages\AccountManagement.aspx" />
     <Content Include="Content\MemberAndAdminPages\ChangePassword.aspx" />
     <Content Include="Content\MemberPages\Feedback.aspx" />
-    <Content Include="Content\MemberPages\FeedbackDetails.aspx" />
     <Content Include="Content\MemberPages\Question.aspx" />
     <Content Include="Content\MemberPages\QuestionHistory.aspx" />
-    <Content Include="Content\MemberPages\ReportedQuestionDetails.aspx" />
     <Content Include="Content\Questions.aspx" />
     <Content Include="Content\MemberPages\ReportedQuestions.aspx" />
     <Content Include="Content\Tags.aspx" />
@@ -143,13 +141,6 @@
     <Compile Include="Content\MemberPages\Feedback.aspx.designer.cs">
       <DependentUpon>Feedback.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Content\MemberPages\FeedbackDetails.aspx.cs">
-      <DependentUpon>FeedbackDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\MemberPages\FeedbackDetails.aspx.designer.cs">
-      <DependentUpon>FeedbackDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Content\MemberPages\Question.aspx.cs">
       <DependentUpon>Question.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,13 +154,6 @@
     </Compile>
     <Compile Include="Content\MemberPages\QuestionHistory.aspx.designer.cs">
       <DependentUpon>QuestionHistory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\MemberPages\ReportedQuestionDetails.aspx.cs">
-      <DependentUpon>ReportedQuestionDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Content\MemberPages\ReportedQuestionDetails.aspx.designer.cs">
-      <DependentUpon>ReportedQuestionDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Content\Questions.aspx.cs">
       <DependentUpon>Questions.aspx</DependentUpon>

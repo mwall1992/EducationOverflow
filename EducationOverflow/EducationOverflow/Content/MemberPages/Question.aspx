@@ -93,6 +93,9 @@
         <asp:TextBox ID="ReportDescription" runat="server" class="input-box" TextMode="MultiLine" Rows="4"></asp:TextBox>
         <asp:Button ID="ReportQuestionButton" runat="server" OnClick="ReportQuestionButton_Click" Text="Report Question" />
         <div>
+            <asp:Label ID="ErrorLabel" runat="server" ForeColor="Red" Text="Each question can only be reported once per user. You have already reported this question. This report has been ignored." Visible="false"></asp:Label>
+        </div>
+        <div>
             <asp:RequiredFieldValidator ID="ReportedReasonValidator" runat="server" ControlToValidate="ReportedReasonList" ErrorMessage="* A reason for reporting a question must be selected." Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
         </div>
         <div>

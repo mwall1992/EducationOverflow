@@ -47,6 +47,7 @@
     <Compile Include="DataObjects\Answer.cs" />
     <Compile Include="DataObjects\QuestionFeedback.cs" />
     <Compile Include="DataObjects\UserAnswers.cs" />
+    <Compile Include="DataObjects\UserAnswerToQuestion.cs" />
     <Compile Include="DataObjects\UserQuestionFeedback.cs" />
     <Compile Include="DataObjects\Utilities\DataSetUtilities.cs" />
     <Compile Include="DataObjects\PopularQuestions.cs" />

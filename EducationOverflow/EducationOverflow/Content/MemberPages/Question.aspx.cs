@@ -10,6 +10,7 @@ namespace EducationOverflow.Content.Member_Pages {
     public partial class Question : System.Web.UI.Page {
         
         private static string QUESTION_ID_PARAMETER = "QuestionId";
+        private static string USER_ANSWER_ID_PARAMETER = "AnswerId";
 
         protected void Page_Load(object sender, EventArgs e) {
             
@@ -18,16 +19,39 @@ namespace EducationOverflow.Content.Member_Pages {
 
                 // retrieve question data
                 string questionId = Request.QueryString[QUESTION_ID_PARAMETER];
-                Data.EducationOverflow.QuestionAnswerInfoRow infoRow = 
-                    Business.AnswerInfo.SelectAnswerInfo(Convert.ToInt64(questionId));
+                long questionIdNumber = Convert.ToInt64(questionId);
+                Data.EducationOverflow.QuestionAnswerInfoRow infoRow =
+                    Business.AnswerInfo.SelectAnswerInfo(questionIdNumber);
+
+                // retrieve user information
+                System.Web.Security.MembershipUser user = System.Web.Security.Membership.GetUser();
+                long userId = Convert.ToInt64(user.ProviderUserKey);
 
                 // populate web form
                 generatedTitle.InnerText = (string)infoRow["Title"];
                 question.InnerHtml = (string)infoRow["Body"];
 
                 // set state of controls
-                const int MIN_ANSWERS_FOR_HINT = 2;
-                HintButton.Enabled = ((int)infoRow["AnswerCount"] >= MIN_ANSWERS_FOR_HINT);
+                string userAnswerId;
+                if ((userAnswerId = Request.QueryString[USER_ANSWER_ID_PARAMETER]) != null) {
+                    Data.EducationOverflow.UserAnswerToQuestionRow answer =
+                        Business.UserAnswerToQuestion.SelectUserAnswerToQuestion(userId, Convert.ToInt64(userAnswerId));
+                        if (answer != null) {
+                            myAnswerTextBox.Text = answer.Body;
+                            NotesTextBox.Text = answer.Notes;
+
+                            if (answer.IsAnswered) {
+                                HintButton.Visible = false;
+                                SaveButton.Visible = false;
+                                SolutionButton.Visible = false;
+                                SolutionLabel.Text =
+                                    Business.AcceptedAnswer.SelectAcceptedAnswer(questionIdNumber).Body;
+                            }
+                        }
+                } else {
+                    const int MIN_ANSWERS_FOR_HINT = 2;
+                    HintButton.Enabled = ((int)infoRow["AnswerCount"] >= MIN_ANSWERS_FOR_HINT);
+                }
             }
         }
 
@@ -61,6 +85,8 @@ namespace EducationOverflow.Content.Member_Pages {
 
             Business.Queries.InsertUserAnswerForQuestion(userId, questionId, myAnswerTextBox.Text, 
                 NotesTextBox.Text, isAnswered, hintsTable);
+
+            SaveButton.Visible = false;
         }
 
         protected void HintButton_Click(object sender, EventArgs e) {
@@ -91,10 +117,18 @@ namespace EducationOverflow.Content.Member_Pages {
         }
 
         protected void ReportQuestionButton_Click(object sender, EventArgs e) {
-            long questionId = Convert.ToInt64(Request.QueryString[QUESTION_ID_PARAMETER]);
-            System.Web.Security.MembershipUser user = System.Web.Security.Membership.GetUser();
-            Business.ReportedQuestion.InsertReportedQuestion(questionId, Convert.ToInt64(user.ProviderUserKey), 
-                Convert.ToInt32(ReportedReasonList.SelectedValue), ReportDescription.Text);
+            try {
+                ReportedReasonList.Enabled = false;
+                ReportDescription.Enabled = false;
+                ReportQuestionButton.Enabled = false;
+
+                long questionId = Convert.ToInt64(Request.QueryString[QUESTION_ID_PARAMETER]);
+                System.Web.Security.MembershipUser user = System.Web.Security.Membership.GetUser();
+                Business.ReportedQuestion.InsertReportedQuestion(questionId, Convert.ToInt64(user.ProviderUserKey),
+                    Convert.ToInt32(ReportedReasonList.SelectedValue), ReportDescription.Text);
+            } catch {
+                ErrorLabel.Visible = true;
+            }
         }
     }
 }

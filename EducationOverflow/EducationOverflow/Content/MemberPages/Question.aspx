@@ -56,6 +56,12 @@
             Retrieving solution...
         </ProgressTemplate>
     </asp:UpdateProgress>
+    <div>
+        <asp:Label ID="SaveSuccessLabel" runat="server" ForeColor="Red" Text="Your working was saved as a new answer." Visible="false"></asp:Label>
+    </div>
+    <div>
+        <asp:Label ID="SaveFailedLabel" runat="server" ForeColor="Red" Text="An error occured saving your working." Visible="false"></asp:Label>
+    </div>
 
     <!-- Answer -->
     <div id="answer">
@@ -103,7 +109,7 @@
     </div>
     <div class="report-question-component">
         <h4>Description of issue:</h4>
-        <asp:TextBox ID="ReportDescription" runat="server" class="input-box" TextMode="MultiLine" Rows="4"></asp:TextBox>
+        <asp:TextBox ID="ReportDescription" runat="server" CssClass="input-box" TextMode="MultiLine" Rows="4"></asp:TextBox>
         <asp:Button ID="ReportQuestionButton" runat="server" OnClick="ReportQuestionButton_Click" Text="Report Question" />
         <div>
             <asp:Label ID="ErrorLabel" runat="server" ForeColor="Red" Text="Each question can only be reported once per user. You have already reported this question. This report has been ignored." Visible="false"></asp:Label>

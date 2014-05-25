@@ -10,7 +10,7 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="main_content_body_content" runat="server">
     <asp:GridView ID="QuestionGridView" runat="server" AllowPaging="True" DataSourceID="QuestionSummaryDataSource" 
-        DataKeyNames="QuestionId" AutoGenerateColumns="False">
+        DataKeyNames="QuestionId" AutoGenerateColumns="False" AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="Name" HeaderText="Site Name" SortExpression="Name" />
             <asp:BoundField DataField="Title" HeaderText="Question" SortExpression="Title" />

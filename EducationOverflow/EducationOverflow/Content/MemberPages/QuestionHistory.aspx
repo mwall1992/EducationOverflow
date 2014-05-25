@@ -11,7 +11,7 @@
         Question and Answer History
     </h1>
     <asp:GridView ID="UserAnswersGridView" runat="server" AllowPaging="True" DataSourceID="UserAnswersDataSource"
-        AutoGenerateColumns="False" Height="100%" Width="100%" >
+        AutoGenerateColumns="False" Height="100%" Width="100%" AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="Title" HeaderText="Question Title" SortExpression="Title" />
             <asp:BoundField DataField="DateCreated" HeaderText="Date Created" SortExpression="DateCreated" />

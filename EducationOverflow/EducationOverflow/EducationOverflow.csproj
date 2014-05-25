@@ -238,6 +238,7 @@
     <Content Include="App_Themes\DefaultTheme\DefaultTheme.skin" />
     <Content Include="Master Pages\DefaultLayout.master" />
     <Content Include="Master Pages\DefaultLayoutNoSidebar.master" />
+    <None Include="Properties\PublishProfiles\morgan.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

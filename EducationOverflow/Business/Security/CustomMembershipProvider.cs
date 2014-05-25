@@ -20,11 +20,11 @@ namespace Business {
 
         private static int MAX_INVALID_PASSWORD_ATTEMPTS = 5;
 
-        private static int MIN_PASSWORD_LENGTH = 6;
+        private static int MIN_PASSWORD_LENGTH = 1;
 
         private static int PASSWORD_ATTEMPT_WINDOW = 10;
 
-        private static int MIN_COUNT_NON_ALPHANUMERIC_CHARACTERS = 1;
+        private static int MIN_COUNT_NON_ALPHANUMERIC_CHARACTERS = 0;
 
         /// <summary>
         /// Get and set the application name associated with the membership provider.
